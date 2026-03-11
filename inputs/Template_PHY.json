@@ -1,0 +1,85 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "PHY_Scope": {
+    "Link_Direction": "",        
+    "Channel_Band": "",          
+    "MIMO_Configuration": ""     
+  },
+
+  "PHY_Channels_Affected": [
+    {
+      "Channel_Name": "",        
+      "Role": "",
+      "Related_Spec_Section": ""
+    }
+  ],
+
+  "PHY_Signals_And_Reference": [
+    {
+      "Signal_Name": "",         
+      "Purpose": "",
+      "Structure_Definition": "" 
+    }
+  ],
+
+  "PHY_Configuration_Parameters": [
+    {
+      "Name": "",                
+      "Type": "",
+      "Default_Value": "",
+      "Range": "",
+      "Description": "",
+      "Higher_Layer_Source": ""  
+    }
+  ],
+
+  "PHY_Processing_Chain_Changes": [
+    {
+      "Processing_Block": "",    
+      "Description": [],
+      "Impacted_Functions": []   
+    }
+  ],
+
+  "Test_And_Validation": {
+    "Simulation_Scenarios": [],
+    "Key_Metrics": []            
+  },
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OAI NR PHY",
+      "Code_Instructions": [
+        {
+          "type": "",            
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

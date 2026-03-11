@@ -1,0 +1,94 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "MAC_Config_Drivers": [
+    {
+      "RRC_Config_IE_Name": "",
+      "RRC_Config_IE_Definition": "",
+      "Config_Scope": "",               
+      "MAC_Impact_Summary": ""
+    }
+  ],
+
+  "MAC_Data_Path_Impact": {
+    "UL_Path": [
+      {
+        "Stage": "",                  
+        "Description": [],
+        "Key_Structs": [],
+        "Key_Functions": []
+      }
+    ],
+    "DL_Path": [
+      {
+        "Stage": "",
+        "Description": [],
+        "Key_Structs": [],
+        "Key_Functions": []
+      }
+    ]
+  },
+
+  "HARQ_And_Retransmission_Changes": [
+    {
+      "Aspect": "",                   
+      "Description": [],
+      "Affected_Directions": [],      
+      "New_Parameters": []
+    }
+  ],
+
+  "Scheduling_Policy_Updates": [
+    {
+      "Scenario": "",                 
+      "Priority_Rule": "",
+      "Resource_Allocation_Rule": "",
+      "Preemption_or_Fairness_Rule": ""
+    }
+  ],
+
+  "Debug_And_Tracing": [
+    {
+      "Signal_Name": "",
+      "Where_To_Log": "",             
+      "Condition": "",                
+      "Fields_To_Log": []
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OAI NR MAC",
+      "Code_Instructions": [
+        {
+          "type": "",                 
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

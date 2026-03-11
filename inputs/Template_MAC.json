@@ -1,0 +1,87 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "MAC_Scope": {
+    "Direction": "",             
+    "UE_Type": "",
+    "Cell_Type": ""              
+  },
+
+  "MAC_Channels_Affected": [
+    {
+      "Channel_Type": "",        
+      "Channel_Name": "",
+      "Role": ""                 
+    }
+  ],
+
+  "MAC_Procedures": [
+    {
+      "Procedure_Name": "",      
+      "Trigger_Condition": "",
+      "High_Level_Description": []
+    }
+  ],
+
+  "MAC_PDU_Formats": [
+    {
+      "PDU_Name": "",            
+      "Direction": "",           
+      "Structure_Definition": "",
+      "Notes": []
+    }
+  ],
+
+  "MAC_Parameters_And_Timers": [
+    {
+      "Name": "",                
+      "Type": "",                
+      "Default_Value": "",
+      "Description": "",
+      "RRC_Source_IE": ""        
+    }
+  ],
+
+  "Scheduler_Changes": [
+    {
+      "Aspect": "",              
+      "Description": [],
+      "Impacted_Functions": []   
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OAI NR MAC",
+      "Code_Instructions": [
+        {
+          "type": "",            
+          "file_path": "",
+          "symbol_name": "",     
+          "change_summary": ""   
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

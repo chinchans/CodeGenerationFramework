@@ -1,0 +1,97 @@
+{
+    "Feature_ID": "",
+    "Feature_Name": "",
+    "Release": "",
+    "3GPP_Reference": {
+        "Spec": "",
+        "Title": "",
+        "Section": ""
+    },
+    "Feature_Description": [],
+    "Feature_Objectives": [],
+    "Design_Details": {
+        "Protocol_Layers": [],
+        "Protocol_Interfaces": []
+    },
+    "Feature_Implementation_Steps": [],
+    "Call_Flow": [
+        {
+            "Message": "",
+            "Actors": [],
+            "From": "",
+            "To": ""
+        },
+        {
+            "Message": "",
+            "Actors": [],
+            "From": "",
+            "To": ""
+        }
+    ],
+    "Procedure_Implementation_Steps":[
+
+    ],
+    "Code_Artifacts": [
+        {
+            "Codebase_Name": "",
+            "Code_Instructions": []
+        },
+        {
+            "Codebase_Name": "",
+            "Code_Instructions": []
+        }
+    ],
+    "ASN_IES_File_Path": [
+        {
+            "ASN_Name": "F1AP",
+            "File_Path": "",
+            "File_Name": ""
+        },
+        {
+            "ASN_Name": "RRC",
+            "File_Path": "",
+            "File_Name": ""
+        }
+    ],
+    "ASN_IES_C_Structures_Path": [
+        {
+            "ASN_Name": "F1AP",
+            "File_Path": ""
+        },
+        {
+            "ASN_Name": "RRC",
+            "File_Path": ""
+        }
+    ],
+    "Information_Elements": [
+        {
+            "IE_Name": "",
+            "IE_Definition": "",
+            "IE_Category": "F1AP IE or RRC IE"
+        },
+        {
+            "IE_Name": "",
+            "IE_Definition": "",
+            "IE_Category": "F1AP IE or RRC IE"
+        }
+    ],
+    "Piggy_Backed_IES_Info": "",
+    "Piggy_Backed_IES_Mapping": [
+        {
+            "Piggy_Backed_IE_Name": "",
+            "Piggy_Backed_IE_Type": "",
+            "Source_IE_Name": "",
+            "Source_IE_Type": ""
+        }
+    ],
+    "Codebase_Metadata": {
+        "Code_Language": "",
+        "Build_System": "",
+        "Repo_Path": "",
+        "Code_Output_Type": "",
+        "Execution_Mode": "",
+        "CI_Pipeline": "",
+        "Version_Control": ""
+    },
+    "Knowledge_Hints": []
+}

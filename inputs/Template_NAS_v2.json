@@ -1,0 +1,84 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "NAS_State_Machine_View": {
+    "Initial_State": "",
+    "Target_State": "",
+    "Intermediate_States": []
+  },
+
+  "NAS_States_And_Transitions": [
+    {
+      "From_State": "",
+      "To_State": "",
+      "Trigger_Event": "",
+      "Guard_Condition": "",
+      "Actions": []
+    }
+  ],
+
+  "NAS_Message_View": [
+    {
+      "Message_Name": "",
+      "Direction": "",
+      "Key_Fields": [],
+      "Security_Requirements": "",
+      "Context_Updates": []
+    }
+  ],
+
+  "NAS_Context_Fields": [
+    {
+      "Field_Name": "",
+      "Scope": "",                  
+      "Type": "",
+      "Persistence": "",            
+      "Updated_In_States": []
+    }
+  ],
+
+  "Interworking_With_RRC_And_Core": [
+    {
+      "Peer": "",                   
+      "Interface": "",              
+      "Information_Exchanged": [],
+      "Dependency_On_Peer_State": ""
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OAI NAS",
+      "Code_Instructions": [
+        {
+          "type": "",               
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

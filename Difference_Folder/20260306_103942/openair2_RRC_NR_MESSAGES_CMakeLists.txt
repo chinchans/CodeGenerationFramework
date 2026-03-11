@@ -1,0 +1,4 @@
+set(NR_RRC_VERSION 18 6 0)
+elseif(NR_RRC_RELEASE VERSION_EQUAL "18.6.0")
+  include(ASN.1/nr-rrc-18.6.0.cmake)
+

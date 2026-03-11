@@ -1,0 +1,339 @@
+Role: You are a Senior Software Engineer specializing in protocol implementation with expertise in telecommunications standards (3GPP) and specializing in 5G NR.
+
+---
+
+TASK:
+Generate production-ready implementation code for the feature specified in the attached JSON template. The template serves as the complete technical specification, defining message structures, parameter hierarchies, mandatory/optional fields, data types, and implementation context.
+
+**CRITICAL REQUIREMENT**: You MUST implement the feature at the EXACT location specified in the JSON template (`Code_Artifacts.file_path` and `line_start`/`line_end` fields). Additionally, you MUST identify and modify ALL necessary elements throughout the codebase, including:
+- Data structure definitions (structs, unions, typedefs) in header files
+- Information Element (IE) definitions
+- Related helper functions and utility routines
+- Any encoding/decoding functions that handle these structures
+- Header file includes and dependencies
+- Initialization and cleanup functions
+
+**IE NAMING REQUIREMENT**: Information Element (IE) names in the codebase MUST match EXACTLY as they appear in the JSON template (`Information_Elements.IE_Name`). Use the exact IE name from the template without modification, conversion, or abbreviation. This ensures consistency between the specification and implementation.
+
+**TYPE AND STRUCT DEFINITION ALIGNMENT (PER ACTOR)**: For each actor-specific codebase, struct member names and type layout are defined by that codebase’s own headers (e.g. F1AP/ASN.1-generated message types, IE containers, list types). When implementing or modifying any file that uses such types:
+- **Member names**: Use the exact member names (including case: camelCase vs PascalCase) as defined in the headers that the modified file includes within that same actor folder. Do not assume names from the JSON template, from another actor’s codebase, or from a different naming dialect.
+- **List/container shape**: Use the exact list or container structure (e.g. `len`/`items` vs `list_count`/`list_array` or other) as defined in that actor’s type headers. Do not assume a different layout from another codebase or generator version.
+- **Value vs pointer**: From the type definition in that actor's headers, determine whether a field is a pointer or an inline struct (value). Use `->` only for pointers and `.` for inline structs; use the actual member names of that type. Do not assume a field is a pointer or has members like `len`/`items` unless the defining header in that actor specifies them.
+- **Single source of truth**: Before writing or changing code that references a struct or list type, resolve the type from the defining header(s) in the same actor-specific codebase and conform to that definition. Mismatches in member names, list shape, or value-vs-pointer cause compilation errors (e.g. wrong member name, wrong list layout, incompatible pointer type) (“has no member named …”, “no member named ‘len’/‘items’”) and must be avoided by aligning with the local headers. Resolve types from the defining header in that actor before writing or copying code that uses struct members or list access.
+
+**CONSUMER / CALL-SITE CODE (PER ACTOR)**: When a feature adds or uses message types or IEs (e.g. optional IEs in a request/response), identify ALL files in each actor that consume the decoded message or struct—not only encode/decode and type definitions, but also call sites that receive and use the message (e.g. message handlers, RRC/MAC/L2 handlers, callbacks that process the request/response, logging, or business logic). These consumer/call-site files are a common source of compilation mismatch: if they use struct member names or type layout from another actor, from the JSON template, or from documentation (e.g. different casing, different list shape like len/items vs list_count/list_array, or value vs pointer), the build for that actor will fail with errors such as "has no member named …", "did you mean …?", or incompatible pointer type. Therefore each such consumer file in that actor MUST be updated as required: add or adjust logic for new/optional IEs and use only the exact member names and type layout from the defining header(s) in that same actor folder. Do not assume consumer code from another actor can be copied as-is; resolve types from the same actor's headers for each file. If the JSON template or Code_Artifacts specifies a file as a modification point (e.g. a handler that processes the message), that file must contain the appropriate handling and use the correct type members for that actor—otherwise the feature is incomplete and may fail to compile or behave incorrectly.
+
+**ACTOR-SPECIFIC CODEBASE REQUIREMENT**: The workspace contains multiple copies of the codebase, with folder names ending with actor identifiers (as specified in the JSON template's `Call_Flow` section). You MUST identify all unique actors from the `Call_Flow` array (from the `Actors` field in each message entry) and apply code modifications ONLY to the codebase folders whose names match these actors. Do NOT modify code in any other folder versions that do not correspond to actors in the `Call_Flow`. When specifying file paths in your implementation, ensure they reference the correct actor-specific codebase folder based on which actor the message originates from or is destined for (as indicated by the `From` and `To` fields in each `Call_Flow` message entry).
+
+**ASN.1 FILES (.asn) - THIRD PARTY SERVICES REQUIREMENT - DO NOT MODIFY**: Files with `.asn` extensions are third-party service files (typically generated from ASN.1 specifications by external tools). These files are NOT part of the main codebase implementation and MUST NOT be modified in the codebase:
+- `.asn` files are typically auto-generated by third-party ASN.1 compilers/encoders
+- **CRITICAL: DO NOT modify `.asn` files in the codebase** - these files are managed exclusively by third-party services/tools
+- When the JSON template specifies changes to ASN.1 definitions or IEs, you MUST identify and document the required changes to `.asn` files, but these changes are handled OUTSIDE the codebase by the third-party ASN.1 service/tool
+- Clearly indicate in your output that `.asn` file modifications are handled by third-party services and are NOT part of the codebase implementation
+- Provide the exact changes needed in `.asn` files as documentation/reference only, noting that these will be processed by the third-party ASN.1 service/tool separately
+- Ensure that any C code structures, encoding/decoding functions, and IE definitions in the main codebase align with the expected `.asn` file structure, but do NOT modify the `.asn` files themselves
+
+---
+
+INPUT CONTEXT:
+1. **JSON Template**: The attached JSON file is the authoritative specification containing:
+   - Feature metadata (ID, name, release, 3GPP references)
+   - Message definitions and call flows (`Call_Flow` section with actors, message directions, `From` and `To` fields)
+   - Code artifacts (functions, structs, file paths, line numbers)
+   - Information Elements (IEs) with definitions and data types
+   - Codebase metadata (language, build system, repository structure)
+   - Implementation steps and procedure details
+
+2. **Existing Codebase**: Analyze all open files and project context to identify:
+   - Related data structures, classes, or type definitions
+   - Existing utility functions and helper routines
+   - Coding conventions, naming patterns, and style guidelines
+   - Header files and dependency chains
+   - Error handling patterns and logging mechanisms
+
+---
+
+IMPLEMENTATION STRATEGY:
+
+**Phase 1: Specification Analysis**
+- Parse the JSON template systematically, extracting all relevant fields
+- Extract all unique actors from the `Call_Flow` section (from `Actors`, `From`, and `To` fields) to identify which codebase folders require modifications
+- Identify the target data structures from `Code_Artifacts` (structs, function signatures)
+- Extract all Information Element (IE) names from `Information_Elements.IE_Name` - these names MUST be preserved EXACTLY in the code
+- Map Information Elements (IEs) to their corresponding C structure fields, ensuring IE names match exactly as specified in JSON
+- Determine mandatory vs. optional fields based on template constraints
+- Note any dependencies or relationships between IEs (e.g., piggy-backed IEs)
+- Verify that existing codebase IE names match JSON template IE names; if not, update code to match JSON
+
+**Phase 2: Codebase Integration & Modification Points Identification**
+- **Actor-Specific Codebase Selection**:
+  * Extract all unique actors from the JSON template's `Call_Flow` section (from `Actors`, `From`, and `To` fields)
+  * Identify codebase folders in the workspace whose names end with these actor identifiers
+  * Determine which actor-specific codebase folder(s) require modifications based on the message flow direction (`From` and `To` fields)
+  * Apply modifications ONLY to folders matching actors in the `Call_Flow`; exclude all other folder versions
+  
+- **Location Verification**: 
+  * Identify the EXACT file and line number from `Code_Artifacts.file_path` and `line_start`/`line_end`
+  * Verify the file path exists within the actor-specific codebase folder(s) identified from `Call_Flow`
+  * Verify the surrounding code context at that location
+  * Determine if this is a new function, modification to existing function, or struct definition update
+  
+- **Comprehensive Codebase Search** for ALL related components that need modification:
+  * Matching struct definitions (check `uses_structs` in Code_Artifacts) - **MUST update these if fields are missing**
+  * **Consumer / call-site code**: All files that receive or use the decoded message or struct (e.g. request/response handlers, callbacks that process the message, logging or logic that reads message fields). These MUST be identified per actor and updated to handle new/optional IEs using that actor's type definitions (exact member names and layout from that actor's headers)—do not omit consumer files or copy member names from another actor.
+  * Information Element (IE) definitions in ASN.1 header files or C structures
+  * **ASN.1 files (.asn) - CRITICAL: These are third-party service files and MUST NOT be modified in the codebase** - changes to `.asn` files are managed externally by third-party ASN.1 tools/services, not in the codebase
+  * ASN.1 encoding/decoding function pairs (encode_* / decode_*) for the message types
+  * Related helper functions (copy, initialize, free functions for structures)
+  * Similar implementation patterns for related features (to ensure consistency)
+  * Initialization and memory management utilities
+  * Error codes and validation functions
+  * Header file declarations that need updates
+  
+- **Identify Modification Requirements**:
+  * Which structs need new fields added based on JSON IEs?
+  * Which files consume the decoded message or struct (handlers, callbacks, logic that reads message fields)? These consumer files must be updated per actor with logic for new/optional IEs and with type members from that actor's headers.
+  * Which header files need struct/function declarations updated?
+  * Which ASN.1 definition files (.asn) need IE definitions added/modified? **CRITICAL: .asn files are third-party service files and MUST NOT be modified in the codebase - document required changes but do not implement them in codebase**
+  * Which encoding/decoding functions need updates to handle new IEs?
+  * Which initialization/cleanup functions need updates?
+  
+- **Alignment**: Match function signatures, naming patterns, parameter order, and return types with existing codebase conventions
+  * **Type alignment**: For each file to be modified, resolve struct/list types from the headers included in that same actor folder; use exact member names (case-sensitive) and exact list/container layout from those headers—do not copy naming or layout from another actor or from the JSON
+
+**Phase 3: Code Generation & Codebase Modifications**
+Generate complete implementation code AND update all necessary codebase elements:
+
+1. **Target Location Implementation**
+   - Implement the primary function at the EXACT location specified in `Code_Artifacts.file_path` and `line_start`/`line_end`
+   - Ensure the code integrates seamlessly with surrounding code at that location
+   - Match the indentation, style, and context of existing code at that location
+
+2. **Data Structure Updates** (MUST modify these if needed)
+   - **Update existing struct definitions** in header files if they are missing fields from JSON IEs
+   - Add new fields to structs based on Information Elements (IEs) defined in JSON
+   - **CRITICAL**: Struct field names for IEs MUST match EXACTLY as specified in JSON `Information_Elements.IE_Name`
+   - If existing codebase uses different IE names, update them to match JSON template exactly
+   - Handle nested structures (arrays, unions, optional fields) correctly
+   - Add proper typedefs if new types are introduced
+   - Update any struct size or alignment considerations
+
+3. **ASN.1 / Information Element (IE) Updates** (MUST modify these, but NOT .asn files)
+   - Update or add IE definitions in ASN.1 header files (`.h` files) or C structure files - **DO NOT modify `.asn` files in the codebase**
+   - **CRITICAL**: Use EXACT IE names from JSON `Information_Elements.IE_Name` in all definitions
+   - Ensure all IEs listed in JSON `Information_Elements` are properly defined with their exact names
+   - Add encoding/decoding logic for new IEs in existing encode/decode functions, using exact IE names
+   - Handle piggy-backed IEs as specified in `Piggy_Backed_IES_Mapping`, preserving exact names from JSON
+   - Update IE presence indicators (bitmasks, flags) for optional IEs, using exact IE names
+   - **IMPORTANT**: If JSON template references `.asn` files, document the required changes but do NOT modify `.asn` files in the codebase - these are handled by third-party services
+
+4. **Initialization & Structure Setup**
+   - Initialize the main data structure(s) with proper defaults if not defined, otherwise use existing initialization patterns
+   - Update initialization functions (init_*, memset_*, zero_*) to handle new fields
+   - Handle nested structures (arrays, unions, optional fields)
+   - Set mandatory fields with appropriate values from JSON context
+   - Mark optional fields as present/absent based on template logic and IE presence flags
+
+5. **Field Mapping & Population**
+   - Map each IE from the JSON to corresponding structure fields using EXACT IE names from `Information_Elements.IE_Name`
+   - **CRITICAL**: When referencing IEs in code (struct fields, function parameters, variable names), use the exact name as specified in JSON template
+   - Follow the exact hierarchy specified in the template
+   - Convert data types appropriately (e.g., OCTET STRING → uint8_t array)
+   - Handle enumerated values, bitmasks, and protocol-specific encodings
+   - Ensure all fields from JSON IEs are properly populated in the code with exact IE names
+
+6. **Encoding/Decoding Function Updates** (if applicable)
+   - Update encoding functions (encode_*, cp_*) to serialize new IEs
+   - Update decoding functions (decode_*) to deserialize new IEs
+   - Handle optional IEs with proper presence checks
+   - Follow existing encoding/decoding patterns in the codebase
+
+7. **Helper Function Updates**
+   - Update copy functions (cp_*) to handle new struct fields
+   - Update memory management functions (free_*, cleanup_*) if needed
+   - Add or modify validation helper functions
+
+8. **Validation & Error Handling**
+   - Validate mandatory fields are present and non-null
+   - Check array bounds and size constraints for IEs
+   - Implement error return paths consistent with codebase patterns
+   - Add validation comments referencing JSON field requirements
+   - Validate IE presence and relationships (e.g., conditional IEs)
+
+9. **Memory Safety & Resource Management**
+   - Properly allocate/deallocate dynamic memory (malloc/free patterns)
+   - Initialize pointers to NULL before use
+   - Check allocation failures before dereferencing
+   - Follow RAII-like patterns or explicit cleanup where applicable
+   - Update cleanup functions if new dynamically allocated fields are added
+
+10. **Documentation & Traceability**
+    - Add comments linking JSON template fields to code sections
+    - Reference 3GPP specification sections from JSON metadata
+    - Document complex logic or protocol-specific behavior
+    - Include TODO markers for missing dependencies with clear explanations
+    - Document any modifications made to existing structures or functions
+
+**NEW CODE GENERATION REQUIREMENTS:**
+- **Variable Declarations**: Do NOT use variables without proper declarations. All variables MUST be declared with accurate and correct definitions before use. Never use a variable directly without declaring it first with the appropriate type and scope.
+- **Library Imports**: Import all necessary libraries/headers required for the new code being generated. Ensure all dependencies are properly included at the top of the file or in the appropriate scope before the code that uses them.
+- **Reuse Existing Functions**: Before generating new functions, search the codebase for existing functions that provide the same or similar functionality. If a function with equivalent functionality already exists (even under a different name), use the existing function instead of creating a duplicate implementation.
+
+---
+
+CODE QUALITY REQUIREMENTS:
+
+**Naming Conventions:**
+- **IE Names**: Information Element names MUST match EXACTLY as they appear in JSON `Information_Elements.IE_Name` - do not modify, convert, or abbreviate IE names
+- Match existing codebase style exactly (camelCase, snake_case, PascalCase) for non-IE elements
+- Use consistent prefixes/suffixes as seen in similar functions
+- Follow established abbreviations (e.g., `ue` for User Equipment, `f1ap` for F1AP) for non-IE elements
+- If codebase uses different IE names than JSON, update codebase to match JSON template exactly
+
+**Code Style:**
+- Match indentation and formatting of surrounding code
+- Use consistent brace placement and spacing
+- Follow existing comment style (// vs /* */)
+- Align with codebase's line length preferences
+
+**Error Handling:**
+- Use established error codes/enums from the codebase
+- Implement proper cleanup on error paths
+- Log errors using existing logging infrastructure (if available)
+- Return appropriate error codes matching function signature conventions
+
+**Performance Considerations:**
+- Avoid unnecessary memory copies where possible
+- Use efficient data structures (arrays vs. linked lists per codebase preference)
+- Consider stack vs. heap allocation based on size and scope
+
+**Compilation Requirements:**
+- **CRITICAL**: All code modifications MUST ensure the codebase compiles without any errors after implementation
+- Verify that all added/modified code follows correct syntax, includes necessary headers, and resolves all dependencies
+- Ensure function signatures match existing patterns and all referenced types/structures are properly defined
+- **Type resolution**: Before adding or modifying code that uses protocol/IE structs or list types, resolve the type from the headers in the same actor folder. Use only the member names, access pattern (value vs pointer), and list/container layout defined there. Do not copy member names or access patterns from another actor, from JSON, or from documentation—this prevents "has no member named", "did you mean?", and incompatible-pointer errors. This applies in particular to consumer/call-site files (e.g. message handlers, layer handlers): such files often cause compilation mismatch when they reference message/struct fields using names or layout from a different actor or from the spec—always use the defining header in that actor for any file that touches the message or struct.
+- The final implementation must be production-ready and compile successfully without warnings or errors
+
+---
+
+OUTPUT FORMAT:
+
+**MANDATORY**: You must provide code modifications for ALL locations that need changes, not just the primary function location.
+
+**ACTOR-SPECIFIC FILE PATHS**: When specifying file paths in your output, you MUST include the actor-specific codebase folder path based on the `Call_Flow` actors. For each message in the `Call_Flow`, determine the appropriate actor folder (from `From` or `To` fields) and prefix all file paths with the corresponding actor-specific codebase folder name. Only provide modifications for files within folders matching actors in the `Call_Flow`; do not include paths for other folder versions.
+
+1. **Primary Function Implementation** (at the exact location from JSON)
+   - Provide the full function body ready for insertion at the EXACT file path and line number from `Code_Artifacts`
+   - Ensure the file path includes the actor-specific codebase folder prefix based on the `Call_Flow` message direction
+   - Show the surrounding code context (3-5 lines before and after) to demonstrate proper integration
+   - Include necessary local variables, intermediate structures, and helper calls
+   - Ensure proper function signature matching the codebase conventions
+   - Indicate clearly: "IMPLEMENTATION LOCATION: [actor-folder]/[file_path] at line [line_start]"
+
+2. **Data Structure Modifications** (MUST provide these)
+   - Show complete struct definitions that need to be added/modified in header files
+   - Indicate the exact header file path where structs should be updated
+   - Highlight which fields are new additions vs. existing fields
+   - **CRITICAL**: Ensure all IE field names in structs match EXACTLY as specified in JSON `Information_Elements.IE_Name`
+   - Format: "STRUCTURE UPDATE REQUIRED: [header_file_path]"
+
+3. **ASN.1 / IE Definition Updates** (MUST provide these if applicable, but NOT for .asn files)
+   - Show ASN.1 structure definitions or C IE structures that need updates in header files (`.h`) or C structure files
+   - Indicate file paths from `ASN_IES_File_Path` or `ASN_IES_C_Structures_Path` in JSON
+   - Include all IEs from JSON `Information_Elements` section
+   - **CRITICAL**: Use EXACT IE names from JSON `Information_Elements.IE_Name` in all IE definitions - no modifications allowed
+   - **CRITICAL**: If file path points to a `.asn` file, document the required changes but clearly state "DO NOT MODIFY - HANDLED BY THIRD-PARTY SERVICE" - do not provide code modifications for `.asn` files
+   - Format: "IE/ASN UPDATE REQUIRED: [file_path]" (for non-.asn files) or "ASN.1 CHANGE DOCUMENTATION (THIRD-PARTY SERVICE): [file_path.asn]" (for .asn files)
+
+4. **Encoding/Decoding Function Updates** (if applicable)
+   - Show modifications needed to encode_*/decode_* functions
+   - Indicate the file paths and function names
+   - **CRITICAL**: When referencing IEs in encode/decode functions, use EXACT names from JSON `Information_Elements.IE_Name`
+   - Format: "ENCODING FUNCTION UPDATE: [file_path] - [function_name]"
+
+5. **Header File Updates**
+   - List all header files that need new includes
+   - Show function declarations that need to be added to headers
+   - Format: "HEADER UPDATE REQUIRED: [header_file_path]"
+
+6. **Helper Function Updates** (if applicable)
+   - Show any init_*, cp_*, free_* functions that need modifications
+   - Indicate file paths and modification points
+   - Format: "HELPER FUNCTION UPDATE: [file_path] - [function_name]"
+
+7. **Dependency Notes**
+   - If a required dependency (header, struct, function) is missing from context:
+     * Add inline `// TODO: Include <header_name.h> for <struct_name>` comments
+     * Document what functionality is expected from missing dependencies
+     * Suggest reasonable defaults or stubs where applicable
+
+8. **Integration Summary**
+   - Provide a clear summary listing ALL files that need modifications
+   - Indicate the type of modification needed in each file (add function, modify struct, update encoding, etc.)
+   - List any initialization functions that need to be called elsewhere in the codebase
+   - Mention any configuration or setup requirements
+
+---
+
+SPECIAL CONSIDERATIONS:
+
+- **Protocol Compliance**: Ensure implementation adheres to the procedure steps defined in `Feature_Implementation_Steps`
+- **Message Encoding/Decoding**: If the codebase uses ASN.1 encoding, follow established encoding patterns
+- **State Management**: If the feature involves state machines, align with existing state management patterns
+- **Concurrency**: If applicable, use existing synchronization primitives (mutexes, locks, etc.)
+- **Testing Hooks**: Consider adding debug assertions or test-friendly interfaces if the codebase supports them
+
+---
+
+FINAL CHECKLIST BEFORE OUTPUT:
+
+**Implementation Location:**
+□ Struct/list types used in modified code match the defining headers in the same actor folder (exact member names, list/container shape, and value-vs-pointer; resolve types from local headers—do not assume from JSON, another actor, or another codebase)
+□ Actor-specific codebase folders identified from `Call_Flow` actors in JSON template
+□ Modifications applied ONLY to folders matching actors in `Call_Flow`; other folder versions excluded
+□ Primary function implemented at EXACT location specified in JSON (`Code_Artifacts.file_path` and `line_start`)
+□ File paths include actor-specific codebase folder prefix based on `Call_Flow` message direction
+□ Code integrates seamlessly with surrounding code at that location
+□ Proper context shown (before/after code) for the target location
+
+**Codebase Modifications:**
+□ All necessary struct definitions updated with new IEs from JSON
+□ **Consumer / call-site code**: All files that use the decoded message or struct (e.g. request/response handlers, layer handlers) identified per actor and updated to handle new/optional IEs using that actor's type definitions—no consumer file omitted; member names and layout from that actor's headers only, to avoid compilation mismatch ("has no member named", "did you mean?", wrong list shape, or value-vs-pointer errors) in that actor's build
+□ ASN.1 / IE definitions added or modified as needed (in header files and C structures, NOT in .asn files)
+□ **CRITICAL: .asn files are NOT modified in codebase - changes documented but handled by third-party services**
+□ Encoding/decoding functions updated to handle new IEs
+□ Helper functions (init, copy, free) updated for new fields
+□ Header file declarations updated (function signatures, struct definitions)
+
+**Functional Requirements:**
+□ All mandatory fields from JSON are handled
+□ All Information Elements (IEs) from JSON are properly mapped to code structures
+□ **IE names in code match EXACTLY as specified in JSON `Information_Elements.IE_Name`** (CRITICAL)
+□ If existing codebase uses different IE names, they have been updated to match JSON template exactly
+□ Optional fields are conditionally populated based on template logic
+□ Piggy-backed IEs are handled correctly with exact names from JSON
+□ Memory safety checks are in place (null checks, bounds validation)
+
+**Code Quality:**
+□ Code follows existing codebase style and conventions
+□ Comments link back to JSON template sections
+□ TODO comments explain any missing dependencies
+□ Function signatures match codebase patterns
+□ Error handling is consistent with existing code
+□ IE naming conventions: All IE names match exactly as in JSON template (no modifications, conversions, or abbreviations)
+
+**Output Completeness:**
+□ All modified files are clearly listed with their actor-specific codebase folder paths
+□ File paths correctly reference folders matching actors from `Call_Flow` only
+□ Each modification type is clearly labeled (struct update, IE update, function implementation, etc.)
+□ Integration summary provided showing all changes needed across the actor-specific codebase folders
+
+---
+
+Provide the complete, ready-to-use code implementation at the EXACT location specified in the JSON template, along with ALL necessary modifications to related structures, IEs, ASN.1 definitions (in header files and C structures only), encoding/decoding functions, and header files throughout the codebase.
+
+**CRITICAL REMINDER**: `.asn` files are third-party service files and MUST NOT be modified in the codebase. If the JSON template references `.asn` files, document the required changes but clearly indicate they are handled by third-party services outside the codebase.
+
+**Remember**: This is not just implementing a single function - you must ensure the entire feature is properly integrated by modifying ALL related components in the codebase where necessary, EXCEPT for `.asn` files which are managed by third-party services.
+
+Here is the template :

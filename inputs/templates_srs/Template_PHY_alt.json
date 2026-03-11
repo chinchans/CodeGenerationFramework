@@ -1,0 +1,90 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "PHY_Feature_Scope": {
+    "Link_Direction": "",
+    "Deployment_Scenario": "",
+    "Carrier_Configuration": ""
+  },
+
+  "Waveform_And_Numerology_View": [
+    {
+      "Scenario": "",
+      "Subcarrier_Spacing": "",
+      "CP_Type": "",
+      "Slot_And_Frame_Structure": ""
+    }
+  ],
+
+  "PHY_Resource_Grid_View": [
+    {
+      "Grid_Region": "",
+      "Time_Domain": "",
+      "Frequency_Domain": "",
+      "MIMO_Layering": "",
+      "Usage": ""
+    }
+  ],
+
+  "Reference_Signals_And_Channel_Estimation": [
+    {
+      "Reference_Signal": "",
+      "Generation_Rules": [],
+      "Estimation_Algorithm": [],
+      "Impact_On_Performance": ""
+    }
+  ],
+
+  "Link_Adaptation_And_MCS_View": [
+    {
+      "Scenario": "",
+      "CQI_or_SINR_Usage": "",
+      "MCS_Selection_Rule": "",
+      "Fallback_Behavior": ""
+    }
+  ],
+
+  "Implementation_And_Performance_View": [
+    {
+      "Processing_Block": "",
+      "Optimization_Goals": [],
+      "Test_Vector_Requirements": []
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "srsRAN PHY",
+      "Code_Instructions": [
+        {
+          "type": "",
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C++",
+    "Build_System": "CMake",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

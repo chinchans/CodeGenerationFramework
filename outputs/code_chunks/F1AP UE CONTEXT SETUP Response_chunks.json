@@ -1,0 +1,1411 @@
+{
+  "metadata": {
+    "timestamp": "2026-02-26T08:06:24.498276",
+    "user_query": "F1AP UE CONTEXT SETUP Response",
+    "feature_name": "F1AP UE CONTEXT SETUP Response",
+    "num_semantic_chunks": 10,
+    "total_related_nodes": 78
+  },
+  "semantic_chunks": [
+    {
+      "chunk_id": "10282",
+      "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_f1ap.c::ue_context_setup_response_f1ap",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8868982925568432,
+      "rank": 1,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_f1ap.c__ue_context_setup_response_f1ap",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_f1ap.c::ue_context_setup_response_f1ap",
+        "chunk_type": "FUNCTION",
+        "name": "ue_context_setup_response_f1ap",
+        "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_f1ap.c",
+        "line_start": 89,
+        "line_end": 94
+      }
+    },
+    {
+      "chunk_id": "7935",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_resp_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8840331377335229,
+      "rank": 2,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_resp_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_resp_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_resp_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 570,
+        "line_end": 583
+      }
+    },
+    {
+      "chunk_id": "7934",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8799464905482353,
+      "rank": 3,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_req_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_req_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 544,
+        "line_end": 568
+      }
+    },
+    {
+      "chunk_id": "8849",
+      "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_send_UE_CONTEXT_SETUP_RESPONSE",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8620931496716775,
+      "rank": 4,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_du_ue_context_management.c__DU_send_UE_CONTEXT_SETUP_RESPONSE",
+        "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_send_UE_CONTEXT_SETUP_RESPONSE",
+        "chunk_type": "FUNCTION",
+        "name": "DU_send_UE_CONTEXT_SETUP_RESPONSE",
+        "file_path": "openair2\\F1AP\\f1ap_du_ue_context_management.c",
+        "line_start": 58,
+        "line_end": 72
+      }
+    },
+    {
+      "chunk_id": "8815",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8552604973956477,
+      "rank": 5,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "chunk_type": "FUNCTION",
+        "name": "CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 48,
+        "line_end": 68
+      }
+    },
+    {
+      "chunk_id": "7937",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_resp",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8515046747248718,
+      "rank": 6,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_mod_resp",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_resp",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_mod_resp",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 613,
+        "line_end": 624
+      }
+    },
+    {
+      "chunk_id": "8816",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_handle_UE_CONTEXT_SETUP_RESPONSE",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8466749685688271,
+      "rank": 7,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_handle_UE_CONTEXT_SETUP_RESPONSE",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_handle_UE_CONTEXT_SETUP_RESPONSE",
+        "chunk_type": "FUNCTION",
+        "name": "CU_handle_UE_CONTEXT_SETUP_RESPONSE",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 70,
+        "line_end": 84
+      }
+    },
+    {
+      "chunk_id": "12480",
+      "node_id": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_setup_request_f1ap",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8464699286813584,
+      "rank": 8,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c__ue_context_setup_request_f1ap",
+        "node_id": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_setup_request_f1ap",
+        "chunk_type": "FUNCTION",
+        "name": "ue_context_setup_request_f1ap",
+        "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+        "line_start": 79,
+        "line_end": 85
+      }
+    },
+    {
+      "chunk_id": "10270",
+      "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_direct.c::ue_context_setup_response_direct",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8436288537045584,
+      "rank": 9,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_direct.c__ue_context_setup_response_direct",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_direct.c::ue_context_setup_response_direct",
+        "chunk_type": "FUNCTION",
+        "name": "ue_context_setup_response_direct",
+        "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_direct.c",
+        "line_start": 62,
+        "line_end": 68
+      }
+    },
+    {
+      "chunk_id": "8848",
+      "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_handle_UE_CONTEXT_SETUP_REQUEST",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.842591083639654,
+      "rank": 10,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_du_ue_context_management.c__DU_handle_UE_CONTEXT_SETUP_REQUEST",
+        "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_handle_UE_CONTEXT_SETUP_REQUEST",
+        "chunk_type": "FUNCTION",
+        "name": "DU_handle_UE_CONTEXT_SETUP_REQUEST",
+        "file_path": "openair2\\F1AP\\f1ap_du_ue_context_management.c",
+        "line_start": 43,
+        "line_end": 56
+      }
+    }
+  ],
+  "expanded_chunks": {
+    "depth_1": [
+      {
+        "chunk_id": "9065",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_handle_UE_CONTEXT_SETUP_RESPONSE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_ue_context_setup_resp",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1569,
+            1616
+          ]
+        }
+      },
+      {
+        "chunk_id": "9068",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_handle_UE_CONTEXT_SETUP_RESPONSE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_ue_context_setup_resp",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1676,
+            1686
+          ]
+        }
+      },
+      {
+        "chunk_id": "9064",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_send_UE_CONTEXT_SETUP_RESPONSE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_ue_context_setup_resp",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1503,
+            1564
+          ]
+        }
+      },
+      {
+        "chunk_id": "8861",
+        "node_id": "function:openair2\\F1AP\\f1ap_encoder.c::f1ap_encode_pdu",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_encode_pdu",
+          "file_path": "openair2\\F1AP\\f1ap_encoder.c",
+          "line_range": [
+            31,
+            61
+          ]
+        }
+      },
+      {
+        "chunk_id": "8887",
+        "node_id": "function:openair2\\F1AP\\f1ap_itti_messaging.c::f1ap_itti_send_sctp_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_itti_send_sctp_data_req",
+          "file_path": "openair2\\F1AP\\f1ap_itti_messaging.c",
+          "line_range": [
+            25,
+            35
+          ]
+        }
+      },
+      {
+        "chunk_id": "12755",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_UE_context.c::rrc_gNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_get_ue_context",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_UE_context.c",
+          "line_range": [
+            90,
+            97
+          ]
+        }
+      },
+      {
+        "chunk_id": "8631",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "signal_ue_id",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            703,
+            718
+          ]
+        }
+      },
+      {
+        "chunk_id": "9059",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1199,
+            1303
+          ]
+        }
+      },
+      {
+        "chunk_id": "9066",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_direct.c::ue_context_setup_response_direct",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_ue_context_setup_resp",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1621,
+            1648
+          ]
+        }
+      },
+      {
+        "chunk_id": "9061",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_setup_request_f1ap",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1394,
+            1434
+          ]
+        }
+      },
+      {
+        "chunk_id": "9063",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_handle_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1471,
+            1498
+          ]
+        }
+      },
+      {
+        "chunk_id": "10259",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_handle_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "ue_context_setup_request",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            607,
+            706
+          ]
+        }
+      },
+      {
+        "chunk_id": "9060",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_handle_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1308,
+            1389
+          ]
+        }
+      }
+    ],
+    "depth_2": [
+      {
+        "chunk_id": "9031",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_drbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_drbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            639,
+            687
+          ]
+        }
+      },
+      {
+        "chunk_id": "1471",
+        "node_id": "function:common\\utils\\utils.h::calloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "calloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            72,
+            82
+          ]
+        }
+      },
+      {
+        "chunk_id": "8989",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            34,
+            72
+          ]
+        }
+      },
+      {
+        "chunk_id": "9000",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_srbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_srbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            195,
+            206
+          ]
+        }
+      },
+      {
+        "chunk_id": "9042",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_drb_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_drb_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1035,
+            1046
+          ]
+        }
+      },
+      {
+        "chunk_id": "8997",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_du_to_cu_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_du_to_cu_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            172,
+            178
+          ]
+        }
+      },
+      {
+        "chunk_id": "9011",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_srb_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_srb_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            356,
+            360
+          ]
+        }
+      },
+      {
+        "chunk_id": "9006",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            281,
+            284
+          ]
+        }
+      },
+      {
+        "chunk_id": "8994",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            133,
+            139
+          ]
+        }
+      },
+      {
+        "chunk_id": "9054",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_LTMConfigurationIDMappingList",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_LTMConfigurationIDMappingList",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1150,
+            1155
+          ]
+        }
+      },
+      {
+        "chunk_id": "9051",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_LTMInformation_Setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_LTMInformation_Setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1124,
+            1128
+          ]
+        }
+      },
+      {
+        "chunk_id": "9037",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            917,
+            925
+          ]
+        }
+      },
+      {
+        "chunk_id": "9057",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_EarlySyncInformation_Request",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_EarlySyncInformation_Request",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1179,
+            1185
+          ]
+        }
+      },
+      {
+        "chunk_id": "9013",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_srb_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_srb_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            369,
+            372
+          ]
+        }
+      },
+      {
+        "chunk_id": "8999",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_du_to_cu_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_du_to_cu_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            187,
+            191
+          ]
+        }
+      },
+      {
+        "chunk_id": "9044",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1058,
+            1061
+          ]
+        }
+      },
+      {
+        "chunk_id": "144",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_at",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_at",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            173,
+            179
+          ]
+        }
+      },
+      {
+        "chunk_id": "8630",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::check_ue_id_cond",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "check_ue_id_cond",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            691,
+            701
+          ]
+        }
+      },
+      {
+        "chunk_id": "140",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_size",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_size",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            147,
+            151
+          ]
+        }
+      },
+      {
+        "chunk_id": "9040",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_drbs_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_drbs_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            973,
+            1002
+          ]
+        }
+      },
+      {
+        "chunk_id": "9009",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_srbs_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_srbs_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            316,
+            334
+          ]
+        }
+      },
+      {
+        "chunk_id": "8996",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_du_to_cu_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_du_to_cu_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            159,
+            170
+          ]
+        }
+      },
+      {
+        "chunk_id": "10258",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::create_new_UE",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "create_new_UE",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            542,
+            605
+          ]
+        }
+      },
+      {
+        "chunk_id": "10250",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::handle_ue_context_drbs_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_ue_context_drbs_setup",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            308,
+            369
+          ]
+        }
+      },
+      {
+        "chunk_id": "7164",
+        "node_id": "function:openair1\\SIMULATION\\LTE_PHY\\dlsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\LTE_PHY\\dlsim.c",
+          "line_range": [
+            2126,
+            2129
+          ]
+        }
+      },
+      {
+        "chunk_id": "7373",
+        "node_id": "function:openair1\\SIMULATION\\LTE_PHY\\ulsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\LTE_PHY\\ulsim.c",
+          "line_range": [
+            1522,
+            1525
+          ]
+        }
+      },
+      {
+        "chunk_id": "7392",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\dlschsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\dlschsim.c",
+          "line_range": [
+            72,
+            74
+          ]
+        }
+      },
+      {
+        "chunk_id": "7482",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\pbchsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\pbchsim.c",
+          "line_range": [
+            79,
+            81
+          ]
+        }
+      },
+      {
+        "chunk_id": "7508",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\prachsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\prachsim.c",
+          "line_range": [
+            93,
+            95
+          ]
+        }
+      },
+      {
+        "chunk_id": "7561",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\pucchsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\pucchsim.c",
+          "line_range": [
+            66,
+            68
+          ]
+        }
+      },
+      {
+        "chunk_id": "7578",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\ulschsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\ulschsim.c",
+          "line_range": [
+            63,
+            65
+          ]
+        }
+      },
+      {
+        "chunk_id": "1472",
+        "node_id": "function:common\\utils\\utils.h::malloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "malloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            84,
+            94
+          ]
+        }
+      },
+      {
+        "chunk_id": "10051",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\gNB_scheduler_primitives.c::find_nr_UE",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_nr_UE",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\gNB_scheduler_primitives.c",
+          "line_range": [
+            2195,
+            2204
+          ]
+        }
+      },
+      {
+        "chunk_id": "11087",
+        "node_id": "function:openair2\\LAYER2\\nr_rlc\\nr_rlc_oai_api.c::nr_rlc_reestablish_entity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rlc_reestablish_entity",
+          "file_path": "openair2\\LAYER2\\nr_rlc\\nr_rlc_oai_api.c",
+          "line_range": [
+            559,
+            578
+          ]
+        }
+      },
+      {
+        "chunk_id": "10254",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::get_ue_nr_cap_from_ho_prep_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_ue_nr_cap_from_ho_prep_info",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            460,
+            482
+          ]
+        }
+      },
+      {
+        "chunk_id": "11102",
+        "node_id": "function:openair2\\LAYER2\\nr_rlc\\nr_rlc_oai_api.c::nr_rlc_srb_recv_sdu",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rlc_srb_recv_sdu",
+          "file_path": "openair2\\LAYER2\\nr_rlc\\nr_rlc_oai_api.c",
+          "line_range": [
+            1020,
+            1040
+          ]
+        }
+      },
+      {
+        "chunk_id": "10246",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::handle_ue_context_srbs_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_ue_context_srbs_setup",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            235,
+            270
+          ]
+        }
+      },
+      {
+        "chunk_id": "10253",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::get_ue_nr_cap",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_ue_nr_cap",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            438,
+            453
+          ]
+        }
+      },
+      {
+        "chunk_id": "10257",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::clone_CellGroupConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "clone_CellGroupConfig",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            530,
+            540
+          ]
+        }
+      },
+      {
+        "chunk_id": "10430",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\nr_radio_config.c::update_cellGroupConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "update_cellGroupConfig",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\nr_radio_config.c",
+          "line_range": [
+            3572,
+            3698
+          ]
+        }
+      },
+      {
+        "chunk_id": "10255",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::get_cg_config_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_cg_config_info",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c",
+          "line_range": [
+            484,
+            494
+          ]
+        }
+      },
+      {
+        "chunk_id": "10063",
+        "node_id": "function:openair2\\LAYER2\\NR_MAC_gNB\\gNB_scheduler_primitives.c::configure_UE_BWP",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_dl_handler.c::ue_context_setup_request",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "configure_UE_BWP",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\gNB_scheduler_primitives.c",
+          "line_range": [
+            2402,
+            2671
+          ]
+        }
+      },
+      {
+        "chunk_id": "9033",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_drbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_drbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            749,
+            808
+          ]
+        }
+      },
+      {
+        "chunk_id": "122",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::create_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "create_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            28,
+            36
+          ]
+        }
+      },
+      {
+        "chunk_id": "9002",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_srbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_srbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            226,
+            243
+          ]
+        }
+      },
+      {
+        "chunk_id": "8990",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::decode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "decode_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            74,
+            107
+          ]
+        }
+      },
+      {
+        "chunk_id": "8995",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_du_to_cu_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_du_to_cu_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            141,
+            157
+          ]
+        }
+      },
+      {
+        "chunk_id": "9038",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_drbs_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_drbs_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            927,
+            948
+          ]
+        }
+      },
+      {
+        "chunk_id": "9007",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_srbs_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_srbs_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            286,
+            299
+          ]
+        }
+      },
+      {
+        "chunk_id": "9050",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_LTMInformation_Setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_LTMInformation_Setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1115,
+            1123
+          ]
+        }
+      },
+      {
+        "chunk_id": "9056",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_EarlySyncInformation_Request",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_EarlySyncInformation_Request",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1167,
+            1178
+          ]
+        }
+      },
+      {
+        "chunk_id": "9004",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            267,
+            273
+          ]
+        }
+      },
+      {
+        "chunk_id": "8991",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            109,
+            117
+          ]
+        }
+      },
+      {
+        "chunk_id": "9053",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_LTMConfigurationIDMappingList",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_LTMConfigurationIDMappingList",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1136,
+            1149
+          ]
+        }
+      },
+      {
+        "chunk_id": "9035",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            875,
+            898
+          ]
+        }
+      }
+    ]
+  }
+}

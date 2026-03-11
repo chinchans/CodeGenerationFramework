@@ -1,0 +1,56 @@
+{
+    "VALID_SPECS": {
+      "TS 38.473": "F1AP",
+      "TS 38.331": "RRC",
+      "TS 38.413": "NGAP",
+      "TS 38.423": "XNAP",
+      "TS 38.463": "E1AP",
+      "TS 38.401": "NG-RAN Architecture",
+      "TS 38.300": "NR Overall Description",
+      "TS 23.501": "5G System Architecture",
+      "TS 23.502": "5G Procedures",
+      "TS 24.501": "NAS",
+  
+      "TS 38.321": "MAC",
+      "TS 38.322": "RLC",
+      "TS 38.323": "PDCP",
+      "TS 38.211": "PHY",
+      "TS 38.212": "Channel Coding",
+      "TS 38.213": "Physical Layer Procedures",
+  
+      "TS 29.500": "SBA Framework",
+      "TS 29.502": "Namf Service",
+      "TS 29.244": "Nsmf Service",
+      "TS 29.503": "Nudm Service",
+  
+      "TS 33.501": "5G Security"
+    },
+  
+    "PRIMARY_PROTOCOL_SPEC": {
+      "F1AP": "TS 38.473",
+      "RRC": "TS 38.331",
+      "NGAP": "TS 38.413",
+      "XNAP": "TS 38.423",
+      "E1AP": "TS 38.463",
+      "NAS": "TS 24.501",
+  
+      "MAC": "TS 38.321",
+      "RLC": "TS 38.322",
+      "PDCP": "TS 38.323",
+      "PHY": "TS 38.211",
+  
+      "NAMF": "TS 29.502",
+      "NSMF": "TS 29.244",
+      "NUDM": "TS 29.503",
+  
+      "SECURITY": "TS 33.501"
+    },
+  
+    "ARCHITECTURE_SPECS": [
+      "TS 38.401",
+      "TS 38.300",
+      "TS 23.501",
+      "TS 23.502"
+    ]
+  }
+  

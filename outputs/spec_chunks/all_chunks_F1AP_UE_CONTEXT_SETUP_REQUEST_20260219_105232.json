@@ -1,0 +1,16 @@
+{
+  "query": "F1AP UE CONTEXT SETUP REQUEST",
+  "timestamp": "20260219_105232",
+  "retrieval_metadata": {
+    "total_semantic_chunks": 0,
+    "total_reranked_chunks": 0,
+    "total_expanded_chunks": 0,
+    "max_expansion_depth": 0,
+    "sources": []
+  },
+  "chunks": {
+    "semantic_search": [],
+    "reranked": [],
+    "expanded": {}
+  }
+}

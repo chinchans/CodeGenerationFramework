@@ -1,0 +1,4 @@
+set(F1AP_VERSION 18 6 0)
+elseif(F1AP_RELEASE VERSION_EQUAL "18.6.0")
+  include(ASN1/f1ap-18.6.0.cmake)
+

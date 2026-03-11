@@ -1,0 +1,26 @@
+{
+    "Template_Metadata": {
+      "Template_Name": "ngap_msg_enhancement_template",
+      "Version": "1.0",
+      "Description": "Template for NGAP message enhancement procedures"
+    },
+    "Design_Details": {
+      "Protocol_Layers": ["NGAP"],
+      "Protocol_Interfaces": ["N2"],
+      "Procedure_Type": "Context Management",
+      "Network_Entities": ["gNB", "AMF"]
+    },
+    "ASN_IES_File_Path": [
+      {
+        "ASN_Name": "NGAP",
+        "ASN_File": "ngap.asn"
+      }
+    ],
+    "Implementation_Sections": {
+      "Message_Definition": "",
+      "IE_Modifications": "",
+      "Procedure_Flow": "",
+      "Backward_Compatibility": ""
+    }
+  }
+  

@@ -1,0 +1,26 @@
+{
+    "Template_Metadata": {
+      "Template_Name": "rrc_reconfiguration_template",
+      "Version": "1.0",
+      "Description": "Template for RRC Reconfiguration procedure enhancements"
+    },
+    "Design_Details": {
+      "Protocol_Layers": ["RRC"],
+      "Protocol_Interfaces": ["Uu"],
+      "Procedure_Type": "Reconfiguration",
+      "Network_Entities": ["gNB", "UE"]
+    },
+    "ASN_IES_File_Path": [
+      {
+        "ASN_Name": "RRC",
+        "ASN_File": "rrc.asn"
+      }
+    ],
+    "Implementation_Sections": {
+      "RRC_Message_Update": "",
+      "IE_Additions": "",
+      "State_Transition_Impact": "",
+      "UE_Impact_Assessment": ""
+    }
+  }
+  

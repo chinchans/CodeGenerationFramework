@@ -1,0 +1,1039 @@
+# Prompt for Implementing F1AP UE CONTEXT SETUP Response Message Procedure of Inter-gNB-DU LTM Handover
+
+---
+
+## 1. Role Definition
+You are a senior engineer with extensive domain expertise in 5G network architecture and protocol implementation, specifically focusing on the F1AP (F1 Application Protocol) and RRC (Radio Resource Control) layers.
+
+---
+
+## 2. Task Overview
+Your task is to implement the **F1AP UE CONTEXT SETUP RESPONSE Message Procedure** for the **Inter-gNB-DU LTM Handover** as specified in the provided technical specification. This includes ensuring that the implementation adheres to enterprise-level production standards, with a focus on rigorous validation, error handling, and compliance with the 3GPP specifications.
+
+---
+
+## 3. Authoritative Input Context Description
+The implementation must be based on the following authoritative input context:
+
+- **Feature ID**: F1AP_UE_CONTEXT_SETUP_RESPONSE_INTER_GNB_DU_LTM_HANDOVER
+- **Feature Name**: F1AP UE CONTEXT SETUP Response Message Procedure of Inter-gNB-DU LTM Handover
+- **Release**: V18.6.0
+- **3GPP Reference**: TS 38.401, TS 38.473
+- **Feature Description**: This procedure is utilized when a UE transitions from one gNB-DU to another within the same gNB-CU during NR operation for LTM. The candidate gNB-DU responds with a UE CONTEXT SETUP RESPONSE message, including lower layer RRC configurations for the accepted target candidate cell.
+
+---
+
+## 4. Actor-Specific Codebase Rules
+- **gNB-CU**: Responsible for initiating the UE CONTEXT SETUP REQUEST and processing the UE CONTEXT SETUP RESPONSE.
+- **Candidate gNB-DU**: Responsible for receiving the UE CONTEXT SETUP REQUEST and sending the UE CONTEXT SETUP RESPONSE.
+
+Ensure that modifications are confined to the relevant actor folders as specified in the call flow.
+
+---
+
+## 5. Type & Struct Alignment Enforcement
+- Ensure that all data structures defined in the codebase align with the ASN.1 definitions provided in the specification.
+- The following structures must be defined and updated accordingly:
+  - `f1ap_ue_context_setup_resp_s`
+  - `f1ap_ue_context_setup_req_s`
+  
+All member names, types, and structures must match the definitions in the ASN.1 specification.
+
+---
+
+## 6. Implementation Strategy (Phased Approach)
+### Phase 1: Specification Analysis
+- Parse the provided JSON specification to extract relevant actors, information elements (IEs), and constraints.
+- Identify the root IE and its ASN.1 definition.
+
+### Phase 2: Codebase Integration & Modification Points Identification
+- Identify all relevant folders and files for the gNB-CU and candidate gNB-DU.
+- Conduct a comprehensive search for existing structures, IEs, encode/decode functions, and helper functions that require updates.
+
+### Phase 3: Code Generation & Codebase Modifications
+- Implement the necessary data structure updates, including initialization and field mapping.
+- Update encoding and decoding logic for all modified types.
+- Ensure memory safety and proper validation for all new and existing components.
+
+---
+
+## 7. Codebase Modification Identification Process
+- Identify all locations in the codebase that require modification based on the call flow and actor responsibilities.
+- Document all changes made to ensure traceability and compliance.
+
+---
+
+## 8. Mandatory Data Structure Updates
+- Update the following structures:
+  - `f1ap_ue_context_setup_resp_s`
+  - `f1ap_ue_context_setup_req_s`
+- Ensure that all fields are correctly defined and initialized according to the specification.
+
+---
+
+## 9. IE / ASN / Encoding Handling Rules
+- Perform a full recursive expansion of all Information Elements (IEs) starting from the root IE.
+- Follow these rules for each referenced TYPE:
+  - **SEQUENCE**: Expand all fields.
+  - **SEQUENCE OF**: Resolve item type and recursively expand.
+  - **CHOICE**: Expand all alternatives.
+  - **ENUMERATED**: Generate enum definitions.
+  - **INTEGER**: Enforce range validation.
+  - **BIT STRING**: Enforce size constraints.
+  - **OCTET STRING**: Preserve encoding semantics.
+  - **ProtocolIE-SingleContainer**: Unwrap inner IE.
+  - **ProtocolExtensionContainer**: Include extension-safe handling.
+
+---
+
+## 10. Consumer / Call-Site Update Requirements
+- Update all consumer code that utilizes the decoded message/struct for both gNB-CU and candidate gNB-DU.
+- Ensure that all call sites reflect the updated data structures and logic.
+
+---
+
+## 11. Memory Safety & Resource Management Requirements
+- Implement memory management practices to ensure that all dynamically allocated resources are properly managed and freed.
+- Validate all memory allocations to prevent leaks and ensure stability.
+
+---
+
+## 12. Compilation Safety & Type Resolution Rules
+- Ensure that all types are resolved correctly during compilation.
+- Maintain strict type alignment with local headers, avoiding cross-actor assumptions.
+
+---
+
+## 13. Code Quality & Naming Standards
+- Follow established naming conventions and code style guidelines.
+- Ensure that all code is well-documented and adheres to performance best practices.
+
+---
+
+## 14. Error Handling & Validation Rules
+- Implement robust error handling for all functions, particularly in encoding/decoding and memory management.
+- Validate all inputs and outputs to ensure compliance with the specification.
+
+---
+
+## 15. Output Format Requirements
+The following outputs are mandatory:
+- Primary function implementation for the UE CONTEXT SETUP RESPONSE.
+- Data structure modifications.
+- ASN.1/IE updates (excluding .asn files).
+- Encoding/decoding updates.
+- Helper function updates.
+- Dependency notes.
+- Integration summary with actor-specific file paths and clear labels.
+
+---
+
+## 16. Integration Summary Requirements
+- Provide a summary of how the new implementation integrates with existing components.
+- Document any changes to the integration points and dependencies.
+
+---
+
+## 17. Final Engineering Checklist
+- [ ] Implementation location identified.
+- [ ] Codebase modifications documented.
+- [ ] Functional requirements verified (exact IE names, optional fields, piggy-backed IEs).
+- [ ] Code quality standards met.
+- [ ] Output completeness verified.
+
+---
+
+## 18. Critical Reminders Section
+- Ensure that the implementation is complete at the specified location with all related components updated.
+- Do not modify any .asn files in the codebase; document changes for third-party services only.
+
+---
+
+## 19. Recursive ASN.1 Information Element Expansion Requirements
+- Perform a depth-first recursive traversal of all IEs until primitive types are reached.
+- Ensure no referenced ASN type remains unresolved.
+- Generate corresponding C structs for every expanded IE.
+- Update encode/decode logic for every expanded type.
+- Maintain strict type alignment with ASN definitions.
+- Ensure all nested containers are correctly represented in memory.
+- Respect OPTIONAL / CONDITIONAL presence rules.
+- Enforce CRITICALITY handling behavior.
+- Implement presence bitmask or flags for optional IEs.
+- Ensure list size constraints are validated at runtime.
+- Generate nested allocation logic where required.
+
+---
+
+## Consolidated Actionable Section
+
+1. **Role** — Senior engineer persona with domain expertise.
+2. **TASK** — Implement the F1AP UE CONTEXT SETUP RESPONSE Message Procedure.
+   - **CRITICAL REQUIREMENT**: Implement changes in `openair2/F1AP/lib/f1ap_ue_context.c` and `openair2/COMMON/f1ap_messages_types.h`.
+   - **IE NAMING REQUIREMENT**: Ensure exact match of IE names from the specification.
+   - **TYPE AND STRUCT DEFINITION ALIGNMENT (PER ACTOR)**: Align member names, list/container shape, and value vs pointer from local headers.
+   - **CONSUMER / CALL-SITE CODE (PER ACTOR)**: Update all files that use the decoded message/struct per actor.
+   - **ACTOR-SPECIFIC CODEBASE REQUIREMENT**: Only modify folders matching Call_Flow actors.
+   - **ASN.1 FILES (.asn) - THIRD PARTY**: Do not modify .asn files; document changes for third-party services only.
+3. **INPUT CONTEXT** — Analyze the provided JSON template description and existing codebase context.
+4. **IMPLEMENTATION STRATEGY** — Follow the phased approach outlined above.
+5. **CODE QUALITY REQUIREMENTS** — Adhere to naming conventions, code style, error handling, and performance standards.
+6. **OUTPUT FORMAT** — Provide all mandatory outputs as specified.
+7. **SPECIAL CONSIDERATIONS** — Ensure protocol compliance, encoding/decoding integrity, and state management.
+8. **FINAL CHECKLIST** — Complete the checklist to ensure all requirements are met.
+9. **Closing reminder** — The implementation must be complete at the exact location with all related components updated, and .asn files are not modified in the codebase.
+10. End with the exact line: "Here is the template :"
+
+Here is the template :{
+  "Feature_ID": "F1AP_UE_CONTEXT_SETUP_RESPONSE_INTER_GNB_DU_LTM_HANDOVER",
+  "Feature_Name": "F1AP UE CONTEXT SETUP Response Message Procedure of Inter-gNB-DU LTM Handover",
+  "Release": "V18.6.0",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401, TS 38.473",
+    "Title": "NG-RAN Architecture Description, F1AP",
+    "Section": "8.2.1.5, 9.2.2.2"
+  },
+  "Feature_Description": [
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation for LTM.",
+    "If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP RESPONSE message including the generated lower layer RRC configurations for the accepted target candidate cell."
+  ],
+  "Feature_Objectives": [
+    "To confirm the successful setup of a UE context for LTM at the candidate gNB-DU.",
+    "To provide the gNB-CU with the generated lower layer RRC configurations for the accepted target candidate cell.",
+    "To provide early synchronization information and LTM configuration details back to the gNB-CU."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP (Control Plane)",
+      "RRC (Lower Layer Configuration)"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C (between gNB-CU and gNB-DU)"
+    ]
+  },
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "Candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_resp_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 570,
+          "description": "Defines the structure of the F1AP UE Context Setup Response message, including fields for accepted/rejected RRC configurations and other UE context information."
+        },
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_req_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 544,
+          "description": "Defines the structure of the F1AP UE Context Setup Request message, which the gNB-DU needs to parse to understand the CU's request before formulating a response."
+        },
+        {
+          "type": "helper_function",
+          "function_name": "encode_ue_context_setup_resp",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_start": 1503,
+          "description": "Encodes the F1AP UE Context Setup Response message from its internal data structure into a byte stream for transmission over the F1 interface.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_resp_s"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "decode_ue_context_setup_resp",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_start": 1569,
+          "description": "Decodes a received F1AP UE Context Setup Response message from a byte stream into the internal 'f1ap_ue_context_setup_resp_s' data structure.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_resp_s"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "f1ap_encode_pdu",
+          "file_path": "openair2\\F1AP\\f1ap_encoder.c",
+          "line_start": 31,
+          "description": "A generic helper function responsible for encoding an F1AP Protocol Data Unit (PDU), which would be called by specific message encoding functions like 'encode_ue_context_setup_resp'.",
+          "called_functions": [],
+          "calling_functions": [
+            "encode_ue_context_setup_resp"
+          ],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "f1ap_itti_send_sctp_data_req",
+          "file_path": "openair2\\F1AP\\f1ap_itti_messaging.c",
+          "line_start": 25,
+          "description": "Sends an F1AP message over the SCTP transport layer using the ITTI (Inter-Task Interface) messaging framework, after the message has been encoded.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_get_ue_context",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_UE_context.c",
+          "line_start": 90,
+          "description": "Retrieves the RRC UE context information for a specific UE, which is essential for populating the F1AP UE Context Setup Response message with UE-specific configurations.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "cp_ue_context_setup_resp",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_start": 1621,
+          "description": "Copies the content of an F1AP UE Context Setup Response structure, useful for internal message handling, logging, or passing data between modules.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_resp_s"
+          ]
+        }
+      ]
+    }
+  ],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "F1AP-PDU-Contents",
+      "File_Name": "F1AP-PDU-Contents.asn"
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": "TS38331.asn"
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [],
+  "Information_Elements": [
+    {
+      "IE_Name": "UEContextSetupResponseIEs",
+      "IE_Definition": "UEContextSetupResponseIEs F1AP-PROTOCOL-IES ::= {\n { ID id-gNB-CU-UE-F1AP-ID\t\tCRITICALITY reject TYPE GNB-CU-UE-F1AP-ID\t\tPRESENCE mandatory }|\n { ID id-gNB-DU-UE-F1AP-ID\t\tCRITICALITY reject TYPE GNB-DU-UE-F1AP-ID\t\tPRESENCE mandatory }|\n { ID id-DUtoCURRCInformation\t\tCRITICALITY reject TYPE DUtoCURRCInformation\t\tPRESENCE mandatory }|\n { ID id-C-RNTI\t\t\tCRITICALITY ignore TYPE C-RNTI\t\t\tPRESENCE optional }|\n { ID id-ResourceCoordinationTransferContainer CRITICALITY ignore TYPE ResourceCoordinationTransferContainer PRESENCE optional }|\n { ID id-FullConfiguration\t\tCRITICALITY reject TYPE FullConfiguration\t\tPRESENCE optional }|\n { ID id-DRBs-Setup-List\t\tCRITICALITY ignore TYPE DRBs-Setup-List\t\tPRESENCE optional }|\n { ID id-SRBs-FailedToBeSetup-List\tCRITICALITY ignore TYPE SRBs-FailedToBeSetup-List\tPRESENCE optional }|\n { ID id-DRBs-FailedToBeSetup-List\tCRITICALITY ignore TYPE DRBs-FailedToBeSetup-List\tPRESENCE optional }|\n { ID id-SCell-FailedtoSetup-List\tCRITICALITY ignore TYPE SCell-FailedtoSetup-List\tPRESENCE optional }|\n { ID id-InactivityMonitoringResponse\tCRITICALITY reject TYPE InactivityMonitoringResponse\tPRESENCE optional }|\n { ID id-CriticalityDiagnostics\t\tCRITICALITY ignore TYPE CriticalityDiagnostics\t\tPRESENCE optional }|\n { ID id-SRBs-Setup-List\t\tCRITICALITY ignore TYPE SRBs-Setup-List\t\tPRESENCE optional }|\n { ID id-BHChannels-Setup-List\t\tCRITICALITY ignore TYPE BHChannels-Setup-List\t\tPRESENCE optional }|\n { ID id-BHChannels-FailedToBeSetup-List\tCRITICALITY ignore TYPE BHChannels-FailedToBeSetup-List\tPRESENCE optional }|\n { ID id-SLDRBs-Setup-List\t\tCRITICALITY ignore TYPE SLDRBs-Setup-List\t\tPRESENCE optional }|\n { ID id-SLDRBs-FailedToBeSetup-List\tCRITICALITY ignore TYPE SLDRBs-FailedToBeSetup-List\tPRESENCE optional }|\n { ID id-requestedTargetCellGlobalID\tCRITICALITY reject TYPE NRCGI\t\t\tPRESENCE optional}|\n { ID id-SCGActivationStatus\t\tCRITICALITY ignore TYPE SCGActivationStatus\t\tPRESENCE optional }|\n { ID id-UuRLCChannelSetupList\t\tCRITICALITY ignore TYPE UuRLCChannelSetupList\t\tPRESENCE optional}|\n { ID id-UuRLCChannelFailedToBeSetupList\tCRITICALITY ignore TYPE UuRLCChannelFailedToBeSetupList\tPRESENCE optional}|\n { ID id-PC5RLCChannelSetupList\t\tCRITICALITY ignore TYPE PC5RLCChannelSetupList\t\tPRESENCE optional}|\n { ID id-PC5RLCChannelFailedToBeSetupList\tCRITICALITY ignore TYPE PC5RLCChannelFailedToBeSetupList\tPRESENCE optional}|\n { ID id-ServingCellMO-encoded-in-CGC-List\tCRITICALITY ignore TYPE ServingCellMO-encoded-in-CGC-List\tPRESENCE optional}|\n { ID id-UE-MulticastMRBs-Setupnew-List\tCRITICALITY reject TYPE UE-MulticastMRBs-Setupnew-List\tPRESENCE optional}|\n { ID id-DedicatedSIDeliveryIndication\tCRITICALITY ignore TYPE DedicatedSIDeliveryIndication\tPRESENCE optional}|\n { ID id-Configured-BWP-List\t\tCRITICALITY ignore TYPE Configured-BWP-List\t\tPRESENCE optional}|\n { ID id-EarlySyncInformation\t\tCRITICALITY ignore TYPE EarlySyncInformation\t\tPRESENCE optional }|\n { ID id-LTMConfiguration\t\tCRITICALITY ignore TYPE LTMConfiguration\t\tPRESENCE optional }|\n { ID id-S-CPAC-Configuration\t\tCRITICALITY ignore TYPE S-CPAC-Configuration\t\tPRESENCE optional },\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DUtoCURRCInformation",
+      "IE_Definition": "DUtoCURRCInformation ::= SEQUENCE {\n\tcellGroupConfig\t\t\t\tCellGroupConfig,\n\tmeasGapConfig\t\t\t\tMeasGapConfig\tOPTIONAL,\n\trequestedP-MaxFR1\t\t\tOCTET STRING\tOPTIONAL,\n\tiE-Extensions\t\t\t\tProtocolExtensionContainer { { DUtoCURRCInformation-ExtIEs} } OPTIONAL,\n\t...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "requestedTargetCellGlobalID",
+      "IE_Definition": "NRCGI",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlySyncInformation",
+      "IE_Definition": "EarlySyncInformation  ::= SEQUENCE {\n\ttCIStatesConfigurationsList\t\tTCIStatesConfigurationsList,\n\tearlyULSyncConfig\t\t\tEarlyULSyncConfig\t\t\tOPTIONAL,\n\tearlyULSyncConfigSUL\t\t\tEarlyULSyncConfig\t\t\tOPTIONAL,\n\tiE-Extensions\t\t\t\tProtocolExtensionContainer { { EarlySyncInformation-ExtIEs} } OPTIONAL,\n\t...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfiguration",
+      "IE_Definition": "LTMConfiguration ::= SEQUENCE {\n\tsSBInformation\t\t\t\tSSBInformation,\n\treferenceConfigurationInformation\tReferenceConfigurationInformation\tOPTIONAL,\n\tcompleteCandidateConfigurationIndicator\tCompleteCandidateConfigurationIndicator\tOPTIONAL,\n\tlTMCFRAResourceConfig\t\t\tLTMCFRAResourceConfig\t\tOPTIONAL,\n\tlTMCFRAResourceConfigSUL\t\tLTMCFRAResourceConfig\t\tOPTIONAL,\n\tiE-Extensions\t\t\t\tProtocolExtensionContainer { { LTMConfiguration-ExtIEs } } OPTIONAL,\n\t...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CellGroupConfig",
+      "IE_Definition": "CellGroupConfig ::= OCTET STRING",
+      "IE_Category": "RRC IE"
+    },
+    {
+      "IE_Name": "MeasGapConfig",
+      "IE_Definition": "MeasGapConfig ::= OCTET STRING",
+      "IE_Category": "RRC IE"
+    },
+    {
+      "IE_Name": "NRCGI",
+      "IE_Definition": "NRCGI ::= SEQUENCE {\n\tpLMN-Identity\t\t\tPLMN-Identity,\n\tnRCellIdentity\t\t\tNRCellIdentity,\n\tiE-Extensions\t\t\tProtocolExtensionContainer { {NRCGI-ExtIEs} } OPTIONAL,\n\t...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PLMN-Identity",
+      "IE_Definition": "PLMN-Identity ::= OCTET STRING (SIZE(3))",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NRCellIdentity",
+      "IE_Definition": "NRCellIdentity ::= BIT STRING (SIZE(36))",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "TCIStatesConfigurationsList",
+      "IE_Definition": "TCIStatesConfigurationsList ::= OCTET STRING",
+      "IE_Category": "RRC IE"
+    },
+    {
+      "IE_Name": "EarlyULSyncConfig",
+      "IE_Definition": "EarlyULSyncConfig ::= SEQUENCE {\n\trACH\t\t\t\tRACHConfiguration,\n\tlTMgNB-DU-IDs-PreambleIndexList\tLTMgNB-DU-IDs-PreambleIndexList\tOPTIONAL,\n\tiE-Extensions\t\t\t\tProtocolExtensionContainer { { EarlyULSyncConfig-ExtIEs} } OPTIONAL,\n\t...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SSBInformation",
+      "IE_Definition": "SSBInformation ::= OCTET STRING",
+      "IE_Category": "RRC IE"
+    },
+    {
+      "IE_Name": "ReferenceConfigurationInformation",
+      "IE_Definition": "ReferenceConfigurationInformation ::= OCTET STRING",
+      "IE_Category": "RRC IE"
+    },
+    {
+      "IE_Name": "CompleteCandidateConfigurationIndicator",
+      "IE_Definition": "CompleteCandidateConfigurationIndicator ::= ENUMERATED {complete, ...}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMCFRAResourceConfig",
+      "IE_Definition": "LTMCFRAResourceConfig ::= OCTET STRING",
+      "IE_Category": "RRC IE"
+    },
+    {
+      "IE_Name": "RACHConfiguration",
+      "IE_Definition": "RACHConfiguration ::= OCTET STRING",
+      "IE_Category": "RRC IE"
+    },
+    {
+      "IE_Name": "LTMgNB-DU-IDs-PreambleIndexList",
+      "IE_Definition": "LTMgNB-DU-IDs-PreambleIndexList ::= SEQUENCE (SIZE(1..maxnoofLTMgNB-DUs)) OF LTMgNB-DU-IDs-PreambleIndex-Item",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMgNB-DU-IDs-PreambleIndex-Item",
+      "IE_Definition": "LTMgNB-DU-IDs-PreambleIndex-Item ::= SEQUENCE{\n\tlTMgNB-DU-ID\t\t\tGNB-DU-ID,\n\tpreambleIndexList\t\tPreambleIndexList\t\t\t\tOPTIONAL,\n\tiE-Extensions\t\t\tProtocolExtensionContainer {{ LTMgNB-DU-IDs-PreambleIndex-Item-ExtIEs}}  OPTIONAL\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "GNB-DU-ID",
+      "IE_Definition": "GNB-DU-ID   ::= INTEGER (0..68719476735)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PreambleIndexList",
+      "IE_Definition": "PreambleIndexList ::= SEQUENCE (SIZE(1..< maxnoofLTMCells>)) OF ProtocolIE-SingleContainer { { PreambleIndexItemIEs } }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PreambleIndexItemIEs",
+      "IE_Definition": "PreambleIndexItemIEs F1AP-PROTOCOL-IES ::= {\n { ID id-PreambleIndexItem CRITICALITY reject TYPE PreambleIndex PRESENCE mandatory},\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PreambleIndex",
+      "IE_Definition": "PreambleIndex ::= INTEGER (0..63)",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "",
+  "Piggy_Backed_IES_Mapping": [],
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "CMake",
+    "Repo_Path": "openairinterface5g-develop",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Git"
+  },
+  "Knowledge_Hints": [
+    "8.9.2 (ts_138401v180600p): Bearer context setup over F1-U",
+    "8.8 (ts_138401v180600p): Multiple TNLAs for F1-C",
+    "8.9.1 (ts_138401v180600p): UE Initial Access",
+    "8.4.4.1 (ts_138401v180600p): SN Addition with SCG Activation or Deactivation",
+    "8.9.3.1 (ts_138401v180600p): gNB-CU-CP initiated bearer context release",
+    "7.7.3 (ts_138401v180600p): Support of Multicast reception for UEs in RRC_INACTIVE",
+    "8.9.3.2 (ts_138401v180600p): gNB-CU-UP initiated bearer context release",
+    "8.1 (ts_138401v180600p): UE Initial Access",
+    "7.7.4 (ts_138401v180600p): Recovery of shared F1-U Failure",
+    "7 (ts_138401v180600p): .  UE  C O N T EX T  S ETU P  R ES P O N S E",
+    "8.15.1.3 (ts_138401v180600p): Multicast MRB type re-configuration with F1-U ptp-retransmission tunnel",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.24.2 (ts_138401v180600p): RAN TSS reporting towards the UE",
+    "6.4 (ts_138401v180600p): UE associations in NG-RAN Node",
+    "8.5 (ts_138401v180600p): F1 Startup and cells activation",
+    "8.15.1.1 (ts_138401v180600p): Broadcast MBS Session Setup",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.15.1.2 (ts_138401v180600p): Multicast MBS Session Context Establishment",
+    "4555 (ts_138401v180600p): [29]) to migrate the IPsec tunnel to the new IP outer addresses. After the completion of the MOBIKE",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.4.4.3 (ts_138401v180600p): SN initiated SN Modification with SCG Activation or Deactivation",
+    "8.4.4.2 (ts_138401v180600p): MN initiated SN Modification with SCG Activation or Deactivation",
+    "7.0 (ts_138401v180600p): General",
+    "7.2 (ts_138401v180600p): Remote Interference Management",
+    "7.11 (ts_138401v180600p): Support of AI/ML for NG-RAN",
+    "7.5 (ts_138401v180600p): RACH Optimisation Function",
+    "7.1 (ts_138401v180600p): NG-RAN sharing",
+    "7.4 (ts_138401v180600p): Support for Non-Public Networks",
+    "7.3 (ts_138401v180600p): Cross-Link Interference Management",
+    "7.6 (ts_138401v180600p): Positioning",
+    "7.7 (ts_138401v180600p): Support for NR MBS",
+    "7.8 (ts_138401v180600p): PCI Optimisation Function",
+    "7.10 (ts_138401v180600p): Support of RAN visible QoE measurement",
+    "17 (ts_138401v180600p): . RRC Re su me/R RCRe jec t/ RRC S e tu p /RRC Rel ea se",
+    "3 (ts_138401v180600p): . Re c onf i gur a t i on t o r e l a y  U E",
+    "4 (ts_138401v180600p): .  UE  C O NT EX T  M O D I F I C ATI O N RES P O NS E",
+    "14 (ts_138401v180600p): .  P C5  Co n nec ti o n  Est ab li s hme n t",
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "8.21.1 (ts_138401v180600p): Network Controlled Repeater Integration Procedure",
+    "8.15.2.1 (ts_138401v180600p): Inter-gNB-CU Mobility between MBS Supporting nodes",
+    "8.10 (ts_138401v180600p): Multiple TNLAs for E1",
+    "8.4.4 (ts_138401v180600p): SCG Deactivation and Activation",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "8.15.1 (ts_138401v180600p): General",
+    "6.1.5 (ts_138401v180600p): Overall Architecture of NR MBS",
+    "7.7.1 (ts_138401v180600p): Support of dynamic PTP and PTM switching",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU",
+    "8.6.2 (ts_138401v180600p): RRC inactive to other states",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "38.300 (ts_138401v180600p): [2].",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN",
+    "8.7 (ts_138401v180600p): RRC connection reestablishment",
+    "11.1 (ts_138401v180600p): Multiple TNLAs for Xn-C",
+    "8.9.6.1 (ts_138401v180600p): RRC Connected to RRC Inactive",
+    "8.9 (ts_138401v180600p): Overall procedures involving E1 and F1",
+    "8.11.2 (ts_138401v180600p): Initial Registration \u2013 separate PLMN signalling",
+    "8.19.1 (ts_138401v180600p): Remote UE initial access",
+    "8.16 (ts_138401v180600p): Overall procedures for CPAC",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.19.2 (ts_138401v180600p): Remote UE RRC Reestablishment",
+    "8.18.3 (ts_138401v180600p): RA-SDT or non-SDT with CG-SDT configuration",
+    "7.9.1 (ts_138401v180600p): General",
+    "7.9.3 (ts_138401v180600p): Dynamic coverage configuration changes",
+    "8.4.3 (ts_138401v180600p): SCG suspend/resume in RRC_INACTIVE",
+    "8.9.6.2 (ts_138401v180600p): RRC Inactive to other states",
+    "8.6.1 (ts_138401v180600p): RRC connected to RRC inactive",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.11.3 (ts_138401v180600p): RRC Connection Reestablishment \u2013 separate PLMN signalling",
+    "8.19.3 (ts_138401v180600p): Remote UE RRC Inactive to other states",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.18.4 (ts_138401v180600p): MT-SDT",
+    "8.24 (ts_138401v180600p): Timing resiliency service",
+    "8.24.1 (ts_138401v180600p): RAN TSS reporting towards the CN",
+    "9.1 (ts_138401v180600p): gNB Synchronization",
+    "8 (ts_138401v180600p): .  P C 5 c o n ne c tio n  e sta b li s hm e nt",
+    "15 (ts_138401v180600p): . UE  CO NTE X T  SE T U P",
+    "8.16.2 (ts_138401v180600p): MN initiated conditional SN Change",
+    "8.16.3 (ts_138401v180600p): SN initiated conditional inter-SN Change",
+    "6.1.1 (ts_138401v180600p): Overall Architecture of NG-RAN",
+    "9.2.2.1 (ts_138473v180400p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.2 (ts_138473v180400p): UE CONTEXT SETUP RESPONSE",
+    "9.2.2.3 (ts_138473v180400p): UE CONTEXT SETUP FAILURE",
+    "8.3.1.1 (ts_138473v180400p): General",
+    "8.3.1.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.3.1.2 (ts_138473v180400p): Successful Operation",
+    "8.3.1.4 (ts_138473v180400p): Abnormal Conditions",
+    "8.3.2.2 (ts_138473v180400p): Successful Operation",
+    "8.2.3.2 (ts_138473v180400p): Successful Operation",
+    "8.2.3.1 (ts_138473v180400p): General",
+    "9.2.14.10 (ts_138473v180400p): MULTICAST DISTRIBUTION SETUP REQUEST",
+    "9.2.14.11 (ts_138473v180400p): MULTICAST DISTRIBUTION SETUP RESPONSE",
+    "9.2.13.2 (ts_138473v180400p): BROADCAST CONTEXT SETUP RESPONSE",
+    "9.2.2.6 (ts_138473v180400p): UE CONTEXT RELEASE COMPLETE",
+    "8.3.5.2 (ts_138473v180400p): Successful Operation",
+    "8.14.6.2 (ts_138473v180400p): Successful Operation",
+    "9.2.14.3 (ts_138473v180400p): MULTICAST CONTEXT SETUP RESPONSE",
+    "8.10.5.1 (ts_138473v180400p): General",
+    "8.2.4.1 (ts_138473v180400p): General",
+    "8.2.8.1 (ts_138473v180400p): General",
+    "8.10.6.1 (ts_138473v180400p): General",
+    "8.2.5.1 (ts_138473v180400p): General",
+    "5 (ts_138473v180400p): F1AP services",
+    "8.3.4.2 (ts_138473v180400p): Successful Operation",
+    "8.3.4.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.2.3.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.14.6.1 (ts_138473v180400p): General",
+    "8.3.5.1 (ts_138473v180400p): General",
+    "8.3.4.1 (ts_138473v180400p): General",
+    "9.2.14.4 (ts_138473v180400p): MULTICAST CONTEXT SETUP FAILURE",
+    "9.2.14.12 (ts_138473v180400p): MULTICAST DISTRIBUTION SETUP FAILURE",
+    "9.2.13.3 (ts_138473v180400p): BROADCAST CONTEXT SETUP FAILURE",
+    "9.2.12.32 (ts_138473v180400p): MEASUREMENT PRECONFIGURATION REFUSE",
+    "9.2.1.6 (ts_138473v180400p): F1 SETUP FAILURE",
+    "9.2.9.9 (ts_138473v180400p): IAB UP CONFIGURATION UPDATE FAILURE",
+    "9.3.1.327 (ts_138473v180400p): DL LBT Failure Information",
+    "8.3.8.3 (ts_138473v180400p): Abnormal Conditions",
+    "8.3.4.4 (ts_138473v180400p): Abnormal Conditions",
+    "9.2.2.8 (ts_138473v180400p): UE CONTEXT MODIFICATION RESPONSE",
+    "9.2.2.12 (ts_138473v180400p): UE INACTIVITY NOTIFICATION",
+    "9.2.2.10 (ts_138473v180400p): UE CONTEXT MODIFICATION REQUIRED",
+    "9.2.2.11 (ts_138473v180400p): UE CONTEXT MODIFICATION CONFIRM",
+    "9.3.1.26 (ts_138473v180400p): DU to CU RRC Information",
+    "9.2.1.14 (ts_138473v180400p): GNB-DU RESOURCE COORDINATION RESPONSE",
+    "9.2.14.2 (ts_138473v180400p): MULTICAST CONTEXT SETUP REQUEST",
+    "9.2.13.9 (ts_138473v180400p): BROADCAST TRANSPORT RESOURCE REQUEST",
+    "8.14.10.2 (ts_138473v180400p): Successful Operation",
+    "9.2.13.1 (ts_138473v180400p): BROADCAST CONTEXT SETUP REQUEST",
+    "8.2.1.2.1 (ts_138473v180400p): Reset Procedure Initiated from the gNB-CU",
+    "8.2.1.2.2 (ts_138473v180400p): Reset Procedure Initiated from the gNB-DU",
+    "3.1 (ts_138473v180400p): Definitions",
+    "9.4.3 (ts_138473v180400p): Elementary Procedure Definitions",
+    "9.2.2.9 (ts_138473v180400p): UE CONTEXT MODIFICATION FAILURE",
+    "9.2.2.7 (ts_138473v180400p): UE CONTEXT MODIFICATION REQUEST",
+    "9.2.2.4 (ts_138473v180400p): UE CONTEXT RELEASE REQUEST",
+    "9.2.13.7 (ts_138473v180400p): BROADCAST CONTEXT MODIFICATION RESPONSE",
+    "36.423 (ts_138473v180400p): [9], TS 38.423 [28].",
+    "9.3.1.18 (ts_138473v180400p): gNB-DU System Information",
+    "4.2 (ts_138473v180400p): Forwards and backwards compatibility",
+    "9.2.1.17 (ts_138473v180400p): F1 REMOVAL RESPONSE",
+    "8.2.8.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.2.8.2 (ts_138473v180400p): Successful Operation",
+    "9.2.14.18 (ts_138473v180400p): MULTICAST COMMON CONFIGURATION REQUEST",
+    "9.3.1.25 (ts_138473v180400p): CU to DU RRC Information",
+    "9.2.2.16 (ts_138473v180400p): CU-DU CELL SWITCH NOTIFICATION",
+    "9.3.1.70 (ts_138473v180400p): RRC Version",
+    "9.3.1.107 (ts_138473v180400p): gNB-DU Cell Resource Configuration",
+    "9.3.1.6 (ts_138473v180400p): RRC-Container",
+    "9.2.4.1 (ts_138473v180400p): WRITE-REPLACE WARNING REQUEST",
+    "9.2.2.17 (ts_138473v180400p): CU-DU MOBILITY INITIATION REQUEST",
+    "9.3.1.213 (ts_138473v180400p): Coverage Modification Notification",
+    "9.2.6.1 (ts_138473v180400p): PAGING",
+    "9.3.1.42 (ts_138473v180400p): gNB-CU System Information",
+    "9.3.1.261 (ts_138473v180400p): CG-SDT Session Info",
+    "9.2.2.15 (ts_138473v180400p): DU-CU CELL SWITCH NOTIFICATION",
+    "8.14.2.1 (ts_138473v180400p): General",
+    "8.14.4.1 (ts_138473v180400p): General",
+    "8.14.7.1 (ts_138473v180400p): General",
+    "8.14.9.1 (ts_138473v180400p): General",
+    "8.14.10.1 (ts_138473v180400p): General",
+    "9.2.1.1 (ts_138473v180400p): RESET",
+    "8.2.4.2 (ts_138473v180400p): Successful Operation",
+    "38.401 (ts_138473v180400p): [4] or from indirect path to indirect path as specified in TS 38.331 [8], or to release the direct path during the",
+    "8.3.2.1 (ts_138473v180400p): General",
+    "9.3.2.13 (ts_138473v180400p): Multicast F1-U Context Reference CU",
+    "9.2.14.13 (ts_138473v180400p): MULTICAST DISTRIBUTION RELEASE COMMAND",
+    "9.2.14.14 (ts_138473v180400p): MULTICAST DISTRIBUTION RELEASE COMPLETE",
+    "9.2.14.9 (ts_138473v180400p): MULTICAST CONTEXT MODIFICATION FAILURE",
+    "9.2.14.17 (ts_138473v180400p): MULTICAST CONTEXT NOTIFICATION REFUSE",
+    "8.3.3.2 (ts_138473v180400p): Successful Operation",
+    "8.2.6.2 (ts_138473v180400p): Successful Operation",
+    "8.4.2.2 (ts_138473v180400p): Successful operation",
+    "8.10.5.2 (ts_138473v180400p): Successful Operation",
+    "9.2.9.11 (ts_138473v180400p): MIAB F1 SETUP OUTCOME NOTIFICATION",
+    "8.10.6.2 (ts_138473v180400p): Successful Operation",
+    "9.2.1.4 (ts_138473v180400p): F1 SETUP REQUEST",
+    "8.2.5.2 (ts_138473v180400p): Successful Operation",
+    "8.10.4.1 (ts_138473v180400p): General",
+    "8.14.10.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.14.4.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.14.6.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.3.5.3 (ts_138473v180400p): Abnormal Conditions",
+    "8.3.3.4 (ts_138473v180400p): Abnormal Conditions",
+    "9.2.9.10 (ts_138473v180400p): MIAB F1 SETUP TRIGGERING",
+    "9.4 (ts_138473v180400p): Message and Information Element Abstract Syntax (with",
+    "9.4.4 (ts_138473v180400p): PDU Definitions",
+    "9.4.6 (ts_138473v180400p): Common Definitions",
+    "9.4.7 (ts_138473v180400p): Constant Definitions",
+    "9.4.8 (ts_138473v180400p): Container Definitions",
+    "9.4.5 (ts_138473v180400p): Information Element Definitions",
+    "9.4.1 (ts_138473v180400p): General",
+    "10.2 (ts_138401v180600p): Xn interface",
+    "10.4 (ts_138401v180600p): E1 interface",
+    "1 (ts_138401v180600p): 0 a .  U L  R RC M E SSA G E  T R A N SFE R",
+    "8.11.4 (ts_138401v180600p): Support of shared signalling transport",
+    "8.22.1 (ts_138401v180600p): Inter-DU direct path addi tion on top of indirect path",
+    "8.22.3 (ts_138401v180600p): Intra-DU direct path addition on top of indirect path",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "7.7.2.3 (ts_138401v180600p): Support of resource efficiency for RAN Sharing with multiple cell-ID",
+    "8.11.1 (ts_138401v180600p): General",
+    "6.2.1 (ts_138401v180600p): Principle of handling Application Protocol Identities",
+    "6.3 (ts_138401v180600p): Transport addresses",
+    "10.3 (ts_138401v180600p): F1 interface",
+    "12 (ts_138401v180600p): .  U E  CON T E XT  R E L E A S E",
+    "2 (ts_138401v180600p): .  D e cis ion  o f a d d i ti on  of  in d i r e ct",
+    "10.1 (ts_138401v180600p): NG interface",
+    "10.5 (ts_138401v180600p): Antenna interface - general principles",
+    "6.5 (ts_138401v180600p): MBS Session associations in NG-RAN Node",
+    "8.22.2 (ts_138401v180600p): Inter-DU indirect path addition on top of direct path",
+    "8.22.4 (ts_138401v180600p): Intra-DU indirect path addition on top of direct path",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "6 (ts_138401v180600p): . DL  R RC  ME S S A G E T RA N S F ER",
+    "13 (ts_138401v180600p): .  D at a f o r w ar d i n g",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "5.3 (ts_138401v180600p): Control plane",
+    "7.7.2.1 (ts_138401v180600p): General",
+    "3.2 (ts_138401v180600p): Abbreviations",
+    "5.1 (ts_138401v180600p): General",
+    "8.13.2.1 (ts_138401v180600p): General",
+    "7.7.2.2 (ts_138401v180600p): Support of resource efficiency for MOCN",
+    "5.2 (ts_138401v180600p): User plane",
+    "8.9.9.1 (ts_138401v180600p): Traffic Mapping from IP-layer to Layer-2",
+    "8.13.0 (ts_138401v180600p): General",
+    "6.1.2 (ts_138401v180600p): Overall architecture for separation of gNB-CU-CP and gNB-CU-UP",
+    "8.9.9 (ts_138401v180600p): Traffic Mapping",
+    "6.2.3 (ts_138401v180600p): ng-eNB-DU ID",
+    "8.9.15 (ts_138401v180600p): IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for",
+    "7.9.2 (ts_138401v180600p): OAM requirements",
+    "8.9.7 (ts_138401v180600p): Trace activation/deactivation over F1 and E1",
+    "6.2.4 (ts_138401v180600p): gNB-CU-UP ID",
+    "8.13.3 (ts_138401v180600p): Alignment of MDT and QoE Measurements",
+    "8.19.4.3 (ts_138401v180600p): Inter-gNB-CU switch from direct to indirect path",
+    "8.20 (ts_138401v180600p): Void",
+    "0 (ts_138401v180600p): .  Use r  c o ns e nt pr ov is i o ni ng",
+    "6.1.6 (ts_138401v180600p): Protocol stacks of  L2 UE-to-Network Relay",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.13.2.7 (ts_138401v180600p): Management based trace activation in MR-DC with 5GC",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "9.3.1.126 (ts_138473v180400p): Non Dynamic PQI Descriptor",
+    "36.331 (ts_138473v180400p): [41].",
+    "9.3.1.47 (ts_138473v180400p): Dynamic 5QI Descriptor",
+    "9.3.1.330 (ts_138473v180400p): CSI Resource Configuration",
+    "9.3.2.11 (ts_138473v180400p): Multicast F1-U Context Reference F1",
+    "9.3.1.127 (ts_138473v180400p): Dynamic PQI Descriptor",
+    "9.3.1.141 (ts_138473v180400p): TSC Traffic Characteristics",
+    "9.3.1.122 (ts_138473v180400p): PC5 QoS Parameters",
+    "9.3.1.45 (ts_138473v180400p): QoS Flow Level QoS Parameters",
+    "9.3.1.49 (ts_138473v180400p): Non Dynamic 5QI Descriptor",
+    "9.3.1.121 (ts_138473v180400p): PC5 QoS Flow Identifier",
+    "9.3.1.130 (ts_138473v180400p): Composite Available Capacity Group",
+    "9.3.1.302 (ts_138473v180400p): TSC Traffic Characteristics Feedback",
+    "9.3.1.346 (ts_138473v180400p): LTM Reset Information",
+    "9.3.1.175 (ts_138473v180400p): Requested SRS Transmission Characteristics",
+    "9.3.1.294 (ts_138473v180400p): LTM Configuration ID Mapping List",
+    "9.3.1.292 (ts_138473v180400p): Reference Configuration",
+    "9.4.2 (ts_138473v180400p): Usage of private message mechanism for non-standard use",
+    "9.5 (ts_138473v180400p): Message Transfer Syntax",
+    "8.14.13.1 (ts_138473v180400p): General",
+    "8.14.12.1 (ts_138473v180400p): General",
+    "9.3.2.8 (ts_138473v180400p): MBS Multicast F1-U Context Descriptor",
+    "9.3.1.272 (ts_138473v180400p): Multicast MBS Session List",
+    "9.3.2.10 (ts_138473v180400p): MBS PTP Retransmission Tunnel Required",
+    "9.3.1.345 (ts_138473v180400p): RAN Sharing Assistance Information",
+    "38.215 (ts_138473v180400p): [43]",
+    "9.2.12.7 (ts_138473v180400p): POSITIONING MEASUREMENT ABORT",
+    "10 (ts_138473v180400p): Handling of unknown, unforeseen and erroneous",
+    "8.13.20.1 (ts_138473v180400p): General",
+    "8.4.1.3 (ts_138473v180400p): Abnormal Conditions",
+    "8.11.2.1 (ts_138473v180400p): General",
+    "4.1 (ts_138473v180400p): Procedure specification principles",
+    "9.3.1.63 (ts_138473v180400p): QoS Flow Identifier",
+    "9.3.1.231 (ts_138473v180400p): Survival Time",
+    "9.3.1.115 (ts_138473v180400p): Control Plane Traffic Type",
+    "9.3.1.1 (ts_138473v180400p): Message Type",
+    "9.3.1.291 (ts_138473v180400p): LTM Cells To Be Released List",
+    "9.3.1.329 (ts_138473v180400p): Preamble Index List",
+    "9.3.1.19 (ts_138473v180400p): E-UTRAN QoS",
+    "9.3.1.260 (ts_138473v180400p): QoE Metrics",
+    "9.3.1.320 (ts_138473v180400p): N6 Jitter Information",
+    "9.3.1.51 (ts_138473v180400p): Packet Delay Budget",
+    "9.3.1.152 (ts_138473v180400p): M5 Configuration",
+    "9.3.1.145 (ts_138473v180400p): Extended Packet Delay Budget",
+    "9.2.14.7 (ts_138473v180400p): MULTICAST CONTEXT MODIFICATION REQUEST",
+    "9.2.14.8 (ts_138473v180400p): MULTICAST CONTEXT MODIFICATION RESPONSE",
+    "9.2.13.8 (ts_138473v180400p): BROADCAST CONTEXT MODIFICATION FAILURE",
+    "8.14.8.1 (ts_138473v180400p): General",
+    "8.14.12.2 (ts_138473v180400p): Successful Operation",
+    "9.3.1.134 (ts_138473v180400p): Slice Available Capacity",
+    "9.3.1.295 (ts_138473v180400p): Radio Resource Status NR-U",
+    "9.3.1.129 (ts_138473v180400p): Radio Resource Status",
+    "9.3.1.131 (ts_138473v180400p): Composite Available Capacity",
+    "9.3.1.132 (ts_138473v180400p): Cell Capacity Class Value",
+    "9.3.1.219 (ts_138473v180400p): gNB-CU MBS F1AP ID",
+    "9.3.1.263 (ts_138473v180400p): Path Switch Configuration",
+    "9.3.1.94 (ts_138473v180400p): Lower Layer Presence Status Change",
+    "9.3.1.46 (ts_138473v180400p): GBR QoS Flow Information",
+    "9.3.1.303 (ts_138473v180400p): TSC Feedback Information",
+    "9.3.1.301 (ts_138473v180400p): Periodicity Range",
+    "9.2.13.4 (ts_138473v180400p): BROADCAST CONTEXT RELEASE COMMAND",
+    "9.2.14.6 (ts_138473v180400p): MULTICAST CONTEXT RELEASE COMPLETE",
+    "9.2.14.5 (ts_138473v180400p): MULTICAST CONTEXT RELEASE COMMAND",
+    "9.2.13.5 (ts_138473v180400p): BROADCAST CONTEXT RELEASE COMPLETE",
+    "9.3.1.283 (ts_138473v180400p): Uplink TxDirectCurrentTwoCarrierList Information",
+    "9.2.14.19 (ts_138473v180400p): MULTICAST COMMON CONFIGURATION RESPONSE",
+    "9.2.14.16 (ts_138473v180400p): MULTICAST CONTEXT NOTIFICATION CONFIRM",
+    "9.2.14.15 (ts_138473v180400p): MULTICAST CONTEXT NOTIFICATION INDICATION",
+    "9.2.14.20 (ts_138473v180400p): MULTICAST COMMON CONFIGURATION REFUSE",
+    "9.2.4.2 (ts_138473v180400p): WRITE-REPLACE WARNING RESPONSE",
+    "9.2.2.13 (ts_138473v180400p): NOTIFY",
+    "8.14.12.3 (ts_138473v180400p): Unsuccessful Operation",
+    "9.2.14.1 (ts_138473v180400p): MULTICAST GROUP PAGING",
+    "9.2.1.3 (ts_138473v180400p): ERROR INDICATION",
+    "9.2.12.31 (ts_138473v180400p): MEASUREMENT PRECONFIGURATION CONFIRM",
+    "9.2.12.30 (ts_138473v180400p): MEASUREMENT PRECONFIGURATION REQUIRED",
+    "9.2.1.22 (ts_138473v180400p): RESOURCE STATUS FAILURE",
+    "9.2.12.33 (ts_138473v180400p): MEASUREMENT ACTIVATION",
+    "8.13.18.3 (ts_138473v180400p): Unsuccessful Operation",
+    "9.2.12.27 (ts_138473v180400p): PRS CONFIGURATION REQUEST",
+    "8.14.11.1 (ts_138473v180400p): General",
+    "9.2.12.4 (ts_138473v180400p): POSITIONING MEASUREMENT RESPONSE",
+    "9.3.1.256 (ts_138473v180400p): TRP Beam Antenna Information",
+    "9.3.1.184 (ts_138473v180400p): Geographical Coordinates",
+    "9.3.1.304 (ts_138473v180400p): Mobile TRP Location Information",
+    "9.2.12.3 (ts_138473v180400p): POSITIONING MEASUREMENT REQUEST",
+    "9.2.12.5 (ts_138473v180400p): POSITIONING MEASUREMENT FAILURE",
+    "9.2.12.8 (ts_138473v180400p): POSITIONING MEASUREMENT FAILURE INDICATION",
+    "9.2.12.6 (ts_138473v180400p): POSITIONING MEASUREMENT REPORT",
+    "8.13.5.4 (ts_138473v180400p): Abnormal Conditions",
+    "9.3.1.10 (ts_138473v180400p): Served Cell Information",
+    "9.3.1.328 (ts_138473v180400p): Early UL Sync Configuration",
+    "5.2.2 (ts_138473v180400p): in TS 38.470",
+    "9.3.1.339 (ts_138473v180400p): Validity Area specific SRS Information",
+    "38.213 (ts_138473v180400p): [31], clause 4.1.",
+    "4.3 (ts_138473v180400p): Specification notations",
+    "23.287 (ts_138473v180400p): [40].",
+    "9.3.1.317 (ts_138473v180400p): MBS Multicast Session Reception State",
+    "9.3.2.7 (ts_138473v180400p): BC Bearer Context F1-U TNL Info",
+    "9.3.1.309 (ts_138473v180400p): Associated Session ID",
+    "8.14.13.2 (ts_138473v180400p): Successful Operation",
+    "8.14.5.1 (ts_138473v180400p): General",
+    "9.2.1.9 (ts_138473v180400p): GNB-DU CONFIGURATION UPDATE FAILURE",
+    "9.2.1.12 (ts_138473v180400p): GNB-CU CONFIGURATION UPDATE FAILURE",
+    "9.2.9.8 (ts_138473v180400p): IAB UP CONFIGURATION UPDATE RESPONSE",
+    "9.2.9.6 (ts_138473v180400p): IAB TNL ADDRESS RESPONSE",
+    "8.10.4.3 (ts_138473v180400p): Unsuccessful Operation",
+    "9.2.9.7 (ts_138473v180400p): IAB UP CONFIGURATION UPDATE REQUEST",
+    "9.2.1.18 (ts_138473v180400p): F1 REMOVAL FAILURE",
+    "9.3.1.2 (ts_138473v180400p): Cause",
+    "9.3.1.332 (ts_138473v180400p): RSPP Transport QoS Parameters",
+    "9.3.1.21 (ts_138473v180400p): GBR QoS Information",
+    "9.3.1.72 (ts_138473v180400p): QoS Flow Mapping Indication",
+    "9.3.1.48 (ts_138473v180400p): NG-RAN Allocation and Retention Priority",
+    "9.3.1.125 (ts_138473v180400p): Alternative QoS Parameters Set List",
+    "8.14.3.1 (ts_138473v180400p): General",
+    "8.14.7.2 (ts_138473v180400p): Successful Operation",
+    "9.2.10.1 (ts_138473v180400p): ACCESS AND MOBILITY INDICATION",
+    "9.2.16.1 (ts_138473v180400p): QOE INFORMATION TRANSFER",
+    "8.3.6.2 (ts_138473v180400p): Successful Operation",
+    "9.3.1.53 (ts_138473v180400p): For details see TS 23.501 [21].",
+    "9.3.1.265 (ts_138473v180400p): PC5 RLC Channel ID",
+    "9.3.1.334 (ts_138473v180400p): Time Window Information Measurement List",
+    "9.2.15.6 (ts_138473v180400p): PDC MEASUREMENT FAILURE INDICATION",
+    "9.2.10.2 (ts_138473v180400p): DU-CU ACCESS AND MOBILITY INDICATION",
+    "9.2.4.6 (ts_138473v180400p): PWS FAILURE INDICATION",
+    "9.3.1.290 (ts_138473v180400p): Supported UE Type List",
+    "9.3.1.316 (ts_138473v180400p): Update ThresholdMBS-List Information",
+    "9.3.1.222 (ts_138473v180400p): MBS Service Area",
+    "9.3.1.218 (ts_138473v180400p): MBS Session ID",
+    "9.3.1.315 (ts_138473v180400p): Update MBS Multicast Neighbour Cell List Information",
+    "9.3.1.313 (ts_138473v180400p): MBS Multicast Configuration Notification",
+    "9.3.1.271 (ts_138473v180400p): gNB-DU UE Slice Maximum Bit Rate List",
+    "9.3.1.223 (ts_138473v180400p): MBS Service Area Information",
+    "9.3.1.194 (ts_138473v180400p): Positioning SRS Resource",
+    "9.3.1.195 (ts_138473v180400p): SRS Resource Set",
+    "9.3.1.196 (ts_138473v180400p): Positioning SRS Resource Set",
+    "9.3.1.333 (ts_138473v180400p): Time Window Information SRS List",
+    "9.3.1.193 (ts_138473v180400p): SRS Resource",
+    "9.3.1.340 (ts_138473v180400p): Requested SRS Preconfiguration Characteristics List",
+    "9.3.1.237 (ts_138473v180400p): PRS Transmission Off Information",
+    "9.3.1.181 (ts_138473v180400p): Spatial Relation Information",
+    "9.3.1.180 (ts_138473v180400p): SRS Resource Set ID",
+    "9.3.1.247 (ts_138473v180400p): SRS Resource type",
+    "9.3.1.177 (ts_138473v180400p): PRS Configuration",
+    "9.3.1.15 (ts_138473v180400p): Transmission Bandwidth",
+    "9.3.1.182 (ts_138473v180400p): SRS Resource Trigger",
+    "9.3.1.192 (ts_138473v180400p): SRS Configuration",
+    "9.3.1.203 (ts_138473v180400p): SSB Time/Frequency Configuration",
+    "9.3.1.210 (ts_138473v180400p): Spatial Relation Information per SRS Resource",
+    "9.3.1.235 (ts_138473v180400p): Requested DL PRS Transmission Characteristics",
+    "9.3.1.80 (ts_138473v180400p): E-UTRA Transmission Bandwidth",
+    "9.3.1.342 (ts_138473v180400p): SRS Periodicity",
+    "9.3.1.211 (ts_138473v180400p): CCO Assistance Information",
+    "9.3.1.343 (ts_138473v180400p): Tx Hopping Configuration",
+    "9.3.1.262 (ts_138473v180400p): SDT Information",
+    "9.3.1.240 (ts_138473v180400p): On-demand PRS TRP Information",
+    "9.3.1.168 (ts_138473v180400p): UL RTOA Measurement",
+    "9.3.1.255 (ts_138473v180400p): UE Reporting Information",
+    "9.2.1.21 (ts_138473v180400p): RESOURCE STATUS RESPONSE",
+    "9.2.1.13 (ts_138473v180400p): GNB-DU RESOURCE COORDINATION REQUEST",
+    "9.2.3.1 (ts_138473v180400p): INITIAL UL RRC MESSAGE TRANSFER",
+    "9.2.2.14 (ts_138473v180400p): ACCESS SUCCESS",
+    "32.422 (ts_138473v180400p): [29]",
+    "9.3.1.164 (ts_138473v180400p): Void",
+    "9.3.1.293 (ts_138473v180400p): Void",
+    "8.3.3.3 (ts_138473v180400p): Void",
+    "8.2.9.3 (ts_138473v180400p): Abnormal Conditions",
+    "9.3.1.251 (ts_138473v180400p): Void",
+    "9.3.1.61 (ts_138473v180400p): Void",
+    "9.2.1.7 (ts_138473v180400p): GNB-DU CONFIGURATION UPDATE",
+    "8.3.8.1 (ts_138473v180400p): General",
+    "8.3.8.2 (ts_138473v180400p): Successful Operation",
+    "9.3.1.123 (ts_138473v180400p): Alternative QoS Parameters Set Index",
+    "9.3.1.124 (ts_138473v180400p): Alternative QoS Parameters Set Notify Index",
+    "9.3.1.90 (ts_138473v180400p): Additional RRM Policy Index",
+    "9.3.1.54 (ts_138473v180400p): Maximum Data Burst Volume",
+    "9.3.1.52 (ts_138473v180400p): Packet Error Rate",
+    "9.3.1.319 (ts_138473v180400p): PDU Set QoS Information",
+    "9.3.1.22 (ts_138473v180400p): Bit Rate",
+    "9.3.1.50 (ts_138473v180400p): Maximum Packet Loss Rate",
+    "9.3.1.20 (ts_138473v180400p): Allocation and Retention Priority",
+    "9.3.1.34 (ts_138473v180400p): RAT-Frequency Priority Information",
+    "9.3.1.350 (ts_138473v180400p): Measurement Quantities",
+    "8.14.4.2 (ts_138473v180400p): Successful Operation",
+    "8.14.14.2 (ts_138473v180400p): Successful Operation",
+    "8.14.9.2 (ts_138473v180400p): Successful Operation",
+    "8.14.3.2 (ts_138473v180400p): Successful Operation",
+    "8.14.14.1 (ts_138473v180400p): General",
+    "8.18.1 (ts_138401v180600p): RACH based SDT",
+    "8.18.2 (ts_138401v180600p): CG based SDT",
+    "8.18 (ts_138401v180600p): Overall procedure for Small Data Transmission during RRC",
+    "8.9.10 (ts_138401v180600p): IAB-node release",
+    "8.9.12 (ts_138401v180600p): Handling of IAB-MT s in INACTIVE State",
+    "8.13.1 (ts_138401v180600p): Signalling based MDT activation",
+    "8.13.2.2 (ts_138401v180600p): Management based MD T Activation in gNB-CU-CP",
+    "9.3.1.3 (ts_138473v180400p): Criticality Diagnostics",
+    "8.2.4.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.2.5.3 (ts_138473v180400p): Unsuccessful Operation",
+    "38.455 (ts_138473v180400p): [37].",
+    "38.423 (ts_138473v180400p): [28] for",
+    "9.2.13.6 (ts_138473v180400p): BROADCAST CONTEXT MODIFICATION REQUEST",
+    "8.3.2.3 (ts_138473v180400p): Abnormal Conditions",
+    "9.2.2.5 (ts_138473v180400p): UE CONTEXT RELEASE COMMAND",
+    "8.3.3.1 (ts_138473v180400p): General",
+    "8.14.9.3 (ts_138473v180400p): Unsuccessful Operation",
+    "6.3.3.1 (ts_138473v180400p): in TS",
+    "6.3.3.2 (ts_138473v180400p): in TS",
+    "8.14.7.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.11.3 (ts_138473v180400p): Unsuccessful Operation",
+    "9.3.1.16 (ts_138473v180400p): Void",
+    "8.14.4.4 (ts_138473v180400p): Abnormal Conditions",
+    "8.2.12.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.14.2.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.14.3.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.2.13.3 (ts_138473v180400p): Unsuccessful Operation",
+    "38.104 (ts_138473v180400p): [17].",
+    "8.8.2.3 (ts_138473v180400p): Abnormal Conditions",
+    "8.2.11.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.15.2.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.3.10.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.13.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.6.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.5.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.4.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.7.3 (ts_138473v180400p): Unsuccessful Operation",
+    "9.3.1.140 (ts_138473v180400p): NR PRACH Configuration List",
+    "9.3.1.142 (ts_138473v180400p): TSC Assistance Information",
+    "36.211 (ts_138473v180400p): [27]",
+    "9.3.1.137 (ts_138473v180400p): NR Carrier List",
+    "8.13.13.2 (ts_138473v180400p): Successful Operation",
+    "8.13.6.2 (ts_138473v180400p): Successful Operation",
+    "8.5.4.2 (ts_138473v180400p): Successful Operation",
+    "8.11.2.2 (ts_138473v180400p): Successful Operation",
+    "8.2.7.2 (ts_138473v180400p): Successful Operation",
+    "8.2.14.2 (ts_138473v180400p): Successful Operation",
+    "8.5.3.2 (ts_138473v180400p): Successful Operation",
+    "8.2.4.4 (ts_138473v180400p): Abnormal Conditions",
+    "8.14.13.4 (ts_138473v180400p): Abnormal Conditions",
+    "8.14.11.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.14.14.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.14.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.14.8.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.15.4.3 (ts_138473v180400p): Unsuccessful Operation",
+    "9.2.1.15 (ts_138473v180400p): GNB-DU STATUS INDICATION",
+    "9.2.7.2 (ts_138473v180400p): DEACTIVATE TRACE",
+    "8.3.11.4 (ts_138473v180400p): Abnormal Conditions",
+    "9.3.1.23 (ts_138473v180400p): Transaction ID",
+    "8.9.10.2 (ts_138401v180600p): IAB-node disorderly release",
+    "8.9.10.1 (ts_138401v180600p): IAB-node orderly release",
+    "8.9.11 (ts_138401v180600p): IAB-node OAM",
+    "8.12.2 (ts_138401v180600p): NSA IAB Integration procedure",
+    "8.9.17.1 (ts_138401v180600p): IAB-node in NSA",
+    "8.13.2.5 (ts_138401v180600p): User consent propagation in EN-DC",
+    "8.12.3 (ts_138401v180600p): Mobile IAB-node integration",
+    "8.13.2.4 (ts_138401v180600p): Management based MD T Activation in gNB-CU-UP",
+    "8.13.2.3 (ts_138401v180600p): Management based MD T Activation in gNB-DU",
+    "8.13.2.6 (ts_138401v180600p): User consent propagation in MR-DC with 5GC",
+    "8.13.9.1 (ts_138473v180400p): General",
+    "8.11.1.1 (ts_138473v180400p): General",
+    "8.13.16.1 (ts_138473v180400p): General",
+    "8.3.6.1 (ts_138473v180400p): General",
+    "8.2.14.1 (ts_138473v180400p): General",
+    "8.2.10.1 (ts_138473v180400p): General",
+    "8.4.1.2 (ts_138473v180400p): Successful operation",
+    "8.2.13.1 (ts_138473v180400p): General",
+    "8.9.1.1 (ts_138473v180400p): General",
+    "8.9.2.1 (ts_138473v180400p): General",
+    "8.2.11.1 (ts_138473v180400p): General",
+    "9.2.12.26 (ts_138473v180400p): POSITIONING INFORMATION UPDATE",
+    "8.13.16.2 (ts_138473v180400p): Successful Operation",
+    "8.13.9.2 (ts_138473v180400p): Successful Operation",
+    "8.13.21.2 (ts_138473v180400p): Successful Operation",
+    "8.13.10.1 (ts_138473v180400p): General",
+    "8.14.2.2 (ts_138473v180400p): Successful Operation",
+    "9.2.1.10 (ts_138473v180400p): GNB-CU CONFIGURATION UPDATE",
+    "9.2.3.2 (ts_138473v180400p): DL RRC MESSAGE TRANSFER",
+    "9.2.1.5 (ts_138473v180400p): F1 SETUP RESPONSE",
+    "9.2.1.11 (ts_138473v180400p): GNB-CU CONFIGURATION UPDATE ACKNOWLEDGE",
+    "9.3.1.306 (ts_138473v180400p): RRC Terminating IAB-Donor Related Info",
+    "9.2.1.8 (ts_138473v180400p): GNB-DU CONFIGURATION UPDATE ACKNOWLEDGE",
+    "8.4.3.2 (ts_138473v180400p): Successful operation",
+    "8.13.4.1 (ts_138473v180400p): General",
+    "9.2.3.3 (ts_138473v180400p): UL RRC MESSAGE TRANSFER",
+    "9.2.3.4 (ts_138473v180400p): RRC DELIVERY REPORT",
+    "38.321 (ts_138473v180400p): [16]. For",
+    "8.10.2.2 (ts_138473v180400p): Successful Operation",
+    "8.6.1.2 (ts_138473v180400p): Successful Operation",
+    "8.10.0 (ts_138473v180400p): General",
+    "8.10.1.2 (ts_138473v180400p): Successful Operation",
+    "8.4.3.1 (ts_138473v180400p): General",
+    "8.7.1.2 (ts_138473v180400p): Successful Operation",
+    "8.2.6.1 (ts_138473v180400p): General",
+    "8.2.10.2 (ts_138473v180400p): Successful Operation",
+    "8.2.9.2 (ts_138473v180400p): Successful operation",
+    "8.10.4.2 (ts_138473v180400p): Successful Operation",
+    "8.13.9.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.17.1 (ts_138473v180400p): General",
+    "8.2.9.1 (ts_138473v180400p): General",
+    "8.8.1.1 (ts_138473v180400p): General",
+    "8.17.1.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.13.17.3 (ts_138473v180400p): Unsuccessful Operation",
+    "8.23.1 (ts_138401v180600p): Migration of mobile IAB-MT via Xn handover",
+    "8.23.3 (ts_138401v180600p): Mobile IAB-DU migration procedure",
+    "8.9.14 (ts_138401v180600p): Mobile IAB-node authorization",
+    "8.12.1 (ts_138401v180600p): Standalone IAB integration",
+    "8.23.4 (ts_138401v180600p): Mobile IAB-node RLF recovery",
+    "18 (ts_138401v180600p): of the IAB inter-CU backhaul RLF recovery procedure described in clause 8.17.4, where the mobile IAB-node",
+    "8.9.8 (ts_138401v180600p): BH RLC channel establishment procedure",
+    "8.9.16 (ts_138401v180600p): TAC/RANAC (re-)confi guration for mobile IAB",
+    "8.23.2 (ts_138401v180600p): Migration of mobile IAB-MT via NG handover",
+    "8.9.17.3 (ts_138401v180600p): IAB-node is served by two IAB-donors in SA",
+    "6.1.3 (ts_138401v180600p): Overall Architecture of IAB",
+    "8.17.3.2 (ts_138401v180600p): IAB inter-CU topology adaptation procedure with descendant IAB-node",
+    "8.17.1 (ts_138401v180600p): IAB Inter-donor-DU Re-routing",
+    "8.9.13 (ts_138401v180600p): IP Address Allocation for IAB-nodes",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.9.9.2 (ts_138401v180600p): BH RLC Channel Mapping on BAP Layer",
+    "38.340 (ts_138401v180600p): [22]. The traffic mapping information is configured by the IAB-donor-CU, which contains the IP header",
+    "8.13.7.1 (ts_138473v180400p): General",
+    "8.10.2.1 (ts_138473v180400p): General",
+    "9.3.1.5 (ts_138473v180400p): gNB-DU UE F1AP ID",
+    "9.3.1.4 (ts_138473v180400p): gNB-CU UE F1AP ID",
+    "9.3.1.220 (ts_138473v180400p): gNB-DU MBS F1AP ID",
+    "8.11.1.2 (ts_138473v180400p): Successful Operation",
+    "8.3.7.2 (ts_138473v180400p): Successful Operation",
+    "8.8.3.2 (ts_138473v180400p): Successful Operation",
+    "8.14.11.2 (ts_138473v180400p): Successful Operation",
+    "8.14.8.2 (ts_138473v180400p): Successful Operation"
+  ]
+}

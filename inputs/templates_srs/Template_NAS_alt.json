@@ -1,0 +1,92 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "NAS_Service_View": {
+    "Domain": "",
+    "Direction": "",
+    "Service_Type": ""
+  },
+
+  "NAS_Procedure_View": [
+    {
+      "Procedure_Name": "",
+      "Phase": "",
+      "Entry_Condition": "",
+      "Exit_Condition": "",
+      "Success_Criteria": ""
+    }
+  ],
+
+  "NAS_Message_View": [
+    {
+      "Message_Name": "",
+      "Direction": "",
+      "Associated_Procedure": "",
+      "Security_Level": "",
+      "Key_Information_Elements": []
+    }
+  ],
+
+  "NAS_Security_And_Context": [
+    {
+      "Context_Field": "",
+      "Scope": "",
+      "Protection_Level": "",
+      "Update_Trigger": ""
+    }
+  ],
+
+  "NAS_Timers_And_Retry_Behavior": [
+    {
+      "Timer_Name": "",
+      "Start_Condition": "",
+      "Expiry_Behavior": "",
+      "Max_Retries": ""
+    }
+  ],
+
+  "Interworking_With_RRC_And_Core": [
+    {
+      "Peer": "",
+      "Interface": "",
+      "Information_Exchanged": [],
+      "Dependency_On_Peer_State": ""
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "srsRAN NAS / NGAP handling",
+      "Code_Instructions": [
+        {
+          "type": "",
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C++",
+    "Build_System": "CMake",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

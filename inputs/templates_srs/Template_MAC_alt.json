@@ -1,0 +1,92 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "MAC_Feature_Scope": {
+    "Service_Type": "",
+    "Direction": "",
+    "Cell_Scope": [],
+    "UE_Scope": []
+  },
+
+  "MAC_PDU_View": [
+    {
+      "PDU_Type": "",
+      "Direction": "",
+      "Header_Fields": [],
+      "Payload_Fields": [],
+      "Related_Procedures": []
+    }
+  ],
+
+  "MAC_Scheduler_View": [
+    {
+      "Scenario": "",
+      "Scheduling_Inputs": [],
+      "Decision_Logic": [],
+      "Resource_Allocation_Output": []
+    }
+  ],
+
+  "MAC_Error_And_Retransmission": [
+    {
+      "Condition": "",
+      "HARQ_Behavior": "",
+      "RLC_Impact": "",
+      "Recovery_Action": ""
+    }
+  ],
+
+  "MAC_Metrics_And_Tracing": [
+    {
+      "Metric_Name": "",
+      "Collection_Point": "",
+      "Aggregation_Rule": "",
+      "Usage": ""
+    }
+  ],
+
+  "Interlayer_Interactions": [
+    {
+      "Target_Layer": "",
+      "Primitive_or_Message": "",
+      "Direction": "",
+      "Purpose": ""
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "srsRAN MAC",
+      "Code_Instructions": [
+        {
+          "type": "",
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C++",
+    "Build_System": "CMake",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

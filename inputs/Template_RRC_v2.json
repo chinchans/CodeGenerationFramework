@@ -1,0 +1,83 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "RRC_Configuration_View": {
+    "Configuration_Type": "",          
+    "Applies_To": "",                  
+    "Activation_Condition": ""
+  },
+
+  "RRC_Config_Elements": [
+    {
+      "Config_IE_Name": "",
+      "Config_IE_Definition": "",
+      "Config_Category": "",           
+      "Related_Timers": [],
+      "Related_States": []
+    }
+  ],
+
+  "RRC_Procedure_Steps": [
+    {
+      "Step_Index": 1,
+      "State_Before": "",
+      "State_After": "",
+      "Message_Sent": "",
+      "Message_Received": "",
+      "Key_Decisions": []
+    }
+  ],
+
+  "Interlayer_Interactions": [
+    {
+      "Target_Layer": "",              
+      "Primitive_or_Message": "",
+      "Direction": "",                 
+      "Purpose": ""
+    }
+  ],
+
+  "Error_And_Exception_Handling": [
+    {
+      "Condition": "",                 
+      "Recovery_Action": "",
+      "Notification_To": ""            
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OAI NR RRC",
+      "Code_Instructions": [
+        {
+          "type": "",                  
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

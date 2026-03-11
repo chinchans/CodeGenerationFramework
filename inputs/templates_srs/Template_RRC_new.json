@@ -1,0 +1,99 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "RRC_Scope": {
+    "Service_Type": "",
+    "Direction": "",
+    "UE_State_Impact": []
+  },
+
+  "RRC_Messages": [
+    {
+      "Message_Name": "",
+      "Direction": "",
+      "Purpose": "",
+      "Trigger_Condition": ""
+    }
+  ],
+
+  "RRC_States_And_Transitions": [
+    {
+      "From_State": "",
+      "To_State": "",
+      "Condition": "",
+      "Description": ""
+    }
+  ],
+
+  "RRC_Timers_And_Constants": [
+    {
+      "Name": "",
+      "Value": "",
+      "Role": "",
+      "Spec_Reference": ""
+    }
+  ],
+
+  "RRC_Configuration_Elements": [
+    {
+      "Config_IE_Name": "",
+      "Config_IE_Definition": "",
+      "Config_Category": "",
+      "Related_Timers": [],
+      "Related_States": []
+    }
+  ],
+
+  "Interlayer_Interactions": [
+    {
+      "Target_Layer": "",
+      "Primitive_or_Message": "",
+      "Direction": "",
+      "Purpose": ""
+    }
+  ],
+
+  "Error_And_Exception_Handling": [
+    {
+      "Condition": "",
+      "Recovery_Action": "",
+      "Notification_To": ""
+    }
+  ],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "srsRAN RRC",
+      "Code_Instructions": [
+        {
+          "type": "",
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "C++",
+    "Build_System": "CMake",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}
