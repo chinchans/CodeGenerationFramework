@@ -1,0 +1,1128 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-30T09:15:22.517676",
+    "user_query": "gNB-CU has to prepare and send F1AP 'UE CONTEXT MODIFICATION REQUEST' message to the source gNB-DU and Source gNB-DU responds with a 'UE CONTEXT MODIFICATION RESPONSE' message and this message has to be handled on gNB-CU for the LTM handover procedure\nTarget message: UE CONTEXT MODIFICATION RESPONSE",
+    "feature_name": "UE CONTEXT MODIFICATION RESPONSE",
+    "num_semantic_chunks": 10,
+    "total_related_nodes": 59
+  },
+  "semantic_chunks": [
+    {
+      "chunk_id": "7934",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8947699760694814,
+      "rank": 1,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_req_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_req_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 544,
+        "line_end": 568
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "12278",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8939705191472522,
+      "rank": 2,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB_S1AP.c__rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+        "line_start": 997,
+        "line_end": 1051
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "7936",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_req_t",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8865701338971905,
+      "rank": 3,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_mod_req_t",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_req_t",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_mod_req_t",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 585,
+        "line_end": 611
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "12607",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8822954890133303,
+      "rank": 4,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_CU_process_ue_context_modification_response",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_CU_process_ue_context_modification_response",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 2240,
+        "line_end": 2290
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "8857",
+      "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8821825599838746,
+      "rank": 5,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_du_ue_context_management.c__DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "chunk_type": "FUNCTION",
+        "name": "DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "file_path": "openair2\\F1AP\\f1ap_du_ue_context_management.c",
+        "line_start": 159,
+        "line_end": 277
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "12627",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8794278924161301,
+      "rank": 6,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_generate_UeContextModificationRequest",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_generate_UeContextModificationRequest",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 3087,
+        "line_end": 3128
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "8131",
+      "node_id": "struct:openair2\\COMMON\\ngap_messages_types.h::ngap_ue_ctxt_modification_resp_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8766955953624329,
+      "rank": 7,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\ngap_messages_types.h__ngap_ue_ctxt_modification_resp_s",
+        "node_id": "struct:openair2\\COMMON\\ngap_messages_types.h::ngap_ue_ctxt_modification_resp_s",
+        "chunk_type": "STRUCT",
+        "name": "ngap_ue_ctxt_modification_resp_s",
+        "file_path": "openair2\\COMMON\\ngap_messages_types.h",
+        "line_start": 521,
+        "line_end": 523
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "8825",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8764783133829464,
+      "rank": 8,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+        "chunk_type": "FUNCTION",
+        "name": "CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 309,
+        "line_end": 369
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "7939",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_modif_required_t",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8754872244019292,
+      "rank": 9,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_modif_required_t",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_modif_required_t",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_modif_required_t",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 634,
+        "line_end": 640
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    },
+    {
+      "chunk_id": "7937",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_resp",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8744984314185285,
+      "rank": 10,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_mod_resp",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_resp",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_mod_resp",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 613,
+        "line_end": 624
+      },
+      "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+    }
+  ],
+  "expanded_chunks": {
+    "depth_1": [
+      {
+        "chunk_id": "8861",
+        "node_id": "function:openair2\\F1AP\\f1ap_encoder.c::f1ap_encode_pdu",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_encode_pdu",
+          "file_path": "openair2\\F1AP\\f1ap_encoder.c",
+          "line_range": [
+            31,
+            61
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "8887",
+        "node_id": "function:openair2\\F1AP\\f1ap_itti_messaging.c::f1ap_itti_send_sctp_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_itti_send_sctp_data_req",
+          "file_path": "openair2\\F1AP\\f1ap_itti_messaging.c",
+          "line_range": [
+            25,
+            35
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "123",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "copy_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            38,
+            41
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "1471",
+        "node_id": "function:common\\utils\\utils.h::calloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "calloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            72,
+            82
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "9073",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_ue_context_mod_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            2018,
+            2039
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12612",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_drb_to_be_setup_from_e1_resp",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2400,
+            2455
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "8874",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cu_get_f1_ue_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            99,
+            106
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12269",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_process_security",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            409,
+            449
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12266",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context_from_s1ap_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            347,
+            361
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12165",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_generate_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            1031,
+            1062
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12270",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::process_eNB_security_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "process_eNB_security_key",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            458,
+            478
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12140",
+        "node_id": "struct:openair2\\RRC\\LTE\\rrc_defs.h::rrc_eNB_ue_context_s",
+        "chunk_type": "struct",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_uses_struct",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_ue_context_s",
+          "file_path": "openair2\\RRC\\LTE\\rrc_defs.h",
+          "line_range": [
+            659,
+            673
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12571",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            662,
+            687
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12600",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::store_du_f1u_tunnel",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "store_du_f1u_tunnel",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2029,
+            2038
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12601",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "e1_send_bearer_updates",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2042,
+            2080
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12755",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_UE_context.c::rrc_gNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_get_ue_context",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_UE_context.c",
+          "line_range": [
+            90,
+            97
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "8873",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::cu_update_f1_ue_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_CU_process_ue_context_modification_response",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cu_update_f1_ue_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            87,
+            97
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      }
+    ],
+    "depth_2": [
+      {
+        "chunk_id": "12569",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_RRCReconfiguration_params",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            561,
+            649
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "124",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::free_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            43,
+            46
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12552",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::nr_rrc_transfer_protected_rrc_message",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_transfer_protected_rrc_message",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            188,
+            211
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12570",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_encode_RRCReconfiguration",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_encode_RRCReconfiguration",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            651,
+            660
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12568",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::free_RRCReconfiguration_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_RRCReconfiguration_params",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            550,
+            558
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12263",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_S1AP_get_ue_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_S1AP_get_ue_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            154,
+            267
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12300",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_UE_context.c::rrc_eNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_UE_context.c",
+          "line_range": [
+            91,
+            114
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "8866",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::get_hashtable_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_hashtable_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            32,
+            38
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "122",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::create_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "create_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            28,
+            36
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12155",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            541,
+            551
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12046",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3203,
+            3254
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12014",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface_common.c::rrc_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_data_req",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface_common.c",
+          "line_range": [
+            47,
+            92
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12267",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_ciphering",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_ciphering",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            368,
+            381
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12268",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_integrity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_integrity",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            388,
+            398
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12740",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::get_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::store_du_f1u_tunnel",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_drb",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            77,
+            83
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12599",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::f1u_gtp_update",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::store_du_f1u_tunnel",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1u_gtp_update",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2017,
+            2024
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12737",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::find_pduSession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_pduSession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            44,
+            57
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "1472",
+        "node_id": "function:common\\utils\\utils.h::malloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "malloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            84,
+            94
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12610",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_characteristics",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_characteristics",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2363,
+            2372
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12611",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_char_from_qos_flow_param",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_char_from_qos_flow_param",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2375,
+            2396
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12631",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_cuup.c::is_cuup_associated",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "is_cuup_associated",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_cuup.c",
+          "line_range": [
+            99,
+            107
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12633",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_cuup.c::get_existing_cuup_for_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_existing_cuup_for_ue",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_cuup.c",
+          "line_range": [
+            115,
+            121
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12738",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::find_pduSession_from_drbId",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_pduSession_from_drbId",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            59,
+            69
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12575",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::find_or_next_pdu_session",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_or_next_pdu_session",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            817,
+            828
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12574",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_security_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_security_info",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            804,
+            810
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "12598",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_e1_bearer_modif",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::e1_send_bearer_updates",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_e1_bearer_modif",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2009,
+            2015
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "9006",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            281,
+            284
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "8994",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            133,
+            139
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "9049",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_to_release",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_to_release",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1109,
+            1112
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "9037",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            917,
+            925
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "165",
+        "node_id": "function:common\\utils\\hashtable\\hashtable.c::hashtable_remove",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_ids.c::cu_update_f1_ue_data",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "hashtable_remove",
+          "file_path": "common\\utils\\hashtable\\hashtable.c",
+          "line_range": [
+            248,
+            277
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      },
+      {
+        "chunk_id": "8867",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::add_hashtable_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_ids.c::cu_update_f1_ue_data",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "add_hashtable_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            40,
+            47
+          ]
+        },
+        "target_message_name": "UE CONTEXT MODIFICATION RESPONSE"
+      }
+    ]
+  }
+}

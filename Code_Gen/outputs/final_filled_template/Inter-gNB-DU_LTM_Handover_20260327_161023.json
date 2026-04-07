@@ -1,0 +1,428 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER",
+  "Feature_Name": "Inter-gNB-DU LTM Handover",
+  "Release": "18",
+  "3GPP_Reference": {
+    "Spec": "TS 38.473, TS 38.401",
+    "Title": "5G; NG-RAN; F1 Application Protocol (F1AP), 5G; NG-RAN; Architecture description",
+    "Section": "8.3.1.2, 8.3.1.3 (TS 38.473), 8.2.1.5 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "The Inter-gNB-DU LTM (L1/L2 Triggered Mobility) handover procedure is used when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation. This procedure involves the gNB-CU initiating the UE Context Setup procedure with a candidate gNB-DU to prepare for the LTM handover.",
+    "The UE Context Setup procedure's purpose is to establish the UE Context including, among others, SRB, DRB, BH RLC channel, Uu Relay RLC channel, PC5 Relay RLC channel, and SL DRB configuration. If no UE-associated logical F1-connection exists, it shall be established as part of the procedure."
+  ],
+  "Feature_Objectives": [
+    "To enable seamless mobility of a UE between different gNB-DUs under the same gNB-CU using L1/L2 Triggered Mobility (LTM).",
+    "To establish the UE context and necessary radio bearer configurations in the candidate gNB-DU for the LTM handover.",
+    "To facilitate early synchronization and LTM configuration exchange between the gNB-CU and candidate gNB-DU."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP (Control Plane)",
+      "F1-U (User Plane)",
+      "RRC (Radio Resource Control)"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C (gNB-CU to gNB-DU control plane)",
+      "F1-U (gNB-CU to gNB-DU user plane)",
+      "Uu (UE to gNB-DU radio interface)"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "MeasurementReport (L3 measurement result)",
+      "Actors": [
+        "UE",
+        "Source gNB-DU"
+      ],
+      "From": "UE",
+      "To": "Source gNB-DU"
+    },
+    {
+      "Message": "UL RRC MESSAGE TRANSFER (MeasurementReport)",
+      "Actors": [
+        "Source gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Source gNB-DU",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "LTM Configuration Decision",
+      "Actors": [
+        "gNB-CU"
+      ],
+      "From": "gNB-CU",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "Candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "1. The UE sends a MeasurementReport message (L3 measurement result) to the source gNB-DU containing measurements of neighbouring cells. The source gNB-DU sends an UL RRC MESSAGE TRANSFER message conveying the received MeasurementReport message to the gNB-CU.",
+    "2. The gNB-CU determines to initiate LTM configuration.",
+    "3. The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s). The gNB-CU may request PRACH resources from the candidate gNB-DU(s). The gNB-CU may request the candidate gNB-DU(s) to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer part of the reference configuration to the candidate gNB-DU(s).",
+    "4. If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP RESPONSE message including the generated lower layer RRC configurations for the accepted target candidate cell."
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_req_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 544,
+          "description": "Data structure defining the format and Information Elements (IEs) of the F1AP UE Context Setup Request message. This is crucial for constructing the message on the gNB-CU side and parsing it on the gNB-DU side."
+        },
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_resp_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 570,
+          "description": "Data structure defining the format and Information Elements (IEs) of the F1AP UE Context Setup Response message. This is essential for constructing the response on the gNB-DU side and parsing it on the gNB-CU side."
+        },
+        {
+          "type": "helper_function",
+          "function_name": "ue_context_setup_request_f1ap",
+          "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+          "line_start": 79,
+          "description": "A helper function likely responsible for encoding or preparing the F1AP UE Context Setup Request message for transmission, potentially handling the interface between the RRC layer and the F1AP protocol stack for downlink messages.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_req_s"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_generate_UeContextSetupRequest",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 3032,
+          "description": "This function is a building block for generating the RRC-specific content and configurations (e.g., SRB, DRB, RLC channel configurations) that will be included as Information Elements within the F1AP UE Context Setup Request message.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_req_s"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "ue_context_setup_response_f1ap",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_f1ap.c",
+          "line_start": 89,
+          "description": "A helper function likely responsible for decoding or processing the received F1AP UE Context Setup Response message, extracting relevant information for the RRC layer and handling the interface for uplink messages.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_resp_s"
+          ]
+        }
+      ]
+    }
+  ],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UEContextSetupRequestIEs",
+      "IE_Definition": "The complete ASN.1 definition for UEContextSetupRequestIEs is not available in the provided context. It is a container for various IEs, including those related to LTM.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMInformationSetupIE",
+      "IE_Definition": "The complete ASN.1 definition for LTMInformationSetupIE is not available in the provided context. It is used to convey LTM setup information.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationIDMappingListIE",
+      "IE_Definition": "The complete ASN.1 definition for LTMConfigurationIDMappingListIE is not available in the provided context. It provides mapping information for LTM candidate cell(s).",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlySyncInformationRequestIE",
+      "IE_Definition": "The complete ASN.1 definition for EarlySyncInformationRequestIE is not available in the provided context. It is used to request early TA acquisition information.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SpCellIDIE",
+      "IE_Definition": "The complete ASN.1 definition for SpCellIDIE is not available in the provided context. It identifies the SpCell for which LTM is requested.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMIndicatorIE",
+      "IE_Definition": "The complete ASN.1 definition for LTMIndicatorIE is not available in the provided context. It indicates whether the request concerns LTM.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ReferenceConfigurationIE",
+      "IE_Definition": "The complete ASN.1 definition for ReferenceConfigurationIE is not available in the provided context. It is contained within LTMInformationSetupIE and may include request for or provision of lower layer configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CSIResourceConfigurationIE",
+      "IE_Definition": "The complete ASN.1 definition for CSIResourceConfigurationIE is not available in the provided context. It is used to generate LTM CSI reporting configuration(s).",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestForLowerLayerConfigurationIE",
+      "IE_Definition": "The complete ASN.1 definition for RequestForLowerLayerConfigurationIE is not available in the provided context. When set to 'true', it requests the gNB-DU to provide lower layer configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ReferenceConfigurationInformationIE",
+      "IE_Definition": "The complete ASN.1 definition for ReferenceConfigurationInformationIE is not available in the provided context. It provides the lower layer configuration for generating the LTM reference configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UEContextSetupResponseIEs",
+      "IE_Definition": "The complete ASN.1 definition for UEContextSetupResponseIEs is not available in the provided context. It is a container for various IEs, including those related to LTM.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationIE",
+      "IE_Definition": "The complete ASN.1 definition for LTMConfigurationIE is not available in the provided context. It conveys the generated configuration for LTM from the accepted candidate cell.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlySyncInformationIE",
+      "IE_Definition": "The complete ASN.1 definition for EarlySyncInformationIE is not available in the provided context. It contains information for early TA acquisition (early UL synchronisation).",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestedTargetCellIDIE",
+      "IE_Definition": "The complete ASN.1 definition for RequestedTargetCellIDIE is not available in the provided context. It indicates the target cell ID requested by the gNB-CU.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CompleteCandidateConfigurationIndicatorIE",
+      "IE_Definition": "The complete ASN.1 definition for CompleteCandidateConfigurationIndicatorIE is not available in the provided context. When set to 'complete', it indicates that the LTM candidate configuration is a complete candidate configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlyULSyncConfigurationIE",
+      "IE_Definition": "The complete ASN.1 definition for EarlyULSyncConfigurationIE is not available in the provided context. It contains the generated early UL sync information from the accepted candidate cell.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlyULSyncConfigurationForSULIE",
+      "IE_Definition": "The complete ASN.1 definition for EarlyULSyncConfigurationForSULIE is not available in the provided context. It contains the generated early UL sync information for SUL from the accepted candidate cell.",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "The context mentions RRCReconfiguration message being included in DL RRC MESSAGE TRANSFER and RRCReconfigurationComplete in UL RRC MESSAGE TRANSFER. These are RRC messages piggy-backed in F1AP messages during the LTM procedure.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "RRCReconfiguration",
+      "Piggy_Backed_IE_Type": "RRC Message",
+      "Source_IE_Name": "DL RRC MESSAGE TRANSFER",
+      "Source_IE_Type": "F1AP Message"
+    },
+    {
+      "Piggy_Backed_IE_Name": "RRCReconfigurationComplete",
+      "Piggy_Backed_IE_Type": "RRC Message",
+      "Source_IE_Name": "UL RRC MESSAGE TRANSFER",
+      "Source_IE_Type": "F1AP Message"
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "Python",
+    "Build_System": "Unknown",
+    "Repo_Path": ".",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Unknown"
+  },
+  "Knowledge_Hints": [
+    "10 (ts_138473v180600p): Handling of unknown, unforeseen and erroneous protocol data",
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.15.2 (ts_138401v180600p): Mobility procedure for Multicast",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU",
+    "9.4 (ts_138473v180600p): Message and Information Element Abstract Syntax (with ASN.1)",
+    "8.3.1.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.1.1 (ts_138473v180600p): General",
+    "8.3.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3 (ts_138473v180600p): UE Context Management procedures",
+    "8.3.1.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.3 (ts_138473v180600p): UE Context Release (gNB-CU initiated)",
+    "8.3.2 (ts_138473v180600p): UE Context Release Request (gNB-DU initiated)",
+    "8.3.9 (ts_138473v180600p): DU-CU Cell Switch Notification",
+    "8.3.10 (ts_138473v180600p): CU-DU Cell Switch Notification",
+    "8.3.8 (ts_138473v180600p): Access Success",
+    "8.3.5 (ts_138473v180600p): UE Context Modification Required (gNB-DU initiated)",
+    "8.3.7 (ts_138473v180600p): Notify",
+    "8.3.11 (ts_138473v180600p): CU-DU Mobility Initiation",
+    "8.3.4 (ts_138473v180600p): UE Context Modification (gNB-CU initiated)",
+    "8.3.6 (ts_138473v180600p): UE Inactivity Notification",
+    "9.2.2.3 (ts_138473v180600p): UE CONTEXT SETUP FAILURE",
+    "9.2.2.1 (ts_138473v180600p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.2 (ts_138473v180600p): UE CONTEXT SETUP RESPONSE",
+    "9.4.7 (ts_138473v180600p): Constant Definitions",
+    "9.4.4 (ts_138473v180600p): PDU Definitions",
+    "9.4.8 (ts_138473v180600p): Container Definitions",
+    "9 (ts_138473v180600p): Elements for F1AP Communication",
+    "9.4.2 (ts_138473v180600p): Usage of private message mechanism for non-standard use",
+    "9.4.5 (ts_138473v180600p): Information Element Definitions",
+    "9.4.3 (ts_138473v180600p): Elementary Procedure Definitions",
+    "9.4.1 (ts_138473v180600p): General",
+    "9.6 (ts_138473v180600p): Timers",
+    "9.5 (ts_138473v180600p): Message Transfer Syntax",
+    "9.2 (ts_138473v180600p): Message Functional Definition and Content",
+    "9.1 (ts_138473v180600p): General",
+    "9.3 (ts_138473v180600p): Information Element Definitions",
+    "8.3.4.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.3.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.4.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.5.1 (ts_138473v180600p): General",
+    "8.3.4.1 (ts_138473v180600p): General",
+    "8.3.2.1 (ts_138473v180600p): General",
+    "8.3.3.1 (ts_138473v180600p): General",
+    "8.7.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3.3.2 (ts_138473v180600p): Successful Operation",
+    "8.3.2.2 (ts_138473v180600p): Successful Operation",
+    "8.3.4.2 (ts_138473v180600p): Successful Operation",
+    "8.3.5.2 (ts_138473v180600p): Successful Operation",
+    "8 (ts_138473v180600p): F1AP procedures",
+    "8.1 (ts_138473v180600p): List of F1AP Elementary procedures",
+    "8.9 (ts_138473v180600p): Radio Information Transfer procedures",
+    "8.16 (ts_138473v180600p): QMC Procedures",
+    "8.6 (ts_138473v180600p): System Information Procedures",
+    "8.8 (ts_138473v180600p): Trace Procedures",
+    "8.5 (ts_138473v180600p): Warning Message Transmission Procedures",
+    "8.14 (ts_138473v180600p): NR MBS Procedures",
+    "8.15 (ts_138473v180600p): PDC Measurement Reporting procedures",
+    "8.13 (ts_138473v180600p): Positioning Procedures",
+    "8.4 (ts_138473v180600p): RRC Message Transfer procedures",
+    "8.10 (ts_138473v180600p): IAB Procedures",
+    "8.12 (ts_138473v180600p): Reference Time Information Reporting procedures",
+    "8.7 (ts_138473v180600p): Paging procedures",
+    "8.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Procedures",
+    "8.11 (ts_138473v180600p): Self Optimisation Support procedures",
+    "8.2.3.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.2.3 (ts_138473v180600p): Abnormal Conditions",
+    "9.2.2.4 (ts_138473v180600p): UE CONTEXT RELEASE REQUEST",
+    "8.3.9.2 (ts_138473v180600p): Successful Operation",
+    "8.3.9.1 (ts_138473v180600p): General",
+    "8.3.9.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.9.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.2 (ts_138473v180600p): Successful Operation",
+    "8.3.10.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.10.1 (ts_138473v180600p): General",
+    "8.3.8.1 (ts_138473v180600p): General",
+    "8.3.8.2 (ts_138473v180600p): Successful Operation",
+    "8.3.8.3 (ts_138473v180600p): Abnormal Conditions",
+    "9.2.2.14 (ts_138473v180600p): ACCESS SUCCESS",
+    "8.3.5.3 (ts_138473v180600p): Abnormal Conditions",
+    "9.2.2.11 (ts_138473v180600p): UE CONTEXT MODIFICATION CONFIRM",
+    "8.3.7.2 (ts_138473v180600p): Successful Operation",
+    "8.3.7.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.7.1 (ts_138473v180600p): General",
+    "9.2.2.13 (ts_138473v180600p): NOTIFY",
+    "9.2.2.12 (ts_138473v180600p): UE INACTIVITY NOTIFICATION",
+    "8.3.11.2 (ts_138473v180600p): Successful Operation",
+    "8.3.11.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.11.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.11.1 (ts_138473v180600p): General",
+    "8.3.6.2 (ts_138473v180600p): Successful Operation",
+    "8.3.6.1 (ts_138473v180600p): General",
+    "8.3.6.3 (ts_138473v180600p): Abnormal Conditions",
+    "9.2.2 (ts_138473v180600p): UE Context Management messages",
+    "9.2.2.5 (ts_138473v180600p): UE CONTEXT RELEASE COMMAND",
+    "9.2.2.7 (ts_138473v180600p): UE CONTEXT MODIFICATION REQUEST",
+    "9.2.2.17 (ts_138473v180600p): CU-DU MOBILITY INITIATION REQUEST",
+    "9.2.2.15 (ts_138473v180600p): DU-CU CELL SWITCH NOTIFICATION",
+    "9.2.2.9 (ts_138473v180600p): UE CONTEXT MODIFICATION FAILURE",
+    "9.2.2.6 (ts_138473v180600p): UE CONTEXT RELEASE COMPLETE",
+    "9.2.2.8 (ts_138473v180600p): UE CONTEXT MODIFICATION RESPONSE",
+    "9.2.2.16 (ts_138473v180600p): CU-DU CELL SWITCH NOTIFICATION",
+    "1 (ts_138473v180600p): Scope",
+    "4.1 (ts_138473v180600p): Procedure specification principles",
+    "9.2.4 (ts_138473v180600p): Warning Message Transmission Messages",
+    "9.2.11 (ts_138473v180600p): Reference Time Information Reporting messages",
+    "9.2.1 (ts_138473v180600p): Interface Management messages",
+    "9.2.15 (ts_138473v180600p): PDC Measurement Reporting messages",
+    "9.2.9 (ts_138473v180600p): IAB messages",
+    "9.2.12 (ts_138473v180600p): Messages for Positioning Procedures",
+    "9.2.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Messages",
+    "9.2.14 (ts_138473v180600p): Multicast Context Management messages",
+    "9.2.10 (ts_138473v180600p): Self Optimisation Support Messages",
+    "9.2.8 (ts_138473v180600p): Radio Information Transfer messages",
+    "9.2.16 (ts_138473v180600p): QMC messages",
+    "9.2.3 (ts_138473v180600p): RRC Message Transfer messages",
+    "9.2.13 (ts_138473v180600p): Broadcast Context Management messages",
+    "9.2.6 (ts_138473v180600p): Paging messages",
+    "9.2.7 (ts_138473v180600p): Trace Messages",
+    "8.14.8.1 (ts_138473v180600p): General",
+    "8.14.9.1 (ts_138473v180600p): General",
+    "8.14.10.1 (ts_138473v180600p): General",
+    "8.14.14.1 (ts_138473v180600p): General",
+    "9.3.1 (ts_138473v180600p): Radio Network Layer Related IEs",
+    "9.3.2 (ts_138473v180600p): Transport Network Layer Related IEs"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "NAS_Scope": {
+    "Node_Type": "",
+    "NAS_Domain": "",
+    "Direction": ""
+  },
+
+  "NAS_States_And_Transitions": [
+    {
+      "Source_State": "",
+      "Target_State": "",
+      "Trigger": "",
+      "Impact": ""
+    }
+  ],
+
+  "NAS_Messages": [
+    {
+      "Message_Name": "",
+      "Procedure_Type": "",
+      "Direction": "",
+      "Purpose": "",
+      "Key_IEs": [
+        {
+          "IE_Name": "",
+          "IE_Definition": "",
+          "Mandatory_or_Optional": ""
+        }
+      ]
+    }
+  ],
+
+  "NAS_Procedures": [
+    {
+      "Procedure_Name": "",
+      "Trigger_Condition": "",
+      "Description": ""
+    }
+  ],
+
+  "NAS_Timers_And_Constants": [
+    {
+      "Name": "",
+      "Value": "",
+      "Role": "",
+      "Spec_Reference": ""
+    }
+  ],
+
+  "Security_And_Context": {
+    "Security_Mode_Impact": "",
+    "UE_Or_Session_Context_Changes": ""
+  },
+
+  "Interlayer_Interactions": [
+    {
+      "Target_Layer": "",
+      "Primitive_or_Message": "",
+      "Direction": "",
+      "Purpose": ""
+    }
+  ],
+
+  "Call_Flow": [
+    {
+      "Message": "",
+      "Actors": [],
+      "From": "",
+      "To": ""
+    }
+  ],
+
+  "Procedure_Implementation_Steps": [],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "",
+      "Code_Instructions": [
+        {
+          "type": "",
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

@@ -1,0 +1,100 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "MAC_Scope": {
+    "Service_Type": "",
+    "Direction": "",
+    "Traffic_Type": ""
+  },
+
+  "MAC_Channels_And_LCs": [
+    {
+      "Logical_Channel": "",
+      "Channel_Type": "",
+      "Priority": "",
+      "Mapped_DRBs": []
+    }
+  ],
+
+  "MAC_Procedures": [
+    {
+      "Procedure_Name": "",
+      "Trigger_Condition": "",
+      "Description": ""
+    }
+  ],
+
+  "MAC_Timers_And_Constants": [
+    {
+      "Name": "",
+      "Value": "",
+      "Role": "",
+      "Spec_Reference": ""
+    }
+  ],
+
+  "MAC_Scheduling_And_Resource_Allocation": [
+    {
+      "Scenario": "",
+      "Scheduling_Policy": "",
+      "HARQ_Behavior": "",
+      "BSR_PHR_Impact": ""
+    }
+  ],
+
+  "Interlayer_Interactions": [
+    {
+      "Target_Layer": "",
+      "Primitive_or_Message": "",
+      "Direction": "",
+      "Purpose": ""
+    }
+  ],
+
+  "Call_Flow": [
+    {
+      "Message": "",
+      "Actors": [],
+      "From": "",
+      "To": ""
+    }
+  ],
+
+  "Procedure_Implementation_Steps": [],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "",
+      "Code_Instructions": [
+        {
+          "type": "",
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}

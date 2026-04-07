@@ -1,0 +1,38 @@
+{
+  "input_feature_json": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\feature_validation\\feature_validation_output_20260403_095022.json",
+  "input_intent": "Intent : \"gNB-CU has to prepare and send F1AP \\\"UE CONTEXT SETUP REQUEST\\\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \\\"UE CONTEXT SETUP RESPONSE\\\" message and this message has to be handled on gNB-CU for Inter gNB DU LTM Handover\"",
+  "template_path_used": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\inputs\\Template_common.json",
+  "knowledge_creation": {
+    "spec_kg": {
+      "created": false,
+      "missing_doc_ids": [],
+      "status": "already_available"
+    },
+    "code_kg": {
+      "created": false,
+      "status": "already_available",
+      "paths": {
+        "kg_file": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\resources\\Code_knowledge\\OAI\\KnowledgeGraph\\knowledge_graph.pkl",
+        "faiss_index_file": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\resources\\Code_knowledge\\OAI\\vector_db\\faiss_index.index",
+        "faiss_metadata_file": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\resources\\Code_knowledge\\OAI\\vector_db\\faiss_metadata.json"
+      }
+    }
+  },
+  "retrieval_outputs": {
+    "spec_retrieval_context_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\spec_chunks\\agentic_ie_retrieval_context_20260403_095023.json",
+    "code_chunks_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\code_chunks\\all_messages_code_chunks_20260403_095023.json"
+  },
+  "template_outputs": {
+    "spec_filled_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\spec_filled_templates\\filled_template_Intent__gNB-CU_has_to_prepare_and_send_F1AP_UE_CON_20260403_152101.json",
+    "final_filled_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\final_filled_template\\Inter-gNB-DU_LTM_Handover_UE_Context_Setup_20260403_152116.json",
+    "generated_prompt_path": "",
+    "generated_prompt": ""
+  },
+  "self_learning": {
+    "matched_rule": "User Intent 1",
+    "has_ambiguities": true,
+    "ambiguity_count": 3,
+    "resolution_applied": false,
+    "resolved_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\final_filled_template\\Inter-gNB-DU_LTM_Handover_UE_Context_Setup_20260403_152116.json"
+  }
+}

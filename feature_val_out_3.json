@@ -1,0 +1,162 @@
+{
+  "intent":"gNB-CU prepares the 'RRCReconfiguration' RRC message with the LTM Configuration IEs inline to the LTM configuration data received in previous F1AP messages and sends the RRCReconfiguration message buffer piggy bagged in F1AP 'DL RRC MESSAGE TRANSFER' message to source gNB-DU and source gNB-DU forwards this F1AP message to UE. Then, UE responds with 'RRCReconfigurationComplete' RRC message to source gNB-DU and it forwards the message to gNB-CU piggy bagged in 'UL RRC MESSAGE TRANSFER' message",
+  "procedure_spec_info": {
+    "spec_number": "TS 38.401",
+    "spec_version": "v18.6.0",
+    "section_id": "8.2.1.5",
+    "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf"
+  },
+  "section_text": "1. L3 Measurement Control and Reports\n\n9. DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n\n10. RRCReconfiguration\n\n11. RRCReconfigurationComplete\n\n1. The UE sends a MeasurementReport message (L3 measurement result) to the source gNB-DU containing\nmeasurements of neighbouring cells. The source gNB-DU sends an UL RRC MESSAGE TRANSFER message\nconveying the received MeasurementReport message to the gNB-CU.\n\n9. The gNB-CU sends a DL RRC MESSAGE TRANSFER message to the source gNB-DU, which includes the\ngenerated RRCReconfiguration message with the LTM configuration.\n\n10. The source gNB-DU forwards the received RRCReconfiguration message to the UE.\n\n11. The UE responds to the source gNB-DU with an RRCReconfigurationComplete message.",
+  "message_details": {
+    "messages": [
+      {
+        "index": 1,
+        "name": "UL RRC MESSAGE TRANSFER",
+        "direction": "Source gNB-DU -> gNB-CU",
+        "protocol_layer": "RRC"
+      },
+      {
+        "index": 9,
+        "name": "DL RRC MESSAGE TRANSFER",
+        "direction": "gNB-CU -> Source gNB-DU",
+        "protocol_layer": "RRC"
+      },
+      {
+        "index": 10,
+        "name": "RRCReconfiguration",
+        "direction": "Source gNB-DU -> UE",
+        "protocol_layer": "RRC"
+      },
+      {
+        "index": 11,
+        "name": "RRCReconfigurationComplete",
+        "direction": "UE -> Source gNB-DU",
+        "protocol_layer": "RRC"
+      }
+    ],
+    "feature_protocols": [
+      "RRC"
+    ]
+  },
+  "protocol_specs": [
+    {
+      "protocol": "RRC",
+      "spec_number": "TS 38.331",
+      "spec_title": "RRC",
+      "section_id": "8.3.4.3",
+      "spec_version": "v18.6.0",
+      "spec_link": "https://www.etsi.org/deliver/etsi_ts/138300_138399/138331/18.06.00_60/ts_138331v180600p.pdf",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\data\\specs\\ts_138331v180600p.pdf",
+      "doc_id": "ts_138331v180600p",
+      "reason": "TS 38.331 defines RRC signalling and procedures including handover commands; section 8.3.4.3 specifically describes the RRC Reconfiguration procedure for handover including LTM execution."
+    }
+  ],
+  "protocol_message_sections": [
+    {
+      "protocol": "RRC",
+      "spec_number": "TS 38.331",
+      "messages": [
+        {
+          "message_name": "UL RRC MESSAGE TRANSFER",
+          "sections": [
+            {
+              "section_id": "5.7.2.3",
+              "role": "message_format",
+              "reason": "Validation fallback from TOC/content match (Actions related to transmission of ULInformationTransfer message)"
+            },
+            {
+              "section_id": "8.2",
+              "role": "procedure",
+              "reason": "Validation fallback from TOC/content match (Structure of encoded RRC messages)"
+            },
+            {
+              "section_id": "10.2",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Asn.1 Violation Or Encoding Error)"
+            }
+          ]
+        },
+        {
+          "message_name": "DL RRC MESSAGE TRANSFER",
+          "sections": [
+            {
+              "section_id": "5.7.6",
+              "role": "message_format",
+              "reason": "Validation fallback from TOC/content match (DL message segment transfer)"
+            },
+            {
+              "section_id": "8.2",
+              "role": "procedure",
+              "reason": "Validation fallback from TOC/content match (Structure of encoded RRC messages)"
+            },
+            {
+              "section_id": "10.2",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Asn.1 Violation Or Encoding Error)"
+            }
+          ]
+        },
+        {
+          "message_name": "RRCReconfiguration",
+          "sections": [
+            {
+              "section_id": "8.3.4",
+              "role": "procedure",
+              "reason": "Describes the RRCReconfiguration procedure used to modify RRC connection during handover"
+            },
+            {
+              "section_id": "5.8.9.1.2",
+              "role": "message_format",
+              "reason": "Validation fallback from TOC/content match (Actions related to transmission of RRCReconfigurationSidelink message)"
+            },
+            {
+              "section_id": "10.2",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Asn.1 Violation Or Encoding Error)"
+            }
+          ]
+        },
+        {
+          "message_name": "RRCReconfigurationComplete",
+          "sections": [
+            {
+              "section_id": "6.3.6",
+              "role": "message_format",
+              "reason": "Defines the message format and information elements of RRCReconfigurationComplete"
+            },
+            {
+              "section_id": "8.3.5",
+              "role": "procedure",
+              "reason": "Describes the procedure and UE behaviour upon sending RRCReconfigurationComplete during handover"
+            },
+            {
+              "section_id": "10.2",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Asn.1 Violation Or Encoding Error)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "template": {
+    "protocol": "RRC",
+    "template_name": "Template_NR_RRC.json",
+    "template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\inputs\\Template_NR_RRC.json"
+  }, 
+  "specs":[
+    {
+      "spec_number": "TS 38.331",
+      "spec_link": "https://www.etsi.org/deliver/etsi_ts/138300_138399/138331/18.06.00_60/ts_138331v180600p.pdf",
+      "doc_id": "ts_138331v180600p",
+      "downloaded_pdf_path": "C:/Users/JayasviBattu/Desktop/Code_Generation_Framework/CodeGenerationFramework/data/specs/ts_138331v180600p.pdf"
+    },
+    {
+      "spec_number": "TS 38.401",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+      "doc_id": "ts_138401v180600p",
+      "downloaded_pdf_path": "C:/Users/JayasviBattu/Desktop/Code_Generation_Framework/CodeGenerationFramework/data/specs/ts_138401v180600p.pdf"
+    }
+  ]
+  
+}

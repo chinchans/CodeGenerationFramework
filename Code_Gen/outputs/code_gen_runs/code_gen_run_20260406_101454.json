@@ -1,0 +1,68 @@
+{
+  "input_feature_json": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\feature_validation\\feature_validation_output_20260406_101327.json",
+  "input_intent": "gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU for Inter gNB DU LTM Handover",
+  "template_path_used": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\inputs\\Template_common.json",
+  "knowledge_creation": {
+    "spec_kg": {
+      "created": false,
+      "missing_doc_ids": [],
+      "status": "already_available"
+    },
+    "code_kg": {
+      "created": false,
+      "status": "already_available",
+      "paths": {
+        "kg_file": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\resources\\Code_knowledge\\OAI\\KnowledgeGraph\\knowledge_graph.pkl",
+        "faiss_index_file": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\resources\\Code_knowledge\\OAI\\vector_db\\faiss_index.index",
+        "faiss_metadata_file": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\resources\\Code_knowledge\\OAI\\vector_db\\faiss_metadata.json"
+      }
+    }
+  },
+  "retrieval_outputs": {
+    "spec_retrieval_context_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\spec_chunks\\agentic_ie_retrieval_context_20260406_101328.json",
+    "code_chunks_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\code_chunks\\all_messages_code_chunks_20260406_101328.json"
+  },
+  "template_outputs": {
+    "spec_filled_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\spec_filled_templates\\filled_template_gNB-CU_has_to_prepare_and_send_F1AP_UE_CONTEXT_SET_20260406_154434.json",
+    "final_filled_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\final_filled_template\\Inter_gNB_DU_LTM_Handover_UE_Context_Setup_20260406_154450.json",
+    "generated_prompt_path": "",
+    "generated_prompt": ""
+  },
+  "self_learning": {
+    "matched_rule": "User Intent 1",
+    "has_ambiguities": true,
+    "ambiguity_count": 3,
+    "deterministic_ambiguity_count": 5,
+    "resolution_applied": false,
+    "resolved_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\final_filled_template\\Inter_gNB_DU_LTM_Handover_UE_Context_Setup_20260406_154450.json",
+    "validation_policy": {
+      "direction": "rule_to_template_minimum",
+      "messages": "Each message in the matched mapping rule must appear in Call_Flow. Additional messages in the template are not flagged.",
+      "information_elements": "Each non-optional IE listed in the rule for a step must exist in Information_Elements and match the rule's ASN.1 structure. Additional IEs in the template are not flagged.",
+      "type_fields": "Mapping 'type' entries are ASN.1 constructors and type references (structure), not concrete F1AP/RRC instance values."
+    },
+    "llm_ambiguity_review": {
+      "ran": true,
+      "model": "azure_chat_openai",
+      "raw_response_preview": "{\"reviews\":[{\"id\":\"receiver_mismatch_1\",\"verdict\":\"false_positive\",\"reason\":\"Receiver 'candidate_gNB-DU' matches expected receiver for UE CONTEXT SETUP REQUEST.\"},{\"id\":\"missing_ie_1_ltminformationsetup\",\"verdict\":\"confirm\",\"reason\":\"Required IE 'LTMInformation-Setup' is missing from Information_Elements and must be added.\"},{\"id\":\"missing_ie_1_ltmconfigurationidmappinglist\",\"verdict\":\"confirm\",\"reason\":\"Required IE 'LTMConfigurationIDMappingList' is missing from Information_Elements and must be added.\"},{\"id\":\"sender_mismatch_2\",\"verdict\":\"false_positive\",\"reason\":\"Sender 'candidate_gNB-DU' matches expected sender for UE CONTEXT SETUP RESPONSE.\"},{\"id\":\"missing_ie_2_ltmconfiguration\",\"verdict\":\"confirm\",\"reason\":\"Required IE 'LTMConfiguration' is missing from Information_Elements and must be added.\"}]}",
+      "parsed_review_count": 5,
+      "suppressed_count": 2,
+      "suppressed": [
+        {
+          "id": "receiver_mismatch_1",
+          "type": "receiver_mismatch",
+          "ie_name": null,
+          "llm_verdict": "false_positive",
+          "llm_reason": "Receiver 'candidate_gNB-DU' matches expected receiver for UE CONTEXT SETUP REQUEST."
+        },
+        {
+          "id": "sender_mismatch_2",
+          "type": "sender_mismatch",
+          "ie_name": null,
+          "llm_verdict": "false_positive",
+          "llm_reason": "Sender 'candidate_gNB-DU' matches expected sender for UE CONTEXT SETUP RESPONSE."
+        }
+      ]
+    }
+  }
+}

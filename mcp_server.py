@@ -96,8 +96,10 @@ def validate_repo_code(branch: str = "new_feature") -> dict:
     # Intent and template: use server state only if present and valid; else None → agent defaults
     user_intent = None
     template_path = None
+    session_id = None
     if _last_orchestrator_state:
         state = _last_orchestrator_state
+        session_id = state.get("session_id")
         messages = state.get("messages") or []
         if messages and hasattr(messages[0], "content"):
             user_intent = messages[0].content
@@ -216,6 +218,31 @@ def validate_repo_code(branch: str = "new_feature") -> dict:
     # functional is a list of failed test cases; empty list => all passed.
     if isinstance(functional, list) and not functional:
         status_messages["functional"] = "All functional test cases passed."
+
+    # Persist into outputs/session_state.sqlite if we have a session_id.
+    if session_id:
+        try:
+            from pathlib import Path
+            from Code_Gen.sqlite_state_store import SqliteStateStore
+
+            repo_root = Path(__file__).resolve().parent
+            store = SqliteStateStore(repo_root / "outputs" / "session_state.sqlite")
+            store.ensure_session(
+                session_id=session_id,
+                intent=user_intent,
+                status="validation_completed",
+                template_path=template_path,
+            )
+            store.insert_code_validation(
+                session_id=session_id,
+                branch=branch,
+                results=results,
+                status_messages=status_messages,
+                git_pull_output=pull_proc.stdout,
+                git_diff_output=diff_proc.stdout,
+            )
+        except Exception:
+            pass
 
     return {
         "success": True,

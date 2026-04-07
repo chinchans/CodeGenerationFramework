@@ -1,0 +1,1372 @@
+{
+  "Feature_ID": "UE_CONTEXT_MODIFICATION_GNB_CU_INITIATED",
+  "Feature_Name": "UE Context Modification (gNB-CU initiated)",
+  "Release": "18.6.0",
+  "3GPP_Reference": {
+    "Spec": "TS 138.473",
+    "Title": "NG-RAN; F1 Application Protocol (F1AP)",
+    "Section": "8.3.4, 8.3.4.1, 8.3.4.2, 8.3.4.3, 8.3.4.4, 9.2.2.7, 9.2.2.8, 9.2.2.9"
+  },
+  "Feature_Description": [
+    "The purpose of the UE Context Modification procedure is to modify the established UE Context, e.g., establishing, modifying and releasing radio resources or sidelink resources.",
+    "This procedure is also used to command the gNB-DU to stop data transmission for the UE for mobility (see TS 38.401 [4]).",
+    "The procedure uses UE-associated signalling."
+  ],
+  "Feature_Objectives": [
+    "Modify the established UE Context.",
+    "Establish radio resources.",
+    "Modify radio resources.",
+    "Release radio resources.",
+    "Establish sidelink resources.",
+    "Modify sidelink resources.",
+    "Release sidelink resources.",
+    "Command the gNB-DU to stop data transmission for the UE for mobility."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP"
+    ],
+    "Protocol_Interfaces": [
+      "F1"
+    ]
+  },
+  "Feature_Implementation_Steps": [
+    "The UE CONTEXT MODIFICATION REQUEST message is initiated by the gNB-CU.",
+    "Upon reception of the UE CONTEXT MODIFICATION REQUEST message, the gNB-DU shall perform the modifications.",
+    "If modifications are successful, the gNB-DU reports the update in the UE CONTEXT MODIFICATION RESPONSE message.",
+    "In case none of the requested modifications of the UE context can be successfully performed, the gNB-DU shall respond with the UE CONTEXT MODIFICATION FAILURE message with an appropriate cause value."
+  ],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT MODIFICATION REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION RESPONSE",
+      "Actors": [
+        "gNB-CU",
+        "gNB-DU"
+      ],
+      "From": "gNB-DU",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION FAILURE",
+      "Actors": [
+        "gNB-CU",
+        "gNB-DU"
+      ],
+      "From": "gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "Successful Operation (8.3.4.2):",
+    "1. The UE CONTEXT MODIFICATION REQUEST message is initiated by the gNB-CU.",
+    "2. Upon reception of the UE CONTEXT MODIFICATION REQUEST message, the gNB-DU shall perform the modifications.",
+    "3. If successful, the gNB-DU reports the update in the UE CONTEXT MODIFICATION RESPONSE message.",
+    "4. Specific actions are taken by gNB-DU based on included IEs such as SpCell ID, LTM Information Modify, Conditional Intra-DU Mobility Information, SCell To Be Setup List, DRX Cycle, SRB To Be Setup List, DRB To Be Setup List, BH RLC Channel To Be Setup/Modified/Released List, Duplication Activation, RLC Duplication Information, DC Based Duplication, RRC Reconfiguration Complete Indicator, RLC Failure Indication, RRC-Container, Transmission Action Indicator, E-UTRAN QoS, DRB Information, MeasurementTimingConfiguration, MeasConfig, NeedForGapsInfoNR, NeedForGapNCSG-InfoNR, NeedForGapNCSG-InfoEUTRA, NeedForInterruptionInfoNR, CG-Config, CG-ConfigInfo, Resource Coordination Transfer Information, Subscriber Profile ID for RAT/Frequency priority, Additional RRM Policy Index, Index to RAT/Frequency Selection Priority, Uplink TxDirectCurrentList Information (and its variants), UEAssistanceInformation, UEAssistanceInformationEUTRA, Inactivity Monitoring Request, Notification Control, UL PDU Session Aggregate Maximum Bit Rate, gNB-DU UE Aggregate Maximum Bit Rate Uplink, GNB-DU Configuration Query, Bearer Type Change, NeedforGap, QoS Flow Mapping Indication, Lower Layer presence status change, Full Configuration, QoS Monitoring Request, NR/LTE V2X/A2X Services Authorized, LTE/NR UE Sidelink Aggregate Maximum Bit Rate (for V2X/A2X), PC5 Link Aggregate Maximum Bit Rate, TSC Traffic Characteristics, CPAC MCG Information, S-CPAC Request, Transmission Stop Indicator, SCG Indicator, Estimated Arrival Probability, Location Measurement Information, F1-C Transfer Path NRDC, ENB DL Transport Layer Address, PDCP Terminating Node DL Transport Layer Address, IAB Conditional RRC Message Delivery Indication, MDT Polluted Measurement Indicator, SCG Activation Request, CG-SDT Query Indication, 5G ProSe Authorized, SDT Bearer Configuration Query Indication, 5G ProSe UE PC5 Aggregate Maximum Bit Rate, 5G ProSe PC5 Link Aggregate Bit Rate, Updated Remote UE Local ID, Uu RLC Channel To Be Setup/Modified/Release List, PC5 RLC Channel To Be Setup/Modified/Release List, Path Switch Configuration, MUSIM-GapConfig, gNB-DU UE Slice Maximum Bit Rate List, Multicast MBS Session Setup/Remove List, UE Multicast MRB To Be Setup at Modify List, MBS PTP Retransmission Tunnel Required, MBS PTP Forwarding Tunnel Required Information, Management Based MDT PLMN Modification List, PDU Set QoS Parameters, ECN Marking or Congestion Information Reporting Request, MBSInterestIndication, Network Controlled Repeater Authorized, LTM Indicator, Request for Lower Layer Configuration, Reference Configuration Information, CSI Resource Configuration, LTM Configuration ID Mapping List, Early Sync Information Request, Early Sync Candidate Cell Information List, UE Based TA Measurement Configuration, Early Sync Serving Cell Information, LTM CFRA Resource Config List, LTM Cells to be Released List, LTM Reset Information, Direct Path Addition, Indirect Path Addition, N3C Indirect Path Addition, S-NSSAI, S-CPAC Lower Layer Reference Config Request, musim-CandidateBandList, DL LBT Failure Information Request, Ranging and Sidelink Positioning Service Information, SDT Volume Threshold.",
+    "Unsuccessful Operation (8.3.4.3):",
+    "1. In case none of the requested modifications of the UE context can be successfully performed, the gNB-DU shall respond with the UE CONTEXT MODIFICATION FAILURE message with an appropriate cause value.",
+    "2. If the Conditional Intra-DU Mobility Information IE was included in the UE CONTEXT MODIFICATION REQUEST message and set to \"CHO-initiation\", the gNB-DU shall include the received SpCell ID IE as the Requested Target Cell ID IE in the UE CONTEXT MODIFICATION FAILURE message.",
+    "3. If the gNB-DU is not able to accept the SpCell ID IE in UE CONTEXT MODIFICATION REQUEST message, it shall reply with the UE CONTEXT MODIFICATION FAILURE message.",
+    "4. If the Conditional Intra-DU Mobility Information IE was included and set to \"CHO-initiation\" or \"CHO-replace\", but the SpCell ID IE was not included in the UE CONTEXT MODIFICATION REQUEST message, the gNB-DU shall respond with the UE CONTEXT MODIFICATION FAILURE message with an appropriate cause value.",
+    "5. If the LTM Information Modify IE was included, but the SpCell ID IE and the CSI Resource Configuration IE were not included in the UE CONTEXT MODIFICATION REQUEST message, the gNB-DU shall respond with the UE CONTEXT MODIFICATION FAILURE message with an appropriate cause value.",
+    "6. If the gNB-DU is not able to accept the UE CONTEXT MODIFICATION REQUEST message for mobility because an LTM command has been triggered to the UE, it shall reply with the UE CONTEXT MODIFICATION FAILURE message with an appropriate cause value.",
+    "Abnormal Conditions (8.3.4.4):",
+    "1. If the gNB-DU receives a UE CONTEXT MODIFICATION REQUEST message containing a E-UTRAN QoS IE for a GBR QoS DRB but where the GBR QoS Information IE is not present, the gNB-DU shall report the establishment of the corresponding DRB as failed in the DRB Failed to Setup List IE of the UE CONTEXT MODIFICATION RESPONSE message with an appropriate cause value.",
+    "2. If the gNB-DU receives a UE CONTEXT MODIFICATION REQUEST message containing a DRB QoS IE for a GBR QoS DRB but where the GBR QoS Flow Information IE is not present, the gNB-DU shall report the establishment of the corresponding DRBs as failed in the DRB Failed to Setup List IE of the UE CONTEXT MODIFICATION RESPONSE message with an appropriate cause value.",
+    "3. If the Delay Critical IE is included in the Dynamic 5QI Descriptor IE within the DRB QoS IE in the UE CONTEXT MODIFICATION REQUEST message and is set to the value \"delay critical\" but the Maximum Data Burst Volume IE is not present, the gNB-DU shall report the establishment of the corresponding DRB as failed in the DRB Failed to Setup List IE of the of the UE CONTEXT MODIFICATION RESPONSE message with an appropriate cause value.",
+    "4. If one or more candidate cells in the Candidate Cells To Be Cancelled List IE included in the UE CONTEXT MODIFICATION REQUEST message were not prepared using the same UE-associated signaling connection, the gNB-DU shall ignore those non-associated candidate cells."
+  ],
+  "Code_Artifacts": [],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": "F1AP-PDU-Contents.asn"
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": "NR-RRC-Definitions.asn"
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UE CONTEXT MODIFICATION REQUEST",
+      "IE_Definition": "UEContextModificationRequest ::= SEQUENCE {\n protocolIEs   ProtocolIE-Container       { { UEContextModificationRequestIEs} },\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UE CONTEXT MODIFICATION RESPONSE",
+      "IE_Definition": "UEContextModificationResponse ::= SEQUENCE {\n protocolIEs   ProtocolIE-Container       { { UEContextModificationResponseIEs} },\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UE CONTEXT MODIFICATION FAILURE",
+      "IE_Definition": "UEContextModificationFailure ::= SEQUENCE {\n protocolIEs   ProtocolIE-Container       { { UEContextModificationFailureIEs} },\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SpCell ID IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Information Modify IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Conditional Intra-DU Mobility Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ServCellIndex IE",
+      "IE_Definition": "ServCellIndex ::= INTEGER (0..31, ...)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SpCell UL Configured IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "servingCellMO IE",
+      "IE_Definition": "ServingCellMO-List ::= SEQUENCE (SIZE(1..maxnoofServingCellMOs)) OF ProtocolIE-SingleContainer { { ServingCellMO-List-ItemIEs} }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "servingCellMO List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Preconfigured Measurement GAP Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SCell To Be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SCell UL Configured IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SCell To Be Removed List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRX Cycle IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRX configuration indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Non-Integer DRX Cycle IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SL DRX Cycle list IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SL DRX configuration indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SRB To Be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Duplication Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Additional Duplication Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SRB Mapping Info IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Path Addition Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB To Be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB Mapping Info IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PSI based SDU Discard UL IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH RLC Channel To Be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Traffic Mapping Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH RLC Channel To Be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH RLC Channel To Be Released List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UL UP TNL Information IEs",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Additional PDCP Duplication UP TNL Information IEs",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Duplication Activation IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RLC Duplication Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RLC Duplication State List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Primary Path Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DC Based Duplication Configured IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DC Based Duplication Activation IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UL Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RRC Reconfiguration Complete Indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DL PDCP SN length IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UL PDCP SN length IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RLC Failure Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RRC-Container IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Execute Duplication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Transmission Action Indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "E-UTRAN QoS IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MeasurementTimingConfiguration IE",
+      "IE_Definition": "MeasurementTimingConfiguration ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MeasConfig IE",
+      "IE_Definition": "MeasConfig ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NeedForGapsInfoNR IE",
+      "IE_Definition": "NeedForGapsInfoNR ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NeedForGapNCSG-InfoNR IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NeedForGapNCSG-InfoEUTRA IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NeedForInterruptionInfoNR IE",
+      "IE_Definition": "NeedForInterruptionInfoNR ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CG-Config IE",
+      "IE_Definition": "CG-Config ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CG-ConfigInfo IE",
+      "IE_Definition": "CG-ConfigInfo ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Resource Coordination Transfer Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Resource Coordination Transfer Container IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Resource Coordination E-UTRA Cell Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Ignore PRACH Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Subscriber Profile ID for RAT/Frequency priority IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Additional RRM Policy Index IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Index to RAT/Frequency Selection Priority IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uplink TxDirectCurrentList Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uplink TxDirectCurrentTwoCarrierList Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uplink TxDirectCurrentMoreCarrierList Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UEAssistanceInformation IE",
+      "IE_Definition": "UEAssistanceInformation ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UEAssistanceInformationEUTRA IE",
+      "IE_Definition": "UEAssistanceInformationEUTRA ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Inactivity Monitoring Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Notification Control IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UL PDU Session Aggregate Maximum Bit Rate IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "gNB-DU UE Aggregate Maximum Bit Rate Uplink IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "GNB-DU Configuration Query IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Bearer Type Change IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NeedforGap IE",
+      "IE_Definition": "NeedforGap::= ENUMERATED {true, ...}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "QoS Flow Mapping Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Lower Layer presence status change IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Full Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "QoS Monitoring Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NR V2X Services Authorized IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTE V2X Services Authorized IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTE UE Sidelink Aggregate Maximum Bit Rate IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NR UE Sidelink Aggregate Maximum Bit Rate IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NR A2X Services Authorized IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTE A2X Services Authorized IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTE UE Sidelink Aggregate Maximum Bit Rate for A2X IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NR UE Sidelink Aggregate Maximum Bit Rate for A2X IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 Link Aggregate Maximum Bit Rate IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "TSC Traffic Characteristics IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CPAC MCG Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "S-CPAC Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Transmission Stop Indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SCG Indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Estimated Arrival Probability IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Location Measurement Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "F1-C Transfer Path NRDC IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ENB DL Transport Layer Address IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PDCP Terminating Node DL Transport Layer Address IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "IAB Conditional RRC Message Delivery Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MDT Polluted Measurement Indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SCG Activation Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CG-SDT Query Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "5G ProSe Authorized IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SDT Bearer Configuration Query Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "5G ProSe UE PC5 Aggregate Maximum Bit Rate IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "5G ProSe PC5 Link Aggregate Bit Rate IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Updated Remote UE Local ID IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uu RLC Channel To Be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uu RLC Channel To Be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uu RLC Channel To Be Release List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 RLC Channel To Be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 RLC Channel To Be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 RLC Channel To Be Release List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Path Switch Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MUSIM-GapConfig IE",
+      "IE_Definition": "MUSIM-GapConfig ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "gNB-DU UE Slice Maximum Bit Rate List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Multicast MBS Session Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Multicast MBS Session Remove List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UE Multicast MRB To Be Setup at Modify List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MBS PTP Retransmission Tunnel Required IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MBS PTP Forwarding Tunnel Required Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Management Based MDT PLMN Modification List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PDU Set QoS Parameters IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ECN Marking or Congestion Information Reporting Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MBSInterestIndication IE",
+      "IE_Definition": "MBSInterestIndication ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Network Controlled Repeater Authorized IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Request for Lower Layer Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Reference Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Reference Configuration Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CSI Resource Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Configuration ID Mapping List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early Sync Information Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early Sync Candidate Cell Information List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UE Based TA Measurement Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early Sync Serving Cell Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM CFRA Resource Config List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Cells to be Released List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Reset Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Direct Path Addition IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Indirect Path Addition IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "N3C Indirect Path Addition IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "S-NSSAI IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "S-CPAC Lower Layer Reference Config Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "musim-CandidateBandList IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DL LBT Failure Information Request IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Ranging and Sidelink Positioning Service Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SDT Volume Threshold IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Candidate Cells To Be Cancelled List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB QoS IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Dynamic 5QI Descriptor IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Maximum Data Burst Volume IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "GBR QoS Flow Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "servingCellMO-encoded-in-CGC List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Configured BWP List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CellGroupConfig IE",
+      "IE_Definition": "CellGroupConfig ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DL UP TNL Information IEs",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Associated SCell List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "MeasGapConfig IE",
+      "IE_Definition": "MeasGapConfig ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DU to CU RRC Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ServCellInfoList IE",
+      "IE_Definition": "ServCellInfoList ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB Failed to be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "DRB Failed to be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SRB Failed to be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SRB Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SRB Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH RLC Channel Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH RLC Channel Failed to be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH RLC Channel Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "BH RLC Channel Failed to be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uu RLC Channel Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uu RLC Channel Failed to be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uu RLC Channel Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Uu RLC Channel Failed to be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 RLC Channel Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 RLC Channel Failed to be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 RLC Channel Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PC5 RLC Channel Failed to be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SL DRB Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SL DRB Failed to be Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SL DRB Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SL DRB Failed to be Modified List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SCell Failed To Setup List IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "C-RNTI IE",
+      "IE_Definition": "C-RNTI ::= INTEGER (0..65535, ...)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Inactivity Monitoring Response IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RLC Status IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Dedicated SI Delivery Indication IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ECN Marking or Congestion Information Reporting Status IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "InterFrequencyConfig-NoGap IE",
+      "IE_Definition": "InterFrequencyConfig-NoGap ::= ENUMERATED {\n true,\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ul-GapFR2-Config IE",
+      "IE_Definition": "UL-GapFR2-Config ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "TwoPHRModeMCG IE",
+      "IE_Definition": "TwoPHRModeMCG ::= ENUMERATED {enabled, ...}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "TwoPHRModeSCG IE",
+      "IE_Definition": "TwoPHRModeSCG ::= ENUMERATED {enabled, ...}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ncd-SSB-RedCapInitialBWP-SDT IE",
+      "IE_Definition": "Ncd-SSB-RedCapInitialBWP-SDT ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Requested Target Cell ID IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early Sync Information IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early UL Sync Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early UL Sync Configuration for SUL IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "S-CPAC Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SDT-MAC-PHY-CG-Config IE",
+      "IE_Definition": "SDT-MAC-PHY-CG-Config ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SDT Bearer Configuration Info IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Multicast F1-U Context Reference CU IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "The RRC-Container IE is used to carry RRC messages. The CU to DU RRC Information IE and DU to CU RRC Information IE are containers for various RRC-related IEs and configurations. The Resource Coordination Transfer Container IE transparently transfers resource coordination information from MeNB or MR-DC nodes.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "RRC-Container IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "RRC message",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "CU to DU RRC Information IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "MeasurementTimingConfiguration IE",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "CU to DU RRC Information IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "MeasConfig IE",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "CU to DU RRC Information IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "CG-Config IE",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "CU to DU RRC Information IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "CG-ConfigInfo IE",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "CU to DU RRC Information IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "UEAssistanceInformation IE",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "DU to CU RRC Information IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "MeasGapConfig IE",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "DU to CU RRC Information IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "ServCellInfoList IE",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "Resource Coordination Transfer Container IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "MeNB Resource Coordination Information",
+      "Source_IE_Type": "X2AP IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "Resource Coordination Transfer Container IE",
+      "Piggy_Backed_IE_Type": "F1AP IE",
+      "Source_IE_Name": "MR-DC Resource Coordination Information",
+      "Source_IE_Type": "XnAP IE"
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+  "Knowledge_Hints": [
+    "10 (ts_138473v180600p): Handling of unknown, unforeseen and erroneous protocol data",
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.15.2 (ts_138401v180600p): Mobility procedure for Multicast",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU",
+    "8.3.4 (ts_138473v180600p): UE Context Modification (gNB-CU initiated)",
+    "9.2.2.7 (ts_138473v180600p): UE CONTEXT MODIFICATION REQUEST",
+    "9.2.2.8 (ts_138473v180600p): UE CONTEXT MODIFICATION RESPONSE",
+    "9.4 (ts_138473v180600p): Message and Information Element Abstract Syntax (with ASN.1)",
+    "8.3.4.1 (ts_138473v180600p): General",
+    "8.3.4.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.4.2 (ts_138473v180600p): Successful Operation",
+    "8.3.4.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3 (ts_138473v180600p): UE Context Management procedures",
+    "8.3.6 (ts_138473v180600p): UE Inactivity Notification",
+    "8.3.3 (ts_138473v180600p): UE Context Release (gNB-CU initiated)",
+    "8.3.2 (ts_138473v180600p): UE Context Release Request (gNB-DU initiated)",
+    "8.3.9 (ts_138473v180600p): DU-CU Cell Switch Notification",
+    "8.3.10 (ts_138473v180600p): CU-DU Cell Switch Notification",
+    "8.3.5 (ts_138473v180600p): UE Context Modification Required (gNB-DU initiated)",
+    "8.3.8 (ts_138473v180600p): Access Success",
+    "8.3.7 (ts_138473v180600p): Notify",
+    "8.3.11 (ts_138473v180600p): CU-DU Mobility Initiation",
+    "9.2.2.11 (ts_138473v180600p): UE CONTEXT MODIFICATION CONFIRM",
+    "9.2.2 (ts_138473v180600p): UE Context Management messages",
+    "9.2.2.4 (ts_138473v180600p): UE CONTEXT RELEASE REQUEST",
+    "9.2.2.12 (ts_138473v180600p): UE INACTIVITY NOTIFICATION",
+    "9.2.2.5 (ts_138473v180600p): UE CONTEXT RELEASE COMMAND",
+    "9.2.2.2 (ts_138473v180600p): UE CONTEXT SETUP RESPONSE",
+    "9.2.2.17 (ts_138473v180600p): CU-DU MOBILITY INITIATION REQUEST",
+    "9.2.2.15 (ts_138473v180600p): DU-CU CELL SWITCH NOTIFICATION",
+    "9.2.2.9 (ts_138473v180600p): UE CONTEXT MODIFICATION FAILURE",
+    "9.2.2.14 (ts_138473v180600p): ACCESS SUCCESS",
+    "9.2.2.3 (ts_138473v180600p): UE CONTEXT SETUP FAILURE",
+    "9.2.2.13 (ts_138473v180600p): NOTIFY",
+    "9.2.2.6 (ts_138473v180600p): UE CONTEXT RELEASE COMPLETE",
+    "9.2.2.1 (ts_138473v180600p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.16 (ts_138473v180600p): CU-DU CELL SWITCH NOTIFICATION",
+    "9.4.7 (ts_138473v180600p): Constant Definitions",
+    "9.4.4 (ts_138473v180600p): PDU Definitions",
+    "9.4.8 (ts_138473v180600p): Container Definitions",
+    "9 (ts_138473v180600p): Elements for F1AP Communication",
+    "9.4.2 (ts_138473v180600p): Usage of private message mechanism for non-standard use",
+    "9.4.5 (ts_138473v180600p): Information Element Definitions",
+    "9.4.3 (ts_138473v180600p): Elementary Procedure Definitions",
+    "9.4.1 (ts_138473v180600p): General",
+    "9.6 (ts_138473v180600p): Timers",
+    "9.5 (ts_138473v180600p): Message Transfer Syntax",
+    "9.2 (ts_138473v180600p): Message Functional Definition and Content",
+    "9.1 (ts_138473v180600p): General",
+    "9.3 (ts_138473v180600p): Information Element Definitions",
+    "8.3.5.1 (ts_138473v180600p): General",
+    "8.3.1.1 (ts_138473v180600p): General",
+    "8.3.2.1 (ts_138473v180600p): General",
+    "8.3.3.1 (ts_138473v180600p): General",
+    "8.3.1.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.1.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.5.2 (ts_138473v180600p): Successful Operation",
+    "8.3.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3.3.2 (ts_138473v180600p): Successful Operation",
+    "8.3.3.4 (ts_138473v180600p): Abnormal Conditions",
+    "8 (ts_138473v180600p): F1AP procedures",
+    "8.1 (ts_138473v180600p): List of F1AP Elementary procedures",
+    "8.9 (ts_138473v180600p): Radio Information Transfer procedures",
+    "8.16 (ts_138473v180600p): QMC Procedures",
+    "8.6 (ts_138473v180600p): System Information Procedures",
+    "8.8 (ts_138473v180600p): Trace Procedures",
+    "8.5 (ts_138473v180600p): Warning Message Transmission Procedures",
+    "8.14 (ts_138473v180600p): NR MBS Procedures",
+    "8.15 (ts_138473v180600p): PDC Measurement Reporting procedures",
+    "8.13 (ts_138473v180600p): Positioning Procedures",
+    "8.4 (ts_138473v180600p): RRC Message Transfer procedures",
+    "8.10 (ts_138473v180600p): IAB Procedures",
+    "8.12 (ts_138473v180600p): Reference Time Information Reporting procedures",
+    "8.7 (ts_138473v180600p): Paging procedures",
+    "8.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Procedures",
+    "8.11 (ts_138473v180600p): Self Optimisation Support procedures",
+    "8.3.6.2 (ts_138473v180600p): Successful Operation",
+    "8.3.6.1 (ts_138473v180600p): General",
+    "8.3.6.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.2.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.2.2 (ts_138473v180600p): Successful Operation",
+    "8.3.9.2 (ts_138473v180600p): Successful Operation",
+    "8.3.9.1 (ts_138473v180600p): General",
+    "8.3.9.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.9.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.2 (ts_138473v180600p): Successful Operation",
+    "8.3.10.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.10.1 (ts_138473v180600p): General",
+    "8.3.5.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.8.1 (ts_138473v180600p): General",
+    "8.3.8.2 (ts_138473v180600p): Successful Operation",
+    "8.3.8.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.7.2 (ts_138473v180600p): Successful Operation",
+    "8.3.7.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.7.1 (ts_138473v180600p): General",
+    "8.3.11.2 (ts_138473v180600p): Successful Operation",
+    "8.3.11.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.11.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.11.1 (ts_138473v180600p): General",
+    "9.2.7 (ts_138473v180600p): Trace Messages",
+    "9.2.10 (ts_138473v180600p): Self Optimisation Support Messages",
+    "9.2.15 (ts_138473v180600p): PDC Measurement Reporting messages",
+    "9.2.3 (ts_138473v180600p): RRC Message Transfer messages",
+    "9.2.6 (ts_138473v180600p): Paging messages",
+    "9.2.1 (ts_138473v180600p): Interface Management messages",
+    "9.2.9 (ts_138473v180600p): IAB messages",
+    "9.2.11 (ts_138473v180600p): Reference Time Information Reporting messages",
+    "9.2.13 (ts_138473v180600p): Broadcast Context Management messages",
+    "9.2.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Messages",
+    "9.2.14 (ts_138473v180600p): Multicast Context Management messages",
+    "9.2.12 (ts_138473v180600p): Messages for Positioning Procedures",
+    "9.2.8 (ts_138473v180600p): Radio Information Transfer messages",
+    "9.2.16 (ts_138473v180600p): QMC messages",
+    "9.2.4 (ts_138473v180600p): Warning Message Transmission Messages",
+    "9.3.1.56 (ts_138473v180600p): Notification Control",
+    "9.2.13.4 (ts_138473v180600p): BROADCAST CONTEXT RELEASE COMMAND",
+    "8.14.11.2 (ts_138473v180600p): Successful Operation",
+    "8.14.9.2 (ts_138473v180600p): Successful Operation",
+    "8.14.10.2 (ts_138473v180600p): Successful Operation",
+    "8.14.8.2 (ts_138473v180600p): Successful Operation",
+    "1 (ts_138473v180600p): Scope",
+    "4.1 (ts_138473v180600p): Procedure specification principles",
+    "8.14.8.1 (ts_138473v180600p): General",
+    "8.14.9.1 (ts_138473v180600p): General",
+    "8.14.10.1 (ts_138473v180600p): General",
+    "8.14.14.1 (ts_138473v180600p): General",
+    "9.3.1 (ts_138473v180600p): Radio Network Layer Related IEs",
+    "9.3.2 (ts_138473v180600p): Transport Network Layer Related IEs"
+  ]
+}

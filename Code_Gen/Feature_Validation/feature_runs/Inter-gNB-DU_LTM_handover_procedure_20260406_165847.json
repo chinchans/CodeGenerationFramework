@@ -1,0 +1,111 @@
+{
+  "procedure_spec_info": {
+    "spec_number": "TS 38.401",
+    "spec_version": "v18.6.0",
+    "section_id": "8.2.1.5",
+    "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+    "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf",
+    "doc_id": "ts_138401v180600p"
+  },
+  "section_text": "3. UE CONTEXT SETUP REQUEST\n\n4. UE CONTEXT SETUP RESPONSE\n\n3. The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each\ncandidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The\ngNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s). The gNB-CU may\nrequest PRACH resources from the candidate gNB-DU(s). The gNB-CU may request the candidate gNB-DU(s)\nto provide the lower layer configuration for the purpose of generating the reference configuration or provide the\nlower layer part of the reference configuration to the candidate gNB-DU(s).\n\n4. If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP\nRESPONSE message including the generated lower layer RRC configurations for the accepted target candidate\ncell.\nNOTE 1: The CU-initiated UE Context Modification procedure may be initiated for preparing candidate cells in the\nsource gNB-DU as specified in step 3 and 4 in 8.2.1.4 Intra-gNB-DU LTM.",
+  "message_details": {
+    "messages": [
+      {
+        "index": 3,
+        "name": "UE CONTEXT SETUP REQUEST",
+        "direction": "gNB-CU -> Candidate gNB-DU",
+        "protocol_layer": "F1AP"
+      },
+      {
+        "index": 4,
+        "name": "UE CONTEXT SETUP RESPONSE",
+        "direction": "Candidate gNB-DU -> gNB-CU",
+        "protocol_layer": "F1AP"
+      }
+    ],
+    "feature_protocols": [
+      "F1AP"
+    ]
+  },
+  "protocol_specs": [
+    {
+      "protocol": "F1AP",
+      "spec_number": "TS 38.473",
+      "spec_title": "F1AP",
+      "section_id": "8.2.1.5",
+      "spec_version": "v18.6.0",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138473/18.06.00_60/ts_138473v180600p.pdf",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138473v180600p.pdf",
+      "doc_id": "ts_138473v180600p",
+      "reason": "TS 38.473 defines the F1 Application Protocol and section 8.2.1.5 specifically describes the Inter-gNB-DU LTM handover procedure signaling and call flow."
+    }
+  ],
+  "protocol_message_sections": [
+    {
+      "protocol": "F1AP",
+      "spec_number": "TS 38.473",
+      "messages": [
+        {
+          "message_name": "UE CONTEXT SETUP REQUEST",
+          "sections": [
+            {
+              "section_id": "9.2.2.1",
+              "role": "message_format",
+              "reason": "Validation fallback from TOC/content match (UE CONTEXT SETUP REQUEST)"
+            },
+            {
+              "section_id": "8.3.1",
+              "role": "procedure",
+              "reason": "Validation fallback from TOC/content match (UE Context Setup)"
+            },
+            {
+              "section_id": "9.4",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Message And Information Element Abstract Syntax (With Asn.1))"
+            }
+          ]
+        },
+        {
+          "message_name": "UE CONTEXT SETUP RESPONSE",
+          "sections": [
+            {
+              "section_id": "9.2.2.2",
+              "role": "message_format",
+              "reason": "Validation fallback from TOC/content match (UE CONTEXT SETUP RESPONSE)"
+            },
+            {
+              "section_id": "8.3.1",
+              "role": "procedure",
+              "reason": "Validation fallback from TOC/content match (UE Context Setup)"
+            },
+            {
+              "section_id": "9.4",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Message And Information Element Abstract Syntax (With Asn.1))"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "template": {
+    "protocol": "F1AP",
+    "template_name": "Template_common.json",
+    "template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\templates\\Template_common.json"
+  },
+  "intent": "gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU for Inter gNB DU LTM Handover",
+  "specs": [
+    {
+      "spec_number": "TS 38.401",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+      "doc_id": "ts_138401v180600p",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf"
+    },
+    {
+      "spec_number": "TS 38.473",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138473/18.06.00_60/ts_138473v180600p.pdf",
+      "doc_id": "ts_138473v180600p",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138473v180600p.pdf"
+    }
+  ]
+}

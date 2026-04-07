@@ -1,0 +1,714 @@
+{
+  "feature_json_path": "in_memory",
+  "template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\inputs\\Template_common.json",
+  "intent": "gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU for Inter gNB DU LTM Handover",
+  "timestamp": "2026-04-06T12:41:40.793291",
+  "retrieval_config": {
+    "max_depth_kg_expand": 2,
+    "llm_iexpand_max_depth": 2,
+    "llm_iexpand_max_nodes": 60,
+    "llm_available": true
+  },
+  "kg_expansion_trace_by_doc_id": {
+    "ts_138401v180600p": {
+      "doc_id": "ts_138401v180600p",
+      "seeds": [
+        "8.9.3.2"
+      ],
+      "max_depth": 2,
+      "direction": "both",
+      "visited_count": 28,
+      "edges_count": 27,
+      "truncated": false,
+      "edges": [
+        {
+          "from_section_id": "8.9.3.2",
+          "to_section_id": "8.9.3",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 1,
+          "relationship_types": [
+            "CHILD_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3.2",
+          "to_section_id": "8.9.3.1",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 1,
+          "relationship_types": [
+            "SIBLING_OF",
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3.2",
+          "to_section_id": "8.9.2",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 1,
+          "relationship_types": [
+            "RELATED_TO",
+            "DEPENDS_ON"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3.2",
+          "to_section_id": "8.9.5",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 1,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3.2",
+          "to_section_id": "8.9.4",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 1,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "CHILD_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.15",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.13",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.16",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.12",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.10",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.14",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.11",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.17",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.8",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.7",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.1",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.9",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3",
+          "to_section_id": "8.9.6",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.9.3.1",
+          "to_section_id": "8.4.4.1",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "DEFINES"
+          ]
+        },
+        {
+          "from_section_id": "8.9.2",
+          "to_section_id": "8.15.1.1",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "DEFINES"
+          ]
+        },
+        {
+          "from_section_id": "8.9.2",
+          "to_section_id": "6.4",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.9.2",
+          "to_section_id": "8.5",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.9.2",
+          "to_section_id": "8.4.1.1",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "DEFINES"
+          ]
+        },
+        {
+          "from_section_id": "8.9.5",
+          "to_section_id": "8.16.3",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.9.5",
+          "to_section_id": "8.2.1.6",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.9.4",
+          "to_section_id": "8.19.4.3",
+          "root_seed_section_id": "8.9.3.2",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        }
+      ]
+    }
+  },
+  "ie_recursive_trace_by_message": [],
+  "per_doc_ie_definition_chunks": {},
+  "final_context_count": 28,
+  "final_context": [
+    {
+      "section_id": "8.9.3.2",
+      "section_title": "gNB-CU-UP initiated bearer context release",
+      "content": "8.9.3.2 gNB-CU-UP initiated bearer context release\nFigure 8.9.3.2-1 shows the procedure used to release the bearer context in the gNB-CU-UP initiated by the gNB-CU-\nUP.\ngNB-DU gNB-CU-UP gNB-CU-CP\n4. F1 UE context modification procedure\n6. BEARER CONTEXT RELEASE\nCOMMAND\n0. Bearer context release is\ntriggered\n7. BEARER CONTEXT RELEASE\nCOMPLETE\n5. UE Context Release\n from MeNB\n8. F1 UE context release procedure\n1. BEARER CONTEXT RELEASE\nREQUEST\n2. BEARER CONTEXT MODIFICATION\nREQUEST\n3. BEARER CONTEXT MODIFICATION\nRESPONSE\n\nFigure 8.9.3.2-1: Bearer context release over F1-U – gNB-CU-UP initiated\n0. Bearer context release is triggered in gNB-CU-UP e.g., due to local failure.\n1. The gNB-CU-UP sends a BEARER CONTEXT RELEASE REQUEST message to request the release of the\nbearer context in the gNB-CU-UP. This message may contain the PDCP status.\n2.- 5. If the PDCP status needs to be preserved, the E1 Bearer Context Modification and the F1 UE Context\nModification procedures are performed. The E1 Bearer Context Modification procedure is used to convey data\nforwarding information to the gNB-CU-UP. The gNB-CU-CP may receive the UE Context Release from the\nMeNB.\n6. The gNB-CU-CP sends a BEARER CONTEXT RELEASE COMMAND message to release the bearer context in\nthe gNB-CU-UP.\n7. The gNB-CU-UP responds with a BEARER CONTEXT RELEASE COMPLETE to confirm the release of the\nbearer context including also data forwarding information.\n8. F1 UE context release procedure may be perf ormed to release the UE context in the gNB-DU.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.9.3",
+        "child_section_ids": [],
+        "page_numbers": [
+          74
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.3",
+      "section_title": "Bearer context release over F1-U",
+      "content": "8.9.3 Bearer context release over F1-U",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [
+          "8.9.3.1",
+          "8.9.3.2"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.3.1",
+      "section_title": "gNB-CU-CP initiated bearer context release",
+      "content": "8.9.3.1 gNB-CU-CP initiated bearer context release\nFigure 8.9.3.1-1 shows the procedure used to release the bearer context in the gNB-CU-UP initiated by the gNB-CU-\nCP.\ngNB-DU gNB-CU-UP gNB-CU-CP\n3. F1 UE context modification procedure\n1. BEARER CONTEXT MODIFICATION\nREQUEST\n0. Bearer context release is\ntriggered\n2. BEARER CONTEXT MODIFICATION\nRESPONSE\n4. UE Context Release from\nMeNB\n6. F1 UE context release procedure\n5. BEARER CONTEXT RELEASE\nCOMMAND\n7. BEARER CONTEXT RELEASE\nCOMPLETE\n\nFigure 8.9.3.1-1: Bearer context release over F1-U – gNB-CU-CP initiated\n0. Bearer context release (e.g., following an SGNB RELEASE REQUEST message from the MeNB) is triggered in\ngNB-CU-CP.\n1. The gNB-CU-CP sends a BEARER CONTEXT MODIFICATION REQUEST message to the gNB-CU-UP.\n2. The gNB-CU-UP responds with a BEARER CONTEXT MODIFICATION RESPONSE carrying the PDCP\nUL/DL status.\n3. F1 UE context modification procedure is performed to stop the data transmission for the UE. It is up to gNB-DU\nimplementation when to stop the UE scheduling.\nNOTE: step 1-3 are performed only if the PDCP status of the bearer(s) needs to be preserved e.g., for bearer type\nchange.\n4. The gNB-CU-CP may receive the UE CONTEXT RELEASE message from the MeNB in EN-DC operation as\ndescribed in clause 8.4.2.1.\n5. and 7. Bearer context release procedure is performed.\n6. F1 UE context release procedure is perfor med to release the UE context in the gNB-DU.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.9.3",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.2",
+      "section_title": "Bearer context setup over F1-U",
+      "content": "8.9.2 Bearer context setup over F1-U\nFigure 8.9.2-1 shows the procedure used to setup the bearer context in the gNB-CU-UP.\ngNB-DU gNB-CU-UP gNB-CU-CP\n3. F1 UE context setup procedure\nDownlink user data\nUplink user data\n4. BEARER CONTEXT MODIFICATION\nREQUEST\n0. Bearer context setup is\ntriggered\n5. BEARER CONTEXT MODIFICATION\nRESPONSE\n1. BEARER CONTEXT SETUP REQUEST\n2. BEARER CONTEXT SETUP RESPONSE\n\nFigure 8.9.2-1: Bearer context setup over F1-U\n0. Bearer context setup (e.g., following an SGNB ADDITION REQUEST message from the MeNB) is triggered in\ngNB-CU-CP.\n1. The gNB-CU-CP sends a BEARER CONTEXT SETUP REQUEST message containing UL TNL address\ninformation for S1-U or NG-U, and if required, DL TNL address information for X2-U to setup the bearer\ncontext in the gNB-CU-UP. For NG-RAN, the gNB-CU-CP decides flow-to-DRB mapping and sends the\ngenerated SDAP and PDCP configuration to the gNB-CU-UP.\nNOTE 1: In case of Conditional Handover or Conditional PSCell Addition/Change, the BEARER CONTEXT\nSETUP REQUEST message indicates to ignore the included security context and not to initiate sending\ndownlink packets until the UE successfully accesses. Up to implementation, the gNB-CU-CP may request\nto establish bearer context as if a regular HO was requested.\n2. The gNB-CU-UP responds with a BEARER CONTEXT SETUP RESPONSE message containing the UL TNL\naddress information for F1-U, and DL TNL address information for S1-U or NG-U, and if required, UL TNL\naddress information for X2-U or Xn-U.\nNOTE 2: The indirect data transmission for split bearer through the gNB-CU-UP is not precluded.\n3. F1 UE context setup procedure is performed to setup one or more bearers in the gNB-DU.\n4. The gNB-CU-CP sends a BEARER CONTEXT MODIFICATION REQUEST message containing the DL TNL\naddress information for F1-U or Xn-U, and PDCP status.\nNOTE 3: In case the indirect path indication is received in step 4, the gNB-CU-UP may not discard the DL data\nbased on the Downlink Data Delivery Status frame received from the gNB-DU. During the inter-gNB\nindirect-to-direct or indirect-to-indirect path switching, the source gNB-CU-UP forwards the buffered DL\ndata to the target gNB as specified in TS 38.300 [2]. In case of the PDCP duplication, the gNB-CU-UP\nshould not request the discard of the duplicated DL data to the gNB-DU for the direct path based on the\nDownlink Data Delivery Status frame received from the gNB-DU for the indirect path, and only act as\nspecified in TS 38.323 [36].\n5. The gNB-CU-UP responds with a BEARER CONTEXT MODIFICATION RESPONSE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          72,
+          73
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.5",
+      "section_title": "Change of gNB-CU-UP",
+      "content": "8.9.5 Change of gNB-CU-UP\nFigure 8.9.5-1 shows the procedure used for the change of gNB-CU-UP within a gNB.\nSource gNB-\nCU-UP\nTarget gNB-\nCU-UP gNB-CU-CP\n4. F1 UE context management procedure (bearer modification)\n2. BEARER CONTEXT SETUP REQUEST\n1. Change of gNB-CU-UP is\ntriggered\n3. BEARER CONTEXT SETUP RESPONSE\ngNB-DU\n13. BEARER CONTEXT RELEASE COMMAND\n9. Data Forwarding\nAMF/UPF\n10. PDU Session Resource Indication\nprocedure is performed\n11. End Marker Packet\n12. New Path\n14. BEARER CONTEXT RELEASE COMPLETE\n7. BEARER CONTEXT MODIFICATION REQUEST\n8. BEARER CONTEXT MODIFICATION RESPONSE\n5. BEARER CONTEXT MODIFICATION REQUEST\n6. BEARER CONTEXT MODIFICATION RESPONSE\n\nFigure 8.9.5-1: Change of gNB-CU-UP\n1. Change of gNB-CU-UP is triggered in gNB-CU-CP based on e.g., measurement report from the UE.\n2-3. Bearer Context Setup procedure is performed as described in clause 8.9.2.\n4. F1 UE Context Modification procedure is performed to change the UL TNL address information for F1-U for\none or more bearers in the gNB-DU.\n5-6. Bearer Context Modification procedure (gNB-CU-CP initiated) is performed to enable the gNB-CU-CP to\nretrieve the PDCP UL/DL status and to exchange data forwarding information for the bearer.\n7-8. Bearer Context Modification procedure is performed as described in clause 8.9.2.\n9. Data Forwarding may be performed from the source gNB-CU-UP to the target gNB-CU-UP.\n10-12. PDU Session Resource Modify Indication procedure is performed to update the DL TNL address information\nfor the NG-U towards the core network.\n13-14. Bearer Context Release procedure (gNB-CU-CP initiated) is performed as described in clause 8.9.3.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          77
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.4",
+      "section_title": "Inter-gNB handover involving gNB-CU-UP change",
+      "content": "8.9.4 Inter-gNB handover involving gNB-CU-UP change\nFigure 8.9.4-1 shows the procedure used for inter-gNB handover involving gNB-CU-UP change. Overall inter-gNB\nhandover procedure is specified in TS 37.340 [12].\nSource gNB-\nCU-UP\nSource  gNB-\nCU-CP\n6. F1 UE Context Modification procedure\n10. BEARER CONTEXT MODIFICATION REQUEST\nSource gNB\n11. BEARER CONTEXT MODIFICATION RESPONSE\nSource\ngNB-DU\n7. BEARER CONTEXT MODIFICATION REQUEST (data forwarding info)\n9. SN STATUS TRANSFER or EARLY STATUS TRANSFER\n12. Data Forwarding\nAMF/UPF\n14. End Marker Packet\n15. New Path\nTarget gNB-\nCU-UP\nTarget gNB-\nCU-CP\nTarget gNB\nTarget\ngNB-DU\n4. F1 UE Context Setup procedure\n1. HANDOVER REQUEST\n5. HANDOVER REQUEST ACKNOWLEDGE\n    (data forwarding info)\n16. UE CONTEXT RELEASE\n18. F1 UE Context Release procedure\n8. BEARER CONTEXT MODIFICATION RESPONSE\n2. BEARER CONTEXT SETUP REQUEST\n3. BEARER CONTEXT SETUP RESPONSE\nUE attached\nvia RACH\n17. BEARER CONTEXT RELEASE COMMAND\n19. BEARER CONTEXT RELEASE COMPLETE\n12a. HANDOVER SUCCESS\n12c. BEARER CONTEXT MODIFICATION REQUEST\n12d. BEARER CONTEXT MODIFICATION RESPONSE\n12e. SN STATUS TRANSFER\n12f. BEARER CONTEXT MODIFICATION REQUEST\n12g. BEARER CONTEXT MODIFICATION RESPONSE\n13. Path Switch procedure is performed\n12b. F1 UE Context Modification procedure\n\nFigure 8.9.4-1: Inter-gNB handover involving gNB-CU-UP change\n1. The source gNB-CU-CP sends HANDOVER REQUEST message to the target gNB-CU-CP. In case of\nConditional Handover, the target gNB is regarded as a candidate gNB which is only accessed by the UE when\nthe CHO condition(s) are fulfilled.\n2-4. Bearer Context Setup procedure is performed as described in clause 8.9.2.\n5. The target gNB-CU-CP responds the source gNB-CU-CP with an HANDOVER REQUEST ACKNOWLEDGE\nmessage.\nNOTE 1: In case of Conditional Handover, it is up to target gNB-CU-CP implementation to make sure that the\nEARLY STATUS TRANSFER information is forwarded to the right gNB-CU-UP (e.g. separate UE-\nassociated signalling connection over Xn interface for each gNB-CU-UP).\n6. The F1 UE Context Modification procedure is performed to send the handover command to the UE, and to\nindicate to stop the data transmission for the UE.\nNOTE 2: In case of DAPS Handover or Conditional Handover, the F1 UE Context Modification procedure in step 6\ndoes not indicate to stop the data transmission for the UE. Instead, the F1 DL RRC Message Transfer\nprocedure can be used which carries the handover command to the UE.\n7-8. Bearer Context Modification procedure (gNB-CU-CP initiated) is performed to enable the gNB-CU-CP to\nretrieve the PDCP UL/DL status and to exchange data forwarding information for the bearer.\n9. The source gNB-CU-CP sends an SN STATUS TRANSFER message to the target gNB-CU-CP.\nNOTE 3: In case of DAPS Handover, the EARLY STATUS TRANSFER message is sent for DRBs configured\nwith DAPS instead of the SN STATUS TRANSFER message.\nNOTE 4: In case of Conditional Handover, the EARLY STATUS TRANSFER message is sent only if early data\nforwarding is applied.\nNOTE 5: The COUNT related info for the EARLY STATUS TRANSFER message is retrieved from the source\ngNB-CU-UP via the steps 7/8.\n10-11. Bearer Context Modification procedure is performed as described in clause 8.9.2. The target gNB-CU-CP\ndoes not transfer the PDCP UL/DL status carried from the SN STATUS TRANSFER message to the target gNB-\nCU-UP if the PDCP status does not need to be preserved (e.g. full configuration). In case of DAPS Handover or\nConditional Handover, the COUNT related info carried by the EARLY STATUS TRANSFER message is\nprovided to the target gNB-CU-UP.\n12. Data Forwarding may be performed from the source gNB-CU-UP to the target gNB-CU-UP.\nNOTE 6: In case of Conditional Handover, the UE performs  RACH when the CHO condition(s) are fulfilled. Once\nsuccessfully accessed, the target gNB-DU sends an ACCESS SUCCESS message to inform the target\ngNB-CU-CP of which cell the UE has accessed through. The target gNB-CU-CP may forward to the\ntarget gNB-CU-UP, necessary information for sending downlink packets (i.e. DL TNL address\ninformation for F1-U and UP security information corresponding to the accessed cell), via a Bearer\ncontext modification procedure. The target gNB-CU-CP may initiate Bearer context release procedure\ntoward the other signalling connections or other candidate target gNB-CU-UPs, if any, to release the\nprepared conditional handover resources for the UE.\n12a. In case of DAPS Handover or Conditional Handover, the target gNB-CU-CP sends the HANDOVER\nSUCCESS message to the source gNB-CU-CP to inform that the UE has successfully accessed the target cell.\n12b In case of DAPS Handover or Conditional Handover, the F1 UE Context Modification procedure is\nperformed to indicate to stop the data transmission for the UE.\n12c-12d. In case of DAPS Handover or Conditional Handover, the Bearer context modification procedure (gNB-\nCU-CP initiated) is performed to indicate the source gNB-CU-UP to stop packet delivery and also to retrieve the\nPDCP UL/DL status.\n12e. In case of DAPS Handover or Conditional Handover, the source gNB-CU-CP sends the SN STATUS\nTRANSFER message to the target gNB-CU-CP.\n12f-12g. In case of DAPS Handover or Conditional Handover, the Bearer context modification procedure is\nperformed to provide the PDCP UL/DL status to the target gNB-CU-UP only if the PDCP status needs to be\npreserved as described in TS 38.300 [2].\nNOTE 7: In case of Conditional Handover, inactivity monitoring is performed after step 12g.\n13-15. Path Switch procedure is performed to update the DL TNL address information for the NG-U towards the\ncore network.\n16. The target gNB-CU-CP sends an UE CONTEXT RELEASE message to the source gNB-CU-CP.\n17. and 19. Bearer Context Release procedure is performed.\n18. F1 UE Context Release procedure is performed to release the UE context in the source gNB-DU.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          75,
+          76
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9",
+      "section_title": "Overall procedures involving E1 and F1",
+      "content": "8.9 Overall procedures involving E1 and F1\nThe following clauses describe the overall procedures involving E1 and F1.\nNOTE: The general principles and procedures described in this clause also apply to ng-eNB and W1/E1 interface,\ni.e. W1 interface between ng-eNB-DU and ng-eNB-CU-CP/ng-eNB-CU-UP, E1 interface between ng-\neNB-CU-CP and ng-eNB-CU-UP, if not explicitly specified otherwise.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 2,
+        "parent_section_id": "8",
+        "child_section_ids": [
+          "8.9.1",
+          "8.9.2",
+          "8.9.3",
+          "8.9.4",
+          "8.9.5",
+          "8.9.6",
+          "8.9.7",
+          "8.9.8",
+          "8.9.9",
+          "8.9.10",
+          "8.9.11",
+          "8.9.12",
+          "8.9.13",
+          "8.9.14",
+          "8.9.15",
+          "8.9.16",
+          "8.9.17"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.15",
+      "section_title": "IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for mobile IAB cells",
+      "content": "8.9.15 IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for mobile IAB cells\nmobile IAB cells\nThe NCIs of the cells served by a mobile IAB-DU configured by the OAM can be reconfigured by the F1-terminating\nIAB-donor-CU serving the mobile IAB-DU, in case of an NCI collision with cells of other gNB-DUs served by the\nIAB-donor-CU. The reconfiguration of NCI pertains to the reconfiguration of the cellLocalId part of the NCI, where the\nnew cellLocalId(s) are based on a list of NCIs that has been configured at the F1-terminating IAB-donor-CU.\nThe value change of cellLocalId(s) shall be indicated to the OAM system of the mobile IAB-DU following the NCI\nreconfiguration. The mobile IAB-DU can notify OAM about the reconfigured cellLocalId(s) using notifications\nspecified in TS 28.532 [33].\nNOTE: This shall not affect the existing procedure of c onfiguring NCGI of cells served by a stationary gNB-DU\nvia the OAM.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.13",
+      "section_title": "IP Address Allocation for IAB-nodes",
+      "content": "8.9.13 IP Address Allocation for IAB-nodes\nNOTE 0: The general principles and procedures described in this clause does not apply to ng-eNB.\nAn IAB-node may obtain IP address(es) either from the IAB-donor or from the OAM system. The IP address(es) is(are)\nused by the IAB-node for F1 and non-F1 traffic exchange via the backhaul. In case IPsec tunnel mode is used to protect\nthis F1 and non-F1 traffic, the IP address(es) refer to the outer tunnel addresses. The allocation of the inner tunnel IP\naddress(es) is outside of 3GPP scope.\nNOTE 1: The non-F1 traffic of an IAB-node includes all IP traffic that is not used for the management or transport\nof F1-C as specified in TS 38.472 [26] or F1-U as specified in TS 38.474 [7]. The non-F1 traffic may\ninclude, e.g., OAM traffic if it is transferred using the BH RLC channel.\nIn case of IAB-donor-based IP address allocation, the IP address(es) is(are) allocated by the IAB-donor-CU or IAB-\ndonor-DU. In both cases, the IAB-node requests the IP address(es) via RRC from the IAB-donor-CU. It includes a\nseparate IP address request for each usage, where the usages defined are all traffic, F1-U, F1-C and non-F1. The IAB-\ndonor-CU may initiate the IAB TNL Address Allocation procedure to obtain IP addresses from the IAB-donor-DU. The\nIAB-donor-CU sends the IP addresses allocated for each usage to the IAB-node via RRC. In case of IAB inter-CU\ntopology management, the F1-terminating IAB-donor-CU may obtain the IP addresses for each usage in the non-F1-\nterminating IAB-donor-CU’s topology from the non-F1-terminating IAB-donor-CU for the boundary IAB-node and the\ndescendant IAB-nodes of the boundary IAB-node.\nThe IAB-node may be allocated one or multiple IPv6 addresses or one 64-bit IPv6 prefix for each usage and/or one or\nmultiple IPv4 addresses for each usage. Each allocated IP address/IPv6 prefix is unique within the IAB network and\nroutable from the wireline network.\nIn case of OAM-based IP address allocation, the IAB-node informs the IAB-donor-CU via an UL RRC message about\nthe IP address(es) it received for each purpose. The mapping between the IP addresses assigned to the IAB-node and the\nBAP address(es) of the corresponding IAB-donor-DU(s) anchoring these IP addresses should be known by the IAB-\nnode and the IAB-donor-CU based on implementation. This occurs before the IAB node uses the IP address(es) for UL\nand/or DL traffic.\nThe IAB-donor-CU configures the IAB-donor-DU with mappings between IP header fields and L2 parameters (BAP\nRouting ID, BH RLC channels) used for DL traffic. Each mapping configuration may hold an IPv4 address, IPv6\naddress or a 64-bit IPv6 prefix. In case of two mapping entries matching the same IP header where one holds an IPv6\nprefix and the other holds a full IPv6 address, the one with full IPv6 address takes precedence at the IAB-donor-DU.\nIn case of IAB-donor-allocated IP addresses, the IAB-node’s IP address(es) can be updated using DL RRC signalling.\nFor F1-C traffic transfer for NSA IAB, the LTE leg and NR leg should use separate IP address pairs {IAB-DU’s IP\naddress, IAB-donor-CU’s IP address}. How the IAB-DU gets the remote IP end point(s) and its own IP address for LTE\nleg is not specified in this release.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.16",
+      "section_title": "TAC/RANAC (re-)configuration for mobile IAB",
+      "content": "8.9.16 TAC/RANAC (re-)configuration for mobile IAB\nThe TAC/RANAC of mobile IAB-DU’s cell is configured by the OAM, and it can be reconfigured by the OAM during\nthe mobile IAB-node mobility. The TAC/RANAC of the mobile IAB-DU’s cell may be same as or different than the\nTAC/RANAC of the co-located mobile IAB-MT’s serving cell. The TAC/RANAC broadcasted by the mobile IAB-DU\ncell can be changed in order to reflect the mobile IAB-node’s physical location.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.12",
+      "section_title": "Handling of IAB-MTs in INACTIVE State",
+      "content": "8.9.12 Handling of IAB-MTs in INACTIVE State\nNOTE: The general principles and procedures described in this clause does not apply to ng-eNB.\nThe IAB-MT optionally supports the RRC INACTIVE state. Upon the IAB-MT entering the RRC INACTIVE state, it\nis up to implementation to keep or release the F1 connection of the collocated IAB-DU.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          84
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.10",
+      "section_title": "IAB-node release",
+      "content": "8.9.10 IAB-node release\nNOTE: The general principles and procedures described in this clause does not apply to ng-eNB.\nAn IAB-node may depart the network either in an orderly fashion, which implies that both the network and the IAB-\nnode are aware in advance, or in a disorderly fashion (e.g. due to an RLF with failed recovery).",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [
+          "8.9.10.1"
+        ],
+        "page_numbers": [
+          83
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.14",
+      "section_title": "Mobile IAB-node authorization",
+      "content": "8.9.14 Mobile IAB-node authorization\nDuring the mobile IAB-node integration procedure or mobile IAB-MT migration via NG handover, the RRC-\nterminating IAB-donor-CU receives the authorization status of the mobile IAB-node from the 5GC. During the mobile\nIAB-MT migration via Xn handover procedure and the mobile IAB-node RLF recovery procedure, the target/new RRC-\nterminating IAB-donor-CU receives the authorization status of the mobile IAB-node from the source/initial RRC-\nterminating IAB-donor-CU as well as from the 5GC during Path Switch Request procedure. If the authorization status is\n“not authorized”, the RRC-terminating IAB-donor-CU does not establish any backhaul resources. Additionally, the\nRRC-terminating IAB-donor-CU does not allocate any BAP address, TNL address(es) or default BAP configuration for\nthis mobile IAB-node. If the authorization status for the mobile IAB-node changes, the 5GC sends an updated\nauthorization status to the RRC-terminating IAB-donor-CU.\nIn case the mobile IAB-MT and its co-located mobile IAB-DU connect to same IAB-donor-CU, and the updated\nauthorization status received from the 5GC is “not authorized”, the IAB-donor-CU performs the following actions in the\nfollowing order: it attempts to hand over the UEs served by the mobile IAB-node to other cell(s), releases the F1\ninterface towards the mobile IAB-DU, and then releases all backhaul resources, the BAP address, TNL address and\ndefault BAP configuration for this mobile IAB-node.\nIn case the mobile IAB-MT and its co-located mobile IAB-DU connect to different IAB-donor-CUs, the RRC-\nterminating IAB-donor-CU sends the updated authorization status to the F1-terminating IAB-donor-CU via the IAB\nTRANSPORT MIGRATION MODIFICATION REQUEST message. The F1-terminating IAB-donor-CU confirms the\nreception of the updated authorization status via the IAB TRANSPORT MIGRATION MODIFICATION RESPONSE\nmessage.\nNOTE1: In absence of Xn connectivity between the RRC-terminating IAB-donor-CU and the F1-terminating IAB-\ndonor-CU, the passing of the authorization status is left up to implementation.\nNOTE2: The implementation should ensure that the IAB Transport Migration Management procedure is initiated\nonce the F1 setup of the mobile IAB-DU or the mobile IAB-MT migration has completed, so that the\nRRC-terminating IAB-donor can send the updated authorization status via the IAB TRANSPORT\nMIGRATION MODIFICATION REQUEST message.\nIf the updated authorization status for the mobile IAB-node is set to “not authorized”, the F1-terminating IAB-donor\nattempts to hand over the UEs served by the mobile IAB-node to other cell(s), and then releases the F1 interface\ntowards the mobile IAB-DU. After that, the F1-terminating IAB-donor requests from the RRC-terminating IAB-donor\nthe release of all the offloaded traffic via the IAB TRANSPORT MIGRATION MANAGEMENT REQUEST message.\nThe RRC-terminating IAB-donor releases the offloaded traffic and all backhaul resources, BAP address, TNL address\nand default BAP configuration for this mobile IAB-node. The RRC-terminating IAB-donor may send an indication that\nthe mobile IAB-MT can be deregistered via a UE CONTEXT RELEASE REQUEST message, to the AMF.\nIf the authorization status is changed back from “not authorized” to “authorized”, the phase 2 and phase 3 of the mobile\nIAB-node integration procedure as defined in clause 8.12.3 are carried out.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          85
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.11",
+      "section_title": "IAB-node OAM",
+      "content": "8.9.11 IAB-node OAM\nNOTE 0: The general principles and procedures described in this clause does not apply to ng-eNB.\nThe IAB-node receives commands, configuration data and software downloads (e.g. for equipment software upgrades)\nfrom its OAM system. The IAB-node can also send alarms and traffic counter information to its OAM system. The\ntransport connection between the IAB-node and its OAM, using IP, is provided by the IAB-MT’s PDU session via 5G\nnetwork, or the IAB-MT’s PDN connection via LTE network when IAB-MT uses EN-DC.\nNOTE 1: The transport connection between the IAB-node and its OAM may also be provided using the Backhaul\nIP layer by implementation.\nAlarms in the IAB generate bursts of high-priority traffic, to be transported in real time. Traffic counters generate bursts\nof traffic, but their transport need not be real-time. Configuration messages from OAM to the IAB will also generate\nsmall bursts of traffic, possibly with lower priority than alarms but still delay-sensitive: when a configuration is\ncommitted on the OAM, the time interval between the commitment and the effect on the equipment shall be small.\nAlarm messages and commands should be transported on a high-priority bearer, while counters may be transported on a\nlower priority bearer.\nOAM software download to the IAB may generate larger amounts of data, but both the required data rate and the\npriority of this kind of traffic are much lower than in the case of alarms, commands and counters.\nFor different types of OAM traffic, it is necessary to use different DRBs between the IAB-MT and the serving DU, and\ndifferent BH RLC channels for intermediate hops, with different QoS parameters. Aggregation of F1-U traffic for OAM\nwith other F1-U traffic on the same BH RLC channels is not precluded. The QoS parameters are provided to the IAB-\ndonor during the IAB-MT’s PDU session establishment, or the IAB-MT’s PDN connection establishment when IAB-\nMT uses EN-DC.\nNOTE 2: When the transport connection between the IAB-node and its OAM is provided by the Backhaul IP layer,\nthe OAM traffic may be aggregated with other traffic types on the same BH RLC channel. The QoS for\nOAM is ensured by implementation.\nThe continuity of OAM connectivity needs to be ensured as the mobile IAB-node moves across the mobile network.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.17",
+      "section_title": "IAB-node authorization",
+      "content": "8.9.17 IAB-node authorization",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [
+          "8.9.17.1",
+          "8.9.17.3"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.8",
+      "section_title": "BH RLC channel establishment procedure",
+      "content": "8.9.8 BH RLC channel establishment procedure\nNOTE: The general principles and procedures described in this clause does not apply to ng-eNB\nThe BH RLC channel is an RLC channel used for backhauling between IAB-node and IAB-donor-DU, or between\ndifferent IAB-nodes. The BH RLC channel establishment may be triggered by a UE accessing the network and\nestablishing a DRB.\nIAB-node 2 IAB-node 1 IAB-donor-DU IAB-donor-CU\n1.UE CONTEXT\nMODIFICATION REQUEST\n2.UE CONTEXT\nMODIFICATION RESPONSE\n3.DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n4.RRCReconfiguration\n5.RRCReconfigurationComplete\n6.UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete)\n7.UE CONTEXT MODIFICATION REQUEST\n8.UE CONTEXT MODIFICATION RESPONSE\n9.DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n10.RRCReconfiguration\n11.RRCReconfigurationComplete\n12.UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete)\nFigure 8.9.8-1: Signalling flow for IAB BH RLC channel establishment procedure\n1. The IAB-donor-CU sends to the IAB-donor-DU a UE CONTEXT MODIFICATION REQUEST message for\nsetting up the parent-node IAB-DU side of the BH link between IAB-donor-DU and IAB-node 1. This step is\noptional and is required only when a new BH RLC channel needs to be established on the BH link between IAB-\ndonor-DU and IAB-node 1.\n2. The IAB-donor-DU sends the UE CONTEXT MODIFICATION RESPONSE message to the IAB-donor-CU.\n3. The IAB-donor-CU sends to the IAB-donor-DU a DL RRC MESSAGE TRANSFER message encapsulating the\nRRCReconfiguration message for configuring the IAB-MT of IAB-node 1. This step is optional and is required\nonly when a new BH RLC channel needs to be established on the BH link between IAB-donor-DU and IAB-\nnode 1.\n4. The IAB-donor-DU decapsulates and forwards the RRCReconfiguration message to the IAB-MT of IAB-node 1.\nThis step is optional and is required only when a new BH RLC channel needs to be established on the BH link\nbetween IAB-donor-DU and IAB-node 1.\n5. The IAB-MT of IAB-node 1 sends to the IAB-donor-DU an RRCReconfigurationComplete message destined to\nthe IAB-donor-CU. This step is optional and is required only when a new BH RLC channel needs to be\nestablished on the BH link between IAB-donor-DU and IAB-node 1.\n6. The IAB-donor-DU sends the UL RRC MESSAGE TRANSFER message encapsulating the\nRRCReconfigurationComplete message to the IAB-donor-CU. This step is optional and is required only when a\nnew BH RLC channel needs to be established on the BH link between IAB-donor-DU and IAB-node 1.\n7. The IAB-donor-CU sends to the IAB-DU of IAB-node 1 a UE CONTEXT MODIFICATION REQUEST\nmessage for setting up the parent node IAB-DU side of the BH link between IAB-node 1 and IAB-node 2. This\nstep is optional and is required only when a new BH RLC channel needs to be established on the BH link\nbetween IAB-node 1 and IAB-node 2.\n8. The IAB-node 1 sends the UE CONTEXT MODIFICATION RESPONSE message to the IAB-donor-CU.\n9. The IAB-donor-CU sends to the IAB-DU of IAB-node 1 a DL RRC MESSAGE TRANSFER message\nencapsulating the RRCReconfiguration message for configuring the IAB-MT of IAB-node 2. This step is\noptional and is required only when a new BH RLC channel needs to be established on the BH link between IAB-\nnode 1 and IAB-node 2.\n10. The IAB-DU of IAB-node 1 decapsulates and forwards the RRCReconfiguration message to the IAB-MT of\nIAB-node 2. This step is optional and is required only when a new BH RLC channel needs to be established on\nthe BH link between IAB-node 1 and IAB-node 2.\n11. The IAB-MT of IAB-node 2 sends to IAB-node 1 an RRCReconfigurationComplete message destined to the\nIAB-donor-CU. This step is optional and is required only when a new BH RLC channel needs to be established\non the BH link between IAB-node 1 and IAB-node 2.\n12. IAB-node 1 sends the UL RRC MESSAGE TRANSFER message encapsulating the\nRRCReconfigurationComplete message to the IAB-donor-CU. This step is optional and is required only when a\nnew BH RLC channel needs to be established on the BH link between IAB-node 1 and IAB-node 2.\nThe IAB-donor-CU uses the existing CU-DU split principles and the UE Context Setup procedure or UE Context\nModification procedure to configure the parent IAB-DU side of the BH RLC channel. The IAB-donor-CU uses RRC\nsignaling (which is encapsulated in the DL RRC MESSAGE TRANSFER message terminating at the parent node IAB-\nDU side of the BH RLC channel) to configure the child node IAB-MT side of the BH RLC channel.\nThe IAB-donor-CU configures the IAB-DU with a mapping to the BH RLC channel to be used for a specific UL F1-U\ntunnel during the UE Context Setup procedure or the F1-AP UE Context Modification procedure for the UE.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          81,
+          82
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.7",
+      "section_title": "Trace activation/deactivation over F1 and E1",
+      "content": "8.9.7 Trace activation/deactivation over F1 and E1\nFigure 8.9.6-1 shows the procedure used for the activation and the deactivation of UE traces in the gNB-DU, the gNB-\nCU-UP or both.\ngNB-DU gNB-CU-UPAMF or MeNB gNB-CU-CP\n1. TRACE START\n2a. TRACE START\n2b. TRACE START\n3. gNB-DU, gNB-CU-UP or both initiate the\nrequested trace session\n4. DEACTIVATE TRACE\n5a. DEACTIVATE TRACE\n5b. DEACTIVATE TRACE\n6. gNB-DU, gNB-CU-UP or both stop the\ntrace session\n\nFigure 8.9.6-1: Trace activation/deactivation over F1 and E1\n1. The gNB-CU-CP receives a TRACE START message from the AMF or the MeNB (in case of EN-DC).\n2. The gNB-CU-CP initiates the Trace Start procedure by sending a TRACE START message to the gNB-DU, the\ngNB-CU-UP or both.\n3. Upon reception of the TRACE START message, the gNB-DU, the gNB-CU-UP or both initiate the requested\ntrace session and report it as described in TS 32.422 [20].\n4. The gNB-CU-CP receives a DEACTIVATE TRACE message from the AMF or the MeNB (in case of EN-DC).\n5. The gNB-CU-CP initiates the Deactivate Trace procedure by sending a DEACTIVATE TRACE message to the\ngNB-DU, the gNB-CU-UP or both.\n6. Upon reception of the DEACTIVATE TRACE message, the gNB-DU, the gNB-CU-UP or both stop the trace\nsession for the indicated trace reference.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.1",
+      "section_title": "UE Initial Access",
+      "content": "8.9.1 UE Initial Access\nThe signalling flow for UE Initial access involving E1 and F1 is shown in Figure 8.9.1-1.\n1.RRCSetupRequest\n3. DL RRC MESSAGE TRANSFER\n2.INITIAL UL RRC MESSAGE TRANSFER\n4.RRCSetup\n5.RRCSetupComplete\n6.UL RRC MESSAGE TRANSFER\n11.UE CONTEXT SETUP REQUEST\n7.INITIAL UE MESSAGE\n8.INITIAL CONTEXT SETUP REQUEST\n13.UE CONTEXT SETUP RESPONSE\n12 SecurityModeCommand\n16. SecurityModeComplete\n18.DL RRC MESSAGE TRANSFER\n17.UL RRC MESSAGE TRANSFER\n19.RRCReconfiguration\n20.RRCReconfigurationComplete\n21.UL RRC MESSAGE TRANSFER\n22.INITIAL CONTEXT SETUP RESPONSE\n9. BEARER CONTEXT SETUP REQUEST\n10.BEARER CONTEXT SETUP RESPONSE\n14.BEARER CONTEXT MODIFICATION REQUEST\n15.BEARER CONTEXT MODIFICATION RESPONSE\nAMFUE gNB-DU gNB-CU-CP gNB-CU-UP\n\nFigure 8.9.1-1: UE Initial Access procedure involving E1 and F1\nSteps 1-8 are defined in clause 8.1.\n9. The gNB-CU-CP sends the BEARER CONTEXT SETUP RE QUEST message to establish the bearer context in\nthe gNB-CU-UP.\n10 The gNB-CU-UP sends the BEARER CONTEXT SETUP RESPONSE message to the gNB-CU-CP, including\nF1-U UL TEID and transport layer address allocated by the gNB-CU-UP.\nSteps 11-13 are defined in clause 8.1.\n14. The gNB-CU-CP sends the BEARER CONTEXT MODIFICATION REQUEST message to the gNB-CU-UP,\nincluding F1-U DL TEID and transport layer address allocated by the gNB-DU.\n15. The gNB-CU-UP sends the BEARER CONTEXT MODIFICATION RESPONSE message to the gNB-CU-CP.\nSteps 16-22 are defined in clause 8.1.\nNOTE: Steps 14-15 and steps 16-17 can happen in parallel, but both are before step 18.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          71
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.9",
+      "section_title": "Traffic Mapping",
+      "content": "8.9.9 Traffic Mapping\nNOTE: The general principles and procedures described in this clause does not apply to ng-eNB.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [
+          "8.9.9.1",
+          "8.9.9.2"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.6",
+      "section_title": "RRC State transition",
+      "content": "8.9.6 RRC State transition",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [
+          "8.9.6.1",
+          "8.9.6.2"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.4.4.1",
+      "section_title": "SN Addition with SCG Activation or Deactivation",
+      "content": "8.4.4.1 SN Addition with SCG Activation or Deactivation\nMN-CU-UP MN-CU-CP SN-CU-CP SN-CU-UP SN-DU\n1. SN Addition Request\n(activate or deactivate the SCG)\n2. BEARER CONTEXT SETUP REQUEST\n(SCG activated or deactivated)\n3. BEARER CONTEXT SETUP RESPONSE\n4. UE CONTEXT SETUP REQUEST\n(activate or deactivate the SCG)\n5. UE CONTEXT SETUP RESPONSE\n(SCG status)\n6. BEARER CONTEXT MODIFICATION REQUEST\n(SCG status)\n7. BEARER CONTEXT MODIFICATION RESPOSE\n8. SN Addition Reqeust Acknowledge\n(SCG status)\n9. BEARER CONTEXT MODIFICATION REQUEST\n(SCG status)\n10. BEARER CONTEXT MODIFICATION RESPONSE\n\nFigure 8.4.4.1-1: SCG Activation or Deactivation in SN Addition procedure\n1. The MN sends the SN Addition Request message to the SN, indicates the request of SCG activation or\ndeactivation.\n2. The SN-CU-CP may send the BEARER CONTEXT SETUP REQUEST message to the SN-CU-UP to setup\nbearer context and notify the activation or deactivation of the SCG.\n3. The SN-CU-UP sends the BEARER CONTEXT SETUP RESPONSE message to the SN-CU-CP.\n4. The SN-CU sends the UE CONTEXT SETUP REQUEST message to the SN-DU to setup UE context and\nindicate the request of SCG activation or deactivation.\n5. The SN-DU sends the UE CONTEXT SETUP RESPONSE message to the SN-CU, indicates the SCG status. In\ncase SCG activation is requested, the SN-DU shall indicate SCG activated in the message.\n6. The SN-CU-CP may send the BEARER CONTEXT MODIFICATION REQUEST message to the SN-CU-UP as\ndescribed in clause 8.9.2 and may notify the SCG status if needed.\n7. The SN-CU-UP sends the BEARER CONTEXT MODIFICATION RESPONSE message to the SN-CU-CP.\n8. The SN sends the SN Addition Request Acknowledge message to the MN, indicates the SCG status. In case SCG\nactivation is requested, the SN shall indicate SCG activated in the message.\n9. The MN-CU-CP may send the BEARER CONTEXT MODIFICATION REQUEST message to the MN-CU-UP\nto notify the SCG status.\n10. The MN-CU-UP sends the BEARER CONTEXT MODIFICATION RESPONSE message to the MN-CU-CP.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.4.4",
+        "child_section_ids": [],
+        "page_numbers": [
+          62
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.15.1.1",
+      "section_title": "Broadcast MBS Session Setup",
+      "content": "8.15.1.1 Broadcast MBS Session Setup\nFigure 8.15.1.1-1 illustrates an exemplified interaction of NGAP, E1AP, F1AP and RRC protocol functions at\nBroadcast MBS Session Setup.\nUE gNB-DU gNB-CU-CP gNB-CU-UP 5GC\n9. MCCH configuration\n11. Broadcast MBS Media Stream\n1. NGAP Broadcast Session Setup Request\n (5GC NG-U TNL)\n10. NGAP Broadcast Session Setup Response\n(NG-U unicast: gNB NG-U TNL)\n2. E1AP BC Bearer Context Setup Request\n(5GC NG-U TNL)\n3. E1AP BC Bearer Context Setup Response\n(NG-U unicast: gNb NG-U TNL, F1-U TNL CU)\n5. F1AP Broadcast Context Setup Request\n(F1-U TNL CU)\n6. F1AP Broadcast Context Setup Response\n(F1-U TNL DU)\n4. IGMP/MLD join\n(for NG-U multicast transport)\n7. E1AP BC Bearer Context Modification Request\n(F1-U TNL DU)\n8. E1AP BC Bearer Context Modification Response\n\nFigure 8.15.1.1-1: Broadcast MBS Session Setup\n1. The 5GC starts the broadcast session by sending the NGAP Broadcast Session Setup Request message to the\ngNB containing e.g. the TMGI, S-NSSAI, 5G QoS Profile, area information and transport information (for NG-\nU multicast transport it provides the IP multicast address and the IP source specific multicast address).\n2/3. The gNB-CU-CP sets up the broadcast bearer context, providing NG-U transport information from the 5GC to\nthe gNB-CU-UP, receiving from the gNB-CU-UP the NG-U GTP DL TEID and storing it in case NG-U unicast\ntransport was selected and an F1-U GTP UL TEID per MRB.\n4. In case of NG-U multicast transport, the gNB-CU-UP joins the NG-U multicast group.\n5/6. The gNB-CU-CP establishes the Broadcast MBS Session Context at the gNB-DU, providing e.g. MRB\nconfiguration, other relevant session parameters and F1-U GTP UL TEID information, and receiving F1-U GTP\nDL TEID information.\n7/8. The gNB-CU-CP triggers BC Bearer Context Modification Request towards the gNB-CU-UP to provide the\nF1-U GTP DL TEID information.\n9. The gNB-DU configures broadcast resources and provid es broadcast configuration information to the UEs by\nmeans of MCCH.\n10. The gNB-CU CP successfully terminates the NGAP broadcast Session Setup procedure. In case the gNB has\nchosen NG-U unicast transport, NG-U GTP DL TEID information is provided to the 5GC.\n11. The broadcast MBS media stream is provided to the UEs.\nOn NG-U, in case of location dependent broadcast MBS Sessions, multiple shared NG-U transport tunnels may need to\nbe setup, one per Area Session ID served by the gNB.\nIn case of shared NG-U termination,\n- the gNB-CU-UP may provide the gNB-CU-CP at E1 setup or configuration update about established shared NG-\nU terminations, indicated by one or several MBS Session IDs.\n- at establishment of the BC bearer context in the gNB-CU-UP, the gNB-CU-CP may request the gNB-CU-UP to\neither apply the available MRB configuration of the shared NG-U termination, or to apply the MRB\nconfiguration requested by the gNB-CU-CP. The gNB-CU-UP provides the MRB configuration to the gNB-CU-\nCP if the MRB configuration requested by the gNB-CU-CP and the available MRB configuration of the shared\nNG-U termination are different.\n8.15.1.1a Broadcast MBS Session Setup for resource efficiency for MOCN\nFigure 8.15.1.1a-1 illustrates an exemplified interaction of NGAP, E1AP, F1AP and RRC protocol functions at\nBroadcast MBS Session Setup with the support of resource efficiency for MOCN.\nUEs\n(PLMN1)\nUEs\n(PLMN2)\ngNB-DU gNB-CU-CP gNB-CU-UP 5GC1\n(PLMN1)\n5GC2\n(PLMN2)\n1.Broadcast MBS Session Setup as defined in 8.15.1.1\n(TMGI 1 with Associated Session ID x in step 1, 2 and 5)\nBroadcast MBS Media Stream\n2.NGAP Broadcast Session Setup Request\n(TMGI 2 with Associated Session ID x)\n3.may determine to\nnot establish shared\nNG-U tunnel for PLMN2\n4.F1AP Broadcast Context Setup Request\n(TMGI 2 with Associated Session ID x)\n5.determines to\nnot establish shared\nF1-U tunnel for PLMN2\n6.F1AP Broadcast Context Setup Response\n(F1-U tunnel not established)\n7.MCCH configuration\n(TMGI1, TMGI2)\nBroadcast MBS Media Stream\n8.NGAP Broadcast Sesssion Setup Response\n\nFigure 8.15.1.1a-1: Broadcast MBS Session Setup for resource efficiency for MOCN\n1. The 5GC1 triggers the Broadcast MBS Session Setup procedure for TMGI 1 as defined in section 8.15.1.1, and\nthe Associated Session ID x is provided together with TMGI 1 in step 1, 2 and 5 of 8.15.1.1. The broadcast MBS\nmedia stream received from 5GC1 is provided to the UEs of PLMN1.\n2. The 5GC2 triggers the Broadcast MBS Session Setup procedure for TMGI 2 with the Associated Session ID x.\n3. Upon receiving the same Associated Session ID x, the gNB-CU-CP may determine to not establish shared NG-U\ntunnel for PLMN2 with 5GC2, in case of multicast transport, the gNB-CU-CP stores the multicast transport\naddress received from the 5GC2.\n4. The gNB-CU-CP triggers the F1AP Broadcast Context Setup Request for TMGI 2 with the Associated Session\nID x towards the gNB-DU.\n5. Upon receiving the same Associated Session ID x, the gNB-DU shall determine to not establish shared F1-U\ntunnel for PLMN2.\n6. The gNB-DU triggers the F1AP Broadcast Context Setup Response for TMGI 2 to the gNB-CU, and indicates\nthat the shared F1-U tunnel is not established.\n7. The gNB-DU provides configuration of both TMGI 1 and TMGI 2 by means of MCCH. The broadcast MBS\nmedia stream received from 5GC1 is provided to both UEs of PLMN1 and UEs of PLMN2.\n8. The gNB-CU-CP sends NGAP Broadcast Session Setup Response towards 5GC2.\nAfterwards, if the gNB-CU-CP decides (e.g., in case the 5GC1 triggers Broadcast Session Release) to establish shared\nNG-U resources with the 5GC2 with which the shared NG-U was not established:\n- in case of multicast transport, the gNB-CU-CP triggers BC Bearer Context Modification Request towards the\ngNB-CU-UP providing the stored multicast address received from the 5GC2. Then the gNB-CU-UP joins the\nNG-U multicast group of 5GC2 accordingly;\n- in case of unicast transport, the gNB-CU-CP triggers Broadcast Session Transport Request towards the core\nnetwork providing the unicast transport address received from the gNB-CU-UP.\nNOTE: The gNB CU-UP may support PDCP SN continuity after establishment of shared NG-U resources with\n5GC2.\n8.15.1.1b Broadcast MBS Session Setup for resource efficiency for RAN sharing with\nmultiple cell-ID broadcast\nFigure 8.15.1.1b-1 illustrates an exemplified interaction of NGAP, E1AP, F1AP and RRC protocol functions at\nBroadcast MBS Session Setup with the support of resource efficiency for RAN sharing with multiple cell-ID broadcast.\nThe gNB-DU1/2 entity shown in Figure 8.15.1b-1 is a simplified representation of the gNB-DU 1 of PLMN 1, the gNB\nDU2 of PLMN 2 and respective radio resources of the shared cell.\nUEs\n(PLMN1)\nUEs\n(PLMN2)\ngNB-DU1/2 gNB-CU-CP1\n(PLMN1)\ngNB-CU-UP1\n(PLMN1)\n5GC1\n(PLMN1)\ngNB-CU-CP2\n(PLMN2)\ngNB-CU-UP2\n(PLMN2)\n5GC2\n(PLMN2)\n1.Broadcast MBS Session Setup as defined in 8.15.1.1\n(TMGI 1 with Associated Session ID x in step 1, 2 and 5)\nBroadcast MBS Media Stream\n2.NGAP Broadcast Session Setup Request\n(TMGI 2 with Associated Session ID)\n3.E1AP BC Bearer Context Setup Request\n(TMGI 2 with Associated Session ID)\n4.E1AP BC Bearer Context Setup Response\n5.F1AP Broadcast Context Setup Request\n(TMGI 2 with Associated Session ID)\n6.may determine to\nnot establish shared\nF1-U tunnel for PLMN2\n7.F1AP Broadcast Context Setup Response\n(F1-U tunnel not established)\n8.may determine to\nnot establish shared\nNG-U tunnel for PLMN2\n9.E1AP BC Bearer Context Modification Request\n(F1-U tunnel not established)\n10.E1AP BC Bearer Context Modification Response\n11.MCCH configuration\n(TMGI1, TMGI2)\n12.NGAP Broadcast Sesssion Setup Response\nBroadcast MBS Media Stream\nFigure 8.15.1.1b-1: Broadcast MBS Session Setup for RAN sharing with multiple cell-ID broadcast\n1. The 5GC1 triggers the Broadcast MBS Session Setup procedure towards gNB-CU-CP1 for TMGI 1 as defined in\nsection 8.15.1.1, and the Associated Session ID x is provided together with TMGI 1 in step 1, 2 and 5 of\n8.15.1.1. The broadcast MBS media stream received from 5GC1 is provided to the UEs of PLMN1 via the gNB-\nCU-UP1 and the gNB-DU\n1.\n2. The 5GC2 triggers the Broadcast MBS Session Setup procedure for TMGI 2 with the Associated Session ID x\ntowards gNB-CU-CP2.\n3/4. The gNB-CU-CP2 sets up the broadcast bearer cont ext with gNB-CU-UP2 including the Associated Session\nID x. The gNB-CU UP uses the received information to correlate the MBS sessions and include the shared NG-\nU termination endpoint if applicable.\n5. The gNB-CU-CP2 triggers the F1AP Broadcast Context Setup Request for TMGI 2 with the Associated Session\nID x towards the gNB-DU2.\n6. Upon receiving the same Associated Session ID x, the gNB-DU 1/2 may determine to not establish shared F1-U\ntunnel for PLMN2.\n7. The gNB-DU 2 triggers the F1AP Broadcast Context Setup Response for TMGI2 to the gNB-CU-CP2, and\nindicates that the shared F1-U tunnel is not established.\n8. The gNB-CU-CP2 may determine to not establish shared NG-U tunnel for PLMN2. In case of multicast\ntransport, the gNB-CU-CP2 stores the NG-U multicast transport address received from 5GC2 in step 2. In case\nof unicast transport, the gNB-CU-CP2 stores the NG-U unicast transport address received from the gNB-CU-\nUP2 in step 4.\n9/10. The gNB-CU-CP2 triggers E1AP BC Bearer Cont ext Modification procedure towards the gNB-CU-UP2, and\nindicates that the shared F1-U tunnel is not established.\n11. The gNB-DU1/2 provides configuration of both TMGI 1 and TMGI 2 by means of MCCH. The broadcast MBS\nmedia stream received from 5GC1 is provided to both UEs of PLMN1 and UEs of PLMN2.\n12. The gNB-CU-CP2 sends NGAP Broadcast Session Setup Response towards 5GC2.\nAfterwards, if the gNB-DU1/2 decides (e.g., upon receiving the Broadcast Context Release Command from gNB-CU-\nCP1 in case the 5GC1 triggers Broadcast Session Release) to establish the shared F1-U tunnel for PLMN2 which was\nnot established:\n-  the gNB-DU 2 triggers Broadcast Transport Resource Request towards the gNB-CU-CP2 and providing the F1-U\nTNL at DU;\n- and then, the gNB-CU-CP2  triggers the BC Bearer Context Modification Request towards the gNB-CU-UP2\nproviding the F1-U TNL at DU,\n- in case of multicast transport, the gNB-CU-CP2 also provides the stored NG-U multicast transport address\nreceived from 5GC2. Then the gNB-CU-UP2 joins the NG-U multicast group of 5GC2 accordingly;\n- in case of unicast transport, the gNB-CU-CP2 triggers  the Broadcast Session Transport procedure towards the\n5GC2 providing the stored NG-U unicast transport address received from gNB-CU-UP2.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.15.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          103,
+          104,
+          105,
+          106
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "6.4",
+      "section_title": "UE associations in NG-RAN Node",
+      "content": "6.4 UE associations in NG-RAN Node\nThere are several types of UE associations needed in the NG-RAN node: the \"NG-RAN node UE context\" used to store\nall information needed for a UE and the associations between the UE and the logical NG and Xn connections used for\nNGAP/XnAP UE associated messages. An \"NG-RAN node UE context\" exists for a UE in CM_CONNECTED.\nDefinitions:\nNG-RAN node UE context:\nAn NG-RAN node UE context is a block of information in an NG-RAN node associated to one UE. The block of\ninformation contains the necessary information required to maintain the NG-RAN services towards the active UE. An\nNG-RAN node UE context is established when the transition to RRC CONNECTED for a UE is completed or in the\ntarget NG-RAN node after completion of handover resource allocation during handover preparation, in which case at\nleast UE state information, security information, UE capability information and the identities of the UE-associated\nlogical NG-connection shall be included in the NG-RAN node UE context.\nFor Dual Connectivity an NG-RAN node UE context is also established in the S-NG-RAN node after completion of S-\nNG-RAN node Addition Preparation procedure.\nIf radio bearers are requested to be setup during a UE Context setup or modification procedure, the UE capabilities are\nsignalled to the receiving node as part of the UE context setup or modification procedures.\nBearer context:\nA bearer context is a block of information in a gNB-CU-UP node associated to one UE that is used for the sake of\ncommunication over the E1 interface. It may include the information about data radio bearers, PDU sessions and QoS-\nflows associated to the UE. The block of information contains the necessary information required to maintain user-plane\nservices toward the UE.\nUE-associated logical NG/Xn/F1/E1-connection:\nNGAP, XnAP, F1AP and E1AP provide means to exchange control plane messages associated with the UE over the\nrespectively NG-C, Xn-C, F1-C or E1 interface.\nA UE-associated logical connection is established during the first NGAP/XnAP/F1AP message exchange between the\nNG/Xn/F1 peer nodes.\nThe connection is maintained as long as UE associated NG/XnAP/F1AP messages need to be exchanged over the\nNG/Xn/F1 interface.\nThe UE-associated logical NG-connection uses the identities AMF UE NGAP ID and RAN UE NGAP ID.\nThe UE-associated logical Xn-connection uses the identities Old NG-RAN node UE XnAP ID and New NG-RAN node\nUE XnAP ID, or Source NG-RAN node UE XnAP ID and Target NG-RAN node UE XnAP ID, or M-NG-RAN node\nUE XnAP ID and S-NG-RAN node UE XnAP ID.\nThe UE-associated logical F1-connection uses the identities gNB-CU UE F1AP ID and gNB-DU UE F1AP ID.\nThe UE-associated logical E1-connection uses the identities gNB-CU-CP UE E1AP ID and gNB-CU-UP UE E1AP ID.\nWhen a node (AMF or gNB) receives a UE associated NGAP/XnAP/F1AP/E1AP message the node retrieves the\nassociated UE based on the NGAP/XnAP/F1AP/E1AP ID.\nUE-associated signalling:\nUE-associated signalling is an exchange of NGAP/XnAP/F1AP/E1AP messages associated with one UE over the UE-\nassociated logical NG/Xn/F1/E1-connection.\nNOTE1: The UE-associated logical NG-connection may exist before the NG-RAN node UE context is setup in the\nNG-RAN node.\nNOTE2: The UE-associated logical F1-c onnection may exist before the UE context is setup in the gNB-DU.\nNOTE3: The general principle described in this clause also applies to ng-eNB and W1/E1 interface, if not\nexplicitly specified otherwise.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 2,
+        "parent_section_id": null,
+        "child_section_ids": [],
+        "page_numbers": [
+          26
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.5",
+      "section_title": "F1 Startup and cells activation",
+      "content": "8.5 F1 Startup and cells activation\nThis function allows to setup the F1 interface between a gNB-DU and a gNB-CU and it allows to activate the gNB-DU\ncells.\ngNB-DU gNB-CU\n3. F1 SETUP RESPONSE\n1. F1 SETUP REQUEST\n0. Pre-operational state\ngNB/eNB5GC\n2. NG Setup/gNB Configuration Update\n6. Xn/X2 Setup\n4. GNB-CU CONFIGURATION UPDATE\n5. GNB-CU CONFIGURATION UPDATE ACKNOWLEDGE\n\nFigure 8.5-1: F1 startup and cell activation\n0. The gNB-DU and its cells are configured by OAM in the F1 pre-operational state. The gNB-DU has TNL\nconnectivity toward the gNB-CU.\n1. The gNB-DU sends an F1 SETUP REQUEST message to the gNB-CU including a list of cells that are configured\nand ready to be activated. For each cell supporting NPN the gNB-DU includes NPN specific information.\n2. In NG-RAN, the gNB-CU ensures the connectivity toward the core network. For this reason, the gNB-CU may\ninitiate either the NG Setup or the gNB Configuration Update procedure towards 5GC.\n3. The gNB-CU sends an F1 SETUP RESPONSE message to the gNB-DU that optionally includes a list of cells to\nbe activated. The cells in the list of cells to be activated in F1 SETUP RESPONSE message become active,\nwhile the cells not in the list are inactive. The cells that are active are Out-of-Service until the gNB-DU indicates\nthat they are In-Service . The gNB-DU will initiate the gNB-DU Configuration Update procedure towards the\ngNB-CU and includes the cell(s) that are In-Service and/or the cell(s) that are Out-Of-Service. The gNB-DU may\nalso indicate cell(s) to be deleted, in which case the gNB-CU removes the corresponding cell(s) information.\n4. The gNB-CU may send a GNB CU CONFIGURATION UPDATE message to the gNB-DU that optionally\nincludes a list of cells to be activated, e.g., in case that these cells were not activated using the F1 SETUP\nRESPONSE message.\n5. The gNB-DU replies with a GNB CU CONFIGURATION UPDATE ACKNOWLEDGE message that optionally\nincludes a list of cells that failed to be activated. The gNB-CU regards all Active cells as Out-Of-Service until\nthe gNB-DU indicates that they are In-Service.\n6. The gNB-CU may initiate either the Xn Setup towards a neighbour NG-RAN node or the EN-DC X2 Setup\nprocedure towards a neighbour eNB.\nNOTE 1: For NG-RAN in case that the F1 SETUP RESPONSE message is not used to activate any cell, step 2 may\nbe performed after step 3.\nOver the F1 interface between a gNB-CU and a gNB-DU pair, the following two Cell States are possible:\n- Inactive : the cell is known by both the gNB-DU and the gNB-CU. The cell shall not serve UEs;\n- Active : the cell is known by both the gNB-DU and the gNB-CU. The cell should try to provide services to the\nUEs.\nThe gNB-CU decides whether the Cell State should be “Inactive“ or “Active“. The gNB-CU can request the gNB-DU\nto change the Cell State using the F1 SETUP RESPONSE, theGNB DU CONFIGURATION UPDATE\nACKNOWLEDGE, or the GNB CU CONFIGURATION UPDATE messages.\nThe gNB-DU reports to the gNB-CU the Service Status. The Service Status is the state of the radio transmission over\nthe air. The Service Status is reported by the gNB-DU for cells for which the Cell State is “Active “. The following\nService Status are defined:\n- In-Service : the cell is operational and able to serve UEs.\n- Out-Of-Service : the cell is not operational, and it is not able to serve UEs. The gNB-DU is trying to make the cell\noperational.\nThe gNB-DU reports the Service Status using the GNB DU CONFIGURATION UPDATE message.\nNOTE 2: If gNB-DU regards that one or more cells cannot become operational, the gNB-DU deletes them and\nreports them using the GNB DU CONFIGURATION UPDATE message.\n8.6 RRC state transition\n8.6.1 RRC connected to RRC inactive\nThis clause gives the RRC connected to RRC inactive state transition given that gNB consists of gNB-CU and gNB-\nDU(s), as shown in Figure 8.6.1-1.\n\ngNB-CUgNB-DU\n\nUE\n3. UE CONTEXT RELEASE COMPLETE\nDetermines UE to\nenter into RRC\ninactive mode\n1. UE CONTEXT RELEASE COMMAND2. RRCRelease (suspendConfig)\n\nFigure 8.6.1-1: RRC connected to RRC inactive state transition procedure\n0. At first, the gNB-CU determines the UE to enter into RRC inactive mode from connected mode.\n1. The gNB-CU generates RRCRelease message which includes suspend configuration towards UE. The RRC\nmessage is encapsulated in UE CONTEXT RELEASE COMMAND message to the gNB-DU.\n2. The gNB-DU forwards RRCRelease message to UE.\n3. The gNB-DU responds with UE CONTEXT RELEASE COMPLETE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 2,
+        "parent_section_id": "8",
+        "child_section_ids": [],
+        "page_numbers": [
+          64,
+          65
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.4.1.1",
+      "section_title": "EN-DC",
+      "content": "8.4.1.1 EN-DC\nThis clause gives the SgNB addition procedure in EN-DC given that en-gNB consists of gNB-CU and gNB-DU(s), as\nshown in Figure 8.4.1.1-1.\nUE\n MeNB\n gNB-CU\n gNB-DU\n S-GW\n2 . S G N B  A D D ITIO N  R E QU ES T  A C K N OW LE D G E\n(c ar r y  CG-Co nfig )\n3. RRCConnectionReconfiguration\n4.  RRCConnectionReconfigurationComplete\n5 .  SG N B RE C O N F I G UR A T I O N  C O M PL E T E\n7. S N  S T AT U S  T R AN S F E R\n8.  D at a F o r w a r d in g\n6 .  R a n dom  A c ce s s  Proc e dur e\n      Pat h  U p d a t e  p r o c e d u r e\nMME\na 1. UE C O NTE X T S E T U P REQ U E S T\n ( ca rry   CG-ConfigInfo )\na 2. U E  C O NTEX T S ET U P R E S PO N S E\nU p lin k  u s e r   d at a\nD o w n li n k  u se r   d at a\nD o w n li n k  u se r   d at a\n1 .  S G N B  A D D I TI ON  R EQ U ES T\n ( c a rry   CG-Co nfigI nfo )\n\nFigure 8.4.1.1-1: SgNB addition procedure in EN-DC\n1~8: refer to TS 37.340 [12].\na1. After receiving the SGNB ADDITION REQUEST message from MeNB, the gNB-CU sends the UE CONTEXT\nSETUP REQUEST message to the gNB-DU to create a UE context. As specified in TS 37.340 [12], in the\ncourse of a Secondary Node Change, the UE CONTEXT SETUP REQUEST message may contain source cell\ngroup configuration to allow gNB-DU to perform delta configuration.\na2. The gNB-DU responds to the gNB-CU with the UE CONTEXT SETUP RESPONSE message. In case the gNB-\nDU receives the UE CONTEXT SETUP REQUEST message without the source cell group configuration or in\nthe course of a Secondary Node Change as specified in TS 37.340 [12] or if the gNB-DU decides to perform full\nconfiguration after receiving the source cell group configuration, it shall perform full configuration and indicate\nthat it has applied full configuration in the UE CONTEXT SETUP RESPONSE message.\nNOTE: On Inter-gNB-CU Mobility, same method is performed to achieve full configuration and delta\nconfiguration.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.4.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          59
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.16.3",
+      "section_title": "SN initiated conditional inter-SN Change",
+      "content": "8.16.3 SN initiated conditional inter-SN Change\nThe procedure for SN initiated conditional SN Change refer to TS 37.340[12]. In case of split gNB architecture, the\nprocedures between gNB-CU and gNB-DU and the procedures between gNB-CU-CP and gNB-CU-UP refer to 8.16.1.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.16",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.1.6",
+      "section_title": "LTM with gNB-CU-UP change",
+      "content": "8.2.1.6 LTM with gNB-CU-UP change\nFigure 8.2.1.6-1 shows the procedure used for LTM with the change of gNB-CU-UP within a gNB.\nSource gNB-DU Target gNB-DU gNB-CU-CP Source gNB-CU-UP Target gNB-CU-UP AMF/UPF\n0. measurement report\n1. LTM configuration decision\n2. BEARER CONTEXT SETUP REQUEST\n3. BEARER CONTEXT SETUP RESPONSE\n4.  LTM configuration procedures\n5. DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n6. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete )\nDL data\n6a. CU-DU MOBILITY INITIATION REQUEST\n7. LTM decision\n8. DU-CU CELL SWITCH NOTIFICATION\n9. CU-DU CELL\nSWITCH\nNOTIFICATION\n10. BEARER\nCONTEXT\nMODIFICATION\nREQUEST\n11. BEARER\nCONTEXT\nMODIFICATION\nRESPONSE\n12. BEARER CONTEXT MODIFICATION\nREQUEST\n13. BEARER CONTEXT MODIFICATION\nRESPONSE\n14. Data forwarding\n15. UE detected\n16. ACCESS\nSUCCESS\n17. Path Update procedure is performed towards the core network\n18. End Marker Packet\n19. New path\n20. BEARER\nCONTEXT\nRELEASE\nCOMMAND\n21. BEARER\nCONTEXT\nRELEASE\nCOMPLETE\n\nFigure 8.2.1.6-1 LTM with the change of gNB-CU-UP\n0. The source gNB-DU forwards the Measurement Report to the gNB-CU-CP.\n1. The gNB-CU-CP decides to initiate LTM configuration.\n2. The gNB-CU-CP sends a BEARER CONTEXT SETUP REQUEST message containing UL TNL address\ninformation for NG-U to setup the bearer context in the target gNB-CU-UP.\n3. The target gNB-CU-UP responds with a BEARER CONTEXT SETUP RESPONSE message containing the UL\nTNL address information for F1-U, DL TNL address information for NG-U, and the TNL address information\nfor data forwarding to the target gNB-CU-UP.\n4. LTM configuration procedures are performed between gNB-CU and candidate gNB-DUs, and between gNB-CU\nand source gNB-DU as specified from step 3 to step 8 in section 8.2.1.5.\n5 - 6. The gNB-CU-CP sends the RRC Reconfiguration message to the source gNB-DU via DL RRC MESSAGE\nTRANSFER message, and receives the the RRCReconfigurationComplete message from the source gNB-DU via\nUL RRC MESSAGE TRANSFER message.\n6a. If LTM is triggered based on L3 measurement, gNB-CU-CP sends a CU-DU MOBILITY INITIATION\nREQUEST message to the gNB-DU to trigger early synchronization and/or cell switch.\n7. The UE sends the lower layer measurement result to the source gNB-DU if L1 measurement is configured to UE.\nThe source gNB-DU decides to execute LTM to a target cell.\n8. The source gNB-DU sends the DU-CU CELL SWITCH NOTIFICATION message to the gNB-CU-CP with the\nselected target cell ID.\n9. The gNB-CU-CP forwards the selected target cell ID to the target gNB-DU in the CU-DU CELL SWITCH\nNOTIFICATION message.\n10-11. The gNB-CU-CP performs the Bearer Context Modification procedure to indicate the source gNB-CU-UP to\nstop packet delivery, which may also retrieve the PDCP UL/DL status and exchange the TNL address\ninformation for data forwarding for the bearers.\n12-13. The gNB-CU-CP performs the Bearer Context Modification procedure to send the DL TNL address\ninformation for F1-U and the PDCP UL/DL status to the target gNB-CU-UP.\n14. Data Forwarding may be performed from the source gNB-CU-UP to the target gNB-CU-UP.\n15. The target gNB-DU detects the UE in the target cell.\n16. The target gNB-DU sends an ACCESS SUCCESS message to the gNB-CU-CP. The target gNB-DU also sends\na Downlink Data Delivery Status frame to inform the target gNB-CU-UP.\n17-19. Path Switch procedure is performed to update the DL TNL address information for the NG-U towards the\ncore network.\n20-21. Bearer Context Release procedure may be performed to release the UE context in the source gNB-CU-UP.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          43,
+          44
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.19.4.3",
+      "section_title": "Inter-gNB-CU switch from direct to indirect path",
+      "content": "8.19.4.3 Inter-gNB-CU switch from direct to indirect path\nThe inter-gNB-CU switch from direct to indirect path can be based on Xn handover procedure or NG handover\nprocedure. The signalling flow for U2N Remote UE switch from direct to indirect path with gNB-CU change based on\nXn handover procedure is shown in Figure 8.19.4.3-1.\nRemote UE Source\ngNB-CU\nTarget\ngNB-CU\nSource\ngNB-DU\nTarget\ngNB-DU 5GCTarget\nRe l ay U E\n9 .  U E  C O N T EXT  M O D I F I C A TI O N  R E Q U ES T\n( RRCReconfiguration )\n8 .  H AN D O V E R RE Q UE S T  A C K N O W LED G E ( RRCReconfiguration )\n1. M e a s u r e m e nt  c o n f i g u r a t i o n a n d r e po r t in g\n2.  D ec i s i o n  o f i n d i rec t\np a t h s wi t c hi ng\n3 .  HA N D OV ER  R E Q U ES T  ( Li s t  of  C an di da t e  U 2 N  R e l a y  U E ( s ) )\n6 .  UE  C O N T EX T  S ETU P  R EQ U ES T\n7 .  UE  C O N T EX T  S ETU P  R ES P O N S E\n10.  RRCReconfiguration\n11. U E  C ON T EX T M OD IF IC AT IO N  R E S P ON SE\n14 .  P C5  Co n nec ti o n  Est ab li s hme n t\n12. S N S T A T US T R A NS FE R\n15.  RRCReconfigurationComplete\n16.  U L  R RC M E S S A GE TRA N S F E R\n5 . R e c o nf i gu r at io n  t o t ar ge t  U 2 N  R e la y  U E\n4.  S el ec t i o n  o f ta rg et  U2N\nRe l ay  U E\n13 .  D at a f o r w ar d i n g\n18 .  U E  C O N T EX T R E LE A S E\n19.  U E  CONT E X T  R E L E A S E  C O MMA ND\nSource gNB\n17.  P at h  S w it c h  p r o c e d u r e  i s\npe r f o r m e d\nTarget gNB\nDL / U L  d a t a\nDL / U L  d a t a\n2 0.  UE C O N TE X T REL E A S E  CO M P L E TE\n\nFigure 8.19.4.3-1. U2N Remote UE Direct-to-indirect Path Switch with gNB-CU change procedure\n1. The Uu measurement configuration and measurement report signalling are performed between U2N Remote UE\nand source gNB-CU to evaluate both relay link measurement and Uu link measurement. The U2N Remote UE\nmay report one or multiple candidate U2N Relay UE(s) and Uu measurement results after it measures/discovers\nthe candidate U2N Relay UE(s).\n2. The source gNB-CU decides to switch the U2N Remo te UE to one of the candidate U2N Relay UE(s).\n3. The source gNB-CU sends the XnAP HANDOVER REQUEST message to the target gNB-CU. The\nHANDOVER REQUEST message include a list of candidate U2N Relay UE(s) IDs of same cell of the target\ngNB.\n4. The target gNB-CU decides to accept the indirect path switching, and select the target U2N Relay UE from the\ncandidate U2N Relay UE(s).\n5. The reconfiguration to target U2N Relay UE is performed among target U2N Relay UE, the target gNB-DU and\ntarget gNB-CU, if the target U2N Relay UE is in RRC_CONNECTED state. The target gNB-CU allocates the\nlocal ID for the U2N Remote UE. The target gNB-CU sends an RRCReconfiguration message to the target U2N\nRelay UE. If the target U2N Relay UE is in RRC_IDLE/INACTIVE state, this step is skipped and the\nconfiguration to the target U2N Relay UE is performed in Step 15.\n6. The target gNB-CU sends the UE CONTEXT SETUP REQUEST message for the U2N Remote UE to the target\ngNB-DU, which contains the path switch configuration at least.\n7. The target gNB-DU responds with the UE CONTEXT SETUP RESPONSE message to the target gNB-CU.\n8. The target gNB-CU responds the source gNB-CU with an XnAP HANDOVER REQUEST ACKNOWLEDGE\nmessage by including the RRCReconfiguration message. The contents in the RRCReconfiguration message may\ninclude at least path switch configuration, PC5 Relay RLC channel configuration for relay traffic, bearer\nmapping and the associated radio bearer(s).\n9. The source gNB-CU sends to the source gNB-DU the UE CONTEXT MODIFICATION REQUEST message to\nsend the handover command to the U2N Remote UE, and to indicate to stop the data transmission for the U2N\nRemote UE.\n10. The source gNB-DU sends the RRCReconfiguration message to the U2N Remote UE. The U2N Remote UE\nstops UP and CP transmission over Uu after reception of RRCReconfiguration message from the source gNB.\n11. The source gNB-DU sends the UE CONTEXT MODIFICATION RESPONSE message to the source gNB-CU.\n12. The source gNB-CU sends an XnAP SN STATUS TRANSFER message to the target gNB-CU.\n13. Data Forwarding may be performed from the source gNB-CU to the target gNB-CU.\n14. The U2N Remote UE establishes PC5 connection with target U2N Relay UE.\n15. The U2N Remote UE completes the path switch procedure by sending the RRCReconfigurationComplete\nmessage to the target gNB-DU via the target U2N Relay UE. In case the target U2N Relay UE is in RRC_IDLE/\nINACTIVE state when receiving the RRCReconfigurationComplete message, the reception of the\nRRCReconfigurationComplete message will first trigger RRC setup/resume procedure for the target U2N Relay\nUE to enter RRC_CONNECTED state.\n16. The target gNB-DU sends the UL RRC MESSAGE TRANSFER message to target gNB-CU by including the\nRRCReconfigurationComplete message.\n17. Path Switch procedure is performed to switch the DL data path towards the target gNB-CU and to establish an\nNG-C interface instance towards the target gNB-CU.\n18. The target gNB-CU sends an XnAP UE CONTEXT RELEASE message to the source gNB-CU.\n19. The source gNB-CU sends an UE CONTEXT RELEASE COMMAND message to the source gNB-DU to\nrelease the UE context of the U2N Remote UE in the source gNB-DU.\n20. The source gNB-DU releases the UE context of the U2N Remote UE, and responds the gNB-CU with an UE\nCONTEXT RELEASE COMPLETE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.19.4",
+        "child_section_ids": [],
+        "page_numbers": [
+          138,
+          139
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    }
+  ]
+}

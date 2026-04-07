@@ -1,0 +1,962 @@
+{
+  "metadata": {
+    "timestamp": "2026-04-01T10:46:08.418168",
+    "user_query": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU responds with a \"UE CONTEXT MODIFICATION RESPONSE\" message and this message has to be handled on gNB-CU for the Inter-gNB-DU LTM handover",
+    "target_messages": [
+      "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    ],
+    "num_messages": 1,
+    "num_semantic_chunks": 10
+  },
+  "semantic_chunks": [
+    {
+      "chunk_id": "7934",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.9066521359436521,
+      "rank": 1,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_req_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_req_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 544,
+        "line_end": 568
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "12278",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.9024460873834457,
+      "rank": 2,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB_S1AP.c__rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+        "line_start": 997,
+        "line_end": 1051
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "7936",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_req_t",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.9023676669218901,
+      "rank": 3,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_mod_req_t",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_mod_req_t",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_mod_req_t",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 585,
+        "line_end": 611
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "8857",
+      "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8927519626274414,
+      "rank": 4,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_du_ue_context_management.c__DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "node_id": "function:openair2\\F1AP\\f1ap_du_ue_context_management.c::DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "chunk_type": "FUNCTION",
+        "name": "DU_send_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "file_path": "openair2\\F1AP\\f1ap_du_ue_context_management.c",
+        "line_start": 159,
+        "line_end": 277
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "12627",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8904299174200343,
+      "rank": 5,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_generate_UeContextModificationRequest",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_generate_UeContextModificationRequest",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 3087,
+        "line_end": 3128
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "12481",
+      "node_id": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_modification_request_f1ap",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8836006775158043,
+      "rank": 6,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c__ue_context_modification_request_f1ap",
+        "node_id": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_modification_request_f1ap",
+        "chunk_type": "FUNCTION",
+        "name": "ue_context_modification_request_f1ap",
+        "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+        "line_start": 87,
+        "line_end": 93
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "8824",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_handle_UE_CONTEXT_MODIFICATION_REQUIRED",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8796966141457983,
+      "rank": 7,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_handle_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_handle_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "chunk_type": "FUNCTION",
+        "name": "CU_handle_UE_CONTEXT_MODIFICATION_REQUIRED",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 175,
+        "line_end": 307
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "7939",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_modif_required_t",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8789236931141726,
+      "rank": 8,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_modif_required_t",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_modif_required_t",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_modif_required_t",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 634,
+        "line_end": 640
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "8825",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8785236423482541,
+      "rank": 9,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+        "chunk_type": "FUNCTION",
+        "name": "CU_send_UE_CONTEXT_MODIFICATION_CONFIRM",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 309,
+        "line_end": 369
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    },
+    {
+      "chunk_id": "8821",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_REQUEST",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8745802699630758,
+      "rank": 10,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_send_UE_CONTEXT_MODIFICATION_REQUEST",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_REQUEST",
+        "chunk_type": "FUNCTION",
+        "name": "CU_send_UE_CONTEXT_MODIFICATION_REQUEST",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 139,
+        "line_end": 153
+      },
+      "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+    }
+  ],
+  "expanded_chunks": {
+    "depth_1": [
+      {
+        "chunk_id": "8861",
+        "node_id": "function:openair2\\F1AP\\f1ap_encoder.c::f1ap_encode_pdu",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_encode_pdu",
+          "file_path": "openair2\\F1AP\\f1ap_encoder.c",
+          "line_range": [
+            31,
+            61
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "8887",
+        "node_id": "function:openair2\\F1AP\\f1ap_itti_messaging.c::f1ap_itti_send_sctp_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_itti_send_sctp_data_req",
+          "file_path": "openair2\\F1AP\\f1ap_itti_messaging.c",
+          "line_range": [
+            25,
+            35
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12269",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_process_security",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            409,
+            449
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12266",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context_from_s1ap_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            347,
+            361
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12165",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_generate_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            1031,
+            1062
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12270",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::process_eNB_security_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "process_eNB_security_key",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            458,
+            478
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12140",
+        "node_id": "struct:openair2\\RRC\\LTE\\rrc_defs.h::rrc_eNB_ue_context_s",
+        "chunk_type": "struct",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_UE_CTXT_MODIFICATION_REQ",
+          "relationship_type": "function_uses_struct",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_ue_context_s",
+          "file_path": "openair2\\RRC\\LTE\\rrc_defs.h",
+          "line_range": [
+            659,
+            673
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "123",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "copy_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            38,
+            41
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "1471",
+        "node_id": "function:common\\utils\\utils.h::calloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "calloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            72,
+            82
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9073",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_ue_context_mod_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            2018,
+            2039
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12612",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_drb_to_be_setup_from_e1_resp",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2400,
+            2455
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "8874",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cu_get_f1_ue_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            99,
+            106
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9071",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_mod_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_modification_request_f1ap",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_ue_context_mod_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1923,
+            1977
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9069",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_mod_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_MODIFICATION_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_ue_context_mod_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1691,
+            1820
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      }
+    ],
+    "depth_2": [
+      {
+        "chunk_id": "12267",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_ciphering",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_ciphering",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            368,
+            381
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12268",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_integrity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_integrity",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            388,
+            398
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12155",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            541,
+            551
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12046",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3203,
+            3254
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12014",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface_common.c::rrc_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_data_req",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface_common.c",
+          "line_range": [
+            47,
+            92
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12263",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_S1AP_get_ue_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_S1AP_get_ue_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            154,
+            267
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12300",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_UE_context.c::rrc_eNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_UE_context.c",
+          "line_range": [
+            91,
+            114
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12740",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::get_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_drb",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            77,
+            83
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12737",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::find_pduSession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_pduSession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            44,
+            57
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "1472",
+        "node_id": "function:common\\utils\\utils.h::malloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "malloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            84,
+            94
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12610",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_characteristics",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_characteristics",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2363,
+            2372
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "12611",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_char_from_qos_flow_param",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_char_from_qos_flow_param",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2375,
+            2396
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "8866",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::get_hashtable_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_hashtable_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            32,
+            38
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9004",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            267,
+            273
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9047",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_drb_to_release",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_drb_to_release",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1095,
+            1101
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "8991",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            109,
+            117
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9035",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            875,
+            898
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9032",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_drbs_to_setupmod",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_drbs_to_setupmod",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            693,
+            745
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "8989",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            34,
+            72
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9001",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_srbs_to_setupmod",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_srbs_to_setupmod",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            211,
+            222
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9045",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_drbs_to_release",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_drbs_to_release",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1063,
+            1074
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9006",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            281,
+            284
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "8994",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            133,
+            139
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9049",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_to_release",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_to_release",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1109,
+            1112
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "9037",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            917,
+            925
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      },
+      {
+        "chunk_id": "122",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::create_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "create_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            28,
+            36
+          ]
+        },
+        "target_message_name": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU res"
+      }
+    ]
+  },
+  "per_message_outputs": [
+    "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\code_chunks\\gNB-CU_has_to_prepare_and_send_F1AP__UE_CONTEXT_MODIFICATION_REQUEST__message_to_code_chunks_20260401_104545.json"
+  ]
+}

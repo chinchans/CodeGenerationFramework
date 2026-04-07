@@ -1,0 +1,1211 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER_UE_CONTEXT_SETUP",
+  "Feature_Name": "Inter gNB DU LTM Handover UE Context Setup",
+  "Release": "Rel-18",
+  "3GPP_Reference": {
+    "Spec": "TS 38.473",
+    "Title": "NG-RAN; F1 Application Protocol (F1AP)",
+    "Section": "8.3.1.1 (TS 38.473), 8.3.1.2 (TS 38.473), 8.3.1.3 (TS 38.473), 8.3.1.4 (TS 38.473), 8.2.1.5 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation for L1/L2 Triggered Mobility (LTM).",
+    "The purpose of the UE Context Setup procedure is to establish the UE Context including, among others, SRB, DRB, BH RLC channel, Uu Relay RLC channel, PC5 Relay RLC channel, and SL DRB configuration.",
+    "The gNB-CU initiates the procedure by sending a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU. If the gNB-DU succeeds to establish the UE context, it replies to the gNB-CU with UE CONTEXT SETUP RESPONSE. If no UE-associated logical F1-connection exists, the UE-associated logical F1-connection shall be established as part of the procedure."
+  ],
+  "Feature_Objectives": [
+    "To establish the UE Context in a candidate gNB-DU for an Inter gNB-DU LTM Handover.",
+    "To configure LTM-specific information, such as CSI resource configuration and LTM configuration ID mapping, in the candidate gNB-DU.",
+    "To request and receive early synchronization information from the candidate gNB-DU for early TA acquisition."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP (Application Protocol)",
+      "RRC (Radio Resource Control)"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C (Control Plane of F1 interface)"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "Candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "The gNB-CU determines to initiate LTM configuration.",
+    "The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s). The gNB-CU may request PRACH resources from the candidate gNB-DU(s). The gNB-CU may request the candidate gNB-DU(s) to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer part of the reference configuration to the candidate gNB-DU(s).",
+    "If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP RESPONSE message including the generated lower layer RRC configurations for the accepted target candidate cell."
+  ],
+  "Code_Artifacts": [],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UEContextSetupRequestIEs",
+      "IE_Definition": "UEContextSetupRequestIEs F1AP-PROTOCOL-IES ::= { ID id-LTMInformation-Setup, ID id-LTMConfigurationIDMappingList, ID id-EarlySyncInformationRequest, ID id-SpCellID, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMInformation-Setup",
+      "IE_Definition": "LTMInformation-Setup ::= SEQUENCE { lTMIndicator LTMIndicator, referenceConfiguration ReferenceConfiguration, cSIResourceConfiguration CSIResourceConfiguration OPTIONAL }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMIndicator",
+      "IE_Definition": "LTMIndicator ::= ENUMERATED { true, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ReferenceConfiguration",
+      "IE_Definition": "ReferenceConfiguration ::= SEQUENCE { requestforLowerLayerConfiguration RequestforLowerLayerConfiguration, referenceConfigurationInformation ReferenceConfigurationInformation OPTIONAL }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestforLowerLayerConfiguration",
+      "IE_Definition": "RequestforLowerLayerConfiguration ::= ENUMERATED { true, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ReferenceConfigurationInformation",
+      "IE_Definition": "ReferenceConfigurationInformation ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CSIResourceConfiguration",
+      "IE_Definition": "CSIResourceConfiguration ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationIDMappingList",
+      "IE_Definition": "LTMConfigurationIDMappingList ::= SEQUENCE OF LTMConfigurationIDMappingItem",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationIDMappingItem",
+      "IE_Definition": "LTMConfigurationIDMappingItem ::= SEQUENCE { lTMConfigurationID LTMConfigurationID, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationID",
+      "IE_Definition": "LTMConfigurationID ::= INTEGER (0..maxLTMConfigurationID)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlySyncInformationRequest",
+      "IE_Definition": "EarlySyncInformationRequest ::= ENUMERATED { true, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SpCellID",
+      "IE_Definition": "SpCellID ::= INTEGER (0..maxSpCellID)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UEContextSetupResponseIEs",
+      "IE_Definition": "UEContextSetupResponseIEs F1AP-PROTOCOL-IES ::= { ID id-LTMConfiguration, ID id-EarlySyncInformation, ID id-EarlyULSyncConfiguration, ID id-EarlyULSyncConfigurationforSUL, ID id-RequestedTargetCellID, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfiguration",
+      "IE_Definition": "LTMConfiguration ::= SEQUENCE { completeCandidateConfigurationIndicator CompleteCandidateConfigurationIndicator, referenceConfigurationInformation ReferenceConfigurationInformation OPTIONAL }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CompleteCandidateConfigurationIndicator",
+      "IE_Definition": "CompleteCandidateConfigurationIndicator ::= ENUMERATED { complete, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlySyncInformation",
+      "IE_Definition": "EarlySyncInformation ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlyULSyncConfiguration",
+      "IE_Definition": "EarlyULSyncConfiguration ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlyULSyncConfigurationforSUL",
+      "IE_Definition": "EarlyULSyncConfigurationforSUL ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestedTargetCellID",
+      "IE_Definition": "RequestedTargetCellID ::= INTEGER (0..maxRequestedTargetCellID)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "F1AP-PROTOCOL-IES",
+      "IE_Definition": "UEContextSetupRequestIEs F1AP-PROTOCOL-IES ::= {\n { ID id-gNB-CU-UE-F1AP-ID      CRITICALITY reject TYPE GNB-CU-UE-F1AP-ID         PRESENCE mandatory }|\n { ID id-gNB-DU-UE-F1AP-ID      CRITICALITY ignore TYPE GNB-DU-UE-F1AP-ID         PRESENCE optional  }|\n { ID id-SpCell-ID        CRITICALITY reject TYPE NRCGI            PRESENCE mandatory }|\n { ID id-ServCellIndex       CRITICALITY reject TYPE ServCellIndex          PRESENCE mandatory }|\n { ID id-SpCellULConfigured      CRITICALITY ignore TYPE CellULConfigured         PRESENCE optional }|\n { ID id-CUtoDURRCInformation     CRITICALITY reject TYPE CUtoDURRCInformation        PRESENCE mandatory}|\n { ID id-Candidate-SpCell-List     CRITICALITY ignore TYPE Candidate-SpCell-List       PRESENCE optional }|\n { ID id-DRXCycle        CRITICALITY ignore TYPE DRXCycle           PRESENCE optional }|\n { ID id-ResourceCoordinationTransferContainer CRITICALITY ignore TYPE ResourceCoordinationTransferContainer  PRESENCE optional  }|\n { ID id-SCell-ToBeSetup-List     CRITICALITY ignore TYPE SCell-ToBeSetup-List        PRESENCE optional }|\n { ID id-SRBs-ToBeSetup-List      CRITICALITY reject TYPE SRBs-ToBeSetup-List        PRESENCE optional }|\n { ID id-DRBs-ToBeSetup-List      CRITICALITY reject TYPE DRBs-ToBeSetup-List        PRESENCE optional }|\n { ID id-InactivityMonitoringRequest    CRITICALITY reject TYPE InactivityMonitoringRequest     PRESENCE optional }|\n { ID id-RAT-FrequencyPriorityInformation  CRITICALITY reject TYPE RAT-FrequencyPriorityInformation    PRESENCE optional }|\n { ID id-RRCContainer       CRITICALITY ignore TYPE RRCContainer          PRESENCE optional }|\n { ID id-MaskedIMEISV       CRITICALITY ignore TYPE MaskedIMEISV          PRESENCE optional }|\n { ID id-ServingPLMN        CRITICALITY ignore TYPE PLMN-Identity          PRESENCE optional }|\n { ID id-GNB-DU-UE-AMBR-UL      CRITICALITY ignore TYPE BitRate           PRESENCE conditional }|\n -- The above IE shall be present only if the DRB to Be Setup List IE is present.\n { ID id-RRCDeliveryStatusRequest    CRITICALITY ignore TYPE RRCDeliveryStatusRequest      PRESENCE optional }|\n { ID id-ResourceCoordinationTransferInformation CRITICALITY ignore TYPE ResourceCoordinationTransferInformation PRESENCE optio nal }|\n { ID id-ServingCellMO       CRITICALITY ignore TYPE ServingCellMO          PRESENCE optional }|\n { ID id-new-gNB-CU-UE-F1AP-ID     CRITICALITY reject TYPE GNB-DU-UE-F1AP-ID         PRESENCE optional }|\n { ID id-RANUEID         CRITICALITY ignore TYPE RANUEID           PRESENCE optional }|\n { ID id-TraceActivation       CRITICALITY ignore TYPE TraceActivation         PRESENCE optional }|\n { ID id-AdditionalRRMPriorityIndex    CRITICALITY ignore TYPE AdditionalRRMPriorityIndex      PRESENCE optional }|\n { ID id-BHChannels-ToBeSetup-List    CRITICALITY reject TYPE BHChannels-ToBeSetup-List      PRESENCE optional }|\n { ID id-ConfiguredBAPAddress     CRITICALITY reject TYPE BAPAddress           PRESENCE optional }|\n { ID id-NRV2XServicesAuthorized     CRITICALITY ignore TYPE NRV2XServicesAuthorized       PRESENCE optional }|\n { ID id-LTEV2XServicesAuthorized    CRITICALITY ignore TYPE LTEV2XServicesAuthorized      PRESENCE optional }|\n { ID id-NRUESidelinkAggregateMaximumBitrate  CRITICALITY ignore TYPE NRUESidelinkAggregateMaximumBitrate   PRESENCE optional }|\n { ID id-LTEUESidelinkAggregateMaximumBitrate CRITICALITY ignore TYPE LTEUESidelinkAggregateMaximumBitrate  PRESENCE optional }|\n { ID id-PC5LinkAMBR        CRITICALITY ignore TYPE BitRate           PRESENCE optional}|\n { ID id-SLDRBs-ToBeSetup-List     CRITICALITY reject TYPE SLDRBs-ToBeSetup-List       PRESENCE optional }|\n { ID id-ConditionalInterDUMobilityInformation CRITICALITY reject TYPE ConditionalInterDUMobilityInformation  PRESENCE optional}|\n { ID id-ManagementBasedMDTPLMNList    CRITICALITY ignore TYPE   MDTPLMNList         PRESENCE optional }|\n { ID id-ServingNID        CRITICALITY reject TYPE NID            PRESENCE optional }|\n { ID id-F1CTransferPath       CRITICALITY reject TYPE F1CTransferPath         PRESENCE optional }|\n { ID id-F1CTransferPathNRDC      CRITICALITY reject TYPE F1CTransferPathNRDC        PRESENCE optional }|\n { ID id-MDTPollutedMeasurementIndicator   CRITICALITY ignore TYPE MDTPollutedMeasurementIndicator    PRESENCE optional }|\n { ID id-SCGActivationRequest     CRITICALITY ignore TYPE SCGActivationRequest        PRESENCE optional }|\n { ID id-CG-SDTSessionInfoOld     CRITICALITY ignore TYPE CG-SDTSessionInfo         PRESENCE optional }|\n { ID id-FiveG-ProSeAuthorized     CRITICALITY ignore TYPE FiveG-ProSeAuthorized       PRESENCE optional }|\n { ID id-FiveG-ProSeUEPC5AggregateMaximumBitrate CRITICALITY ignore TYPE NRUESidelinkAggregateMaximumBitrate   PRESENCE optional }|\n { ID id-FiveG-ProSePC5LinkAMBR     CRITICALITY ignore TYPE BitRate           PRESENCE optional}|\n { ID id-UuRLCChannelToBeSetupList    CRITICALITY reject TYPE UuRLCChannelToBeSetupList      PRESENCE optional}|\n { ID id-PC5RLCChannelToBeSetupList    CRITICALITY reject TYPE PC5RLCChannelToBeSetupList      PRESENCE optional}|\n { ID id-PathSwitchConfiguration     CRITICALITY ignore TYPE PathSwitchConfiguration        PRESENCE optional }|\n { ID id-GNBDUUESliceMaximumBitRateList   CRITICALITY ignore  TYPE GNBDUUESliceMaximumBitRateList     PRESENCE optional }|\n { ID id-MulticastMBSSessionSetupList   CRITICALITY reject TYPE MulticastMBSSessionList       PRESENCE optional }|\n { ID id-UE-MulticastMRBs-ToBeSetup-List   CRITICALITY reject TYPE UE-MulticastMRBs-ToBeSetup-List    PRESENCE optional }|\n { ID id-ServingCellMO-List      CRITICALITY ignore TYPE ServingCellMO-List         PRESENCE optional }|\n { ID id-NetworkControlledRepeaterAuthorized  CRITICALITY ignore TYPE NetworkControlledRepeaterAuthorized   PRESENCE optional }|\n { ID id-SDT-Volume-Threshold      CRITICALITY ignore TYPE SDT-Volume-Threshold        PRESENCE optional  }|\n { ID id-LTMInformation-Setup     CRITICALITY reject TYPE LTMInformation-Setup        PRESENCE optional }|\n { ID id-LTMConfigurationIDMappingList   CRITICALITY reject TYPE LTMConfigurationIDMappingList     PRESENCE optional }|\n { ID id-EarlySyncInformation-Request   CRITICALITY ignore TYPE EarlySyncInformation-Request     PRESENCE optional }|\n { ID id-PathAdditionInformation    CRITICALITY reject TYPE PathAdditionInformation       PRESENCE optional}|\n { ID id-NRA2XServicesAuthorized     CRITICALITY ignore TYPE NRA2XServicesAuthorized       PRESENCE optional }|\n { ID id-LTEA2XServicesAuthorized    CRITICALITY ignore TYPE LTEA2XServicesAuthorized        PRESENCE optional }|\n { ID id-NRUESidelinkAggregateMaximumBitrateForA2X  CRITICALITY ignore TYPE NRUESidelinkAggregateMaximumBitrate  PRESENCE optional }|\n { ID id-LTEUESidelinkAggregateMaximumBitrateForA2X CRITICALITY ignore TYPE LTEUESidelinkAggregateMaximumBitrate  PRESENCE optional }|\n { ID id-DLLBTFailureInformationRequest    CRITICALITY ignore TYPE DLLBTFailureInformationRequest    PRESENCE optional }|\n { ID id-SLPositioning-Ranging-Service-Info  CRITICALITY ignore TYPE SLPositioning-Ranging-Service-Info      PRESENCE optional }|\n { ID id-NonIntegerDRXCycle      CRITICALITY ignore TYPE NonIntegerDRXCycle         PRESENCE optional },\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ResourceCoordinationTransferInformation",
+      "IE_Definition": "ResourceCoordinationTransferInformation ::= SEQUENCE {\n meNB-Cell-ID        EUTRA-Cell-ID,\n resourceCoordinationEUTRACellInfo  ResourceCoordinationEUTRACellInfo OPTIONAL,\n iE-Extensions ProtocolExtensionContainer { { ResourceCoordinationTransferInformation-ExtIEs } } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ResourceCoordinationTransferContainer",
+      "IE_Definition": "ResourceCoordinationTransferContainer ::= OCTET STRING",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ConditionalInterDUMobilityInformation",
+      "IE_Definition": "ConditionalInterDUMobilityInformation ::= SEQUENCE {\n cho-trigger      CHOtrigger-InterDU,\n targetgNB-DUUEF1APID   GNB-DU-UE-F1AP-ID       OPTIONAL\n -- The above IE shall be present if the cho-trigger IE is present and set to \"cho-replace\" --,\n iE-Extensions     ProtocolExtensionContainer { { ConditionalInterDUMobilityInformation-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "LTEUESidelinkAggregateMaximumBitrate",
+      "IE_Definition": "LTEUESidelinkAggregateMaximumBitrate ::= SEQUENCE {\n uELTESidelinkAggregateMaximumBitrate  BitRate,\n iE-Extensions     ProtocolExtensionContainer { {LTEUESidelinkAggregateMaximumBitrate-ExtIEs} } OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NetworkControlledRepeaterAuthorized",
+      "IE_Definition": "NetworkControlledRepeaterAuthorized ::= ENUMERATED { authorized, not-authorized, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NRUESidelinkAggregateMaximumBitrate",
+      "IE_Definition": "NRUESidelinkAggregateMaximumBitrate ::= SEQUENCE {\n uENRSidelinkAggregateMaximumBitrate  BitRate,\n iE-Extensions     ProtocolExtensionContainer { {NRUESidelinkAggregateMaximumBitrate-ExtIEs} } OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SLPositioning-Ranging-Service-Info",
+      "IE_Definition": "SLPositioning-Ranging-Service-Info ::= SEQUENCE{\n sLPositioning-Ranging-Authorized  SLPositioning-Ranging-Authorized,\n rSPP-transport-QoS-parameters   RSPP-transport-QoS-parameters  OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { { SLPositioning-Ranging-Service-Info-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RAT-FrequencyPriorityInformation",
+      "IE_Definition": "RAT-FrequencyPriorityInformation::= CHOICE {\n eNDC  SubscriberProfileIDforRFP,\n nGRAN  RAT-FrequencySelectionPriority,\n choice-extension   ProtocolIE-SingleContainer { { RAT-FrequencyPriorityInformation-ExtIEs} }\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "UE-MulticastMRBs-ToBeSetup-List",
+      "IE_Definition": "UE-MulticastMRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofMRBsforUE)) OF ProtocolIE-SingleContainer { { UE-MulticastMRBs-ToBeSetup-ItemIEs} }\nServingCellMO-List ::= SEQUENCE (SIZE(1..maxnoofServingCellMOs)) OF ProtocolIE-SingleContainer { { ServingCellMO-List-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "MDTPollutedMeasurementIndicator",
+      "IE_Definition": "MDTPollutedMeasurementIndicator ::= ENUMERATED {iDC,no-IDC, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "GNBDUUESliceMaximumBitRateList",
+      "IE_Definition": "GNBDUUESliceMaximumBitRateList::= SEQUENCE (SIZE(1.. maxnoofSMBRValues)) OF GNBDUUESliceMaximumBitRateItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "DLLBTFailureInformationRequest",
+      "IE_Definition": "DLLBTFailureInformationRequest  ::= ENUMERATED {inquiry, ...}\nDLLBTFailureInformationList  ::= SEQUENCE (SIZE(1.. maxnoofLBTFailureInformation)) OF DLLBTFailureInformationList-Item",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "InactivityMonitoringRequest",
+      "IE_Definition": "InactivityMonitoringRequest ::= ENUMERATED { true,...}\nInactivityMonitoringResponse ::= ENUMERATED { not-supported,...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "PC5RLCChannelToBeSetupList",
+      "IE_Definition": "PC5RLCChannelToBeSetupList ::= SEQUENCE (SIZE(1.. maxnoofPC5RLCChannels)) OF PC5RLCChannelToBeSetupItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "AdditionalRRMPriorityIndex",
+      "IE_Definition": "AdditionalRRMPriorityIndex ::= BIT STRING (SIZE(32))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "UuRLCChannelToBeSetupList",
+      "IE_Definition": "UuRLCChannelToBeSetupList ::= SEQUENCE (SIZE(1.. maxnoofUuRLCChannels)) OF UuRLCChannelToBeSetupItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "BHChannels-ToBeSetup-List",
+      "IE_Definition": "BHChannels-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofBHRLCChannels)) OF ProtocolIE-SingleContainer { { BHChannels-ToBeSetup-ItemIEs} }\nSLDRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofSLDRBs)) OF ProtocolIE-SingleContainer { { SLDRBs-ToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RRCDeliveryStatusRequest",
+      "IE_Definition": "RRCDeliveryStatusRequest ::= ENUMERATED {true, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "LTEV2XServicesAuthorized",
+      "IE_Definition": "LTEV2XServicesAuthorized ::= SEQUENCE {\n vehicleUE   VehicleUE              OPTIONAL,\n pedestrianUE   PedestrianUE             OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { {LTEV2XServicesAuthorized-ExtIEs} }  OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "LTEA2XServicesAuthorized",
+      "IE_Definition": "LTEA2XServicesAuthorized ::= SEQUENCE {\n aerialUE   AerialUE              OPTIONAL,\n controllerUE   ControllerUE             OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { {LTEA2XServicesAuthorized-ExtIEs} }  OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "PathSwitchConfiguration",
+      "IE_Definition": "PathSwitchConfiguration ::= SEQUENCE {\n targetRelayUEID   BIT STRING(SIZE(24)),\n remoteUELocalID   RemoteUELocalID,\n t420     ENUMERATED {ms50, ms100, ms150, ms200, ms500, ms1000, ms2000, ms10000},\n iE-Extensions   ProtocolExtensionContainer { { PathSwitchConfiguration-ExtIEs } }  OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "PathAdditionInformation",
+      "IE_Definition": "PathAdditionInformation ::= CHOICE {\n indirectPathAddition   IndirectPathAddition,\n directPathAddition   NULL,\n n3C-indirectPathAddition  N3CIndirectPathAddition,\n choice-extension    ProtocolIE-SingleContainer { { PathAdditionInformation-ExtIEs} }\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NRV2XServicesAuthorized",
+      "IE_Definition": "NRV2XServicesAuthorized ::= SEQUENCE {\n vehicleUE   VehicleUE              OPTIONAL,\n pedestrianUE   PedestrianUE             OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { {NRV2XServicesAuthorized-ExtIEs} } OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NRA2XServicesAuthorized",
+      "IE_Definition": "NRA2XServicesAuthorized ::= SEQUENCE {\n aerialUE   AerialUE              OPTIONAL,\n controllerUE  ControllerUE             OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { {NRA2XServicesAuthorized-ExtIEs} } OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "MulticastMBSSessionList",
+      "IE_Definition": "MulticastMBSSessionList ::= SEQUENCE (SIZE(1..maxnoofMBSSessionsofUE)) OF MulticastMBSSessionList-Item\nMulticastMBSSessionList-Item ::= SEQUENCE {\n mbsSessionId    MBS-Session-ID,\n iE-Extensions    ProtocolExtensionContainer { { MulticastMBSSessionList-Item-ExtIEs } } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SLDRBs-ToBeSetup-List",
+      "IE_Definition": "SLDRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofSLDRBs)) OF ProtocolIE-SingleContainer { { SLDRBs-ToBeSetup-ItemIEs} }\nUE-MulticastMRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofMRBsforUE)) OF ProtocolIE-SingleContainer { { UE-MulticastMRBs-ToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "FiveG-ProSeAuthorized",
+      "IE_Definition": "FiveG-ProSeAuthorized ::= SEQUENCE {\n fiveG-proSeDirectDiscovery     FiveG-ProSeDirectDiscovery         OPTIONAL,\n fiveG-proSeDirectCommunication    FiveG-ProSeDirectCommunication        OPTIONAL,\n fiveG-ProSeLayer2UEtoNetworkRelay   FiveG-ProSeLayer2UEtoNetworkRelay       OPTIONAL,\n fiveG-ProSeLayer3UEtoNetworkRelay   FiveG-ProSeLayer3UEtoNetworkRelay       OPTIONAL,\n fiveG-ProSeLayer2RemoteUE     FiveG-ProSeLayer2RemoteUE         OPTIONAL,\n iE-Extensions        ProtocolExtensionContainer { {FiveG-ProSeAuthorized-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "Candidate-SpCell-List",
+      "IE_Definition": "Candidate-SpCell-List::= SEQUENCE (SIZE(1..maxnoofCandidateSpCells)) OF ProtocolIE-SingleContainer { { Candidate-SpCell-ItemIEs} }\nSCell-ToBeSetup-List::= SEQUENCE (SIZE(1..maxnoofSCells)) OF ProtocolIE-SingleContainer { { SCell-ToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SDT-Volume-Threshold",
+      "IE_Definition": "SDT-Volume-Threshold ::= INTEGER(1.. 192000,...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SCell-ToBeSetup-List",
+      "IE_Definition": "SCell-ToBeSetup-List::= SEQUENCE (SIZE(1..maxnoofSCells)) OF ProtocolIE-SingleContainer { { SCell-ToBeSetup-ItemIEs} }\nSRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofSRBs)) OF ProtocolIE-SingleContainer { { SRBs-ToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SCGActivationRequest",
+      "IE_Definition": "SCGActivationRequest ::= ENUMERATED {activate-scg, deactivate-scg, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CUtoDURRCInformation",
+      "IE_Definition": "CUtoDURRCInformation ::= SEQUENCE {\n cG-ConfigInfo      CG-ConfigInfo      OPTIONAL,\n uE-CapabilityRAT-ContainerList  UE-CapabilityRAT-ContainerList  OPTIONAL,\n measConfig       MeasConfig       OPTIONAL,\n iE-Extensions    ProtocolExtensionContainer { { CUtoDURRCInformation-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SRBs-ToBeSetup-List",
+      "IE_Definition": "SRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofSRBs)) OF ProtocolIE-SingleContainer { { SRBs-ToBeSetup-ItemIEs} }\nDRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofDRBs)) OF ProtocolIE-SingleContainer { { DRBs-ToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "F1CTransferPathNRDC",
+      "IE_Definition": "F1CTransferPathNRDC ::= SEQUENCE {\n f1CPathNRDC      F1CPathNRDC,\n iE-Extensions     ProtocolExtensionContainer { { F1CTransferPathNRDC-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "DRBs-ToBeSetup-List",
+      "IE_Definition": "DRBs-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofDRBs)) OF ProtocolIE-SingleContainer { { DRBs-ToBeSetup-ItemIEs} }\nBHChannels-ToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofBHRLCChannels)) OF ProtocolIE-SingleContainer { { BHChannels-ToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ServingCellMO-List",
+      "IE_Definition": "ServingCellMO-List ::= SEQUENCE (SIZE(1..maxnoofServingCellMOs)) OF ProtocolIE-SingleContainer { { ServingCellMO-List-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NonIntegerDRXCycle",
+      "IE_Definition": "NonIntegerDRXCycle ::= SEQUENCE {\n longNonIntegerDRXCycleLength LongNonIntegerDRXCycleLength,\n shortNonIntegerDRXCycleLength ShortNonIntegerDRXCycleLength OPTIONAL,\n shortDRXCycleTimer    ShortDRXCycleTimer OPTIONAL,\n iE-Extensions     ProtocolExtensionContainer { { NonIntegerDRXCycle-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "GNB-DU-UE-F1AP-ID",
+      "IE_Definition": "GNB-DU-UE-F1AP-ID  ::= INTEGER (0..4294967295)\nGNB-DU-ID   ::= INTEGER (0..68719476735)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "GNB-CU-UE-F1AP-ID",
+      "IE_Definition": "GNB-CU-UE-F1AP-ID  ::= INTEGER (0..4294967295)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CG-SDTSessionInfo",
+      "IE_Definition": "CG-SDTSessionInfo ::= SEQUENCE {\n gNB-CU-UE-F1AP-ID     GNB-CU-UE-F1AP-ID,\n gNB-DU-UE-F1AP-ID     GNB-DU-UE-F1AP-ID,\n iE-Extensions      ProtocolExtensionContainer {{CG-SDTSessionInfo-ExtIEs}}  OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CellULConfigured",
+      "IE_Definition": "CellULConfigured ::=  ENUMERATED {none, ul, sul, ul-and-sul, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "TraceActivation",
+      "IE_Definition": "TraceActivation ::= SEQUENCE {\n traceID        TraceID,\n interfacesToTrace     InterfacesToTrace,\n traceDepth       TraceDepth,\n traceCollectionEntityIPAddress  TransportLayerAddress,\n iE-Extensions  ProtocolExtensionContainer { {TraceActivation-ExtIEs} } OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "F1CTransferPath",
+      "IE_Definition": "F1CTransferPath ::= SEQUENCE {\n f1CPathNSA      F1CPathNSA,\n iE-Extensions     ProtocolExtensionContainer { { F1CTransferPath-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ServCellIndex",
+      "IE_Definition": "ServCellIndex ::= INTEGER (0..31, ...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "PLMN-Identity",
+      "IE_Definition": "PLMN-Identity ::= OCTET STRING (SIZE(3))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RRCContainer",
+      "IE_Definition": "RRCContainer ::= OCTET STRING",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "MaskedIMEISV",
+      "IE_Definition": "MaskedIMEISV ::=  BIT STRING (SIZE (64))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "MDTPLMNList",
+      "IE_Definition": "MDTPLMNList ::= SEQUENCE (SIZE(1..maxnoofMDTPLMNs)) OF PLMN-Identity",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "BAPAddress",
+      "IE_Definition": "BAPAddress ::= BIT STRING (SIZE(10))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "DRXCycle",
+      "IE_Definition": "DRXCycle ::= SEQUENCE {\n longDRXCycleLength LongDRXCycleLength,\n shortDRXCycleLength  ShortDRXCycleLength OPTIONAL,\n shortDRXCycleTimer ShortDRXCycleTimer OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { { DRXCycle-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RANUEID",
+      "IE_Definition": "RANUEID ::= OCTET STRING (SIZE (8))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "BitRate",
+      "IE_Definition": "BitRate ::= INTEGER (0..4000000000000,...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NRCGI",
+      "IE_Definition": "NRCGI ::= SEQUENCE {\n pLMN-Identity   PLMN-Identity,\n nRCellIdentity   NRCellIdentity,\n iE-Extensions   ProtocolExtensionContainer { {NRCGI-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NID",
+      "IE_Definition": "NID ::= BIT STRING (SIZE(44))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "protocolextensioncontainer",
+      "IE_Definition": "ProtocolExtensionContainer {F1AP-PROTOCOL-EXTENSION : ExtensionSetParam} ::=\n SEQUENCE (SIZE (1..maxProtocolExtensions)) OF\n ProtocolExtensionField {{ExtensionSetParam}}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "protocoliesinglecontainer",
+      "IE_Definition": "ProtocolIE-SingleContainer {F1AP-PROTOCOL-IES : IEsSetParam} ::=\n ProtocolIE-Field {{IEsSetParam}}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ServingCellMO-encoded-in-CGC-List",
+      "IE_Definition": "ServingCellMO-encoded-in-CGC-List ::= SEQUENCE (SIZE(1.. maxNrofBWPs)) OF ServingCellMO-encoded-in-CGC-Item",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "PC5RLCChannelFailedToBeSetupList",
+      "IE_Definition": "PC5RLCChannelFailedToBeSetupList ::= SEQUENCE (SIZE(1.. maxnoofPC5RLCChannels)) OF PC5RLCChannelFailedToBeSetupItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "UuRLCChannelFailedToBeSetupList",
+      "IE_Definition": "UuRLCChannelFailedToBeSetupList ::= SEQUENCE (SIZE(1.. maxnoofUuRLCChannels)) OF UuRLCChannelFailedToBeSetupItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "BHChannels-FailedToBeSetup-List",
+      "IE_Definition": "BHChannels-FailedToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofBHRLCChannels)) OF ProtocolIE-SingleContainer { { BHChannels-FailedToBeSetup-ItemIEs}\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "UE-MulticastMRBs-Setupnew-List",
+      "IE_Definition": "UE-MulticastMRBs-Setupnew-List ::= SEQUENCE (SIZE(1..maxnoofMRBsforUE)) OF ProtocolIE-SingleContainer { { UE-MulticastMRBs-Setupnew-ItemIEs } }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "DedicatedSIDeliveryIndication",
+      "IE_Definition": "DedicatedSIDeliveryIndication::= ENUMERATED{true, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "InactivityMonitoringResponse",
+      "IE_Definition": "InactivityMonitoringResponse ::= ENUMERATED { not-supported,...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SLDRBs-FailedToBeSetup-List",
+      "IE_Definition": "SLDRBs-FailedToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofSLDRBs)) OF ProtocolIE-SingleContainer { { SLDRBs-FailedToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SRBs-FailedToBeSetup-List",
+      "IE_Definition": "SRBs-FailedToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofSRBs)) OF ProtocolIE-SingleContainer { { SRBs-FailedToBeSetup-ItemIEs} }\nDRBs-FailedToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofDRBs)) OF ProtocolIE-SingleContainer { { DRBs-FailedToBeSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "DRBs-FailedToBeSetup-List",
+      "IE_Definition": "DRBs-FailedToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofDRBs)) OF ProtocolIE-SingleContainer { { DRBs-FailedToBeSetup-ItemIEs} }\nSCell-FailedtoSetup-List ::= SEQUENCE (SIZE(1..maxnoofSCells)) OF ProtocolIE-SingleContainer { { SCell-FailedtoSetup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SCell-FailedtoSetup-List",
+      "IE_Definition": "SCell-FailedtoSetup-List ::= SEQUENCE (SIZE(1..maxnoofSCells)) OF ProtocolIE-SingleContainer { { SCell-FailedtoSetup-ItemIEs} }\nSRBs-Setup-List ::= SEQUENCE (SIZE(1..maxnoofSRBs)) OF ProtocolIE-SingleContainer { { SRBs-Setup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "PC5RLCChannelSetupList",
+      "IE_Definition": "PC5RLCChannelSetupList ::= SEQUENCE (SIZE(1.. maxnoofPC5RLCChannels)) OF PC5RLCChannelSetupItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CriticalityDiagnostics",
+      "IE_Definition": "CriticalityDiagnostics ::= SEQUENCE {\n procedureCode     ProcedureCode              OPTIONAL,\n triggeringMessage    TriggeringMessage             OPTIONAL,\n procedureCriticality   Criticality               OPTIONAL,\n transactionID     TransactionID              OPTIONAL,\n iEsCriticalityDiagnostics  CriticalityDiagnostics-IE-List          OPTIONAL,\n iE-Extensions     ProtocolExtensionContainer {{CriticalityDiagnostics-ExtIEs}}  OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "UuRLCChannelSetupList",
+      "IE_Definition": "UuRLCChannelSetupList ::= SEQUENCE (SIZE(1.. maxnoofUuRLCChannels)) OF UuRLCChannelSetupItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "BHChannels-Setup-List",
+      "IE_Definition": "BHChannels-Setup-List ::= SEQUENCE (SIZE(1..maxnoofBHRLCChannels)) OF ProtocolIE-SingleContainer { { BHChannels-Setup-ItemIEs} }\nBHChannels-FailedToBeSetup-List ::= SEQUENCE (SIZE(1..maxnoofBHRLCChannels)) OF ProtocolIE-SingleContainer { { BHChannels-FailedToBeSetup-ItemIEs}\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "S-CPAC-Configuration",
+      "IE_Definition": "S-CPAC-Configuration ::= SEQUENCE {\n referenceConfigurationInformation  ReferenceConfigurationInformation   OPTIONAL,\n completeCandidateConfigurationIndicator  CompleteCandidateConfigurationIndicator  OPTIONAL,\n iE-Extensions      ProtocolExtensionContainer { { S-CPAC-Configuration-ExtIEs } } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "DUtoCURRCInformation",
+      "IE_Definition": "DUtoCURRCInformation ::= SEQUENCE {\n cellGroupConfig  CellGroupConfig,\n measGapConfig   MeasGapConfig OPTIONAL,\n requestedP-MaxFR1    OCTET STRING    OPTIONAL,\n iE-Extensions    ProtocolExtensionContainer { { DUtoCURRCInformation-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SCGActivationStatus",
+      "IE_Definition": "SCGActivationStatus ::= ENUMERATED {scg-activated, scg-deactivated, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "Configured-BWP-List",
+      "IE_Definition": "Configured-BWP-List ::= SEQUENCE (SIZE(1.. maxNrofBWPs)) OF Configured-BWP-Item",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SLDRBs-Setup-List",
+      "IE_Definition": "SLDRBs-Setup-List ::= SEQUENCE (SIZE(1..maxnoofSLDRBs)) OF ProtocolIE-SingleContainer { { SLDRBs-Setup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "FullConfiguration",
+      "IE_Definition": "FullConfiguration ::= ENUMERATED {full, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SRBs-Setup-List",
+      "IE_Definition": "SRBs-Setup-List ::= SEQUENCE (SIZE(1..maxnoofSRBs)) OF ProtocolIE-SingleContainer { { SRBs-Setup-ItemIEs} }\nBHChannels-Setup-List ::= SEQUENCE (SIZE(1..maxnoofBHRLCChannels)) OF ProtocolIE-SingleContainer { { BHChannels-Setup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "DRBs-Setup-List",
+      "IE_Definition": "DRBs-Setup-List ::= SEQUENCE (SIZE(1..maxnoofDRBs)) OF ProtocolIE-SingleContainer { { DRBs-Setup-ItemIEs} }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "C-RNTI",
+      "IE_Definition": "C-RNTI ::= INTEGER (0..65535, ...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "LTMCFRAResourceConfig-List",
+      "IE_Definition": "LTMCFRAResourceConfig-List ::= SEQUENCE (SIZE (1.. maxnoofLTMCells)) OF LTMCFRAResourceConfig-Item",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SSBInformation",
+      "IE_Definition": "SSBInformation ::= SEQUENCE {\n sSBInformationList SSBInformationList,\n iE-Extensions  ProtocolExtensionContainer { { SSBInformation-ExtIEs } } OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RequestforRACHConfiguration",
+      "IE_Definition": "RequestforRACHConfiguration  ::= ENUMERATED {true, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "LTMgNB-DU-IDsList",
+      "IE_Definition": "LTMgNB-DU-IDsList ::= SEQUENCE (SIZE(1..maxnoofLTMgNB-DUs)) OF LTMgNB-DU-IDs-Item",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ResourceCoordinationEUTRACellInfo",
+      "IE_Definition": "ResourceCoordinationEUTRACellInfo ::= SEQUENCE {\n eUTRA-Mode-Info       EUTRA-Coex-Mode-Info,\n eUTRA-PRACH-Configuration     EUTRA-PRACH-Configuration,\n iE-Extensions ProtocolExtensionContainer { { ResourceCoordinationEUTRACellInfo-ExtIEs } } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-Cell-ID",
+      "IE_Definition": "EUTRA-Cell-ID ::= BIT STRING (SIZE(28))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CHOtrigger-InterDU",
+      "IE_Definition": "CHOtrigger-InterDU ::= ENUMERATED {\n cho-initiation,\n cho-replace,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SLPositioning-Ranging-Authorized",
+      "IE_Definition": "SLPositioning-Ranging-Authorized ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RSPP-transport-QoS-parameters",
+      "IE_Definition": "RSPP-transport-QoS-parameters ::= SEQUENCE {\n rSPPQoSFlowList    RSPPQoSFlowList,\n rSPPLinkAggregateBitRates BitRate            OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { { RSPP-transport-QoS-parameters-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RAT-FrequencySelectionPriority",
+      "IE_Definition": "RAT-FrequencySelectionPriority::= INTEGER (1.. 256, ...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SubscriberProfileIDforRFP",
+      "IE_Definition": "SubscriberProfileIDforRFP ::= INTEGER (1..256, ...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "PedestrianUE",
+      "IE_Definition": "PedestrianUE ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "VehicleUE",
+      "IE_Definition": "VehicleUE ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ControllerUE",
+      "IE_Definition": "ControllerUE ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "AerialUE",
+      "IE_Definition": "AerialUE ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RemoteUELocalID",
+      "IE_Definition": "RemoteUELocalID ::= INTEGER (0..255, ...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "N3CIndirectPathAddition",
+      "IE_Definition": "N3CIndirectPathAddition::= SEQUENCE {\n targetRelayUEID   GNB-DU-UE-F1AP-ID,\n iE-Extensions   ProtocolExtensionContainer { { N3CIndirectPathAddition-ExtIEs } }  OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "IndirectPathAddition",
+      "IE_Definition": "IndirectPathAddition ::= SEQUENCE {\n targetRelayUEID   BIT STRING(SIZE(24)),\n remoteUELocalID   RemoteUELocalID,\n iE-Extensions   ProtocolExtensionContainer { { IndirectPathAddition-ExtIEs } }  OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "MBS-Session-ID",
+      "IE_Definition": "MBS-Session-ID ::= SEQUENCE {\n tMGI      TMGI,\n nID       NID     OPTIONAL,\n iE-Extensions    ProtocolExtensionContainer { { MBS-Session-ID-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "FiveG-ProSeLayer3UEtoNetworkRelay",
+      "IE_Definition": "FiveG-ProSeLayer3UEtoNetworkRelay ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "FiveG-ProSeLayer2UEtoNetworkRelay",
+      "IE_Definition": "FiveG-ProSeLayer2UEtoNetworkRelay ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "FiveG-ProSeDirectCommunication",
+      "IE_Definition": "FiveG-ProSeDirectCommunication ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "FiveG-ProSeDirectDiscovery",
+      "IE_Definition": "FiveG-ProSeDirectDiscovery ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "FiveG-ProSeLayer2RemoteUE",
+      "IE_Definition": "FiveG-ProSeLayer2RemoteUE ::= ENUMERATED {\n authorized,\n not-authorized,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "UE-CapabilityRAT-ContainerList",
+      "IE_Definition": "UE-CapabilityRAT-ContainerList::= OCTET STRING",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CG-ConfigInfo",
+      "IE_Definition": "CG-ConfigInfo ::= OCTET STRING",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "MeasConfig",
+      "IE_Definition": "MeasConfig ::= OCTET STRING",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "F1CPathNRDC",
+      "IE_Definition": "F1CPathNRDC ::= ENUMERATED {mcg, scg, both}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ShortNonIntegerDRXCycleLength",
+      "IE_Definition": "ShortNonIntegerDRXCycleLength ::=  ENUMERATED { ms1001over240, ms25over6, ms25over3, ms1001over120, ms100over9, ms25over2, ms40over3, ms125over9,\nms50over3, ms1001over60, ms125over6, ms200over9, ms100over3, ms1001over30, ms125over3, ms1001over24, ms200over3, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "LongNonIntegerDRXCycleLength",
+      "IE_Definition": "LongNonIntegerDRXCycleLength ::=  ENUMERATED\n{ ms1001over240, ms25over6, ms25over3, ms1001over120, ms100over9, ms25over2, ms40over3, ms125over9, ms50over3, ms1001over60, ms125over6,\nms200over9, ms250over9, ms100over3, ms1001over30, ms75over2, ms125over3, ms1001over24, ms200over3, ms1001over15, ms250over3, ms1001over12,\nms400over3, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ShortDRXCycleTimer",
+      "IE_Definition": "ShortDRXCycleTimer ::= INTEGER (1..16)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CP-TransportLayerAddress",
+      "IE_Definition": "CP-TransportLayerAddress ::= CHOICE {\n endpoint-IP-address    TransportLayerAddress,\n endpoint-IP-address-and-port Endpoint-IP-address-and-port,\n choice-extension    ProtocolIE-SingleContainer { { CP-TransportLayerAddress-ExtIEs } }\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "InterfacesToTrace",
+      "IE_Definition": "InterfacesToTrace ::= BIT STRING (SIZE(8))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "TraceDepth",
+      "IE_Definition": "TraceDepth ::= ENUMERATED {\n minimum,\n medium,\n maximum,\n minimumWithoutVendorSpecificExtension,\n mediumWithoutVendorSpecificExtension,\n maximumWithoutVendorSpecificExtension,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "TraceID",
+      "IE_Definition": "TraceID ::= OCTET STRING (SIZE(8))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "F1CPathNSA",
+      "IE_Definition": "F1CPathNSA ::= ENUMERATED {lte, nr, both}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ShortDRXCycleLength",
+      "IE_Definition": "ShortDRXCycleLength ::=  ENUMERATED {ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms10, ms14, ms16, ms20, ms30, ms32, ms35, ms40, ms64, ms80, ms128, ms160,\nms256, ms320, ms512, ms640, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "LongDRXCycleLength",
+      "IE_Definition": "LongDRXCycleLength ::=  ENUMERATED\n{ms10, ms20, ms32, ms40, ms60, ms64, ms70, ms80, ms128, ms160, ms256, ms320, ms512, ms640, ms1024, ms1280, ms2048, ms2560, ms5120, ms10240, ...}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "NRCellIdentity",
+      "IE_Definition": "NRCellIdentity ::= BIT STRING (SIZE(36))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CriticalityDiagnostics-IE-List",
+      "IE_Definition": "CriticalityDiagnostics-IE-List ::= SEQUENCE (SIZE (1.. maxnoofErrors)) OF CriticalityDiagnostics-IE-Item",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "TriggeringMessage",
+      "IE_Definition": "TriggeringMessage ::= ENUMERATED { initiating-message, successful-outcome, unsuccessful-outcome }",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "TransactionID",
+      "IE_Definition": "TransactionID    ::= INTEGER (0..255, ...)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ProcedureCode",
+      "IE_Definition": "ProcedureCode  ::= INTEGER (0..255)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "CellGroupConfig",
+      "IE_Definition": "CellGroupConfig ::= OCTET STRING",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "MeasGapConfig",
+      "IE_Definition": "MeasGapConfig ::= OCTET STRING",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "SSBInformationList",
+      "IE_Definition": "SSBInformationList ::= SEQUENCE (SIZE(1.. maxnoofSSBs)) OF SSBInformationItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-PRACH-Configuration",
+      "IE_Definition": "EUTRA-PRACH-Configuration ::= SEQUENCE {\n rootSequenceIndex      INTEGER (0..837),\n zeroCorrelationIndex     INTEGER (0..15),\n highSpeedFlag       BOOLEAN,\n prach-FreqOffset      INTEGER (0..94),\n prach-ConfigIndex      INTEGER (0..63)  OPTIONAL,\n -- The above IE shall be present if the EUTRA-Mode-Info IE in the Resource Coordination E-UTRA Cell Information IE is set to the value \"TDD\"\n iE-Extensions       ProtocolExtensionContainer { {EUTRA-PRACH-Configuration-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-Coex-Mode-Info",
+      "IE_Definition": "EUTRA-Coex-Mode-Info ::= CHOICE {\n fDD  EUTRA-Coex-FDD-Info,\n tDD  EUTRA-Coex-TDD-Info,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "RSPPQoSFlowList",
+      "IE_Definition": "RSPPQoSFlowList ::= SEQUENCE (SIZE(1..maxnoofRSPPQoSFlows)) OF RSPPQoSFlowItem",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "TMGI",
+      "IE_Definition": "TMGI ::=  OCTET STRING (SIZE(6))",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "Endpoint-IP-address-and-port",
+      "IE_Definition": "Endpoint-IP-address-and-port ::=SEQUENCE {\n endpointIPAddress TransportLayerAddress,\n iE-Extensions     ProtocolExtensionContainer { { Endpoint-IP-address-and-port-ExtIEs} } OPTIONAL\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-Coex-TDD-Info",
+      "IE_Definition": "EUTRA-Coex-TDD-Info ::= SEQUENCE {\n eARFCN       ExtendedEARFCN,\n transmission-Bandwidth   EUTRA-Transmission-Bandwidth,\n subframeAssignment    EUTRA-SubframeAssignment,\n specialSubframe-Info   EUTRA-SpecialSubframe-Info,\n iE-Extensions     ProtocolExtensionContainer { {EUTRA-Coex-TDD-Info-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-Coex-FDD-Info",
+      "IE_Definition": "EUTRA-Coex-FDD-Info ::= SEQUENCE {\n uL-EARFCN      ExtendedEARFCN     OPTIONAL,\n dL-EARFCN      ExtendedEARFCN,\n uL-Transmission-Bandwidth  EUTRA-Transmission-Bandwidth OPTIONAL,\n dL-Transmission-Bandwidth  EUTRA-Transmission-Bandwidth,\n iE-Extensions     ProtocolExtensionContainer { {EUTRA-Coex-FDD-Info-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-Transmission-Bandwidth",
+      "IE_Definition": "EUTRA-Transmission-Bandwidth ::= ENUMERATED {\n bw6,\n bw15,\n bw25,\n bw50,\n bw75,\n bw100,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-SpecialSubframe-Info",
+      "IE_Definition": "EUTRA-SpecialSubframe-Info ::= SEQUENCE {\n specialSubframePatterns  EUTRA-SpecialSubframePatterns,\n cyclicPrefixDL    EUTRA-CyclicPrefixDL,\n cyclicPrefixUL    EUTRA-CyclicPrefixUL,\n iE-Extensions    ProtocolExtensionContainer { { EUTRA-SpecialSubframe-Info-ExtIEs} } OPTIONAL,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-SubframeAssignment",
+      "IE_Definition": "EUTRA-SubframeAssignment ::= ENUMERATED {\n sa0,\n sa1,\n sa2,\n sa3,\n sa4,\n sa5,\n sa6,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "ExtendedEARFCN",
+      "IE_Definition": "ExtendedEARFCN ::= INTEGER (0..262143)",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-SpecialSubframePatterns",
+      "IE_Definition": "EUTRA-SpecialSubframePatterns ::= ENUMERATED {\n ssp0,\n ssp1,\n ssp2,\n ssp3,\n ssp4,\n ssp5,\n ssp6,\n ssp7,\n ssp8,\n ssp9,\n ssp10,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-CyclicPrefixUL",
+      "IE_Definition": "EUTRA-CyclicPrefixUL ::= ENUMERATED {\n normal,\n extended,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    },
+    {
+      "IE_Name": "EUTRA-CyclicPrefixDL",
+      "IE_Definition": "EUTRA-CyclicPrefixDL ::= ENUMERATED {\n normal,\n extended,\n ...\n}",
+      "Mandatory_or_Optional": "Derived",
+      "IE_Category": ""
+    }
+  ],
+  "Piggy_Backed_IES_Info": "The HandoverPreparationInformation IE and CellGroupConfig IE are RRC IEs that can be piggy-backed within the F1AP UE CONTEXT SETUP REQUEST message (specifically within the CU to DU RRC Information IE). The RRCReconfiguration message is an RRC IE that can be piggy-backed within the F1AP DL RRC MESSAGE TRANSFER message.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "HandoverPreparationInformation",
+      "Piggy_Backed_IE_Type": "RRC IE",
+      "Source_IE_Name": "CU to DU RRC Information IE",
+      "Source_IE_Type": "F1AP IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "CellGroupConfig",
+      "Piggy_Backed_IE_Type": "RRC IE",
+      "Source_IE_Name": "CU to DU RRC Information IE",
+      "Source_IE_Type": "F1AP IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "RRCReconfiguration",
+      "Piggy_Backed_IE_Type": "RRC IE",
+      "Source_IE_Name": "DL RRC MESSAGE TRANSFER",
+      "Source_IE_Type": "F1AP Message"
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+  "Knowledge_Hints": [
+    "10 (ts_138473v180600p): Handling of unknown, unforeseen and erroneous protocol data",
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.15.2 (ts_138401v180600p): Mobility procedure for Multicast",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU",
+    "9.2.2.1 (ts_138473v180600p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.2 (ts_138473v180600p): UE CONTEXT SETUP RESPONSE",
+    "9.4 (ts_138473v180600p): Message and Information Element Abstract Syntax (with ASN.1)",
+    "8.3.1.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.1.1 (ts_138473v180600p): General",
+    "8.3.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3 (ts_138473v180600p): UE Context Management procedures",
+    "8.3.1.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.3 (ts_138473v180600p): UE Context Release (gNB-CU initiated)",
+    "8.3.2 (ts_138473v180600p): UE Context Release Request (gNB-DU initiated)",
+    "8.3.9 (ts_138473v180600p): DU-CU Cell Switch Notification",
+    "8.3.10 (ts_138473v180600p): CU-DU Cell Switch Notification",
+    "8.3.8 (ts_138473v180600p): Access Success",
+    "8.3.5 (ts_138473v180600p): UE Context Modification Required (gNB-DU initiated)",
+    "8.3.7 (ts_138473v180600p): Notify",
+    "8.3.11 (ts_138473v180600p): CU-DU Mobility Initiation",
+    "8.3.4 (ts_138473v180600p): UE Context Modification (gNB-CU initiated)",
+    "8.3.6 (ts_138473v180600p): UE Inactivity Notification",
+    "9.2.2.3 (ts_138473v180600p): UE CONTEXT SETUP FAILURE",
+    "9.2.2 (ts_138473v180600p): UE Context Management messages",
+    "9.2.2.6 (ts_138473v180600p): UE CONTEXT RELEASE COMPLETE",
+    "9.2.2.8 (ts_138473v180600p): UE CONTEXT MODIFICATION RESPONSE",
+    "9.2.2.16 (ts_138473v180600p): CU-DU CELL SWITCH NOTIFICATION",
+    "9.2.2.12 (ts_138473v180600p): UE INACTIVITY NOTIFICATION",
+    "9.2.2.4 (ts_138473v180600p): UE CONTEXT RELEASE REQUEST",
+    "9.2.2.5 (ts_138473v180600p): UE CONTEXT RELEASE COMMAND",
+    "9.2.2.7 (ts_138473v180600p): UE CONTEXT MODIFICATION REQUEST",
+    "9.2.2.17 (ts_138473v180600p): CU-DU MOBILITY INITIATION REQUEST",
+    "9.2.2.15 (ts_138473v180600p): DU-CU CELL SWITCH NOTIFICATION",
+    "9.2.2.11 (ts_138473v180600p): UE CONTEXT MODIFICATION CONFIRM",
+    "9.2.2.9 (ts_138473v180600p): UE CONTEXT MODIFICATION FAILURE",
+    "9.2.2.14 (ts_138473v180600p): ACCESS SUCCESS",
+    "9.2.2.13 (ts_138473v180600p): NOTIFY",
+    "9.4.7 (ts_138473v180600p): Constant Definitions",
+    "9.4.4 (ts_138473v180600p): PDU Definitions",
+    "9.4.8 (ts_138473v180600p): Container Definitions",
+    "9 (ts_138473v180600p): Elements for F1AP Communication",
+    "9.4.2 (ts_138473v180600p): Usage of private message mechanism for non-standard use",
+    "9.4.5 (ts_138473v180600p): Information Element Definitions",
+    "9.4.3 (ts_138473v180600p): Elementary Procedure Definitions",
+    "9.4.1 (ts_138473v180600p): General",
+    "9.6 (ts_138473v180600p): Timers",
+    "9.5 (ts_138473v180600p): Message Transfer Syntax",
+    "9.2 (ts_138473v180600p): Message Functional Definition and Content",
+    "9.1 (ts_138473v180600p): General",
+    "9.3 (ts_138473v180600p): Information Element Definitions",
+    "8.3.4.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.3.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.4.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.5.1 (ts_138473v180600p): General",
+    "8.3.4.1 (ts_138473v180600p): General",
+    "8.3.2.1 (ts_138473v180600p): General",
+    "8.3.3.1 (ts_138473v180600p): General",
+    "8.7.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3.3.2 (ts_138473v180600p): Successful Operation",
+    "8.3.2.2 (ts_138473v180600p): Successful Operation",
+    "8.3.4.2 (ts_138473v180600p): Successful Operation",
+    "8.3.5.2 (ts_138473v180600p): Successful Operation",
+    "8 (ts_138473v180600p): F1AP procedures",
+    "8.1 (ts_138473v180600p): List of F1AP Elementary procedures",
+    "8.9 (ts_138473v180600p): Radio Information Transfer procedures",
+    "8.16 (ts_138473v180600p): QMC Procedures",
+    "8.6 (ts_138473v180600p): System Information Procedures",
+    "8.8 (ts_138473v180600p): Trace Procedures",
+    "8.5 (ts_138473v180600p): Warning Message Transmission Procedures",
+    "8.14 (ts_138473v180600p): NR MBS Procedures",
+    "8.15 (ts_138473v180600p): PDC Measurement Reporting procedures",
+    "8.13 (ts_138473v180600p): Positioning Procedures",
+    "8.4 (ts_138473v180600p): RRC Message Transfer procedures",
+    "8.10 (ts_138473v180600p): IAB Procedures",
+    "8.12 (ts_138473v180600p): Reference Time Information Reporting procedures",
+    "8.7 (ts_138473v180600p): Paging procedures",
+    "8.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Procedures",
+    "8.11 (ts_138473v180600p): Self Optimisation Support procedures",
+    "8.2.3.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.2.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.9.2 (ts_138473v180600p): Successful Operation",
+    "8.3.9.1 (ts_138473v180600p): General",
+    "8.3.9.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.9.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.2 (ts_138473v180600p): Successful Operation",
+    "8.3.10.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.10.1 (ts_138473v180600p): General",
+    "8.3.8.1 (ts_138473v180600p): General",
+    "8.3.8.2 (ts_138473v180600p): Successful Operation",
+    "8.3.8.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.5.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.7.2 (ts_138473v180600p): Successful Operation",
+    "8.3.7.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.7.1 (ts_138473v180600p): General",
+    "8.3.11.2 (ts_138473v180600p): Successful Operation",
+    "8.3.11.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.11.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.11.1 (ts_138473v180600p): General",
+    "8.3.6.2 (ts_138473v180600p): Successful Operation",
+    "8.3.6.1 (ts_138473v180600p): General",
+    "8.3.6.3 (ts_138473v180600p): Abnormal Conditions",
+    "9.2.7 (ts_138473v180600p): Trace Messages",
+    "9.2.10 (ts_138473v180600p): Self Optimisation Support Messages",
+    "9.2.15 (ts_138473v180600p): PDC Measurement Reporting messages",
+    "9.2.3 (ts_138473v180600p): RRC Message Transfer messages",
+    "9.2.6 (ts_138473v180600p): Paging messages",
+    "9.2.1 (ts_138473v180600p): Interface Management messages",
+    "9.2.9 (ts_138473v180600p): IAB messages",
+    "9.2.11 (ts_138473v180600p): Reference Time Information Reporting messages",
+    "9.2.13 (ts_138473v180600p): Broadcast Context Management messages",
+    "9.2.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Messages",
+    "9.2.14 (ts_138473v180600p): Multicast Context Management messages",
+    "9.2.12 (ts_138473v180600p): Messages for Positioning Procedures",
+    "9.2.8 (ts_138473v180600p): Radio Information Transfer messages",
+    "9.2.16 (ts_138473v180600p): QMC messages",
+    "9.2.4 (ts_138473v180600p): Warning Message Transmission Messages",
+    "9.3.1.56 (ts_138473v180600p): Notification Control",
+    "9.2.13.4 (ts_138473v180600p): BROADCAST CONTEXT RELEASE COMMAND",
+    "8.14.11.2 (ts_138473v180600p): Successful Operation",
+    "8.14.9.2 (ts_138473v180600p): Successful Operation",
+    "8.14.10.2 (ts_138473v180600p): Successful Operation",
+    "8.14.8.2 (ts_138473v180600p): Successful Operation",
+    "1 (ts_138473v180600p): Scope",
+    "4.1 (ts_138473v180600p): Procedure specification principles",
+    "8.14.8.1 (ts_138473v180600p): General",
+    "8.14.9.1 (ts_138473v180600p): General",
+    "8.14.10.1 (ts_138473v180600p): General",
+    "8.14.14.1 (ts_138473v180600p): General",
+    "9.3.1 (ts_138473v180600p): Radio Network Layer Related IEs",
+    "9.3.2 (ts_138473v180600p): Transport Network Layer Related IEs"
+  ]
+}

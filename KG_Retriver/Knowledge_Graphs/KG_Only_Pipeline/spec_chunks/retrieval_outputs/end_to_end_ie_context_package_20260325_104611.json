@@ -1,0 +1,659 @@
+{
+  "feature_json_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Inter-gNB-DU_LTM_handover_procedure_20260323_093447.json",
+  "intent": "gNB-CU has to prepare and send F1AP 'UE CONTEXT SETUP REQUEST' message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP 'UE CONTEXT SETUP RESPONSE' message and this message has to be handled on gNB-CU for Inter-gNB-DU LTM handover.",
+  "timestamp": "2026-03-25T10:46:13.337604",
+  "retrieval_config": {
+    "max_depth_kg_expand": 2,
+    "cosine_top_k": 80,
+    "cosine_min_score": null,
+    "kg_expansion_direction": "both",
+    "recursive_ie_max_depth": 2,
+    "recursive_ie_max_nodes": 80,
+    "max_candidates_for_scoring": 2500,
+    "cosine_embedding_model": "BAAI/bge-base-en-v1.5",
+    "llm_optional_agentic": true,
+    "llm_max_calls": 12,
+    "llm_child_pick_max": 10
+  },
+  "specs_context_count": 20,
+  "specs_context": [
+    {
+      "section_id": "9.4",
+      "section_title": "Message and Information Element Abstract Syntax (with ASN.1)",
+      "content": "9.4 Message and Information Element Abstract Syntax (with ASN.1)",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 2,
+        "parent_section_id": "9",
+        "child_section_ids": [
+          "9.4.1",
+          "9.4.2",
+          "9.4.3",
+          "9.4.4",
+          "9.4.5",
+          "9.4.7",
+          "9.4.8"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "message_format",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "section_id": "8.3.1",
+      "section_title": "UE Context Setup",
+      "content": "8.3.1 UE Context Setup",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.1.1",
+          "8.3.1.2",
+          "8.3.1.3",
+          "8.3.1.4"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.1.4",
+      "section_title": "Abnormal Conditions",
+      "content": "8.3.1.4 Abnormal Conditions\nIf the gNB-DU receives a UE CONTEXT SETUP REQUEST message containing a E-UTRAN QoS IE for a GBR QoS\nDRB but where the GBR QoS Information IE is not present, the gNB-DU shall report the establishment of the\ncorresponding DRB as failed in the DRB Failed to Setup List IE of the UE CONTEXT SETUP RESPONSE message\nwith an appropriate cause value. If the gNB-DU receives a UE CONTEXT SETUP REQUEST message containing a\nDRB QoS IE for a GBR QoS DRB but where the GBR QoS Flow Information IE is not present, the gNB-DU shall\nreport the establishment of the corresponding DRBs as failed in the DRB Failed to Setup List IE of the UE CONTEXT\nSETUP RESPONSE message with an appropriate cause value.\nIf the Delay Critical IE is included in the Dynamic 5QI Descriptor IE within the DRB QoS IE in the UE CONTEXT\nSETUP REQUEST message and is set to the value \"delay critical\" but the Maximum Data Burst Volume IE is not\n  gNB-DU\nUE CONTEXT SETUP REQUEST\ngNB-CU\nUE CONTEXT SETUP FAILURE\npresent, the gNB-DU shall report the establishment of the corresponding DRB as failed in the DRB Failed to Setup List\nIE of the of the UE CONTEXT SETUP RESPONSE message with an appropriate cause value.\nIn case of \"CHO-replace\" when the Target gNB-DU UE F1AP ID IE is included, if the candidate cell in the SpCell ID\nIE included in the UE CONTEXT SETUP REQUEST message was not prepared using the same UE-associated\nsignaling connection, the gNB-DU shall ignore this candidate cell.",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 4,
+        "parent_section_id": "8.3.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          64
+        ],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "ie_definition_chain",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.1.1",
+      "section_title": "General",
+      "content": "8.3.1.1 General\nThe purpose of the UE Context Setup procedure is to establish the UE Context including, among others, SRB, DRB,\nBH RLC channel, Uu Relay RLC channel, PC5 Relay RLC channel, and SL DRB configuration. The procedure uses\nUE-associated signalling.",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 4,
+        "parent_section_id": "8.3.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          54
+        ],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.1.2",
+      "section_title": "Successful Operation",
+      "content": "8.3.1.2 Successful Operation\nFigure 8.3.1.2-1: UE Context Setup Request procedure: Successful Operation\nThe gNB-CU initiates the procedure by sending UE CONTEXT SETUP REQUEST message to the gNB-DU. If the\ngNB-DU succeeds to establish the UE context, it replies to the gNB-CU with UE CONTEXT SETUP RESPONSE. If\nno UE-associated logical F1-connection exists, the UE-associated logical F1-connection shall be established as part of\nthe procedure. Except for RACH based SDT and UE configured with BWP specific ServingCellMO, the gNB-CU shall\nperform RRC Reconfiguration or RRC connection resume to send UE to the RRC_CONNECTED state as described in\nTS 38.331 [8], and in this case, the CellGroupConfig IE shall transparently be signaled to the UE as specified in TS\n38.331 [8]. In the cases of RACH based SDT procedure and UE configured with BWP specific ServingCellMO, the\nCellGroupConfig IE shall be ignored by the gNB-CU.\nIf the UE-CapabilityRAT-ContainerList IE is included in the UE CONTEXT SETUP REQUEST, the gNB-DU shall\ntake this information into account for UE specific configurations.\nIf the servingCellMO IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall configure\nservingCellMO for the indicated SpCell accordingly.\nIf the servingCellMO List IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if\nsupported, select servingCellMO after determining the list of BWPs for the UE and include the list of servingCellMOs\nthat have been encoded in CellGroupConfig IE as ServingCellMO-encoded-in-CGC List IE in the UE CONTEXT\nSETUP RESPONSE message.\nIf the Configured BWP List IE is included in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if\nsupported, take it into account when requesting the gNB-DU for generating preconfigured measurement GAP for the\nindicated BWPs.\nIf the SpCell UL Configured IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall\nconfigure UL for the indicated SpCell accordingly.\nIf the SCell To Be Setup List IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall\nconsider it as a list of candidate SCells to be set up. If the SCell UL Configured IE is included in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall configure UL for the indicated SCell accordingly. If the servingCellMO\nIE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall configure servingCellMO for the\nindicated SCell accordingly.\nIf the DRX Cycle IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall use the\nprovided value from the gNB-CU.\nIf the Non-Integer DRX Cycle IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if\nsupported, use the provided value from the gNB-CU.\nIf the UL Configuration IE in DRB to Be Setup Item IE is contained in the UE CONTEXT SETUP REQUEST message,\nthe gNB-DU shall take it into account for UL scheduling.\nIf the SRB To Be Setup List IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall act as\nspecified in TS 38.401 [4]. If Duplication Indication IE is contained in the SRB To Be Setup List IE, the gNB-DU shall,\nif supported, setup two RLC entities for the indicated SRB. If the Additional Duplication Indication IE is contained in\nthe SRB To Be Setup List IE, the gNB-DU shall, if supported, setup the indicated RLC entities for the indicated SRB. If\nthe SDT RLC Bearer Configuration IE is contained in the SRB To Be Setup List IE, the gNB-DU shall, if supported, use\nit for packet transmission belonging to the SDT SRB indicated by the SRB ID IE. If the SRB Mapping Info IE is\ncontained in the SRB To Be Setup List IE, the gNB-DU shall, if supported, store the mapping information indicated in\n  gNB-DU\nUE CONTEXT SETUP REQUEST\ngNB-CU\nUE CONTEXT SETUP RESPONSE\nthe SRB Mapping Info IE for the SRB identified by the SRB ID IE and the Uu Relay RLC channel identified by the SRB\nMapping Info IE. The gNB-DU shall use the mapping information stored for the mapping of SRB data to Uu Relay\nRLC channel.\nIf the DRB To Be Setup List IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall act\nas specified in TS 38.401 [4]. If the QoS Flow Mapping Indication IE is included in the DRB To Be Setup List IE for a\nQoS flow, the gNB-DU may take it into account that only the uplink or downlink QoS flow is mapped to the indicated\nDRB. If the SDT RLC Bearer Configuration IE is contained in the DRB To Be Setup List IE, the gNB-DU shall, if\nsupported, use it for packet transmission belonging to the SDT DRB indicated by the DRB ID IE. If the DRB Mapping\nInfo IE is contained in the DRB To Be Setup List IE, the gNB-DU shall, if supported, store the mapping information\nindicated in the DRB Mapping Info IE for the DRB identified by the DRB ID IE and the Uu Relay RLC channel\nidentified by the DRB Mapping Info IE. The gNB-DU shall use the mapping information stored for the mapping of\nDRB data to Uu Relay RLC channel.\nIf the PSI based SDU Discard UL IE is included in the DRB To Be Setup List IE, the gNB-DU shall, if supported, take it\ninto account to perform UL PSI based SDU discarding activation or deactivation for the indicated DRB as defined in TS\n38.321 [16].\nFor each GBR DRB, if the Alternative QoS Parameters Sets IE is included in the GBR QoS Flow Information IE in the\nUE CONTEXT SETUP REQUEST message, gNB-DU shall, if supported, behave the same as the NG-RAN node in the\nPDU Session Resource Setup procedure, specified in TS 38.413 [3].\nIf the BH Information IE is included in the UL UP TNL Information to be setup List IE or the Additional PDCP\nDuplication TNL List IE for a DRB, the gNB-DU shall, if supported, use the indicated BAP Routing ID and BH RLC\nchannel for transmission of the corresponding GTP-U packets to the IAB-donor, as specified in TS 38.340 [30].\nIf the BH RLC Channel To Be Setup List IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-\nDU shall act as specified in TS 38.401 [4]. If the Traffic Mapping Information  IE is included in the BH RLC Channel\nTo Be Setup Item IEs IE for a BH RLC Channel, the gNB-DU shall, if supported, process the Traffic Mapping\nInformation IE as follows:\n- if the IP to layer2 Traffic Mapping Info IE is included, the gNB-DU shall store the mapping information\ncontained in the IP to layer2 Traffic Mapping Info To Add IE, if present, for the egress BH RLC channel\nidentified by the BH RLC CH ID IE, and shall remove the previously stored mapping information as indicated by\nthe IP to layer2 Mapping Traffic Info To Remove IE, if present. The gNB-DU shall use the mapping information\nstored for the mapping of IP traffic to layer 2, as specified in TS 38.340 [30].\n- if the BAP layer BH RLC channel Mapping Info IE is included, the gNB-DU shall store the mapping information\ncontained in the BAP layer BH RLC channel Mapping Info To Add IE, if present, for the egress or ingress BH\nRLC channel identified by the BH RLC CH ID IE, and shall remove the previously stored mapping information\nas indicated by the BAP layer BH RLC channel Mapping Info To Remove IE\n , if present. The gNB-DU shall use\nthe mapping information stored when forwarding traffic on BAP sublayer, as specified in TS 38.340 [30].\nIf two UL UP TNL Information IEs are included in UE CONTEXT SETUP REQUEST message for a DRB, gNB-DU\nshall include two DL UP TNL Information IEs in UE CONTEXT SETUP RESPONSE message and setup two RLC\nentities for the indicated DRB. gNB-CU and gNB-DU use the UL UP TNL Information IEs and DL UP TNL\nInformation IEs to support packet duplication for intra-gNB-DU CA as defined in TS 38.470 [2]. The first UP TNL\nInformation IE of the two UP TNL Information IEs is for the primary path.\nIf one or two Additional PDCP Duplication UP TNL Information IEs are included in the UE CONTEXT SETUP\nREQUEST message for a DRB, the gNB-DU shall, if supported, include one or two Additional PDCP Duplication UP\nTNL Information IEs in the UE CONTEXT SETUP RESPONSE message and setup one or two additional RLC entities\nfor the indicated DRB. The gNB-CU and the gNB-DU use the Additional PDCP Duplication UP TNL Information IEs\nto support packet duplication for intra-gNB-DU CA as defined in TS 38.470 [2].\nIf Duplication Activation IE is included in the UE CONTEXT SETUP REQUEST message for a DRB, gNB-DU should\ntake it into account when activating/deactivating CA based PDCP duplication for the DRB. If the RLC Duplication\nState List IE is included in the RLC Duplication Information IE contained in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall, if supported, take it into account when activating/deactivating CA based PDCP duplication\nfor the DRB with more than two RLC entities.\nIf DC Based Duplication Configured IE is included in the UE CONTEXT SETUP REQUEST message for a DRB,\ngNB-DU shall regard that DC based PDCP duplication is configured for this DRB if the value is set to be \"true\" and it\nshould take the responsibility of PDCP duplication activation/deactivation. If DC Based Duplication Activation IE is\nincluded in the UE CONTEXT SETUP REQUEST message for a DRB, gNB-DU should take it into account when\nactivating/deactivating DC based PDCP duplication for this DRB. If the RLC Duplication State List IE is included in\nthe RLC Duplication Information IE contained in the UE CONTEXT SETUP REQUEST message for a DRB, the gNB-\nDU shall, if supported, take it into account when activating/deactivating DC based PDCP duplication for the DRB with\nmore than two RLC entities. If the Primary Path Indication IE is included in the RLC Duplication Information IE, the\ngNB-DU shall, if supported, take it into account when performing DC based PDCP duplication for the DRB with more\nthan two RLC entities.\nIf UL PDCP SN length IE is included in the UE CONTEXT SETUP REQUEST message for a DRB, gNB-DU shall, if\nsupported, store this information and use it for lower layer configuration.\nFor EN-DC operation, and if the Subscriber Profile ID for RAT/Frequency priority IE is received from an MeNB, the\nUE CONTEXT SETUP REQUEST message shall contain the Subscriber Profile ID for RAT/Frequency priority IE. If\nthe Additional RRM Policy Index IE is received from an MeNB, the UE CONTEXT SETUP REQUEST message shall,\nif supported, contain the Additional RRM Policy Index IE. The gNB-DU shall store the received Subscriber Profile ID\nfor RAT/Frequency priority in the UE context and use it as defined in TS 36.300 [20]. The gNB-DU shall, if supported,\nstore the received Additional RRM Policy Index in the UE context and use it as defined in TS 36.300 [20].\nIf the Index to RAT/Frequency Selection Priority IE is available at the gNB-CU, the Index to RAT/Frequency Selection\nPriority IE shall be included in the UE CONTEXT SETUP REQUEST. The gNB-DU may use it for RRM purposes.\nThe gNB-DU shall report to the gNB-CU, in the UE CONTEXT SETUP RESPONSE message, the result for all the\nrequested DRBs, SRBs, BH RLC channels, PC5 Relay RLC channels, and SL DRBs in the following way:\n- A list of DRBs which are successfully established shall be included in the DRB Setup List IE;\n- A list of DRBs which failed to be established shall be included in the DRB Failed to Setup List IE;\n- A list of SRBs which failed to be established shall be included in the SRB Failed to Setup List IE.\n- A list of successfully established SRBs with logical channel identities for primary path shall be included in the\nSRB Setup List IE only if CA based PDCP duplication is initiated for the concerned SRBs.\n- A list of BH RLC channels which are successfully established shall be included in the BH RLC Channel Setup\nList IE;\n- A list of BH RLC channels which failed to be established shall be included in the BH RLC Channel Failed to be\nSetup List IE;\n- A list of SL DRBs which are successfully established shall be included in the SL DRB Setup List IE;\n- A list of SL DRBs which failed to be established shall be included in the SL DRB Failed to Setup List IE.\n- A list of Uu Relay RLC channels which are successfully established shall be included in the Uu RLC Channel\nSetup List IE;\n- A list of Uu Relay RLC channels which failed to be established shall be included in the Uu RLC Channel Failed\nto be Setup List IE;\n- A list of PC5 Relay RLC channels which are successfully established shall be included in the PC5 RLC Channel\nSetup List IE;\n- A list of PC5 Relay RLC channels which failed to be established shall be included in the PC5 RLC Channel\nFailed to be Setup List IE;\nIf Duplication Indication IE in SL DRB To Be Setup List IE is contained in the UE CONTEXT SETUP REQUEST\nmessage,the gNB-DU shall, if supported, generate two PC5 RLC bearer configurations for the indicated SL DRB.\nWhen the gNB-DU reports the unsuccessful establishment of a DRB or SRB or SL DRB or a BH RLC channel or a\nPC5 Relay RLC channel, the cause value should be precise enough to enable the gNB-CU to know the reason for the\nunsuccessful establishment.\nFor EN-DC operation, the gNB-CU shall include in the UE CONTEXT SETUP REQUEST the E-UTRAN QoS  IE. The\nallocation of resources according to the values of the Allo\n cation and Retention Priority IE included in the E-UTRAN\nQoS IE shall follow the principles described for the E-RAB Setup procedure in TS 36.413 [15].\nFor NG-RAN operation, the gNB-CU shall include in the UE CONTEXT SETUP REQUEST the DRB Information IE.\nFor DC operation, the CG-ConfigInfo IE shall be included in the CU to DU RRC Information IE at the gNB acting as\nsecondary node. If the CG-ConfigInfo IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU\nshall regard it as a reconfiguration with sync as defined in TS 38.331 [8].\nFor sidelink operation, the CG-ConfigInfo IE shall be included in the CU to DU RRC Information IE if the gNB-CU\nreceives sidelink related UE information from UE. If the CG-ConfigInfo IE is included in the UE CONTEXT SETUP\nREQUEST message, the gNB-DU shall regard it as an indication of V2X sidelink information or NR sidelink\ninformation as defined in TS 38.331 [8].\nIf the HandoverPreparationInformation IE is included in the CU to DU RRC Information IE in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU of the gNB acting as master node shall regard it as a reconfiguration with\nsync as defined in TS 38.331 [8]. The gNB-CU shall only initiate the UE Context Setup procedure for handover or\nsecondary node addition when at least one DRB is setup for the UE, or at least one BH RLC channel is set up for IAB-\nMT. If the HandoverPreparationInformation IE containing the sidelink related UE information is included in the UE\nCONTEXT SETUP REQUEST message, the gNB-DU shall regard it as an indication of V2X sidelink information or\nNR sidelink information as defined in TS 38.331 [8].\nIf the received CU to DU RRC Information IE does not include source cell group configuration, the gNB-DU shall\ngenerate the cell group configuration using full configuration. Otherwise, delta configuration is allowed.\nIf the gNB-CU includes the SMTC information of the measured frequency(ies) in the\nMeasurementTimingConfiguration IE of the CU to DU RRC Information IE that is included in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall generate the measurement gaps based on the received SMTC\ninformation. Then the gNB-DU shall send the measurement gaps information to the gNB-CU in the MeasGapConfig IE\nof the DU to CU RRC Information IE that is included in the UE CONTEXT SETUP RESPONSE message.\nIf the MeasConfig IE is included in the CU to DU RRC Information IE in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall deduce that changes to the measurements configuration need to be applied. If the\nmeasObjectToAddModList IE is included in the MeasConfig IE, then the frequencies added in such IE are to be\nactivated. Then the gNB-DU shall decide if measurement gaps are needed or not and, if needed, the gNB-DU shall send\nthe measurement gaps information to the gNB-CU in the MeasGapConfig IE of the DU to CU RRC Information IE that\nis included in the UE CONTEXT SETUP RESPONSE message. If the measObjectToRemoveList IE is included in the\nMeasConfig IE, the gNB-DU shall ignore it.\nIf the NeedForGapsInfoNR IE is included in the CU to DU RRC Information IE in the UE CONTEXT SETUP\nREQUEST message, the gNB-DU shall, if supported, use it as described in TS 38.331 [8]. If the NeedForGapNCSG-\nInfoNR IE is included in the CU to DU RRC Information IE in the UE CONTEXT SETUP REQUEST message, the\ngNB-DU shall, if supported, use it as described in TS 38.331 [8].\nIf the NeedForGapNCSG-InfoEUTRA IE is included in the CU to DU RRC Information IE in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall, if supported, use it as described in TS 38.331 [8].\nIf the NeedForInterruptionInfoNR IE is included in the CU to DU RRC Information IE in the UE CONTEXT SETUP\nREQUEST message, the gNB-DU shall, if supported, use it as described in TS 38.331 [8].\nFor EN-DC operation, if the gNB-CU includes the Resource Coordination Transfer Information IE in the UE\nCONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, use it for the purpose of resource\ncoordination. If the Ignore PRACH Configuration IE is present and set to \"true\" the E-UT\n RA PRACH Configuration IE\nin the UE CONTEXT SETUP REQUEST message shall be ignored. If the gNB-CU received the MeNB Resource\nCoordination Information as defined in TS 36.423 [9], it shall transparently transfer it to the gNB-DU via the Resource\nCoordination Transfer Container IE in the UE CONTEXT SETUP REQUEST message. The gNB-DU shall use the\ninformation received in the Resource Coordination Transfer Container IE for reception of MeNB Resource\nCoordination Information at the gNB acting as secondary node as described in TS 36.423 [9]. If the Resource\nCoordination E-UTRA Cell Information IE is included in the Resource Coordination Transfer Information IE, the gNB-\nDU shall store the information replacing previously received information for the same E-UTRA cell, and use the stored\ninformation for the purpose of resource coordination.\nFor NGEN-DC or NE-DC operation, if the gNB-CU includes the Resource Coordination Transfer Information IE in the\nUE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, use it for the purpose of resource\ncoordination. If the gNB-CU received the MR-DC Resource Coordination Information as defined in TS 38.423 [28], it\nshall transparently transfer it to the gNB-DU via the Resource Coordination Transfer Container IE in the UE\nCONTEXT SETUP REQUEST message. The gNB-DU shall use the information received in the Resource\nCoordination Transfer Container IE for reception of MR-DC Resource Coordination Information at the gNB as\ndescribed in TS 38.423 [28].\nThe UEAssistanceInformation IE shall be included in CU to DU RRC Information IE in the UE CONTEXT SETUP\nREQUEST message if the gNB-CU received this IE from the UE; if the UEAssistanceInformation IE is included in the\nCU to DU RRC Information IE in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported,\ntake it into account when configuring resources for the UE.\nThe UEAssistanceInformationEUTRA IE shall be included in CU to DU RRC Information IE in the UE CONTEXT\nSETUP REQUEST message if the gNB-CU received this IE from the UE; if the UEAssistanceInformationEUTRA IE is\nincluded in the CU to DU RRC Information IE in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall,\nif supported, take it into account when configuring LTE sidelink resources for the UE.\nIf the Resource Coordination Transfer Container IE is included in the UE CONTEXT SETUP RESPONSE, the gNB-\nCU shall transparently transfer this information for the purpose of resource coordination as described in TS 36.423 [9],\nTS 38.423 [28].\nIf the Masked IMEISV IE is contained in the UE CONTEXT SETUP REQUEST message the gNB-DU shall, if\nsupported, use it to determine the characteristics of the UE for subsequent handling.\nIf the SCell Failed To Setup List IE is contained in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall\nregard the corresponding SCell(s) failed to be set up with an appropriate cause value for each SCell failed to setup.\nIf the Inactivity Monitoring Request IE is contained in the UE CONTEXT SETUP REQUEST message, gNB-DU may\nconsider that the gNB-CU has requested the gNB-DU to perform UE inactivity monitoring. If the Inactivity Monitoring\nResponse IE is contained in the UE CONTEXT SETUP RESPONSE message and set to \"Not-supported\", the gNB-CU\nshall consider that the gNB-DU does not support UE inactivity monitoring for the UE.\nIf the ServCellInfoList IE is included in the DU to CU RRC Information IE contained in the UE CONTEXT SETUP\nRESPONSE message, the gNB-CU shall take it into account to generate the content of inter-node RRC message, i.e.,\nCG-Config or CG-ConfigInfo, as described in TS 38.331 [8].\nIf the Full Configuration IE is contained in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall\nconsider that the gNB-DU has generated the CellGroupConfig IE using full configuration.\nIf the C-RNTI IE is included in the UE CONTEXT SETUP RESPONSE, the gNB-CU shall consider that the C-RNTI\nhas been allocated by the gNB-DU for this UE context.\nThe UE Context Setup Procedure is not used to configure SRB0.\nIf the UE CONTEXT SETUP REQUEST message contains the RRC-Container IE, the gNB-DU shall send the\ncorresponding RRC message to the UE via SRB1.\nIf the Notification Control IE is included in the DRB to Be Setup List IE contained in the UE CONTEXT SETUP\nREQUEST message and it is set to active, the gNB-DU shall, if supported, monitor the QoS of the DRB and notify the\ngNB-CU if the QoS cannot be fulfilled any longer or if the QoS can be fulfilled again. The Notification Control IE can\nonly be applied to GBR bearers.\nIf the UL PDU Session Aggregate Maximum Bit Rate IE is included in the QoS Flow Level QoS Parameters  IE\ncontained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall store the received UL PDU Session\nAggregate Maximum Bit Rate and use it when enforcing uplink traffic policing for non-GBR Bearers for the concerned\nUE as specified in TS 23.501 [21].\nThe gNB-DU shall store the received gNB-DU UE Aggregate Maximum Bit Rate Uplink and use it for non-GBR\nBearers for the concerned UE.\nIf the UE CONTEXT SETUP REQUEST message contains the QoS Flow Mapping Indication IE, the gNB-DU may\ntake it into account that only the uplink or downlink QoS flow is mapped to the DRB.\nIf the UE CONTEXT SETUP REQUEST message contains the New gNB-CU UE F1AP ID I\n E, the gNB-DU shall, if\nsupported, replace the value received in the gNB-CU UE F1AP ID IE by the value of the New gNB-CU UE F1AP ID\nand use it for further signalling.\nIf the RAN UE ID IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall store and\nreplace any previous information received.\nIf the Trace Activation IE is included in the UE CONTEXT SETUP REQUEST message the gNB-DU shall, if\nsupported, initiate the requested trace function as described in TS 32.422 [29].\nIn particular, the gNB-DU shall, if supported:\n- if the Trace Activation IE includes the MDT Activation IE set to \"Immediate MDT and Trace\", initiate the\nrequested trace session and MDT session as described in TS 32.422 [29];\n- if the Trace Activation IE includes the MDT Activation IE set to \"Immediate MDT Only\", initiate the requested\nMDT session as described in TS 32.422 [29] and the gNB-DU shall ignore Interfaces To Trace IE, and Trace\nDepth IE. If the Management Based MDT PLMN List IE is contained in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall, if supported, store the received information in the UE context, and use this\ninformation to allow subsequent selection of the UE for management based MDT defined in TS 32.422 [29].\nFor each QoS flow whose DRB has been successfully established and the QoS Monitoring Request IE was included in\nthe QoS Flow Level QoS Parameters IE contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU\nshall store this information, and, if supported, perform delay measurement and QoS monitoring, as specified in TS\n23.501 [21].\nIf the UE CONTEXT SETUP REQUEST message contains the Configured BAP Address IE, the gNB-DU shall, if\nsupported, store this BAP address configured for the corresponding child IAB-node and use it as specified in TS 38.340\n[30].\nIf the BAP Control PDU Channel IE is included in the BH RLC Channel to be Setup List IE, the gNB-DU shall, if\nsupported, consider that the configured BH RLC channel can be used to transmit BAP Control PDUs, and use this BH\nRLC channel as specified in TS 38.340 [30].\nIf the F1-C Transfer Path IE is included in UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if\nsupported, take it into account.\nIf the NR V2X Services Authorized IE is contained in the UE CONTEXT SETUP REQUEST message and it contains\none or more IEs set to \"authorized\", the gNB-DU node shall, if supported, consider that the UE is authorized for the\nrelevant service(s).\nIf the LTE V2X Services Authorized IE is contained in the UE CONTEXT SETUP REQUEST message and it contains\none or more IEs set to \"authorized\", the gNB-DU node shall, if supported, consider that the UE is authorized for the\nrelevant service(s).\nIf the NR UE Sidelink Aggregate Maximum Bit Rate IE is contained in the UE CONTEXT SETUP REQUEST message,\nthe gNB-DU shall, if supported, use it for the concerned UE's sidelink communication in network scheduled mode for\nNR V2X services.\nIf the LTE UE Sidelink Aggregate Maximum Bit Rate IE is contained in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall, if supported, use it for the concerned UE's sidelink communication in network scheduled\nmode for LTE V2X services.\nIf the PC5 Link Aggregate Bit Rate IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU\nshall, if supported, use it for the concerned UE's sidelink communication in network scheduled mode for NR V2X\nservices as defined in TS 23.287 [40].\nIf the NR A2X Services Authorized IE is contained in the UE CONTEXT SETUP REQUEST message and it contains\none or more IEs set to \"authorized\", the gNB-DU node shall, if supported, consider that the UE is authorized for the\nrelevant service(s).\nIf the LTE A2X Services Authorized IE is contained in the UE CONTEXT SETUP REQUEST message and it contains\none or more IEs set to \"authorized\", the gNB-DU node shall, if supported, consider that the UE is authorized for the\nrelevant service(s).\nIf the NR UE Sidelink Aggregate Maximum Bit Rate for A2X IE is contained in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall, if supported, use it for the concerned UE's sidelink communication in network scheduled\nmode for NR A2X services.\nIf the LTE UE Sidelink Aggregate Maximum Bit Rate for A2X IE is contained in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall, if supported, use it for the concerned UE's sidelink communication in network scheduled\nmode for LTE A2X services.\nIf the TSC Traffic Characteristics IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall,\nif supported, take into account the corresponding information received in the TSC Traffic Characteristics IE. If the RAN\nFeedback Type IE is included in the TSC Assistance Information Uplink IE of the TSC Traffic Characteristics IE, the\ngNB-DU shall, if supported, take this information into account when determining the feedback to provide in the TSC\nTraffic Characteristics Feedback IE in the UE CONTEXT SETUP RESPONSE message.\nIf the Conditional Inter-DU Mobility Information IE is included in the UE CONTEXT SETUP REQUEST message, the\ngNB-DU shall consider that the request concerns a conditional handover, conditional PSCell addition, conditional\nPSCell change, or subsequent CPAC for the included SpCell ID IE and shall include it as the Requested Target Cell ID\nIE in the UE CONTEXT SETUP RESPONSE message. The gNB-DU shall regard it as a reconfiguration with sync as\ndefined in TS 38.331 [8].\nIf the Target gNB-DU UE F1AP ID IE is contained in the Conditional Inter-DU Mobility Information IE included in the\nUE CONTEXT SETUP REQUEST message, then the gNB-DU shall replace the existing prepared conditional\nhandover, conditional PSCell addition or conditional PSCell change, or subsequent CPAC identified by the Target gNB-\nDU UE F1AP ID IE and the SpCell ID IE.\nIf the Serving NID\n IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall combine the\nServing NID IE with the Serving PLMN IE to identify the serving NPN, and may take it into account for UE context\nestablishment.\nIf the Estimated Arrival Probability IE is contained in the Conditional Inter-DU Mobility Information IE included in the\nUE CONTEXT SETUP REQUEST message, then the gNB-DU may use the information to allocate necessary resources\nfor the UE.\nIf the S-CPAC Request\n IE is included within the Conditional Inter-DU Mobility Information IE in the UE CONTEXT\nSETUP REQUEST message and is set to \"initiation\", the gNB-DU shall, if supported, consider that the procedure is\ntriggered for S-CPAC preparation.\nIf for a given E-RAB for EN-DC operation the ENB DL Transport Layer Address IE is included in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall, if supported, use it as part of its ACL functionality configuration\nactions, if such ACL functionality is deployed.\nIf for a given Qos flow for NG-RAN operation the PDCP Terminating Node DL Transport Layer Address IE is\nincluded in the UE CONTEXT SETUP REQUEST message, then the gNB-DU shall, if supported, use it as part of its\nACL functionality configuration actions, if such ACL functionality is deployed.\nIf the F1-C Transfer Path NRDC IE is included in UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if\nsupported, take it into account.\nIf the MDT Polluted Measurement Indicator IE is included in the UE CONTEXT SETUP REQUEST, the gNB-DU\nshall take this information into account as specified in TS 38.401 [4].\nIf the SCG Activation Request IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU may use\nit to configure SCG resources as specified in TS 37.340 [7], and if supported, shall include the SCG Activation Status IE\nin the UE CONTEXT SETUP RESPONSE message. If the SCG Activation Request IE in the UE CONTEXT SETUP\nREQUEST message is set to “Activate SCG”, the gNB-DU shall activate the SCG resources and set the SCG Activation\nStatus IE in the UE CONTEXT SETUP RESPONSE message to “SCG Activated”.\nIf the Old CG-SDT Session Info IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if\nsupported, retrieve the old CG-SDT resource configuration and old UE context based on the indicated gNB-CU F1AP\nUE ID and gNB-DU F1AP UE ID.\nIf the 5G ProSe Authorized IE is contained in the UE CONTEXT SETUP REQUEST message and it contains one or\nmore IEs set to \"authorized\", the gNB-DU node shall, if supported, consider that the UE is authorized for the relevant\nservice(s).\nIf the 5G ProSe UE PC5 Aggregate Maximum Bit Rate IE is contained in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall, if supported, use it for the concerned UE's sidelink communication in network scheduled\nmode for 5G ProSe services.\nIf the 5G ProSe PC5 Link Aggregate Bit Rate IE is contained in the UE CONTEXT SETUP REQUEST message, the\ngNB-DU shall, if supported, use it for the concerned UE's sidelink communication in network scheduled mode for 5G\nProSe services as defined in TS 23.304 [44].\nIf the PC5 RLC Channel To Be Setup List IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-\nDU shall, if supported, act as specified in TS 38.401 [4]. gNB-DU generates the PC5 Relay RLC channel configurations\nfor a L2 U2N Remote UE, a L2 U2U Remote UE or a L2 U2U Relay UE.\nIf the Path Switch Configuration IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall,\nif supported, use it to configure the path switch from direct path to indirect path as specified in TS 38.401 [4] or from\nindirect path to indirect path as specified in TS 38.331 [8].\nIf the MUSIM-GapConfig IE is contained in the CU to DU RRC Information IE included in the UE CONTEXT SETUP\nREQUEST message, the gNB-DU shall, if supported, decide to use this IE for MUSIM gap configuration or select\nanother one based on the received UEAssistanceInformation IE. If gNB-DU selects a different MUSIM gap\nconfiguration from received UEAssistanceInformation IE, then it shall include the selected MUSIM gap information to\nthe gNB-CU in the MUSIM-GapConfig IE of the DU to CU RRC Information IE that is included in the UE CONTEXT\nSETUP RESPONSE message.\nIf MUSIM-GapConfig IE is not contained in the CU to DU RRC Information IE, then gNB-DU shall, if supported, send\nthe selected MUSIM gap configuration based on the received UEAssistanceInformation IE, to the gNB-CU in the\nMUSIM-GapConfig IE of the DU to CU RRC Information IE that is included in the UE CONTEXT SETUP\nRESPONSE message. When MUSIM-GapConfig IE is received, the gNB-CU should use this value.\nIf the gNB-DU UE Slice Maximum Bit Rate List IE is included in the UE CONTEXT SETUP REQUEST message, the\ngNB-DU shall, if supported, store and use the information for the uplink traffic policing for each concerned slice as\nspecified in TS 23.501 [21].\nIf the Multicast MBS Session Setup List IE is contained in the UE CONTEXT SETUP REQUEST message the gNB-DU\nshall, if supported, store and use the information for configuring MBS Session Resources, if applicable.\nIf the UE Multicast MRB To Be Setup List IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-\nDU shall, if supported, take it into account for configuring MBS Session Resources, if applicable. And if the MBS PTP\nRetransmission Tunnel Required IE is included in the UE Multicast MRB to Be Setup Item IEs IE, the gNB-DU shall, if\nsupported trigger the establishment of the MBS PTP Retransmission F1-U tunnel. If the MBS PTP Forwarding Tunnel\nRequired Information IE is included in the UE Multicast MRB to Be Setup Item IEs IE, the gNB-DU shall, if supported\ntrigger the establishment of the MBS PTP Forwarding F1-U tunnel. If the Source MRB ID IE is included in the UE\nMulticast MRB to Be Setup Item IEs IE, the DU shall, if supported, use it to identify the MRB configuration as provided\nto the UE in the source cell and take it into account for configuring MBS Session Resources.\nIf the Dedicated SI Delivery Indication IE is included in the UE CONTEXT SETUP RESPONSE message, the gNB-\nCU shall, if supported, take it into account for the system information delivery to the UE as described in TS 38.331 [8].\nIf the PDU Set QoS Parameters IE is included in the QoS Flow Level QoS Parameters IE contained in the UE\nCONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, store this information and use it as specified\nin TS 23.501 [21].\nIf the ECN Marking or Congestion Information Reporting Request IE is included in the UE CONTEXT SETUP\nREQUEST message, the gNB-DU shall, if supported, use it accordingly for the specific DRB. If the ECN Marking or\nCongestion Information Reporting Status IE is included in the UE CONTEXT SETUP RESPONSE message, the gNB-\nCU shall, if supported, use it to deduce if ECN marking or congestion information reporting is active or not active.\nIf the InterFrequencyConfig-NoGap IE is included in the DU to CU RRC Information IE contained in the UE\nCONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, use it as described in TS 38.331 [8].\nIf the ul\n-GapFR2-Config  IE is contained in the DU to CU RRC Information IE that is included in the UE CONTEXT\nSETUP RESPONSE message, the gNB-CU shall, if supported, use it as described in TS 38.331 [8].\nIf the TwoPHRModeMCG IE or the TwoPHRModeSCG IE is contained in the DU to CU RRC Information IE that is\nincluded in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, use this value as\ndescribed in TS 38.331 [8].\nIf the MBSInterestIndication IE is included in the CU to DU RRC Information IE in the UE CONTEXT SETUP\nREQUEST message, the gNB-DU shall, if supported, take it into account when configuring resources for the UE.\nIf the ncd-SSB-RedCapInitialBWP-SDT IE is contained in the DU to CU RRC Information IE that is included in the UE\nCONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, use it as described in TS 38.331 [8].\nIf the Network Controlled Repeater Authorized IE is contained in the UE CONTEXT SETUP REQUEST message and\nit is set to \"authorized\", the gNB-DU node shall, if supported, consider that the UE is authorized as Network Controlled\nRepeater.\nIf the musim-CapabilityRestrictionIndication IE is included in the CU to DU RRC Information IE in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall, if supported, use it as described in TS 38.331 [8].\nIf the LTM Indicator IE set to \"true\" is contained in the LTM Information Setup IE included in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall, if supported, consider that the request concerns LTM for the included\nSpCell ID IE and shall include it as the Requested Target Cell ID IE in the UE CONTEXT SETUP RESPONSE\nmessage. The gNB-DU shall regard it as a reconfiguration with sync as defined in TS 38.331 [8].\nIf the Request for Lower Layer Configuration IE set to \"true\" is contained within the Reference Configuration IE in the\nLTM Information Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if\nsupported, provide the lower layer configuration in the Reference Configuration Information IE in the LTM\nConfigurationIE in the UE CONTEXT SETUP RESPONSE message for the gNB-CU to generate the LTM reference\nconfiguration.\nIf the Reference Configuration Information IE is contained within the Reference Configuration IE in the LTM\nInformation Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, take\nit into account for generating the LTM lower layer configuration.\nIf the CSI Resource Configuration is contained in the LTM Information Setup IE included in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall, if supported, use it to generate the LTM CSI reporting configuration(s)\nin the CellGroupConfig IE for the requested LTM candidate cell.\nIf the LTM Configuration ID Mapping List IE is contained in the UE CONTEXT SETUP REQUEST message, the\ngNB-DU shall, if supported, consider this as the mapping information for the LTM candidate cell(s).\nIf the Early Sync Information Request IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU\nshall, if supported, include the Early Sync Information IE of the accepted candidate cell for early TA acquisition (early\nUL synchronisation), in the UE CONTEXT SETUP RESPONSE message. If the Early UL Sync Configuration IE is\nincluded in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, consider it as the\ngenerated early UL sync information from the accepted candidate cell in the gNB-DU. If the Early UL Sync\nConfiguration for SUL IE is included in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if\nsupported, consider it as the generated early UL sync information for SUL from the accepted candidate cell in the gNB-\nDU.\nIf the LTM Configuration IE is included in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if\nsupported, consider it as the generated configuration for LTM from the accepted candidate cell in the candidate gNB-\nDU.\nIf the Complete Candidate Configuration Indicator IE set to \"complete\" is contained in the LTM Configuration IE\nincluded in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, consider that the LTM\ncandidate configuration is a complete candidate configuration.\nIf the Direct Path Addition IE is contained in the Path Addition Information IE which is included in the UE CONTEXT\nSETUP REQUEST message, the gNB-DU shall, if supported, consider that the request concerns the direct path addition\nfor the included SpCell ID IE as specified in TS 38.401 [4] and regard it as a reconfiguration with sync as defined in TS\n38.331 [8].\nIf the Indirect Path Addition IE is contained in the Path Addition Information IE which is included in the UE\nCONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, consider that the request concerns the\nindirect path addition for the MP Remote UE using PC5 link and use it as specified in TS 38.401 [4].\nIf the N3C Indirect Path Addition IE is contained in the Path Addition Information IE, the gNB-DU shall, if supported,\nconsider that the request concerns the indirect path addition for the MP Remote UE using N3C and use it as specified in\nTS 38.401 [4].\nIf the S-CPAC Lower Layer Reference Config Request IE set to \"true\" is contained in the Conditional Inter-DU\nMobility Information IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported,\nprovide the lower layer configuration in the Reference Configuration Information IE in the S-CPAC Configuration IE in\nthe UE CONTEXT SETUP RESPONSE message for the gNB-CU to generate the S-CPAC reference configuration.\nIf the Complete Candidate Configuration Indicator IE set to \"complete\" is contained in the S-CPAC Configuration IE\nincluded in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, consider that the S-\nCPAC candidate configuration is a complete candidate configuration.\nIf the musim-CandidateBandList IE is included in the CU to DU RRC Information IE in the UE CONTEXT SETUP\nREQUEST message, the gNB-DU shall, if supported, use it for temporary capability restriction.\nIf the DL LBT Failure Information Request IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-\nDU shall, if supported, consider that the gNB- CU requests collection of DL LBT failure information for the analysis of\nthe MRO events of the UE specified in TS 38.300 [6], and act as specified in TS 38.401 [4].\nIf the Ranging and Sidelink Positioning Service Information IE is contained in the UE CONTEXT SETUP REQUEST\nmessage, the gNB-DU shall, if supported, take it into account for the UE’s Ranging and Sidelink Positioning service.\nInteraction with UE Inactivity Notification procedure\nIf the SDT Volume Threshold IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if\nsupported, use the information during an SDT transaction to inform the gNB-CU via the UE INACTIVITY\nNOTIFICATION message as specified in TS 38.401 [4].",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 4,
+        "parent_section_id": "8.3.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "ie_definition_chain",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3",
+      "section_title": "UE Context Management procedures",
+      "content": "8.3 UE Context Management procedures",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 2,
+        "parent_section_id": "8",
+        "child_section_ids": [
+          "8.3.1",
+          "8.3.2",
+          "8.3.3",
+          "8.3.4",
+          "8.3.5",
+          "8.3.6",
+          "8.3.7",
+          "8.3.8",
+          "8.3.9",
+          "8.3.10",
+          "8.3.11"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.1.3",
+      "section_title": "Unsuccessful Operation",
+      "content": "8.3.1.3 Unsuccessful Operation\nFigure 8.3.1.3-1: UE Context Setup Request procedure: unsuccessful Operation\nIf the gNB-DU is not able to establish an F1 UE context, or cannot even establish one bearer it shall consider the\nprocedure as failed and reply with the UE CONTEXT SETUP FAILURE message. If the Conditional Inter-DU\nMobility Information IE or the LTM Indicator IE was included in the UE CONTEXT SETUP REQUEST message, the\ngNB-DU shall include the received SpCell ID IE as the Requested Target Cell ID IE in the UE CONTEXT SETUP\nFAILURE message.\nIf the gNB-DU is not able to accept the SpCell ID IE in UE CONTEXT SETUP REQUEST message, it shall reply with\nthe UE CONTEXT SETUP FAILURE message with an appropriate cause value. Further, if the Candidate SpCell List\nIE is included in the UE CONTEXT SETUP REQUEST message and the gNB-DU is not able to accept the SpCell ID\nIE, the gNB-DU shall, if supported, include the Potential SpCell List IE in the UE CONTEXT SETUP FAILURE\nmessage and the gNB-CU should take this into account for selection of an opportune SpCell. The gNB-DU shall include\nthe cells in the Potential SpCell List IE in a priority order, where the first cell in the list is the one most desired and the\nlast one is the one least desired (e.g., based on load conditions). If the Potential SpCell List IE is present but no\nPotential SpCell Item IE is present, the gNB-CU should assume that none of the cells in the Candidate SpCell List IE\nare acceptable for the gNB-DU.",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 4,
+        "parent_section_id": "8.3.1",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.3",
+      "section_title": "UE Context Release (gNB-CU initiated)",
+      "content": "8.3.3 UE Context Release (gNB-CU initiated)",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.3.1",
+          "8.3.3.2",
+          "8.3.3.4"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.2",
+      "section_title": "UE Context Release Request (gNB-DU initiated)",
+      "content": "8.3.2 UE Context Release Request (gNB-DU initiated)",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.2.1",
+          "8.3.2.2",
+          "8.3.2.3"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.9",
+      "section_title": "DU-CU Cell Switch Notification",
+      "content": "8.3.9 DU-CU Cell Switch Notification",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.9.1",
+          "8.3.9.2",
+          "8.3.9.3",
+          "8.3.9.4"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.10",
+      "section_title": "CU-DU Cell Switch Notification",
+      "content": "8.3.10 CU-DU Cell Switch Notification",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.10.1",
+          "8.3.10.2",
+          "8.3.10.3",
+          "8.3.10.4"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.8",
+      "section_title": "Access Success",
+      "content": "8.3.8 Access Success",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.8.1",
+          "8.3.8.2",
+          "8.3.8.3"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.5",
+      "section_title": "UE Context Modification Required (gNB-DU initiated)",
+      "content": "8.3.5 UE Context Modification Required (gNB-DU initiated)",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.5.1",
+          "8.3.5.2",
+          "8.3.5.3"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.7",
+      "section_title": "Notify",
+      "content": "8.3.7 Notify",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.7.1",
+          "8.3.7.2",
+          "8.3.7.3"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.11",
+      "section_title": "CU-DU Mobility Initiation",
+      "content": "8.3.11 CU-DU Mobility Initiation",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.11.1",
+          "8.3.11.2",
+          "8.3.11.3",
+          "8.3.11.4"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.4",
+      "section_title": "UE Context Modification (gNB-CU initiated)",
+      "content": "8.3.4 UE Context Modification (gNB-CU initiated)",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.4.1",
+          "8.3.4.2",
+          "8.3.4.3",
+          "8.3.4.4"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "8.3.6",
+      "section_title": "UE Inactivity Notification",
+      "content": "8.3.6 UE Inactivity Notification",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [
+          "8.3.6.1",
+          "8.3.6.2",
+          "8.3.6.3"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "9.2.2.3",
+      "section_title": "UE CONTEXT SETUP FAILURE",
+      "content": "9.2.2.3 UE CONTEXT SETUP FAILURE",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 4,
+        "parent_section_id": "9.2.2",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "9.2.2.1",
+      "section_title": "UE CONTEXT SETUP REQUEST",
+      "content": "9.2.2.1 UE CONTEXT SETUP REQUEST",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 4,
+        "parent_section_id": "9.2.2",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "section_id": "9.2.2.2",
+      "section_title": "UE CONTEXT SETUP RESPONSE",
+      "content": "9.2.2.2 UE CONTEXT SETUP RESPONSE",
+      "knowledge_source": "ts_138473v180600p",
+      "metadata": {
+        "doc_id": "ts_138473v180600p",
+        "level": 4,
+        "parent_section_id": "9.2.2",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138473v180600p"
+      },
+      "chunk_role": "related_candidate",
+      "source_message_format_section_id": "9.4",
+      "source_message_name": "UE CONTEXT SETUP RESPONSE"
+    }
+  ],
+  "message_format_groundings": [
+    {
+      "doc_id": "ts_138473v180600p",
+      "message_name": "UE CONTEXT SETUP REQUEST",
+      "message_format_section_id": "9.4",
+      "message_format_reason": "Defines the format and Information Elements (IEs) of the UE CONTEXT SETUP REQUEST message.",
+      "message_format_content_truncated_chars": 64,
+      "cosine_used": false,
+      "cosine_top_k": 80,
+      "cosine_min_score": null,
+      "selected_cosine_candidate_section_ids": [
+        "8.3.1",
+        "9.4",
+        "8.3.1.4",
+        "8.3.1.1",
+        "8.3.1.2",
+        "8.3",
+        "8.3.1.3",
+        "8.3.3",
+        "8.3.2",
+        "8.3.9",
+        "8.3.10",
+        "8.3.8",
+        "8.3.5",
+        "8.3.7",
+        "8.3.11",
+        "8.3.4",
+        "8.3.6",
+        "9.2.2.3",
+        "9.2.2.1",
+        "9.2.2.2",
+        "9.4.7",
+        "9.4.4",
+        "9.4.8",
+        "9",
+        "9.4.2",
+        "9.4.5",
+        "9.4.3",
+        "9.4.1",
+        "9.6",
+        "9.5",
+        "9.2",
+        "9.1",
+        "9.3",
+        "8.3.4.3",
+        "8.3.3.4",
+        "8.3.4.4",
+        "8.3.5.1",
+        "8.3.4.1",
+        "8.3.2.1",
+        "8.3.3.1",
+        "8.7.1.2",
+        "8.3.3.2",
+        "8.3.2.2",
+        "8.4.1.1",
+        "8.3.4.2",
+        "8.3.5.2",
+        "8",
+        "8.1",
+        "8.9",
+        "8.16",
+        "8.6",
+        "8.8",
+        "8.5",
+        "8.2",
+        "8.14",
+        "8.15",
+        "8.13",
+        "8.4",
+        "8.10",
+        "8.12",
+        "8.7",
+        "8.17",
+        "8.11",
+        "8.14.1.3",
+        "8.2.3.3",
+        "8.3.2.3",
+        "9.2.2.4",
+        "8.3.9.2",
+        "8.3.9.1",
+        "8.3.9.3",
+        "8.3.9.4",
+        "8.3.10.4",
+        "8.3.10.2",
+        "8.3.10.3",
+        "8.3.10.1",
+        "8.3.8.1",
+        "8.3.8.2",
+        "8.3.8.3",
+        "9.2.2.14",
+        "8.3.5.3"
+      ],
+      "main_ie_candidate_node_ids": [
+        "8.3.1.4",
+        "8.3.1.2",
+        "8.3.1.3"
+      ],
+      "ie_chain_visited_node_ids": [
+        "8.3.1.2",
+        "8.3.1.3",
+        "8.3.1.4"
+      ],
+      "ie_chain_section_ids": [
+        "8.3.1.4",
+        "8.3.1.2",
+        "8.3.1.3"
+      ],
+      "llm_used": false
+    },
+    {
+      "doc_id": "ts_138473v180600p",
+      "message_name": "UE CONTEXT SETUP RESPONSE",
+      "message_format_section_id": "9.4",
+      "message_format_reason": "Defines the format and Information Elements (IEs) of the UE CONTEXT SETUP RESPONSE message.",
+      "message_format_content_truncated_chars": 64,
+      "cosine_used": false,
+      "cosine_top_k": 80,
+      "cosine_min_score": null,
+      "selected_cosine_candidate_section_ids": [
+        "8.3.1",
+        "9.4",
+        "8.3.1.4",
+        "8.3.1.1",
+        "8.3.1.2",
+        "8.3",
+        "8.3.1.3",
+        "8.3.3",
+        "8.3.2",
+        "8.3.9",
+        "8.3.10",
+        "8.3.8",
+        "8.3.5",
+        "8.3.7",
+        "8.3.11",
+        "8.3.4",
+        "8.3.6",
+        "9.2.2.3",
+        "9.2.2.1",
+        "9.2.2.2",
+        "9.4.7",
+        "9.4.4",
+        "9.4.8",
+        "9",
+        "9.4.2",
+        "9.4.5",
+        "9.4.3",
+        "9.4.1",
+        "9.6",
+        "9.5",
+        "9.2",
+        "9.1",
+        "9.3",
+        "8.3.4.3",
+        "8.3.3.4",
+        "8.3.4.4",
+        "8.3.5.1",
+        "8.3.4.1",
+        "8.3.2.1",
+        "8.3.3.1",
+        "8.7.1.2",
+        "8.3.3.2",
+        "8.3.2.2",
+        "8.4.1.1",
+        "8.3.4.2",
+        "8.3.5.2",
+        "8",
+        "8.1",
+        "8.9",
+        "8.16",
+        "8.6",
+        "8.8",
+        "8.5",
+        "8.2",
+        "8.14",
+        "8.15",
+        "8.13",
+        "8.4",
+        "8.10",
+        "8.12",
+        "8.7",
+        "8.17",
+        "8.11",
+        "8.14.1.3",
+        "8.2.3.3",
+        "8.3.2.3",
+        "9.2.2.4",
+        "8.3.9.2",
+        "8.3.9.1",
+        "8.3.9.3",
+        "8.3.9.4",
+        "8.3.10.4",
+        "8.3.10.2",
+        "8.3.10.3",
+        "8.3.10.1",
+        "8.3.8.1",
+        "8.3.8.2",
+        "8.3.8.3",
+        "9.2.2.14",
+        "8.3.5.3"
+      ],
+      "main_ie_candidate_node_ids": [
+        "8.3.1.4",
+        "8.3.1.2"
+      ],
+      "ie_chain_visited_node_ids": [
+        "8.3.1.2",
+        "8.3.1.4"
+      ],
+      "ie_chain_section_ids": [
+        "8.3.1.4",
+        "8.3.1.2"
+      ],
+      "llm_used": false
+    }
+  ]
+}

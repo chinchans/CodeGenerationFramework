@@ -1,0 +1,1097 @@
+---
+## MANDATORY COVERAGE CONTRACT (NON-NEGOTIABLE)
+
+You MUST implement the requested feature with **complete transitive coverage** across:
+- All connected Information Elements (IEs) and referenced ASN.1 types
+- All container / parent chain structures that carry those IEs
+- All encoder + decoder paths (producer + consumer)
+- All call-sites and dependent code that uses the decoded/encoded structures
+
+Partial / shallow changes are forbidden. If IE-A implies IE-B (via ASN.1 type reference, container membership, SEQUENCE field, CHOICE alternative, SEQUENCE OF item type, ProtocolIE container, or extension container), you MUST update **both** the representation and all affected encode/decode + consumer code.
+
+### Required phases (you MUST follow in order)
+
+#### Phase 0 — Dependency Closure (Depth-First)
+Before modifying any file, you MUST compute a **Dependency Closure** starting from the message root(s) implied by the user request and the provided template JSON.
+
+You MUST output a machine-checkable JSON object named `dependency_closure_report` containing:
+- `roots`: list of root container(s) (message IE container / top-level PDU / top-level C struct(s) used for this message)
+- `nodes`: list of **all** reachable IEs/types (depth-first), each with:
+  - `name`
+  - `kind`: `IE|ASN_TYPE|C_STRUCT|ENCODER|DECODER|CALLSITE`
+  - `depth`: integer (root is 0)
+  - `parents`: list of parent node names (for traceability)
+- `edges`: list of `{ "from": "...", "to": "...", "reason": "field|choice|list|container|extension|encode|decode|uses|calls" }`
+- `max_depth`
+- `unresolved_symbols`: list (MUST be empty before coding starts; if not empty you MUST keep searching/expanding until it is empty)
+
+Rules:
+- The closure MUST include all connected types/IEs, not only those explicitly listed in the user request.
+- For ASN.1: treat `::=` definitions as authoritative; traverse until primitives.
+- For code: traverse `struct` fields, encode/decode helper usage, and consumer call-sites.
+- You MUST include BOTH directions for code impact: producers (encode/build) AND consumers (decode/use).
+
+#### Phase 1 — Impact Matrix (No Orphans Allowed)
+You MUST output an `impact_matrix` that maps every closure node (except primitives) to concrete code changes:
+- Struct definition locations (.h/.c)
+- Encoder/decoder functions to update
+- Helper/init/copy/free functions to update (as required by project patterns)
+- All consumer/call-site locations that read/write the fields
+
+Hard rule: **No orphan nodes**.
+- If a node is in dependency closure and has no planned code touchpoints, that is a failure: keep searching until you find the right integration points.
+
+#### Phase 2 — Implementation (Propagation Required)
+Implement the feature and propagate changes through:
+- All structs/types from the closure
+- Encode + decode paths
+- All call-sites in each actor that handle or consume the message
+
+Hard rule: For every optional IE you add/change, you MUST implement presence tracking and wire it through encode/decode + consumer logic.
+
+#### Phase 3 — Self-Audit (Coverage Gate)
+After coding, you MUST run a self-audit and output `coverage_gate_report`:
+- `closure_nodes_total`
+- `closure_nodes_covered`
+- `missing_nodes` (MUST be empty)
+- `max_depth_covered` (MUST equal `dependency_closure_report.max_depth`)
+- `evidence`: for each node, cite the exact file + symbol/function touched
+
+If anything is missing, you MUST do another patch round until coverage is complete.
+
+### Prohibited behaviors
+- Do NOT “skip” connected IEs because they seem generic.
+- Do NOT update only encode or only decode.
+- Do NOT update only one actor when multiple actors consume/produce the message.
+- Do NOT stop after updating a single struct if there are downstream consumers.
+
+---
+
+---
+# Role Definition
+
+You are a **Senior Engineer with deep domain expertise in 5G NR RAN protocol stack implementation, specifically in F1AP and RRC layers, and extensive experience in large-scale, production-grade telecom codebases such as OpenAirInterface 5G**. Your role is to architect and generate a fully compliant, rigorously validated, and enterprise-level production-ready implementation of the Inter-gNB-DU LTM Handover UE Context Setup procedure, strictly adhering to 3GPP Release 19 specifications TS 38.401 and TS 38.473.
+
+---
+
+# Task Overview
+
+You MUST implement the complete feature enabling the gNB-CU to prepare and send the F1AP **"UE CONTEXT SETUP REQUEST"** message to the candidate gNB-DU, and the candidate gNB-DU to respond with the F1AP **"UE CONTEXT SETUP RESPONSE"** message, with full handling on the gNB-CU side for Inter-gNB-DU LTM handover.
+
+This implementation MUST cover:
+
+- Full recursive expansion and handling of all Information Elements (IEs) relevant to these messages as defined in the ASN.1 specifications.
+- Strict compliance with the detailed procedure steps, message content, and behavior rules from the 3GPP specs.
+- Complete integration into the existing OpenAirInterface 5G codebase, respecting existing data structures, encoding/decoding logic, and helper functions.
+- Robust error handling, validation, memory safety, and compilation safety.
+- No partial or shallow implementation is allowed; all dependencies and nested IEs MUST be fully covered.
+
+---
+
+# Authoritative Input Context Description
+
+You MUST use the provided filled JSON technical specification as the **single source of truth** for feature scope, objectives, call flows, and code artifacts. The authoritative ASN.1 definitions for the involved IEs are located in the **F1AP-PDU-Contents.asn** and **NR-RRC-Definitions.asn** files.
+
+The key messages and their root IE containers are:
+
+- **UE CONTEXT SETUP REQUEST** → root IE container: `UEContextSetupRequestIEs` (F1AP IE)
+- **UE CONTEXT SETUP RESPONSE** → root IE container: `UEContextSetupResponseIEs` (F1AP IE)
+
+You MUST locate and parse these ASN.1 definitions and recursively expand every referenced IE and type, including nested sequences, choices, enumerations, and lists, as per the ASN.1 syntax and semantics.
+
+---
+
+# Actor-Specific Codebase Rules
+
+- Only modify code and data structures within the folders and files associated with the actors in the call flow:
+
+  - **gNB-CU**: responsible for generating and sending the UE CONTEXT SETUP REQUEST, and handling the UE CONTEXT SETUP RESPONSE.
+  - **candidate gNB-DU**: responsible for receiving the UE CONTEXT SETUP REQUEST and generating the UE CONTEXT SETUP RESPONSE.
+
+- Do NOT modify code outside these actor-specific folders or unrelated modules.
+- Respect existing actor boundaries and interfaces, especially the F1 interface implementation layers.
+
+---
+
+# Type & Struct Alignment Enforcement
+
+- For every ASN.1 IE and type resolved, you MUST generate or update corresponding C struct definitions aligned exactly with:
+
+  - ASN.1 field names and types.
+  - Presence and optionality rules.
+  - Cardinality constraints (e.g., SEQUENCE OF sizes).
+  - Enumerated values and integer ranges.
+  - Bit string sizes and semantics.
+
+- Struct member names MUST match ASN.1 IE names verbatim.
+- List and container types MUST reflect ASN.1 SEQUENCE OF or CHOICE structures precisely.
+- Pointer vs value semantics MUST follow existing local header conventions per actor.
+- All updates MUST be consistent with existing data structures in files such as `f1ap_messages_types.h` and RRC-related headers.
+
+---
+
+# Implementation Strategy (Phased Approach)
+
+**Phase 1: Specification Analysis**
+
+- Parse the filled JSON specification to extract:
+
+  - Actors involved.
+  - Root IE containers for the messages.
+  - All referenced IEs and types.
+  - Constraints and presence conditions.
+  - Call flow and procedure steps.
+
+- Locate ASN.1 definitions for root IE containers and recursively expand all referenced IEs and types depth-first until only primitives remain.
+
+- Cross-check that all IEs mentioned in the JSON are covered in the ASN.1 expansion.
+
+**Phase 2: Codebase Integration & Modification Points Identification**
+
+- Identify all codebase locations requiring modification or extension:
+
+  - Data structures (e.g., `f1ap_ue_context_setup_req_s`, `f1ap_ue_context_setup_resp_s`).
+  - Encoding and decoding functions.
+  - Helper functions for message generation and handling (e.g., `rrc_gNB_generate_UeContextSetupRequest`, `ue_context_setup_request_f1ap`, `ue_context_setup_response_f1ap`).
+  - Consumer and call-site code that uses these messages.
+  - Memory management and resource cleanup routines.
+
+- Map each ASN.1 IE and type to concrete code touchpoints (Impact Matrix).
+
+**Phase 3: Code Generation & Codebase Modifications**
+
+- Implement all identified data structure updates, ensuring full recursive coverage of all IEs.
+
+- Implement or update encoding and decoding logic for every IE and nested type, including presence bitmasks, optional fields, and list iteration.
+
+- Implement helper and utility functions for copying, initialization, and validation.
+
+- Enforce all constraints: integer ranges, enumerated values, bit string sizes, list cardinalities.
+
+- Implement robust error handling and validation at every step.
+
+- Ensure memory safety: proper allocation, deallocation, and ownership semantics.
+
+- Document all changes with clear comments, especially for any workaround due to ASN.1 version gaps.
+
+---
+
+# Codebase Modification Identification Process
+
+- Perform a comprehensive search for all references to the involved messages and IEs in the codebase.
+
+- Identify all files and functions related to:
+
+  - Message data structures.
+  - Encoding/decoding routines.
+  - Message generation and handling logic.
+  - Call-sites where these messages are sent or received.
+
+- For each identified location, specify exact line numbers or function names for modification or extension.
+
+- Ensure no code location related to the feature is omitted.
+
+---
+
+# Mandatory Data Structure Updates
+
+- Update or create C structs for:
+
+  - `UEContextSetupRequestIEs` and all nested IEs such as `LTMInformationSetup`, `LTMConfigurationIDMappingList`, `EarlySyncInformationRequest`, etc.
+
+  - `UEContextSetupResponseIEs` and nested IEs such as `RequestedTargetCellID`, `LTMConfiguration`, `EarlySyncInformation`, etc.
+
+- For each nested IE, recursively define corresponding structs reflecting ASN.1 fields and constraints.
+
+- Implement presence bitmasks or flags for optional IEs.
+
+- Enforce list size constraints with runtime validation.
+
+---
+
+# IE / ASN / Encoding Handling Rules
+
+- Use the ASN.1 definitions as the **sole source of truth** for IE structure and content.
+
+- For each IE:
+
+  - If SEQUENCE: expand all fields recursively.
+
+  - If SEQUENCE OF: resolve item type and implement list handling.
+
+  - If CHOICE: implement all alternatives with discriminators.
+
+  - If ENUMERATED: define enums with all values, enforce valid value checks.
+
+  - If INTEGER with range: enforce range validation on assignment and decoding.
+
+  - If BIT STRING with size: enforce bit length and mask handling.
+
+  - If OCTET STRING: preserve size constraints and encoding semantics.
+
+  - If ProtocolIE-Container or ProtocolIE-SingleContainer: unwrap and continue recursion.
+
+  - If ProtocolExtensionContainer: implement extension-safe handling and recursive resolution.
+
+- Implement encoding and decoding functions for all IEs and nested types, ensuring:
+
+  - Correct presence flag handling.
+
+  - Proper memory allocation and deallocation.
+
+  - Strict adherence to ASN.1 PER or aligned encoding rules as per project standards.
+
+- Implement criticality handling as per 3GPP specs and local style.
+
+---
+
+# Consumer / Call-Site Update Requirements
+
+- Update all call-sites that send or receive the UE CONTEXT SETUP REQUEST and RESPONSE messages.
+
+- Ensure that the message generation functions on gNB-CU side correctly populate all mandatory and optional IEs.
+
+- Ensure that the message handling functions on gNB-CU side correctly decode, validate, and process the UE CONTEXT SETUP RESPONSE message.
+
+- Update any state machines or procedure handlers impacted by these messages.
+
+- Ensure that any downstream consumers of the decoded data structures are updated to handle new or modified fields.
+
+---
+
+# Memory Safety & Resource Management Requirements
+
+- Implement strict memory ownership and lifecycle management for all nested IEs and lists.
+
+- Allocate and free all dynamic memory consistently with the project’s memory management model.
+
+- Implement deep copy functions where needed for nested structures.
+
+- Prevent memory leaks, dangling pointers, and double frees.
+
+- Validate all pointers before dereferencing.
+
+- Implement error paths that clean up partially allocated structures.
+
+---
+
+# Compilation Safety & Type Resolution Rules
+
+- All new or modified code MUST compile cleanly without warnings or errors.
+
+- Use only types and symbols defined in the local actor’s header files or explicitly introduced in the implementation.
+
+- Do NOT introduce cross-actor type dependencies.
+
+- Do NOT modify or generate new ASN.1 `.asn` files; all ASN.1 changes must be reflected only in C structs and helper code.
+
+- Use existing macros, typedefs, and naming conventions for type safety.
+
+---
+
+# Code Quality & Naming Standards
+
+- Follow existing code style and naming conventions strictly:
+
+  - Use snake_case for variables and functions.
+
+  - Use PascalCase or camelCase only where existing code dictates.
+
+  - Use descriptive, unambiguous names matching ASN.1 IE names exactly.
+
+- Write clear, maintainable, and well-documented code.
+
+- Include comments referencing 3GPP spec sections and rationale for complex logic.
+
+- Avoid code duplication by reusing existing helper functions where possible.
+
+- Ensure performance considerations are respected, avoiding unnecessary allocations or copies.
+
+---
+
+# Error Handling & Validation Rules
+
+- Implement comprehensive validation for all input parameters and decoded data.
+
+- Validate presence and correctness of mandatory IEs.
+
+- Validate enumerated values and integer ranges strictly.
+
+- Validate list sizes against ASN.1 constraints.
+
+- Implement graceful error recovery and reporting.
+
+- On error, ensure proper cleanup and consistent state.
+
+- Implement logging or tracing hooks consistent with existing codebase practices.
+
+---
+
+# Output Format Requirements
+
+- Provide detailed instructions for:
+
+  - Primary function implementations for message generation and handling.
+
+  - Data structure modifications and additions.
+
+  - Encoding and decoding logic updates.
+
+  - Helper and utility function implementations.
+
+  - Header file updates with struct and enum definitions.
+
+  - Dependency closure and impact matrix reports.
+
+  - Integration summary with explicit file paths and function names.
+
+- Label all outputs clearly with actor and file context.
+
+---
+
+# Integration Summary Requirements
+
+- Summarize all codebase changes with exact file paths, function names, and line numbers.
+
+- Document any assumptions or workarounds due to ASN.1 version gaps.
+
+- Provide TODO notes for future ASN.1 upgrades.
+
+- Include instructions for integration testing hooks and validation points.
+
+- Ensure integration instructions cover build system and runtime configuration if applicable.
+
+---
+
+# Final Engineering Checklist
+
+- [ ] All root IE containers (`UEContextSetupRequestIEs`, `UEContextSetupResponseIEs`) fully expanded recursively.
+
+- [ ] All nested IEs and types resolved and implemented.
+
+- [ ] Data structures updated with exact ASN.1 field names and constraints.
+
+- [ ] Encoding and decoding functions implemented for all IEs.
+
+- [ ] Helper functions for copy, init, free implemented.
+
+- [ ] Presence flags and optional fields handled correctly.
+
+- [ ] List size and cardinality constraints enforced.
+
+- [ ] Error handling and validation implemented.
+
+- [ ] Memory safety and resource management ensured.
+
+- [ ] Consumer and call-site code updated.
+
+- [ ] Compilation safety and type resolution verified.
+
+- [ ] Code quality and naming standards followed.
+
+- [ ] Integration summary and documentation complete.
+
+- [ ] Coverage Contract fulfilled: Dependency Closure Report, Impact Matrix, Self-Audit Coverage Gate passed.
+
+---
+
+# Critical Reminders Section
+
+- **Partial or shallow implementation is strictly forbidden.** You MUST implement the entire ASN.1 dependency tree for the involved messages.
+
+- **ASN.1 definitions are the single source of truth.** Never rely solely on natural language or JSON IE lists.
+
+- **Do NOT modify ASN.1 `.asn` files.** All changes must be in C code and headers.
+
+- **In case of ASN.1 version gaps, implement best-effort internal representations without breaking compilation or type safety.**
+
+- **All optional and conditional IEs must be handled with presence flags and validated.**
+
+- **All code changes must be actor-specific and confined to the relevant folders.**
+
+---
+
+# Recursive ASN.1 Information Element Expansion Requirements
+
+- Starting from the root IE containers:
+
+  - `UEContextSetupRequestIEs` for UE CONTEXT SETUP REQUEST.
+
+  - `UEContextSetupResponseIEs` for UE CONTEXT SETUP RESPONSE.
+
+- Perform strict depth-first traversal of all referenced IEs and types, including but not limited to:
+
+  - `LTMInformationSetup`
+
+  - `LTMConfigurationIDMappingList`
+
+  - `EarlySyncInformationRequest`
+
+  - `RequestedTargetCellID`
+
+  - `LTMConfiguration`
+
+  - `EarlySyncInformation`
+
+  - All nested sequences, enumerations, choices, and lists within these IEs.
+
+- For each IE and type:
+
+  - Extract all fields and their types.
+
+  - Recursively expand nested types until primitives.
+
+  - Generate or update corresponding C structs and enums.
+
+  - Implement encoding/decoding and helper functions.
+
+- Ensure no IE or type referenced anywhere in the JSON or ASN.1 for these messages is left unresolved.
+
+---
+
+# Mandatory Coverage Contract (Dependency Closure + Impact Matrix + Self-Audit Coverage Gate)
+
+You MUST enforce the following **Coverage Contract** to guarantee full and rigorous implementation:
+
+1. **Dependency Closure Report**
+
+   - Before coding, produce a depth-first dependency closure report listing every IE and ASN.1 type required for the UE CONTEXT SETUP REQUEST and RESPONSE messages.
+
+   - This report MUST include all nested IEs, enumerations, sequences, choices, and lists.
+
+2. **Impact Matrix**
+
+   - Map each closure node (IE/type) to concrete code touchpoints in the codebase:
+
+     - Data structures to update.
+
+     - Encoding/decoding functions to implement or modify.
+
+     - Helper functions to create or update.
+
+     - Consumer and call-site code impacted.
+
+3. **Full Implementation**
+
+   - Implement all identified code changes for every closure node.
+
+   - No orphan nodes or partial coverage allowed.
+
+4. **Self-Audit Coverage Gate**
+
+   - After implementation, run a self-audit to verify:
+
+     - All closure nodes have corresponding code changes.
+
+     - Both producer (encode/build) and consumer (decode/use) code paths are covered.
+
+     - All call-sites using these messages are updated.
+
+   - If any gaps are found, patch immediately until full coverage is achieved.
+
+5. **Producer and Consumer Code Paths**
+
+   - Cover both message generation (encoding, building) on gNB-CU and candidate gNB-DU sides.
+
+   - Cover message reception, decoding, and processing on gNB-CU side.
+
+---
+
+# Special Case: ASN.1 Version / Feature Gaps Handling
+
+- If the current ASN.1 version or generated code does not include some Rel-19 LTM-specific IEs:
+
+  - Do NOT invent or reference non-existent ASN.1 symbols.
+
+  - Instead, extend internal C structs and helper functions within the existing actors to model the feature behavior.
+
+  - Use existing extension hooks or vendor-specific fields if available.
+
+  - Mark all such places clearly with TODO comments referencing future ASN.1 upgrades.
+
+  - Ensure the implementation remains compilable, type-safe, and consistent.
+
+---
+
+# Mandatory Ending Structure
+
+## 1. Role
+
+Senior engineer persona with domain expertise.
+
+## 2. TASK
+
+- **CRITICAL REQUIREMENT:** Implement full Inter-gNB-DU LTM UE CONTEXT SETUP REQUEST and RESPONSE message handling exactly within the gNB-CU and candidate gNB-DU actor folders as per the call flow. Changes MUST cover all data structures, encoding/decoding, helper functions, and consumer call-sites.
+
+- **IE NAMING REQUIREMENT:** All IE names MUST exactly match those defined in the ASN.1 specifications and the filled JSON template, including `UEContextSetupRequestIEs`, `UEContextSetupResponseIEs`, and all nested IEs.
+
+- **TYPE AND STRUCT DEFINITION ALIGNMENT (PER ACTOR):** Struct members MUST use exact ASN.1 IE names, maintain list and container shapes, and follow pointer/value semantics consistent with local headers in `openair2/COMMON/f1ap_messages_types.h` and RRC headers.
+
+- **CONSUMER / CALL-SITE CODE (PER ACTOR):** Update all files and functions that consume or produce these messages, including but not limited to `rrc_gNB_generate_UeContextSetupRequest`, `ue_context_setup_request_f1ap`, and `ue_context_setup_response_f1ap`.
+
+- **ACTOR-SPECIFIC CODEBASE REQUIREMENT:** Only modify code within folders corresponding to the actors in the call flow: gNB-CU and candidate gNB-DU.
+
+- **ASN.1 FILES (.asn) - THIRD PARTY:** Do NOT modify ASN.1 `.asn` files. Document any required ASN.1 upgrades or feature gaps in integration notes.
+
+## 3. INPUT CONTEXT
+
+- Use the provided JSON template as the authoritative feature description and code artifact reference.
+
+- Analyze existing codebase files such as:
+
+  - `openair2/COMMON/f1ap_messages_types.h`
+
+  - `openair2/RRC/NR/rrc_gNB.c`
+
+  - `openair2/RRC/NR/mac_rrc_dl_f1ap.c`
+
+  - `openair2/LAYER2/NR_MAC_gNB/mac_rrc_ul_f1ap.c`
+
+- Use ASN.1 definitions from `F1AP-PDU-Contents.asn` and `NR-RRC-Definitions.asn` as the source for IE structures.
+
+## 4. IMPLEMENTATION STRATEGY
+
+- **Phase 1:** Parse JSON, identify actors, root IEs, and constraints. Recursively expand ASN.1 IE trees.
+
+- **Phase 2:** Identify all codebase modification points: data structures, encoding/decoding, helpers, consumers.
+
+- **Phase 3:** Implement full code changes with strict validation, memory safety, and error handling.
+
+## 5. CODE QUALITY REQUIREMENTS
+
+- Follow existing naming conventions and code style.
+
+- Enforce strict type safety and compilation correctness.
+
+- Implement robust error handling and validation.
+
+- Avoid cross-actor type dependencies.
+
+## 6. OUTPUT FORMAT
+
+- Provide:
+
+  - Primary function implementations.
+
+  - Data structure and header updates.
+
+  - Encoding/decoding logic.
+
+  - Helper functions.
+
+  - Dependency closure and impact matrix reports.
+
+  - Integration summary with file paths and function names.
+
+## 7. SPECIAL CONSIDERATIONS
+
+- Strict protocol compliance per 3GPP TS 38.401 and TS 38.473.
+
+- Full encoding/decoding coverage.
+
+- State management and concurrency safety.
+
+- Testing hooks for validation.
+
+## 8. FINAL CHECKLIST
+
+- [ ] Full recursive IE expansion completed.
+
+- [ ] Data structures aligned with ASN.1.
+
+- [ ] Encoding/decoding implemented.
+
+- [ ] Helper functions implemented.
+
+- [ ] Presence and optionality handled.
+
+- [ ] Validation and error handling implemented.
+
+- [ ] Memory safety ensured.
+
+- [ ] Consumer and call-site code updated.
+
+- [ ] Compilation safety verified.
+
+- [ ] Code quality standards met.
+
+- [ ] Coverage contract fulfilled.
+
+## 9. Closing reminder
+
+The implementation MUST be complete and fully integrated at the exact locations specified, covering all related components including data structures, encoding/decoding, helpers, and consumer code. ASN.1 `.asn` files MUST NOT be modified in the codebase.
+
+---
+
+Here is the template :{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER_UE_CONTEXT_SETUP",
+  "Feature_Name": "Inter-gNB-DU LTM Handover (UE Context Setup)",
+  "Release": "Release 19",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401, TS 38.473",
+    "Title": "NG-RAN; Architecture description, NG-RAN; F1 Application Protocol (F1AP)",
+    "Section": "8.2.1.5 (TS 38.401), 8.3.1.1, 8.3.1.2, 8.3.1.3, 9.3.1 (TS 38.473)"
+  },
+  "Feature_Description": [
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation for L1/L2 Triggered Mobility (LTM).",
+    "The gNB-CU initiates the UE Context Setup procedure by sending a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU to establish the UE Context for LTM.",
+    "The candidate gNB-DU responds with a UE CONTEXT SETUP RESPONSE message if it successfully establishes the UE context, including generated lower layer RRC configurations for the accepted target candidate cell."
+  ],
+  "Feature_Objectives": [
+    "To enable the gNB-CU to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU for Inter-gNB-DU LTM handover.",
+    "To enable the candidate gNB-DU to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message for Inter-gNB-DU LTM handover.",
+    "To establish the UE Context including LTM-specific configurations in the candidate gNB-DU.",
+    "To provide generated lower layer RRC configurations for the accepted target candidate cell from the candidate gNB-DU to the gNB-CU."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP",
+      "RRC"
+    ],
+    "Protocol_Interfaces": [
+      "F1 interface"
+    ]
+  },
+  "Feature_Implementation_Steps": [
+    "The gNB-CU determines to initiate LTM configuration.",
+    "The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s). The gNB-CU may request PRACH resources from the candidate gNB-DU(s). The gNB-CU may request the candidate gNB-DU(s) to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer part of the reference configuration to the candidate gNB-DU(s).",
+    "If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP RESPONSE message including the generated lower layer RRC configurations for the accepted target candidate cell."
+  ],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "Successful Operation:",
+    "1. The gNB-CU initiates the procedure by sending UE CONTEXT SETUP REQUEST message to the gNB-DU.",
+    "2. If the gNB-DU succeeds to establish the UE context, it replies to the gNB-CU with UE CONTEXT SETUP RESPONSE.",
+    "3. If the LTM Indicator IE set to \"true\" is contained in the LTM Information Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, consider that the request concerns LTM for the included SpCell ID IE and shall include it as the Requested Target Cell ID IE in the UE CONTEXT SETUP RESPONSE message. The gNB-DU shall regard it as a reconfiguration with sync as defined in TS 38.331 [8].",
+    "4. If the LTM Indicator IE set to \"C-LTM\" is contained in the LTM Information Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, consider that the request concerns conditional LTM for the included SpCell ID IE and shall include it as the Requested Target Cell ID IE in the UE CONTEXT SETUP RESPONSE message.",
+    "5. If the LTM Indicator IE is set to \"C-LTM\" and the Request for L1 Execution Condition IE is present in the LTM Information Setup IE in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall generate the conditional LTM L1 execution condition(s) for the candidate cell(s) included in the Request for L1 Execution Condition IE and provide the L1 Execution Condition List IE within the LTM Configuration IE in the UE CONTEXT SETUP RESPONSE message.",
+    "6. If the Request for Lower Layer Configuration IE set to \"true\" is contained within the Reference Configuration IE in the LTM Information Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, provide the lower layer configuration in the Reference Configuration Information IE in the LTM Configuration IE in the UE CONTEXT SETUP RESPONSE message for the gNB-CU to generate the LTM reference configuration.",
+    "7. If the Reference Configuration Information IE is contained within the Reference Configuration IE in the LTM Information Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, take it into account for generating the LTM lower layer configuration.",
+    "8. If the CSI Resource Configuration is contained in the LTM Information Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, use it to generate the LTM CSI reporting configuration(s) in the CellGroupConfig IE for the requested LTM candidate cell.",
+    "9. If the Request for CSI-RS Resource Configuration for L1 measurements IE is contained in the LTM Information Setup IE included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, include the CSI-RS Resource Configuration for L1 measurements IE in the LTM Configuration IE in the UE CONTEXT SETUP RESPONSE message.",
+    "10. If the LTM Configuration ID Mapping List IE is contained in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, consider this as the mapping information for the LTM candidate cell(s).",
+    "11. If the Early Sync Information Request IE is included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall, if supported, include the Early Sync Information IE of the accepted candidate cell for early TA acquisition (early UL synchronisation), in the UE CONTEXT SETUP RESPONSE message.",
+    "12. If the LTM Configuration IE is included in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, consider it as the generated configuration for LTM from the accepted candidate cell in the candidate gNB-DU.",
+    "13. If the Complete Candidate Configuration Indicator IE set to \"complete\" is contained in the LTM Configuration IE included in the UE CONTEXT SETUP RESPONSE message, the gNB-CU shall, if supported, consider that the LTM candidate configuration is a complete candidate configuration.",
+    "Unsuccessful Operation:",
+    "1. If the gNB-DU is not able to establish an F1 UE context, or cannot even establish one bearer it shall consider the procedure as failed and reply with the UE CONTEXT SETUP FAILURE message.",
+    "2. If the LTM Indicator IE was included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall include the received SpCell ID IE as the Requested Target Cell ID IE in the UE CONTEXT SETUP FAILURE message."
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_req_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 544,
+          "description": "Data structure defining the format of the F1AP UE Context Setup Request message sent from gNB-CU to gNB-DU for establishing UE context during LTM handover.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "function",
+          "function_name": "rrc_gNB_generate_UeContextSetupRequest",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 3032,
+          "line_end": 3032,
+          "description": "Helper function on the gNB-CU side responsible for generating the RRC-level information and parameters required for the F1AP UE Context Setup Request message.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "function",
+          "function_name": "ue_context_setup_request_f1ap",
+          "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+          "line_start": 79,
+          "line_end": 79,
+          "description": "Helper function on the gNB-CU side responsible for populating and encoding the F1AP UE Context Setup Request message based on RRC-level information for transmission to the gNB-DU.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_resp_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 570,
+          "description": "Data structure defining the format of the F1AP UE Context Setup Response message sent from gNB-DU to gNB-CU, indicating successful UE context establishment.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "function",
+          "function_name": "ue_context_setup_response_f1ap",
+          "file_path": "openair2\\LAYER2\\NR_MAC_gNB\\mac_rrc_ul_f1ap.c",
+          "line_start": 89,
+          "line_end": 89,
+          "description": "Helper function on the gNB-CU side responsible for handling and decoding the F1AP UE Context Setup Response message received from the gNB-DU.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        }
+      ]
+    }
+  ],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": "F1AP-PDU-Contents.asn"
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": "NR-RRC-Definitions.asn"
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UEContextSetupRequestIEs",
+      "IE_Definition": "UEContextSetupRequestIEs F1AP-PROTOCOL-IES ::= { ID id-LTMInformation-Setup CRITICALITY reject TYPE LTMInformationSetup PRESENCE optional | ID id-LTMConfigurationIDMappingList CRITICALITY reject TYPE LTMConfigurationIDMappingList PRESENCE optional | ID id-EarlySyncInformationRequest CRITICALITY reject TYPE EarlySyncInformationRequest PRESENCE optional, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UEContextSetupResponseIEs",
+      "IE_Definition": "UEContextSetupResponseIEs F1AP-PROTOCOL-IES ::= { ID id-RequestedTargetCellID CRITICALITY reject TYPE RequestedTargetCellID PRESENCE optional | ID id-LTMConfiguration CRITICALITY reject TYPE LTMConfiguration PRESENCE optional | ID id-EarlySyncInformation CRITICALITY reject TYPE EarlySyncInformation PRESENCE optional, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMInformationSetup",
+      "IE_Definition": "LTMInformationSetup ::= SEQUENCE { ltmIndicator LTMIndicator, spCellID SpCellID, referenceConfiguration ReferenceConfiguration OPTIONAL, csiResourceConfiguration CSIResourceConfiguration OPTIONAL, requestForL1ExecutionCondition RequestForL1ExecutionCondition OPTIONAL, requestForCSI-RSResourceConfigurationForL1Measurements RequestForCSI-RSResourceConfigurationForL1Measurements OPTIONAL, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationIDMappingList",
+      "IE_Definition": "LTMConfigurationIDMappingList ::= SEQUENCE (SIZE(1..MAX_LTM_CONFIGURATION_ID_MAPPING_LIST)) OF LTMConfigurationIDMappingItem",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlySyncInformationRequest",
+      "IE_Definition": "EarlySyncInformationRequest ::= ENUMERATED { true, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestedTargetCellID",
+      "IE_Definition": "RequestedTargetCellID ::= NR-CGI",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfiguration",
+      "IE_Definition": "LTMConfiguration ::= SEQUENCE { l1ExecutionConditionList L1ExecutionConditionList OPTIONAL, referenceConfigurationInformation ReferenceConfigurationInformation OPTIONAL, csi-RS-ResourceConfigurationForL1Measurements CSI-RSResourceConfigurationForL1Measurements OPTIONAL, completeCandidateConfigurationIndicator CompleteCandidateConfigurationIndicator OPTIONAL, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlySyncInformation",
+      "IE_Definition": "EarlySyncInformation ::= SEQUENCE { earlyULSyncConfiguration EarlyULSyncConfiguration OPTIONAL, earlyULSyncConfigurationForSUL EarlyULSyncConfigurationForSUL OPTIONAL, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMIndicator",
+      "IE_Definition": "LTMIndicator ::= ENUMERATED { true, c-ltm, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SpCellID",
+      "IE_Definition": "SpCellID ::= INTEGER (0..32767)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ReferenceConfiguration",
+      "IE_Definition": "ReferenceConfiguration ::= SEQUENCE { requestForLowerLayerConfiguration RequestForLowerLayerConfiguration OPTIONAL, referenceConfigurationInformation ReferenceConfigurationInformation OPTIONAL, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CSIResourceConfiguration",
+      "IE_Definition": "CSIResourceConfiguration ::= SEQUENCE { nzp-CSI-RS-ResourcesConfiguration NZP-CSI-RS-ResourcesConfiguration OPTIONAL, srs-ResourceConfiguration SRS-ResourceConfiguration OPTIONAL, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestForL1ExecutionCondition",
+      "IE_Definition": "RequestForL1ExecutionCondition ::= ENUMERATED { true, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestForCSI-RSResourceConfigurationForL1Measurements",
+      "IE_Definition": "RequestForCSI-RSResourceConfigurationForL1Measurements ::= ENUMERATED { true, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationIDMappingItem",
+      "IE_Definition": "LTMConfigurationIDMappingItem ::= SEQUENCE { ltmConfigurationID LTMConfigurationID, nr-CGI NR-CGI, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NR-CGI",
+      "IE_Definition": "NR-CGI ::= SEQUENCE { pLMNIdentity PLMNIdentity, nRCGI NR-CGI-Value, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "L1ExecutionConditionList",
+      "IE_Definition": "L1ExecutionConditionList ::= SEQUENCE (SIZE(1..MAX_L1_EXECUTION_CONDITION)) OF L1ExecutionConditionItem",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ReferenceConfigurationInformation",
+      "IE_Definition": "ReferenceConfigurationInformation ::= OCTET STRING (SIZE(1..MAX_REFERENCE_CONFIGURATION_INFORMATION_SIZE))",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CSI-RSResourceConfigurationForL1Measurements",
+      "IE_Definition": "CSI-RSResourceConfigurationForL1Measurements ::= SEQUENCE { csi-RS-ResourceConfiguration CSI-RSResourceConfiguration, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CompleteCandidateConfigurationIndicator",
+      "IE_Definition": "CompleteCandidateConfigurationIndicator ::= ENUMERATED { complete, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlyULSyncConfiguration",
+      "IE_Definition": "EarlyULSyncConfiguration ::= SEQUENCE { preambleIndexList PreambleIndexList, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "EarlyULSyncConfigurationForSUL",
+      "IE_Definition": "EarlyULSyncConfigurationForSUL ::= SEQUENCE { preambleIndexList PreambleIndexList, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "RequestForLowerLayerConfiguration",
+      "IE_Definition": "RequestForLowerLayerConfiguration ::= ENUMERATED { true, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NZP-CSI-RS-ResourcesConfiguration",
+      "IE_Definition": "NZP-CSI-RS-ResourcesConfiguration ::= SEQUENCE { ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SRS-ResourceConfiguration",
+      "IE_Definition": "SRS-ResourceConfiguration ::= SEQUENCE { ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMConfigurationID",
+      "IE_Definition": "LTMConfigurationID ::= INTEGER (0..MAX_LTM_CONFIGURATION_ID)",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PLMNIdentity",
+      "IE_Definition": "PLMNIdentity ::= OCTET STRING (SIZE(3))",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "NR-CGI-Value",
+      "IE_Definition": "NR-CGI-Value ::= BIT STRING (SIZE(36))",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "L1ExecutionConditionItem",
+      "IE_Definition": "L1ExecutionConditionItem ::= SEQUENCE { l1ExecutionCondition L1ExecutionCondition, ... }",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PreambleIndexList",
+      "IE_Definition": "PreambleIndexList ::= SEQUENCE (SIZE(1..MAX_PREAMBLE_INDEX)) OF PreambleIndex",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "L1ExecutionCondition",
+      "IE_Definition": "L1ExecutionCondition ::= OCTET STRING (SIZE(1..MAX_L1_EXECUTION_CONDITION_SIZE))",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PreambleIndex",
+      "IE_Definition": "PreambleIndex ::= INTEGER (0..63)",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "",
+  "Piggy_Backed_IES_Mapping": [],
+  "Codebase_Metadata": {
+    "Code_Language": "Python",
+    "Build_System": "Unknown",
+    "Repo_Path": ".",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Unknown"
+  },
+  "Knowledge_Hints": [
+    "9.2.13.5 (ts_138473v190000p): BROADCAST CONTEXT RELEASE COMPLETE",
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.15.2 (ts_138401v180600p): Mobility procedure for Multicast",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU",
+    "9.2.2.1 (ts_138473v190000p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.2 (ts_138473v190000p): UE CONTEXT SETUP RESPONSE",
+    "8.3.1.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.1.2 (ts_138473v190000p): Successful Operation",
+    "8.3.1.4 (ts_138473v190000p): Abnormal Conditions",
+    "8.3 (ts_138473v190000p): UE Context Management procedures",
+    "8.3.1.1 (ts_138473v190000p): General",
+    "8.3.8 (ts_138473v190000p): Access Success",
+    "8.3.4 (ts_138473v190000p): UE Context Modification (gNB-CU initiated)",
+    "8.3.3 (ts_138473v190000p): UE Context Release (gNB-CU initiated)",
+    "8.3.9 (ts_138473v190000p): DU-CU Cell Switch Notification",
+    "8.3.6 (ts_138473v190000p): UE Inactivity Notification",
+    "8.3.5 (ts_138473v190000p): UE Context Modification Required (gNB-DU initiated)",
+    "8.3.11 (ts_138473v190000p): CU-DU Mobility Initiation",
+    "8.3.2 (ts_138473v190000p): UE Context Release Request (gNB-DU initiated)",
+    "8.3.13 (ts_138473v190000p): CU-DU CSI-RS Coordination",
+    "8.3.12 (ts_138473v190000p): DU-CU CSI-RS Coordination",
+    "8.3.7 (ts_138473v190000p): Notify",
+    "8.3.10 (ts_138473v190000p): CU-DU Cell Switch Notification",
+    "9.2.2.3 (ts_138473v190000p): UE CONTEXT SETUP FAILURE",
+    "9.2.2 (ts_138473v190000p): UE Context Management messages",
+    "9.2.2.20 (ts_138473v190000p): CU-DU CSI-RS COORDINATION REQUEST",
+    "9.2.2.6 (ts_138473v190000p): UE CONTEXT RELEASE COMPLETE",
+    "9.2.2.11 (ts_138473v190000p): UE CONTEXT MODIFICATION CONFIRM",
+    "9.2.2.18 (ts_138473v190000p): DU-CU CSI-RS COORDINATION REQUEST",
+    "9.2.2.17 (ts_138473v190000p): CU-DU MOBILITY INITIATION REQUEST",
+    "9.2.2.16 (ts_138473v190000p): CU-DU CELL SWITCH NOTIFICATION",
+    "9.2.2.5 (ts_138473v190000p): UE CONTEXT RELEASE COMMAND",
+    "9.2.2.4 (ts_138473v190000p): UE CONTEXT RELEASE REQUEST",
+    "9.2.2.8 (ts_138473v190000p): UE CONTEXT MODIFICATION RESPONSE",
+    "9.2.2.7 (ts_138473v190000p): UE CONTEXT MODIFICATION REQUEST",
+    "9.2.2.21 (ts_138473v190000p): CU-DU CSI-RS COORDINATION RESPONSE",
+    "9.2.2.15 (ts_138473v190000p): DU-CU CELL SWITCH NOTIFICATION",
+    "9.2.2.14 (ts_138473v190000p): ACCESS SUCCESS",
+    "9.2.2.9 (ts_138473v190000p): UE CONTEXT MODIFICATION FAILURE",
+    "9.2.2.12 (ts_138473v190000p): UE INACTIVITY NOTIFICATION",
+    "9.2.2.19 (ts_138473v190000p): DU-CU CSI-RS COORDINATION RESPONSE",
+    "9.2.2.13 (ts_138473v190000p): NOTIFY",
+    "8.2.3.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.4.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.4.2 (ts_138473v190000p): Successful Operation",
+    "8.3.5.2 (ts_138473v190000p): Successful Operation",
+    "8.3.2.2 (ts_138473v190000p): Successful Operation",
+    "8.7.1.2 (ts_138473v190000p): Successful Operation",
+    "8.3.3.2 (ts_138473v190000p): Successful Operation",
+    "8.3.4.4 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.3.4 (ts_138473v190000p): Abnormal Conditions",
+    "8 (ts_138473v190000p): F1AP procedures",
+    "8.8 (ts_138473v190000p): Trace Procedures",
+    "8.1 (ts_138473v190000p): List of F1AP Elementary procedures",
+    "8.17 (ts_138473v190000p): Timing Synchronisation Status Reporting Procedures",
+    "8.15 (ts_138473v190000p): PDC Measurement Reporting procedures",
+    "8.4 (ts_138473v190000p): RRC Message Transfer procedures",
+    "8.10 (ts_138473v190000p): IAB Procedures",
+    "8.9 (ts_138473v190000p): Radio Information Transfer procedures",
+    "8.5 (ts_138473v190000p): Warning Message Transmission Procedures",
+    "8.7 (ts_138473v190000p): Paging procedures",
+    "8.14 (ts_138473v190000p): NR MBS Procedures",
+    "8.13 (ts_138473v190000p): Positioning Procedures",
+    "8.16 (ts_138473v190000p): QMC Procedures",
+    "8.12 (ts_138473v190000p): Reference Time Information Reporting procedures",
+    "8.11 (ts_138473v190000p): Self Optimisation Support procedures",
+    "8.6 (ts_138473v190000p): System Information Procedures",
+    "8.3.5.1 (ts_138473v190000p): General",
+    "8.3.2.1 (ts_138473v190000p): General",
+    "8.3.4.1 (ts_138473v190000p): General",
+    "8.3.3.1 (ts_138473v190000p): General",
+    "8.3.8.1 (ts_138473v190000p): General",
+    "8.3.8.3 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.8.2 (ts_138473v190000p): Successful Operation",
+    "8.3.9.2 (ts_138473v190000p): Successful Operation",
+    "8.3.9.4 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.9.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.9.1 (ts_138473v190000p): General",
+    "8.3.6.3 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.6.1 (ts_138473v190000p): General",
+    "8.3.6.2 (ts_138473v190000p): Successful Operation",
+    "8.3.5.3 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.11.1 (ts_138473v190000p): General",
+    "8.3.11.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.11.4 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.11.2 (ts_138473v190000p): Successful Operation",
+    "8.3.2.3 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.13.2 (ts_138473v190000p): Successful Operation",
+    "8.3.13.1 (ts_138473v190000p): General",
+    "8.3.13.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.13.4 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.12.2 (ts_138473v190000p): Successful Operation",
+    "8.3.12.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.12.4 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.12.1 (ts_138473v190000p): General",
+    "8.3.7.3 (ts_138473v190000p): Abnormal Conditions",
+    "8.3.7.1 (ts_138473v190000p): General",
+    "8.3.7.2 (ts_138473v190000p): Successful Operation",
+    "8.3.10.3 (ts_138473v190000p): Unsuccessful Operation",
+    "8.3.10.2 (ts_138473v190000p): Successful Operation",
+    "8.3.10.1 (ts_138473v190000p): General",
+    "8.3.10.4 (ts_138473v190000p): Abnormal Conditions",
+    "9.2 (ts_138473v190000p): Message Functional Definition and Content",
+    "9.2.8 (ts_138473v190000p): Radio Information Transfer messages",
+    "9.2.4 (ts_138473v190000p): Warning Message Transmission Messages",
+    "9.2.9 (ts_138473v190000p): IAB messages",
+    "9.2.3 (ts_138473v190000p): RRC Message Transfer messages",
+    "9.2.13 (ts_138473v190000p): Broadcast Context Management messages",
+    "9.2.10 (ts_138473v190000p): Self Optimisation Support Messages",
+    "9.2.11 (ts_138473v190000p): Reference Time Information Reporting messages",
+    "9.2.7 (ts_138473v190000p): Trace Messages",
+    "9.2.12 (ts_138473v190000p): Messages for Positioning Procedures",
+    "9.2.6 (ts_138473v190000p): Paging messages",
+    "9.2.1 (ts_138473v190000p): Interface Management messages"
+  ]
+}

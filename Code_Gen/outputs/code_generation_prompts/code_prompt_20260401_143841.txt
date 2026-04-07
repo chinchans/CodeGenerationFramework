@@ -1,0 +1,653 @@
+---
+## MANDATORY COVERAGE CONTRACT (NON-NEGOTIABLE)
+
+You MUST implement the requested feature with **complete transitive coverage** across:
+- All connected Information Elements (IEs) and referenced ASN.1 types
+- All container / parent chain structures that carry those IEs
+- All encoder + decoder paths (producer + consumer)
+- All call-sites and dependent code that uses the decoded/encoded structures
+
+Partial / shallow changes are forbidden. If IE-A implies IE-B (via ASN.1 type reference, container membership, SEQUENCE field, CHOICE alternative, SEQUENCE OF item type, ProtocolIE container, or extension container), you MUST update **both** the representation and all affected encode/decode + consumer code.
+
+### Required phases (you MUST follow in order)
+
+#### Phase 0 — Dependency Closure (Depth-First)
+Before modifying any file, you MUST compute a **Dependency Closure** starting from the message root(s) implied by the user request and the provided template JSON.
+
+You MUST output a machine-checkable JSON object named `dependency_closure_report` containing:
+- `roots`: list of root container(s) (message IE container / top-level PDU / top-level C struct(s) used for this message)
+- `nodes`: list of **all** reachable IEs/types (depth-first), each with:
+  - `name`
+  - `kind`: `IE|ASN_TYPE|C_STRUCT|ENCODER|DECODER|CALLSITE`
+  - `depth`: integer (root is 0)
+  - `parents`: list of parent node names (for traceability)
+- `edges`: list of `{ "from": "...", "to": "...", "reason": "field|choice|list|container|extension|encode|decode|uses|calls" }`
+- `max_depth`
+- `unresolved_symbols`: list (MUST be empty before coding starts; if not empty you MUST keep searching/expanding until it is empty)
+
+Rules:
+- The closure MUST include all connected types/IEs, not only those explicitly listed in the user request.
+- For ASN.1: treat `::=` definitions as authoritative; traverse until primitives.
+- For code: traverse `struct` fields, encode/decode helper usage, and consumer call-sites.
+- You MUST include BOTH directions for code impact: producers (encode/build) AND consumers (decode/use).
+
+#### Phase 1 — Impact Matrix (No Orphans Allowed)
+You MUST output an `impact_matrix` that maps every closure node (except primitives) to concrete code changes:
+- Struct definition locations (.h/.c)
+- Encoder/decoder functions to update
+- Helper/init/copy/free functions to update (as required by project patterns)
+- All consumer/call-site locations that read/write the fields
+
+Hard rule: **No orphan nodes**.
+- If a node is in dependency closure and has no planned code touchpoints, that is a failure: keep searching until you find the right integration points.
+
+#### Phase 2 — Implementation (Propagation Required)
+Implement the feature and propagate changes through:
+- All structs/types from the closure
+- Encode + decode paths
+- All call-sites in each actor that handle or consume the message
+
+Hard rule: For every optional IE you add/change, you MUST implement presence tracking and wire it through encode/decode + consumer logic.
+
+#### Phase 3 — Self-Audit (Coverage Gate)
+After coding, you MUST run a self-audit and output `coverage_gate_report`:
+- `closure_nodes_total`
+- `closure_nodes_covered`
+- `missing_nodes` (MUST be empty)
+- `max_depth_covered` (MUST equal `dependency_closure_report.max_depth`)
+- `evidence`: for each node, cite the exact file + symbol/function touched
+
+If anything is missing, you MUST do another patch round until coverage is complete.
+
+### Prohibited behaviors
+- Do NOT “skip” connected IEs because they seem generic.
+- Do NOT update only encode or only decode.
+- Do NOT update only one actor when multiple actors consume/produce the message.
+- Do NOT stop after updating a single struct if there are downstream consumers.
+
+---
+
+---
+# Role Definition
+
+You are a **Senior Software Engineer with deep domain expertise in 5G NG-RAN protocol stack implementation**, specializing in F1 Application Protocol (F1AP) message handling, ASN.1-based protocol encoding/decoding, and inter-node handover procedures within the OpenAirInterface 5G codebase. Your role demands rigorous adherence to 3GPP TS 38.401 specifications, enterprise-grade software engineering standards, and comprehensive coverage of all protocol Information Elements (IEs) and their recursive dependencies.
+
+---
+
+# Task Overview
+
+You MUST implement the **Inter gNB DU LTM Handover UE Context Setup** feature, specifically:
+
+- The **gNB-CU** MUST prepare and send the **F1AP "UE CONTEXT SETUP REQUEST"** message to the candidate **gNB-DU**.
+- The candidate **gNB-DU** MUST respond with the **F1AP "UE CONTEXT SETUP RESPONSE"** message.
+- The **gNB-CU** MUST handle the received UE CONTEXT SETUP RESPONSE message appropriately within the Inter gNB DU LTM Handover procedure.
+
+This implementation MUST be **full, exhaustive, and production-ready**, covering all aspects from data structure definitions, encoding/decoding logic, helper functions, call-site updates, memory safety, and integration points. Partial or shallow implementations are strictly forbidden.
+
+---
+
+# Authoritative Input Context Description
+
+You MUST base your implementation strictly on the following authoritative sources:
+
+- **3GPP TS 38.401**, Sections 8.2.1.6 and 8.13.2.3, which define the NG-RAN architecture and F1AP message handling for UE Context Setup in Inter gNB DU LTM Handover.
+- The **OpenAirInterface 5G codebase**, specifically:
+  - Data structures: `f1ap_ue_context_setup_req_s` and `f1ap_ue_context_setup_resp_s` in `openair2\COMMON\f1ap_messages_types.h`.
+  - Helper functions such as `rrc_gNB_generate_UeContextSetupRequest`, `ue_context_setup_request_f1ap`, and `cp_ue_context_setup_req`.
+- The **ASN.1 definitions** for F1AP and RRC messages as the single source of truth for all Information Elements (IEs) and their types.
+- The filled JSON specification provided, which includes message call flows, feature objectives, and code artifact metadata.
+
+You MUST NOT rely on any natural-language IE lists alone; ASN.1 definitions MUST be recursively and exhaustively traversed to extract all IE dependencies.
+
+---
+
+# Actor-Specific Codebase Rules
+
+- Only modify code within the folders and files corresponding to the actors involved in the call flow:
+  - **gNB-CU** (for UE CONTEXT SETUP REQUEST preparation and UE CONTEXT SETUP RESPONSE handling)
+  - **gNB-DU** (for UE CONTEXT SETUP RESPONSE generation)
+- Do NOT modify unrelated actors or code outside these scopes.
+- Maintain strict actor boundary separation; do not introduce cross-actor assumptions or dependencies.
+- Respect existing codebase layering: F1AP application protocol layer, F1-C control plane interface, and RRC layers.
+
+---
+
+# Type & Struct Alignment Enforcement
+
+- All C struct definitions MUST exactly match the ASN.1 IE names and types, including nested structures, lists, choices, and enumerations.
+- Member names, pointer vs. value semantics, and container shapes MUST align with existing local header files for the respective actor.
+- Optional and conditional IEs MUST be represented with presence bitmasks or flags, consistent with local coding conventions.
+- Enumerated types MUST include all defined enumeration values from ASN.1.
+- Range constraints on INTEGER types MUST be enforced via runtime validation.
+- Bit strings MUST enforce size and mask constraints precisely.
+- OCTET STRINGs MUST preserve encoding semantics and size constraints.
+- Extension containers MUST be handled with extension-safe code patterns.
+
+---
+
+# Implementation Strategy (Phased Approach)
+
+**Phase 1: Specification Analysis**
+
+- Parse the filled JSON specification to identify:
+  - Actors involved (gNB-CU, gNB-DU)
+  - Messages to implement: UE CONTEXT SETUP REQUEST (gNB-CU → gNB-DU), UE CONTEXT SETUP RESPONSE (gNB-DU → gNB-CU)
+  - Root IE containers for each message from ASN.1 definitions
+  - All referenced IEs and types recursively from ASN.1, including nested and extension IEs
+  - Constraints, optionality, and criticality rules
+
+**Phase 2: Codebase Integration & Modification Points Identification**
+
+- Locate all relevant code files and functions in the OpenAirInterface 5G codebase:
+  - Data structures in `openair2\COMMON\f1ap_messages_types.h`
+  - Helper functions in `openair2\RRC\NR\rrc_gNB.c`, `openair2\RRC\NR\mac_rrc_dl_f1ap.c`, and `openair2\F1AP\lib\f1ap_ue_context.c`
+- Identify all encode/decode logic, copy/helper functions, and call-sites that consume or produce these messages.
+- Cross-check existing ASN.1-generated headers and code to ensure alignment.
+- Identify any gaps in ASN.1 version or missing IEs and plan internal extensions accordingly.
+
+**Phase 3: Code Generation & Codebase Modifications**
+
+- Generate or update all C struct definitions for the full recursive IE dependency closure.
+- Implement or update encoding and decoding functions for every IE and nested type.
+- Implement helper functions for message construction, parsing, and validation.
+- Update call-sites on both gNB-CU and gNB-DU sides to integrate the new message flows.
+- Implement rigorous runtime validation for all constraints (ranges, sizes, presence).
+- Implement memory management for nested allocations and deallocations.
+- Add detailed documentation and comments referencing 3GPP TS 38.401 sections.
+- Mark any ASN.1 version gaps with TODO comments and internal extension notes.
+
+---
+
+# Codebase Modification Identification Process
+
+- Perform a **comprehensive search** for all references to `f1ap_ue_context_setup_req_s` and `f1ap_ue_context_setup_resp_s`.
+- Identify all encode/decode functions related to these structs.
+- Locate all call-sites where these messages are constructed, sent, received, or parsed.
+- Identify helper functions that populate or extract IE fields.
+- Map all these locations into an **Impact Matrix** linking each IE and type to concrete code touchpoints.
+- Ensure no code location related to these messages is omitted.
+
+---
+
+# Mandatory Data Structure Updates
+
+- Update `f1ap_ue_context_setup_req_s` and `f1ap_ue_context_setup_resp_s` to include all recursively resolved IEs from ASN.1.
+- Define nested structs for all complex IEs, sequences, choices, and extension containers.
+- Implement presence flags for optional IEs.
+- Define enumerations with all ASN.1 enumerated values.
+- Ensure list containers (`SEQUENCE OF`) have size and cardinality constraints enforced.
+- Add comments referencing ASN.1 definitions and 3GPP TS 38.401 sections.
+
+---
+
+# IE / ASN / Encoding Handling Rules
+
+- Identify the **root ASN.1 IE container(s)** for each message from the ASN.1 specification.
+- Perform **strict depth-first recursive traversal** of the ASN.1 tree for each root IE:
+  - Expand all SEQUENCE fields recursively.
+  - Expand all CHOICE alternatives recursively.
+  - Expand all SEQUENCE OF item types recursively.
+  - Enumerate all ENUMERATED values.
+  - Enforce INTEGER ranges and BIT STRING sizes.
+  - Unwrap ProtocolIE-SingleContainer and ProtocolIE-Container recursively.
+  - Handle ProtocolExtensionContainer with extension-safe code.
+- Cross-verify that all IEs mentioned in the JSON specification are included in the ASN.1 tree.
+- Implement encoding and decoding functions for every IE and nested type, respecting presence, criticality, and optionality.
+- Implement presence bitmasks and flags wired through encode/decode and helper functions.
+- Enforce runtime validation of list sizes and cardinalities.
+- For ASN.1 version or feature gaps:
+  - Do NOT invent or reference non-existent ASN.1 symbols.
+  - Implement internal C structs and helper functions to model missing IEs.
+  - Use existing extension hooks or vendor-specific fields without breaking compilation.
+  - Mark these with explicit TODO comments for future ASN.1 upgrades.
+
+---
+
+# Consumer / Call-Site Update Requirements
+
+- Update all call-sites on **gNB-CU** that generate and send the UE CONTEXT SETUP REQUEST message:
+  - Include calls to updated helper functions.
+  - Populate all mandatory and optional IEs.
+  - Perform validation before sending.
+- Update all call-sites on **gNB-DU** that receive and respond with UE CONTEXT SETUP RESPONSE:
+  - Populate response message with all required IEs.
+  - Implement error handling for missing or invalid fields.
+- Update all call-sites on **gNB-CU** that receive and handle UE CONTEXT SETUP RESPONSE:
+  - Decode and validate the message.
+  - Update UE context state accordingly.
+- Ensure all call-sites handle memory allocation and deallocation safely.
+- Update unit tests and integration tests to cover new message flows and IE coverage.
+
+---
+
+# Memory Safety & Resource Management Requirements
+
+- Implement nested allocation and deallocation for all dynamically sized IEs (e.g., SEQUENCE OF).
+- Use existing project memory management conventions.
+- Prevent memory leaks by ensuring all allocated memory is freed on error paths and normal completion.
+- Implement deep copy functions for complex nested structures where required.
+- Validate all pointer dereferences and presence flags before access.
+- Enforce thread-safety and concurrency considerations where applicable.
+
+---
+
+# Compilation Safety & Type Resolution Rules
+
+- All new or modified code MUST compile cleanly with the existing OpenAirInterface 5G build system (CMake).
+- Use only types and symbols defined in the local actor’s header files; do NOT cross-reference other actors’ internal headers.
+- Resolve all type definitions and enumerations from ASN.1-generated headers or internal extensions.
+- Avoid any implicit or unsafe type casts.
+- Enforce strict type checking and const-correctness.
+- Ensure no warnings or errors during compilation.
+- Document any deviations or extensions clearly.
+
+---
+
+# Code Quality & Naming Standards
+
+- Follow existing OpenAirInterface 5G naming conventions for types, functions, variables, and macros.
+- Use descriptive, unambiguous names aligned with ASN.1 IE names.
+- Document all new code with clear comments referencing 3GPP TS 38.401 sections and ASN.1 definitions.
+- Maintain consistent indentation, brace style, and line length.
+- Implement robust error handling with clear error codes and logging.
+- Avoid code duplication by reusing existing helper functions where possible.
+- Ensure performance efficiency and minimal memory overhead.
+- Include detailed function headers and parameter descriptions.
+
+---
+
+# Error Handling & Validation Rules
+
+- Implement strict runtime validation for:
+  - IE presence and optionality.
+  - Integer ranges.
+  - Bit string sizes.
+  - List cardinalities.
+  - Criticality handling as per 3GPP TS 38.401.
+- On validation failure, return appropriate error codes and log detailed error messages.
+- Implement fallback or recovery mechanisms where applicable.
+- Ensure error paths free all allocated resources.
+- Validate all input parameters at call-sites.
+- Enforce protocol compliance and reject malformed messages.
+
+---
+
+# Output Format Requirements
+
+You MUST produce the following deliverables, clearly labeled and actor-specific:
+
+- **Primary function implementations** for message preparation, sending, receiving, and handling.
+- **Data structure modifications** including updated C structs for all recursively expanded IEs.
+- **ASN.1/IE updates** limited to internal C struct extensions only; do NOT modify `.asn` files.
+- **Encoding and decoding function updates** for all new or modified IEs.
+- **Helper function implementations or updates** for message construction, parsing, copying, and validation.
+- **Dependency Closure Report** detailing all recursively resolved IEs and types.
+- **Impact Matrix** mapping each IE/type to exact codebase touchpoints (files, functions, lines).
+- **Integration summary** outlining all codebase changes, call flow updates, and testing hooks.
+- **Explicit file paths and function names** for every code modification.
+- **TODO comments** for ASN.1 version gaps or future upgrades.
+
+---
+
+# Integration Summary Requirements
+
+- Document integration points between gNB-CU and gNB-DU actors.
+- Specify message flow sequencing and timing constraints.
+- Detail call-site updates and helper function invocations.
+- Describe memory management and concurrency considerations.
+- Provide instructions for testing and validation.
+- Highlight any backward compatibility or versioning concerns.
+- Include notes on extension container handling and future-proofing.
+
+---
+
+# Final Engineering Checklist
+
+- [ ] All root IE containers for UE CONTEXT SETUP REQUEST and RESPONSE messages identified and recursively expanded.
+- [ ] Complete Dependency Closure Report generated and verified.
+- [ ] Impact Matrix mapping all IEs and types to code locations produced.
+- [ ] All C structs updated or generated with exact ASN.1 alignment.
+- [ ] Encoding and decoding functions implemented for all IEs.
+- [ ] Helper functions for message construction and parsing updated.
+- [ ] Call-sites on gNB-CU and gNB-DU updated comprehensively.
+- [ ] Runtime validation for all constraints implemented.
+- [ ] Memory safety and resource management fully addressed.
+- [ ] Compilation passes cleanly with no warnings or errors.
+- [ ] Code quality and naming standards strictly followed.
+- [ ] Error handling and logging implemented per specification.
+- [ ] Integration summary and documentation completed.
+- [ ] ASN.1 version gaps handled with internal extensions and TODOs.
+- [ ] No partial or shallow implementations allowed.
+- [ ] Piggy-backed IEs explicitly handled or marked as not applicable.
+- [ ] Presence bitmasks and criticality handling enforced.
+- [ ] All optional and conditional IEs correctly represented.
+- [ ] Self-Audit Coverage Gate passed with 100% coverage.
+- [ ] No orphaned or unimplemented IEs or types remain.
+
+---
+
+# Critical Reminders Section
+
+- Partial implementation or skipping any IE or nested type is strictly forbidden.
+- ASN.1 definitions are the single source of truth; do NOT rely on natural-language lists.
+- Recursive depth-first traversal of ASN.1 IE trees is mandatory.
+- All code changes MUST be actor-specific and confined to the identified folders.
+- Do NOT modify any `.asn` files; only internal C struct extensions and helper code.
+- Handle ASN.1 version gaps with internal extensions, never inventing non-existent symbols.
+- Maintain strict memory safety and runtime validation.
+- Produce comprehensive documentation and integration notes.
+- Ensure full test coverage and self-audit before submission.
+
+---
+
+# Recursive ASN.1 Information Element Expansion Requirements
+
+- Identify the root IE container(s) for each message from the ASN.1 specification.
+- For each root IE container:
+  - Expand all SEQUENCE fields recursively.
+  - Expand all CHOICE alternatives recursively.
+  - Expand all SEQUENCE OF item types recursively.
+  - Enumerate all ENUMERATED values.
+  - Enforce INTEGER ranges and BIT STRING sizes.
+  - Unwrap ProtocolIE-SingleContainer and ProtocolIE-Container recursively.
+  - Handle ProtocolExtensionContainer with extension-safe code.
+- Continue recursive expansion until only primitive types remain.
+- Cross-check every IE name mentioned in the JSON specification against the ASN.1 tree.
+- For any ASN.1 version gaps, implement internal C struct extensions with TODO comments.
+- Generate or update all corresponding C structs, encode/decode, and helper functions for every resolved IE.
+- Enforce presence, criticality, and optionality rules strictly.
+- Implement presence bitmasks and runtime validation for all optional and list IEs.
+- Ensure no referenced ASN.1 type or IE is left unresolved.
+
+---
+
+# Mandatory Coverage Contract (Dependency Closure + Impact Matrix + Self-Audit Coverage Gate)
+
+You MUST enforce the following **Coverage Contract** to prevent shallow or partial code generation:
+
+- **Dependency Closure Report**: Before any code generation, produce a depth-first dependency closure report listing every ASN.1 IE and type recursively referenced by the root IE container(s) for both UE CONTEXT SETUP REQUEST and RESPONSE messages.
+
+- **Impact Matrix**: Map every closure node (IE/type) to concrete codebase touchpoints, including:
+  - Data structure definitions (header files, line numbers)
+  - Encoding/decoding functions (source files, function names)
+  - Helper functions (source files, function names)
+  - Call-sites (source files, function names, line ranges)
+
+- **Full Implementation**: Implement changes for **all** closure nodes without exception. No orphaned or unimplemented IEs or types are allowed.
+
+- **Self-Audit Coverage Gate**: After implementation, run a self-audit to verify 100% coverage of all closure nodes in both producer (encode/build) and consumer (decode/use) code paths, including all call-sites. Patch any missing coverage immediately.
+
+- **Bidirectional Coverage**: Cover both the message producer side (gNB-CU for UE CONTEXT SETUP REQUEST, gNB-DU for UE CONTEXT SETUP RESPONSE) and the consumer side (gNB-DU for REQUEST, gNB-CU for RESPONSE).
+
+- **Dynamic Data-Driven Traversal**: The IE traversal MUST be dynamic and data-driven based on ASN.1 definitions and the filled JSON specification. Hard-coded or shallow IE lists are forbidden.
+
+- **No Partial ASN Expansion**: The entire ASN.1 dependency tree for the message MUST be covered, not just the IEs mentioned in the user request or JSON.
+
+- **Generic Applicability**: The approach MUST be generic enough to handle any future message or user request expressed in the same JSON template structure.
+
+- **ASN.1 Version / Feature Gaps Handling**: If the ASN.1 version is older or missing feature IEs:
+  - Do NOT abort or refuse the task.
+  - Implement best-effort internal C struct extensions and helper functions.
+  - Use existing extension hooks or vendor-specific fields.
+  - Mark with explicit TODO comments where future ASN.1 upgrades are needed.
+  - Ensure compilation and type safety are never broken.
+
+---
+
+# Mandatory Ending Structure
+
+1. **Role**  
+Senior engineer persona with domain expertise.
+
+2. **TASK**  
+Clear task statement plus these subsections:
+
+- **CRITICAL REQUIREMENT:**  
+  Implement full, production-grade handling of F1AP UE CONTEXT SETUP REQUEST and RESPONSE messages for Inter gNB DU LTM Handover, strictly within the gNB-CU and gNB-DU actors as per call flow. All code changes MUST be located in the identified files and folders of the OpenAirInterface 5G codebase.
+
+- **IE NAMING REQUIREMENT:**  
+  All IE names MUST exactly match those defined in the ASN.1 specification and the filled JSON. No deviations or renaming allowed.
+
+- **TYPE AND STRUCT DEFINITION ALIGNMENT (PER ACTOR):**  
+  Member names, pointer vs. value semantics, list/container shapes MUST align exactly with local header files and ASN.1 definitions for each actor (gNB-CU, gNB-DU).
+
+- **CONSUMER / CALL-SITE CODE (PER ACTOR):**  
+  Update all call-sites that consume or produce these messages on both gNB-CU and gNB-DU sides, ensuring full integration of encoding, decoding, validation, and error handling.
+
+- **ACTOR-SPECIFIC CODEBASE REQUIREMENT:**  
+  Only modify code within folders matching the call flow actors (gNB-CU and gNB-DU). No cross-actor code changes allowed.
+
+- **ASN.1 FILES (.asn) - THIRD PARTY:**  
+  Do NOT modify any `.asn` files. Document any required changes or extensions for third-party ASN.1 tooling or future upgrades in the integration summary.
+
+3. **INPUT CONTEXT**  
+Filled JSON specification describing the Inter gNB DU LTM Handover UE Context Setup feature, including message call flows, data structures, helper functions, and codebase metadata. Existing OpenAirInterface 5G codebase with C language, CMake build system, and Git version control.
+
+4. **IMPLEMENTATION STRATEGY**  
+Phased approach:
+
+- **Phase 1:** Specification Analysis — Parse JSON, extract actors, messages, root IEs, constraints, and ASN.1 dependencies.  
+- **Phase 2:** Codebase Integration & Modification Points Identification — Locate all relevant files, functions, structs, encode/decode logic, helpers, and call-sites per actor.  
+- **Phase 3:** Code Generation & Codebase Modifications — Generate/update data structures, encoding/decoding, helper functions, call-sites, validation, memory management, and documentation.
+
+5. **CODE QUALITY REQUIREMENTS**  
+Strict adherence to naming conventions, code style, error handling, performance optimization, and compilation safety. Use only actor-local headers for type resolution. No cross-actor assumptions or unsafe casts.
+
+6. **OUTPUT FORMAT**  
+Provide:
+
+- Primary function implementations  
+- Data structure modifications  
+- Internal ASN.1 IE extensions (no `.asn` modifications)  
+- Encoding/decoding updates  
+- Helper function updates  
+- Dependency Closure Report  
+- Impact Matrix with file paths and function names  
+- Integration summary with TODOs for ASN.1 gaps
+
+7. **SPECIAL CONSIDERATIONS**  
+Protocol compliance, encoding/decoding correctness, state management, concurrency safety, and testing hooks. Handle ASN.1 version gaps with internal extensions and explicit TODO comments.
+
+8. **FINAL CHECKLIST**  
+Complete coverage of all IEs and types, full codebase integration, runtime validation, memory safety, compilation success, and self-audit coverage gate passed.
+
+9. **Closing reminder**  
+The implementation MUST be complete and fully integrated at the exact locations specified, covering all related components end-to-end. No modifications to `.asn` files are allowed in the codebase.
+
+---
+
+Here is the template :{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER_UE_CONTEXT_SETUP",
+  "Feature_Name": "Inter gNB DU LTM Handover UE Context Setup",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401",
+    "Title": "NG-RAN Architecture Description",
+    "Section": "8.2.1.6 (TS 38.401), 8.13.2.3 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "This procedure describes the handling of F1AP UE CONTEXT SETUP REQUEST and UE CONTEXT SETUP RESPONSE messages in the context of an Inter gNB-DU LTM (L1/L2 Triggered Mobility) Handover. LTM is a mobility procedure that involves configuration and a cell switch. While the UE Context Setup messages are generic, their handling is specified for this particular handover scenario."
+  ],
+  "Feature_Objectives": [
+    "To prepare and send the F1AP UE CONTEXT SETUP REQUEST message from the gNB-CU to the candidate gNB-DU.",
+    "To receive and handle the F1AP UE CONTEXT SETUP RESPONSE message from the candidate gNB-DU on the gNB-CU.",
+    "To facilitate the establishment of UE context in the gNB-DU as part of the LTM configuration procedures for Inter gNB-DU LTM Handover."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP (Application Protocol)"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C (Control Plane)"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "The gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU.",
+    "The candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message.",
+    "This message has to be handled on gNB-CU for Inter gNB DU LTM Handover."
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_req_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 544,
+          "description": "Data structure defining the format of the F1AP UE Context Setup Request message, including all its Information Elements (IEs). This is essential for constructing and parsing the request message sent from gNB-CU to gNB-DU."
+        },
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_resp_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 570,
+          "description": "Data structure defining the format of the F1AP UE Context Setup Response message, including all its Information Elements (IEs). This is essential for constructing and parsing the response message sent from gNB-DU to gNB-CU."
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_generate_UeContextSetupRequest",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 3032,
+          "line_end": 3042,
+          "description": "Helper function used by the gNB-CU RRC layer to generate and populate the F1AP UE Context Setup Request message structure with RRC-specific configuration and UE context information. This function prepares the message content before encoding.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_req_s"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "ue_context_setup_request_f1ap",
+          "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+          "line_start": 79,
+          "line_end": 89,
+          "description": "A utility function likely involved in preparing or processing the F1AP UE Context Setup Request message, potentially handling the interface between RRC and F1AP layers for this specific message. It could be responsible for extracting or inserting RRC-related information into the F1AP message.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_req_s"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "cp_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_start": 1394,
+          "line_end": 1404,
+          "description": "Core F1AP control plane helper function responsible for encoding/decoding or populating specific Information Elements (IEs) within the F1AP UE Context Setup Request message. This function would be called to serialize/deserialize the message or fill its IEs according to F1AP specifications.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_req_s"
+          ]
+        }
+      ]
+    }
+  ],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [],
+  "Piggy_Backed_IES_Info": "Not applicable for the scoped messages in this procedure.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "N/A",
+      "Piggy_Backed_IE_Type": "N/A",
+      "Carrier_Message": "N/A",
+      "Source_IE_Name": "",
+      "Source_IE_Type": ""
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "CMake",
+    "Repo_Path": ".",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Git"
+  },
+  "Knowledge_Hints": [
+    "8.9.3.1 (ts_138401v180600p): gNB-CU-CP initiated bearer context release",
+    "8.9.3 (ts_138401v180600p): Bearer context release over F1-U",
+    "8.9.3.2 (ts_138401v180600p): gNB-CU-UP initiated bearer context release",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.9.2 (ts_138401v180600p): Bearer context setup over F1-U",
+    "8.9.1 (ts_138401v180600p): UE Initial Access",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.7 (ts_138401v180600p): Trace activation/deactivation over F1 and E1",
+    "8.4.4.1 (ts_138401v180600p): SN Addition with SCG Activation or Deactivation",
+    "8.9 (ts_138401v180600p): Overall procedures involving E1 and F1",
+    "8.9.15 (ts_138401v180600p): IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for mobile IAB cells",
+    "8.9.13 (ts_138401v180600p): IP Address Allocation for IAB-nodes",
+    "8.9.16 (ts_138401v180600p): TAC/RANAC (re-)configuration for mobile IAB",
+    "8.9.12 (ts_138401v180600p): Handling of IAB-MTs in INACTIVE State",
+    "8.9.10 (ts_138401v180600p): IAB-node release",
+    "8.9.14 (ts_138401v180600p): Mobile IAB-node authorization",
+    "8.9.11 (ts_138401v180600p): IAB-node OAM",
+    "8.9.17 (ts_138401v180600p): IAB-node authorization",
+    "8.9.8 (ts_138401v180600p): BH RLC channel establishment procedure",
+    "8.9.9 (ts_138401v180600p): Traffic Mapping",
+    "8.9.6 (ts_138401v180600p): RRC State transition",
+    "8.16.3 (ts_138401v180600p): SN initiated conditional inter-SN Change",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.15.1.1 (ts_138401v180600p): Broadcast MBS Session Setup",
+    "6.4 (ts_138401v180600p): UE associations in NG-RAN Node",
+    "8.5 (ts_138401v180600p): F1 Startup and cells activation",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.7 (ts_138401v180600p): RRC connection reestablishment",
+    "8.1 (ts_138401v180600p): UE Initial Access",
+    "2 (ts_138401v180600p): References",
+    "8.19.1 (ts_138401v180600p): Remote UE initial access",
+    "8.19.4.3 (ts_138401v180600p): Inter-gNB-CU switch from direct to indirect path",
+    "8.13.2.4 (ts_138401v180600p): Management based MDT Activation in gNB-CU-UP",
+    "8.13.2.3 (ts_138401v180600p): Management based MDT Activation in gNB-DU",
+    "8.13.2.1 (ts_138401v180600p): General",
+    "8.4.4 (ts_138401v180600p): SCG Deactivation and Activation",
+    "8.4.4.3 (ts_138401v180600p): SN initiated SN Modification with SCG Activation or Deactivation",
+    "8.4.4.2 (ts_138401v180600p): MN initiated SN Modification with SCG Activation or Deactivation",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition"
+  ]
+}

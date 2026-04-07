@@ -1,0 +1,2297 @@
+{
+  "1": {
+    "section_id": "1",
+    "title": "Scope",
+    "toc_page": 8,
+    "level": 1,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "2": {
+    "section_id": "2",
+    "title": "References",
+    "toc_page": 8,
+    "level": 1,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "3": {
+    "section_id": "3",
+    "title": "Definitions and abbreviations",
+    "toc_page": 9,
+    "level": 1,
+    "parent": null,
+    "children": [
+      "3.1",
+      "3.2"
+    ],
+    "children_recursive": [
+      "3.1",
+      "3.2"
+    ]
+  },
+  "4": {
+    "section_id": "4",
+    "title": "General principles",
+    "toc_page": 13,
+    "level": 1,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "5": {
+    "section_id": "5",
+    "title": "General architecture",
+    "toc_page": 13,
+    "level": 1,
+    "parent": null,
+    "children": [
+      "5.1",
+      "5.2",
+      "5.3"
+    ],
+    "children_recursive": [
+      "5.1",
+      "5.2",
+      "5.3"
+    ]
+  },
+  "7": {
+    "section_id": "7",
+    "title": "NG-RAN functions description",
+    "toc_page": 27,
+    "level": 1,
+    "parent": null,
+    "children": [
+      "7.0",
+      "7.1",
+      "7.2",
+      "7.3",
+      "7.4",
+      "7.5",
+      "7.6",
+      "7.7",
+      "7.8",
+      "7.9",
+      "7.11"
+    ],
+    "children_recursive": [
+      "7.0",
+      "7.1",
+      "7.2",
+      "7.3",
+      "7.4",
+      "7.5",
+      "7.6",
+      "7.7",
+      "7.7.2",
+      "7.7.2.1",
+      "7.7.2.2",
+      "7.7.2.3",
+      "7.7.3",
+      "7.7.4",
+      "7.8",
+      "7.9",
+      "7.9.1",
+      "7.9.2",
+      "7.9.3",
+      "7.11"
+    ]
+  },
+  "8": {
+    "section_id": "8",
+    "title": "Overall procedures in gNB-CU/gNB-DU Architecture",
+    "toc_page": 30,
+    "level": 1,
+    "parent": null,
+    "children": [
+      "8.1",
+      "8.2",
+      "8.3",
+      "8.4",
+      "8.5",
+      "8.7",
+      "8.8",
+      "8.9",
+      "8.10",
+      "8.11",
+      "8.12",
+      "8.13",
+      "8.14",
+      "8.15",
+      "8.16",
+      "8.17",
+      "8.18",
+      "8.19",
+      "8.20",
+      "8.21",
+      "8.22",
+      "8.23",
+      "8.24"
+    ],
+    "children_recursive": [
+      "8.1",
+      "8.2",
+      "8.2.1",
+      "8.2.1.1",
+      "8.2.1.2",
+      "8.2.1.3",
+      "8.2.1.4",
+      "8.2.1.5",
+      "8.2.1.6",
+      "8.2.2",
+      "8.2.2.1",
+      "8.2.2.2",
+      "8.2.2.3",
+      "8.2.3",
+      "8.2.3.3",
+      "8.2.4",
+      "8.2.5",
+      "8.3",
+      "8.3.1",
+      "8.4",
+      "8.4.1",
+      "8.4.1.1",
+      "8.4.2",
+      "8.4.2.1",
+      "8.4.3",
+      "8.4.4",
+      "8.4.4.1",
+      "8.4.4.2",
+      "8.4.4.3",
+      "8.5",
+      "8.7",
+      "8.8",
+      "8.9",
+      "8.9.1",
+      "8.9.2",
+      "8.9.3",
+      "8.9.3.1",
+      "8.9.3.2",
+      "8.9.4",
+      "8.9.5",
+      "8.9.6",
+      "8.9.6.1",
+      "8.9.6.2",
+      "8.9.7",
+      "8.9.8",
+      "8.9.9",
+      "8.9.9.1",
+      "8.9.9.2",
+      "8.9.10",
+      "8.9.10.1",
+      "8.9.11",
+      "8.9.12",
+      "8.9.13",
+      "8.9.14",
+      "8.9.15",
+      "8.9.16",
+      "8.9.17",
+      "8.9.17.1",
+      "8.9.17.3",
+      "8.10",
+      "8.11",
+      "8.11.1",
+      "8.11.2",
+      "8.11.3",
+      "8.11.4",
+      "8.12",
+      "8.12.1",
+      "8.12.2",
+      "8.12.3",
+      "8.13",
+      "8.13.0",
+      "8.13.1",
+      "8.13.2",
+      "8.13.2.1",
+      "8.13.2.2",
+      "8.13.2.3",
+      "8.13.2.4",
+      "8.13.2.5",
+      "8.13.2.6",
+      "8.13.2.7",
+      "8.13.3",
+      "8.13.4",
+      "8.14",
+      "8.14.1",
+      "8.14.1.1",
+      "8.14.1.2",
+      "8.14.1.3",
+      "8.15",
+      "8.15.1",
+      "8.15.1.1",
+      "8.15.1.2",
+      "8.15.1.3",
+      "8.15.2",
+      "8.15.2.1",
+      "8.16",
+      "8.16.1",
+      "8.16.2",
+      "8.16.3",
+      "8.17",
+      "8.17.1",
+      "8.17.2",
+      "8.17.2.1",
+      "8.17.3",
+      "8.17.3.1",
+      "8.17.4",
+      "8.18",
+      "8.18.1",
+      "8.18.2",
+      "8.18.3",
+      "8.18.4",
+      "8.19",
+      "8.19.1",
+      "8.19.2",
+      "8.19.3",
+      "8.19.4",
+      "8.19.4.1",
+      "8.19.4.2",
+      "8.19.4.3",
+      "8.20",
+      "8.21",
+      "8.21.1",
+      "8.22",
+      "8.22.1",
+      "8.22.3",
+      "8.23",
+      "8.23.1",
+      "8.23.4",
+      "8.24"
+    ]
+  },
+  "9": {
+    "section_id": "9",
+    "title": "Synchronization",
+    "toc_page": 153,
+    "level": 1,
+    "parent": null,
+    "children": [
+      "9.1"
+    ],
+    "children_recursive": [
+      "9.1"
+    ]
+  },
+  "10": {
+    "section_id": "10",
+    "title": "NG-RAN interfaces",
+    "toc_page": 154,
+    "level": 1,
+    "parent": null,
+    "children": [
+      "10.1",
+      "10.2",
+      "10.3",
+      "10.4",
+      "10.5"
+    ],
+    "children_recursive": [
+      "10.1",
+      "10.2",
+      "10.3",
+      "10.4",
+      "10.5"
+    ]
+  },
+  "11": {
+    "section_id": "11",
+    "title": "Overall procedures in NG-RAN Architecure",
+    "toc_page": 154,
+    "level": 1,
+    "parent": null,
+    "children": [
+      "11.1"
+    ],
+    "children_recursive": [
+      "11.1"
+    ]
+  },
+  "3.1": {
+    "section_id": "3.1",
+    "title": "Definitions",
+    "toc_page": 9,
+    "level": 2,
+    "parent": "3",
+    "children": [],
+    "children_recursive": []
+  },
+  "3.2": {
+    "section_id": "3.2",
+    "title": "Abbreviations",
+    "toc_page": 11,
+    "level": 2,
+    "parent": "3",
+    "children": [],
+    "children_recursive": []
+  },
+  "5.1": {
+    "section_id": "5.1",
+    "title": "General",
+    "toc_page": 13,
+    "level": 2,
+    "parent": "5",
+    "children": [],
+    "children_recursive": []
+  },
+  "5.2": {
+    "section_id": "5.2",
+    "title": "User plane",
+    "toc_page": 13,
+    "level": 2,
+    "parent": "5",
+    "children": [],
+    "children_recursive": []
+  },
+  "5.3": {
+    "section_id": "5.3",
+    "title": "Control plane",
+    "toc_page": 14,
+    "level": 2,
+    "parent": "5",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.1": {
+    "section_id": "6.1",
+    "title": "Overview",
+    "toc_page": 15,
+    "level": 2,
+    "parent": null,
+    "children": [
+      "6.1.1",
+      "6.1.2",
+      "6.1.3",
+      "6.1.4",
+      "6.1.5",
+      "6.1.6"
+    ],
+    "children_recursive": [
+      "6.1.1",
+      "6.1.2",
+      "6.1.3",
+      "6.1.4",
+      "6.1.5",
+      "6.1.6"
+    ]
+  },
+  "6.2": {
+    "section_id": "6.2",
+    "title": "NG-RAN identifiers",
+    "toc_page": 21,
+    "level": 2,
+    "parent": null,
+    "children": [
+      "6.2.1",
+      "6.2.2",
+      "6.2.3",
+      "6.2.4",
+      "6.2.5"
+    ],
+    "children_recursive": [
+      "6.2.1",
+      "6.2.2",
+      "6.2.3",
+      "6.2.4",
+      "6.2.5"
+    ]
+  },
+  "6.3": {
+    "section_id": "6.3",
+    "title": "Transport addresses",
+    "toc_page": 24,
+    "level": 2,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "6.4": {
+    "section_id": "6.4",
+    "title": "UE associations in NG-RAN Node",
+    "toc_page": 24,
+    "level": 2,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "6.5": {
+    "section_id": "6.5",
+    "title": "MBS Session associations in NG-RAN Node",
+    "toc_page": 25,
+    "level": 2,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "7.0": {
+    "section_id": "7.0",
+    "title": "General",
+    "toc_page": 27,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.1": {
+    "section_id": "7.1",
+    "title": "NG-RAN sharing",
+    "toc_page": 27,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.2": {
+    "section_id": "7.2",
+    "title": "Remote Interference Management",
+    "toc_page": 27,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.3": {
+    "section_id": "7.3",
+    "title": "Cross-Link Interference Management",
+    "toc_page": 27,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.4": {
+    "section_id": "7.4",
+    "title": "Support for Non-Public Networks",
+    "toc_page": 27,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.5": {
+    "section_id": "7.5",
+    "title": "RACH Optimisation Function",
+    "toc_page": 27,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.6": {
+    "section_id": "7.6",
+    "title": "Positioning",
+    "toc_page": 28,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.7": {
+    "section_id": "7.7",
+    "title": "Support for NR MBS",
+    "toc_page": 28,
+    "level": 2,
+    "parent": "7",
+    "children": [
+      "7.7.2",
+      "7.7.3",
+      "7.7.4"
+    ],
+    "children_recursive": [
+      "7.7.2",
+      "7.7.2.1",
+      "7.7.2.2",
+      "7.7.2.3",
+      "7.7.3",
+      "7.7.4"
+    ]
+  },
+  "7.8": {
+    "section_id": "7.8",
+    "title": "PCI Optimisation Function",
+    "toc_page": 29,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.9": {
+    "section_id": "7.9",
+    "title": "Support for CCO",
+    "toc_page": 30,
+    "level": 2,
+    "parent": "7",
+    "children": [
+      "7.9.1",
+      "7.9.2",
+      "7.9.3"
+    ],
+    "children_recursive": [
+      "7.9.1",
+      "7.9.2",
+      "7.9.3"
+    ]
+  },
+  "7.11": {
+    "section_id": "7.11",
+    "title": "Support of AI/ML for NG-RAN",
+    "toc_page": 30,
+    "level": 2,
+    "parent": "7",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.1": {
+    "section_id": "8.1",
+    "title": "UE Initial Access",
+    "toc_page": 30,
+    "level": 2,
+    "parent": "8",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2": {
+    "section_id": "8.2",
+    "title": "Intra-gNB-CU Mobility",
+    "toc_page": 32,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.2.1",
+      "8.2.2",
+      "8.2.3",
+      "8.2.4",
+      "8.2.5"
+    ],
+    "children_recursive": [
+      "8.2.1",
+      "8.2.1.1",
+      "8.2.1.2",
+      "8.2.1.3",
+      "8.2.1.4",
+      "8.2.1.5",
+      "8.2.1.6",
+      "8.2.2",
+      "8.2.2.1",
+      "8.2.2.2",
+      "8.2.2.3",
+      "8.2.3",
+      "8.2.3.3",
+      "8.2.4",
+      "8.2.5"
+    ]
+  },
+  "8.3": {
+    "section_id": "8.3",
+    "title": "Mechanism of centralized retransmission of lost PDUs",
+    "toc_page": 56,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.3.1"
+    ],
+    "children_recursive": [
+      "8.3.1"
+    ]
+  },
+  "8.4": {
+    "section_id": "8.4",
+    "title": "Multi-Connectivity operation",
+    "toc_page": 57,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.4.1",
+      "8.4.2",
+      "8.4.3",
+      "8.4.4"
+    ],
+    "children_recursive": [
+      "8.4.1",
+      "8.4.1.1",
+      "8.4.2",
+      "8.4.2.1",
+      "8.4.3",
+      "8.4.4",
+      "8.4.4.1",
+      "8.4.4.2",
+      "8.4.4.3"
+    ]
+  },
+  "8.5": {
+    "section_id": "8.5",
+    "title": "F1 Startup and cells activation",
+    "toc_page": 62,
+    "level": 2,
+    "parent": "8",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.7": {
+    "section_id": "8.7",
+    "title": "RRC connection reestablishment",
+    "toc_page": 66,
+    "level": 2,
+    "parent": "8",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.8": {
+    "section_id": "8.8",
+    "title": "Multiple TNLAs for F1-C",
+    "toc_page": 68,
+    "level": 2,
+    "parent": "8",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9": {
+    "section_id": "8.9",
+    "title": "Overall procedures involving E1 and F1",
+    "toc_page": 69,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.9.1",
+      "8.9.2",
+      "8.9.3",
+      "8.9.4",
+      "8.9.5",
+      "8.9.6",
+      "8.9.7",
+      "8.9.8",
+      "8.9.9",
+      "8.9.10",
+      "8.9.11",
+      "8.9.12",
+      "8.9.13",
+      "8.9.14",
+      "8.9.15",
+      "8.9.16",
+      "8.9.17"
+    ],
+    "children_recursive": [
+      "8.9.1",
+      "8.9.2",
+      "8.9.3",
+      "8.9.3.1",
+      "8.9.3.2",
+      "8.9.4",
+      "8.9.5",
+      "8.9.6",
+      "8.9.6.1",
+      "8.9.6.2",
+      "8.9.7",
+      "8.9.8",
+      "8.9.9",
+      "8.9.9.1",
+      "8.9.9.2",
+      "8.9.10",
+      "8.9.10.1",
+      "8.9.11",
+      "8.9.12",
+      "8.9.13",
+      "8.9.14",
+      "8.9.15",
+      "8.9.16",
+      "8.9.17",
+      "8.9.17.1",
+      "8.9.17.3"
+    ]
+  },
+  "8.10": {
+    "section_id": "8.10",
+    "title": "Multiple TNLAs for E1",
+    "toc_page": 85,
+    "level": 2,
+    "parent": "8",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.11": {
+    "section_id": "8.11",
+    "title": "Support of Network Sharing with multiple cell-ID broadcast",
+    "toc_page": 87,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.11.1",
+      "8.11.2",
+      "8.11.3",
+      "8.11.4"
+    ],
+    "children_recursive": [
+      "8.11.1",
+      "8.11.2",
+      "8.11.3",
+      "8.11.4"
+    ]
+  },
+  "8.12": {
+    "section_id": "8.12",
+    "title": "IAB-node Integration Procedure",
+    "toc_page": 89,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.12.1",
+      "8.12.2",
+      "8.12.3"
+    ],
+    "children_recursive": [
+      "8.12.1",
+      "8.12.2",
+      "8.12.3"
+    ]
+  },
+  "8.13": {
+    "section_id": "8.13",
+    "title": "Overall procedures for MDT",
+    "toc_page": 92,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.13.0",
+      "8.13.1",
+      "8.13.2",
+      "8.13.3",
+      "8.13.4"
+    ],
+    "children_recursive": [
+      "8.13.0",
+      "8.13.1",
+      "8.13.2",
+      "8.13.2.1",
+      "8.13.2.2",
+      "8.13.2.3",
+      "8.13.2.4",
+      "8.13.2.5",
+      "8.13.2.6",
+      "8.13.2.7",
+      "8.13.3",
+      "8.13.4"
+    ]
+  },
+  "8.14": {
+    "section_id": "8.14",
+    "title": "Self-optimisation",
+    "toc_page": 99,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.14.1"
+    ],
+    "children_recursive": [
+      "8.14.1",
+      "8.14.1.1",
+      "8.14.1.2",
+      "8.14.1.3"
+    ]
+  },
+  "8.15": {
+    "section_id": "8.15",
+    "title": "Overall procedures for NR MBS",
+    "toc_page": 101,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.15.1",
+      "8.15.2"
+    ],
+    "children_recursive": [
+      "8.15.1",
+      "8.15.1.1",
+      "8.15.1.2",
+      "8.15.1.3",
+      "8.15.2",
+      "8.15.2.1"
+    ]
+  },
+  "8.16": {
+    "section_id": "8.16",
+    "title": "Overall procedures for CPAC",
+    "toc_page": 109,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.16.1",
+      "8.16.2",
+      "8.16.3"
+    ],
+    "children_recursive": [
+      "8.16.1",
+      "8.16.2",
+      "8.16.3"
+    ]
+  },
+  "8.17": {
+    "section_id": "8.17",
+    "title": "IAB Inter-CU Topology Management",
+    "toc_page": 110,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.17.1",
+      "8.17.2",
+      "8.17.3",
+      "8.17.4"
+    ],
+    "children_recursive": [
+      "8.17.1",
+      "8.17.2",
+      "8.17.2.1",
+      "8.17.3",
+      "8.17.3.1",
+      "8.17.4"
+    ]
+  },
+  "8.18": {
+    "section_id": "8.18",
+    "title": "Overall procedure for Small Data Transmission during RRC Inactive",
+    "toc_page": 121,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.18.1",
+      "8.18.2",
+      "8.18.3",
+      "8.18.4"
+    ],
+    "children_recursive": [
+      "8.18.1",
+      "8.18.2",
+      "8.18.3",
+      "8.18.4"
+    ]
+  },
+  "8.19": {
+    "section_id": "8.19",
+    "title": "Overall procedures for L2 UE-to-Network Relay",
+    "toc_page": 126,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.19.1",
+      "8.19.2",
+      "8.19.3",
+      "8.19.4"
+    ],
+    "children_recursive": [
+      "8.19.1",
+      "8.19.2",
+      "8.19.3",
+      "8.19.4",
+      "8.19.4.1",
+      "8.19.4.2",
+      "8.19.4.3"
+    ]
+  },
+  "8.20": {
+    "section_id": "8.20",
+    "title": "Void",
+    "toc_page": 138,
+    "level": 2,
+    "parent": "8",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.21": {
+    "section_id": "8.21",
+    "title": "Overall procedures for Network Controlled Repeater",
+    "toc_page": 138,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.21.1"
+    ],
+    "children_recursive": [
+      "8.21.1"
+    ]
+  },
+  "8.22": {
+    "section_id": "8.22",
+    "title": "Overall procedures for multi-path support",
+    "toc_page": 139,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.22.1",
+      "8.22.3"
+    ],
+    "children_recursive": [
+      "8.22.1",
+      "8.22.3"
+    ]
+  },
+  "8.23": {
+    "section_id": "8.23",
+    "title": "Mobile IAB migration procedures",
+    "toc_page": 146,
+    "level": 2,
+    "parent": "8",
+    "children": [
+      "8.23.1",
+      "8.23.4"
+    ],
+    "children_recursive": [
+      "8.23.1",
+      "8.23.4"
+    ]
+  },
+  "8.24": {
+    "section_id": "8.24",
+    "title": "Timing resiliency service",
+    "toc_page": 150,
+    "level": 2,
+    "parent": "8",
+    "children": [],
+    "children_recursive": []
+  },
+  "9.1": {
+    "section_id": "9.1",
+    "title": "gNB Synchronization",
+    "toc_page": 153,
+    "level": 2,
+    "parent": "9",
+    "children": [],
+    "children_recursive": []
+  },
+  "10.1": {
+    "section_id": "10.1",
+    "title": "NG interface",
+    "toc_page": 154,
+    "level": 2,
+    "parent": "10",
+    "children": [],
+    "children_recursive": []
+  },
+  "10.2": {
+    "section_id": "10.2",
+    "title": "Xn interface",
+    "toc_page": 154,
+    "level": 2,
+    "parent": "10",
+    "children": [],
+    "children_recursive": []
+  },
+  "10.3": {
+    "section_id": "10.3",
+    "title": "F1 interface",
+    "toc_page": 154,
+    "level": 2,
+    "parent": "10",
+    "children": [],
+    "children_recursive": []
+  },
+  "10.4": {
+    "section_id": "10.4",
+    "title": "E1 interface",
+    "toc_page": 154,
+    "level": 2,
+    "parent": "10",
+    "children": [],
+    "children_recursive": []
+  },
+  "10.5": {
+    "section_id": "10.5",
+    "title": "Antenna interface - general principles",
+    "toc_page": 154,
+    "level": 2,
+    "parent": "10",
+    "children": [],
+    "children_recursive": []
+  },
+  "11.1": {
+    "section_id": "11.1",
+    "title": "Multiple TNLAs for Xn-C",
+    "toc_page": 154,
+    "level": 2,
+    "parent": "11",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.1.1": {
+    "section_id": "6.1.1",
+    "title": "Overall Architecture of NG-RAN",
+    "toc_page": 15,
+    "level": 3,
+    "parent": "6.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.1.2": {
+    "section_id": "6.1.2",
+    "title": "Overall architecture for separation of gNB-CU-CP and gNB-CU-UP",
+    "toc_page": 16,
+    "level": 3,
+    "parent": "6.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.1.3": {
+    "section_id": "6.1.3",
+    "title": "Overall Architecture of IAB",
+    "toc_page": 17,
+    "level": 3,
+    "parent": "6.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.1.4": {
+    "section_id": "6.1.4",
+    "title": "Protocol stacks of IAB",
+    "toc_page": 18,
+    "level": 3,
+    "parent": "6.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.1.5": {
+    "section_id": "6.1.5",
+    "title": "Overall Architecture of NR MBS",
+    "toc_page": 20,
+    "level": 3,
+    "parent": "6.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.1.6": {
+    "section_id": "6.1.6",
+    "title": "Protocol stacks of L2 UE-to-Network Relay",
+    "toc_page": 20,
+    "level": 3,
+    "parent": "6.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.2.1": {
+    "section_id": "6.2.1",
+    "title": "Principle of handling Application Protocol Identities",
+    "toc_page": 21,
+    "level": 3,
+    "parent": "6.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.2.2": {
+    "section_id": "6.2.2",
+    "title": "gNB-DU ID",
+    "toc_page": 24,
+    "level": 3,
+    "parent": "6.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.2.3": {
+    "section_id": "6.2.3",
+    "title": "ng-eNB-DU ID",
+    "toc_page": 24,
+    "level": 3,
+    "parent": "6.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.2.4": {
+    "section_id": "6.2.4",
+    "title": "gNB-CU-UP ID",
+    "toc_page": 24,
+    "level": 3,
+    "parent": "6.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "6.2.5": {
+    "section_id": "6.2.5",
+    "title": "RAN UE ID",
+    "toc_page": 24,
+    "level": 3,
+    "parent": "6.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.7.2": {
+    "section_id": "7.7.2",
+    "title": "Support of resource efficiency for RAN Sharing",
+    "toc_page": 28,
+    "level": 3,
+    "parent": "7.7",
+    "children": [
+      "7.7.2.1",
+      "7.7.2.2",
+      "7.7.2.3"
+    ],
+    "children_recursive": [
+      "7.7.2.1",
+      "7.7.2.2",
+      "7.7.2.3"
+    ]
+  },
+  "7.7.3": {
+    "section_id": "7.7.3",
+    "title": "Support of Multicast reception for UEs in RRC_INACTIVE",
+    "toc_page": 29,
+    "level": 3,
+    "parent": "7.7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.7.4": {
+    "section_id": "7.7.4",
+    "title": "Recovery of shared F1-U Failure",
+    "toc_page": 29,
+    "level": 3,
+    "parent": "7.7",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.9.1": {
+    "section_id": "7.9.1",
+    "title": "General",
+    "toc_page": 30,
+    "level": 3,
+    "parent": "7.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.9.2": {
+    "section_id": "7.9.2",
+    "title": "OAM requirements",
+    "toc_page": 30,
+    "level": 3,
+    "parent": "7.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.9.3": {
+    "section_id": "7.9.3",
+    "title": "Dynamic coverage configuration changes",
+    "toc_page": 30,
+    "level": 3,
+    "parent": "7.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.1": {
+    "section_id": "8.2.1",
+    "title": "Intra-NR Mobility",
+    "toc_page": 32,
+    "level": 3,
+    "parent": "8.2",
+    "children": [
+      "8.2.1.1",
+      "8.2.1.2",
+      "8.2.1.3",
+      "8.2.1.4",
+      "8.2.1.5",
+      "8.2.1.6"
+    ],
+    "children_recursive": [
+      "8.2.1.1",
+      "8.2.1.2",
+      "8.2.1.3",
+      "8.2.1.4",
+      "8.2.1.5",
+      "8.2.1.6"
+    ]
+  },
+  "8.2.2": {
+    "section_id": "8.2.2",
+    "title": "EN-DC Mobility",
+    "toc_page": 43,
+    "level": 3,
+    "parent": "8.2",
+    "children": [
+      "8.2.2.1",
+      "8.2.2.2",
+      "8.2.2.3"
+    ],
+    "children_recursive": [
+      "8.2.2.1",
+      "8.2.2.2",
+      "8.2.2.3"
+    ]
+  },
+  "8.2.3": {
+    "section_id": "8.2.3",
+    "title": "Intra-CU topology adaptation procedure",
+    "toc_page": 47,
+    "level": 3,
+    "parent": "8.2",
+    "children": [
+      "8.2.3.3"
+    ],
+    "children_recursive": [
+      "8.2.3.3"
+    ]
+  },
+  "8.2.4": {
+    "section_id": "8.2.4",
+    "title": "Intra-CU topological redundancy procedure",
+    "toc_page": 52,
+    "level": 3,
+    "parent": "8.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.5": {
+    "section_id": "8.2.5",
+    "title": "Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "toc_page": 55,
+    "level": 3,
+    "parent": "8.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.3.1": {
+    "section_id": "8.3.1",
+    "title": "Centralized Retransmission in Intra gNB-CU Cases",
+    "toc_page": 56,
+    "level": 3,
+    "parent": "8.3",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.4.1": {
+    "section_id": "8.4.1",
+    "title": "Secondary Node Addition",
+    "toc_page": 57,
+    "level": 3,
+    "parent": "8.4",
+    "children": [
+      "8.4.1.1"
+    ],
+    "children_recursive": [
+      "8.4.1.1"
+    ]
+  },
+  "8.4.2": {
+    "section_id": "8.4.2",
+    "title": "Secondary Node Release (MN/SN initiated)",
+    "toc_page": 58,
+    "level": 3,
+    "parent": "8.4",
+    "children": [
+      "8.4.2.1"
+    ],
+    "children_recursive": [
+      "8.4.2.1"
+    ]
+  },
+  "8.4.3": {
+    "section_id": "8.4.3",
+    "title": "SCG suspend/resume in RRC_INACTIVE",
+    "toc_page": 59,
+    "level": 3,
+    "parent": "8.4",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.4.4": {
+    "section_id": "8.4.4",
+    "title": "SCG Deactivation and Activation",
+    "toc_page": 60,
+    "level": 3,
+    "parent": "8.4",
+    "children": [
+      "8.4.4.1",
+      "8.4.4.2",
+      "8.4.4.3"
+    ],
+    "children_recursive": [
+      "8.4.4.1",
+      "8.4.4.2",
+      "8.4.4.3"
+    ]
+  },
+  "8.6.2": {
+    "section_id": "8.6.2",
+    "title": "RRC inactive to other states",
+    "toc_page": 64,
+    "level": 3,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.1": {
+    "section_id": "8.9.1",
+    "title": "UE Initial Access",
+    "toc_page": 69,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.2": {
+    "section_id": "8.9.2",
+    "title": "Bearer context setup over F1-U",
+    "toc_page": 70,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.3": {
+    "section_id": "8.9.3",
+    "title": "Bearer context release over F1-U",
+    "toc_page": 72,
+    "level": 3,
+    "parent": "8.9",
+    "children": [
+      "8.9.3.1",
+      "8.9.3.2"
+    ],
+    "children_recursive": [
+      "8.9.3.1",
+      "8.9.3.2"
+    ]
+  },
+  "8.9.4": {
+    "section_id": "8.9.4",
+    "title": "Inter-gNB handover involving gNB-CU-UP change",
+    "toc_page": 73,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.5": {
+    "section_id": "8.9.5",
+    "title": "Change of gNB-CU-UP",
+    "toc_page": 75,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.6": {
+    "section_id": "8.9.6",
+    "title": "RRC State transition",
+    "toc_page": 76,
+    "level": 3,
+    "parent": "8.9",
+    "children": [
+      "8.9.6.1",
+      "8.9.6.2"
+    ],
+    "children_recursive": [
+      "8.9.6.1",
+      "8.9.6.2"
+    ]
+  },
+  "8.9.7": {
+    "section_id": "8.9.7",
+    "title": "Trace activation/deactivation over F1 and E1",
+    "toc_page": 79,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.8": {
+    "section_id": "8.9.8",
+    "title": "BH RLC channel establishment procedure",
+    "toc_page": 79,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.9": {
+    "section_id": "8.9.9",
+    "title": "Traffic Mapping",
+    "toc_page": 81,
+    "level": 3,
+    "parent": "8.9",
+    "children": [
+      "8.9.9.1",
+      "8.9.9.2"
+    ],
+    "children_recursive": [
+      "8.9.9.1",
+      "8.9.9.2"
+    ]
+  },
+  "8.9.10": {
+    "section_id": "8.9.10",
+    "title": "IAB-node release",
+    "toc_page": 81,
+    "level": 3,
+    "parent": "8.9",
+    "children": [
+      "8.9.10.1"
+    ],
+    "children_recursive": [
+      "8.9.10.1"
+    ]
+  },
+  "8.9.11": {
+    "section_id": "8.9.11",
+    "title": "IAB-node OAM",
+    "toc_page": 82,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.12": {
+    "section_id": "8.9.12",
+    "title": "Handling of IAB-MTs in INACTIVE State",
+    "toc_page": 82,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.13": {
+    "section_id": "8.9.13",
+    "title": "IP Address Allocation for IAB-nodes",
+    "toc_page": 83,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.14": {
+    "section_id": "8.9.14",
+    "title": "Mobile IAB-node authorization",
+    "toc_page": 83,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.15": {
+    "section_id": "8.9.15",
+    "title": "IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for mobile IAB cells",
+    "toc_page": 84,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.16": {
+    "section_id": "8.9.16",
+    "title": "TAC/RANAC (re-)configuration for mobile IAB",
+    "toc_page": 84,
+    "level": 3,
+    "parent": "8.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.17": {
+    "section_id": "8.9.17",
+    "title": "IAB-node authorization",
+    "toc_page": 84,
+    "level": 3,
+    "parent": "8.9",
+    "children": [
+      "8.9.17.1",
+      "8.9.17.3"
+    ],
+    "children_recursive": [
+      "8.9.17.1",
+      "8.9.17.3"
+    ]
+  },
+  "8.11.1": {
+    "section_id": "8.11.1",
+    "title": "General",
+    "toc_page": 87,
+    "level": 3,
+    "parent": "8.11",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.11.2": {
+    "section_id": "8.11.2",
+    "title": "Initial Registration \u2013 separate PLMN signalling",
+    "toc_page": 87,
+    "level": 3,
+    "parent": "8.11",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.11.3": {
+    "section_id": "8.11.3",
+    "title": "RRC Connection Reestablishment \u2013 separate PLMN signalling",
+    "toc_page": 88,
+    "level": 3,
+    "parent": "8.11",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.11.4": {
+    "section_id": "8.11.4",
+    "title": "Support of shared signalling transport",
+    "toc_page": 89,
+    "level": 3,
+    "parent": "8.11",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.12.1": {
+    "section_id": "8.12.1",
+    "title": "Standalone IAB integration",
+    "toc_page": 89,
+    "level": 3,
+    "parent": "8.12",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.12.2": {
+    "section_id": "8.12.2",
+    "title": "NSA IAB Integration procedure",
+    "toc_page": 90,
+    "level": 3,
+    "parent": "8.12",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.12.3": {
+    "section_id": "8.12.3",
+    "title": "Mobile IAB-node integration",
+    "toc_page": 91,
+    "level": 3,
+    "parent": "8.12",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.0": {
+    "section_id": "8.13.0",
+    "title": "General",
+    "toc_page": 92,
+    "level": 3,
+    "parent": "8.13",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.1": {
+    "section_id": "8.13.1",
+    "title": "Signalling based MDT activation",
+    "toc_page": 92,
+    "level": 3,
+    "parent": "8.13",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2": {
+    "section_id": "8.13.2",
+    "title": "Management based MDT activation",
+    "toc_page": 93,
+    "level": 3,
+    "parent": "8.13",
+    "children": [
+      "8.13.2.1",
+      "8.13.2.2",
+      "8.13.2.3",
+      "8.13.2.4",
+      "8.13.2.5",
+      "8.13.2.6",
+      "8.13.2.7"
+    ],
+    "children_recursive": [
+      "8.13.2.1",
+      "8.13.2.2",
+      "8.13.2.3",
+      "8.13.2.4",
+      "8.13.2.5",
+      "8.13.2.6",
+      "8.13.2.7"
+    ]
+  },
+  "8.13.3": {
+    "section_id": "8.13.3",
+    "title": "Alignment of MDT and QoE Measurements",
+    "toc_page": 99,
+    "level": 3,
+    "parent": "8.13",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.4": {
+    "section_id": "8.13.4",
+    "title": "MDT reporting",
+    "toc_page": 99,
+    "level": 3,
+    "parent": "8.13",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.14.1": {
+    "section_id": "8.14.1",
+    "title": "Overall procedures for MRO",
+    "toc_page": 99,
+    "level": 3,
+    "parent": "8.14",
+    "children": [
+      "8.14.1.1",
+      "8.14.1.2",
+      "8.14.1.3"
+    ],
+    "children_recursive": [
+      "8.14.1.1",
+      "8.14.1.2",
+      "8.14.1.3"
+    ]
+  },
+  "8.15.1": {
+    "section_id": "8.15.1",
+    "title": "General",
+    "toc_page": 101,
+    "level": 3,
+    "parent": "8.15",
+    "children": [
+      "8.15.1.1",
+      "8.15.1.2",
+      "8.15.1.3"
+    ],
+    "children_recursive": [
+      "8.15.1.1",
+      "8.15.1.2",
+      "8.15.1.3"
+    ]
+  },
+  "8.15.2": {
+    "section_id": "8.15.2",
+    "title": "Mobility procedure for Multicast",
+    "toc_page": 107,
+    "level": 3,
+    "parent": "8.15",
+    "children": [
+      "8.15.2.1"
+    ],
+    "children_recursive": [
+      "8.15.2.1"
+    ]
+  },
+  "8.16.1": {
+    "section_id": "8.16.1",
+    "title": "MN initiated Conditional PSCell Addition",
+    "toc_page": 109,
+    "level": 3,
+    "parent": "8.16",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.16.2": {
+    "section_id": "8.16.2",
+    "title": "MN initiated conditional SN Change",
+    "toc_page": 110,
+    "level": 3,
+    "parent": "8.16",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.16.3": {
+    "section_id": "8.16.3",
+    "title": "SN initiated conditional inter-SN Change",
+    "toc_page": 110,
+    "level": 3,
+    "parent": "8.16",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.17.1": {
+    "section_id": "8.17.1",
+    "title": "IAB Inter-donor-DU Re-routing",
+    "toc_page": 110,
+    "level": 3,
+    "parent": "8.17",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.17.2": {
+    "section_id": "8.17.2",
+    "title": "IAB Inter-CU Topology Redundancy",
+    "toc_page": 110,
+    "level": 3,
+    "parent": "8.17",
+    "children": [
+      "8.17.2.1"
+    ],
+    "children_recursive": [
+      "8.17.2.1"
+    ]
+  },
+  "8.17.3": {
+    "section_id": "8.17.3",
+    "title": "IAB Inter-CU Topology Adaptation",
+    "toc_page": 113,
+    "level": 3,
+    "parent": "8.17",
+    "children": [
+      "8.17.3.1"
+    ],
+    "children_recursive": [
+      "8.17.3.1"
+    ]
+  },
+  "8.17.4": {
+    "section_id": "8.17.4",
+    "title": "IAB Inter-CU Backhaul RLF recovery for single connected IAB-node",
+    "toc_page": 118,
+    "level": 3,
+    "parent": "8.17",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.18.1": {
+    "section_id": "8.18.1",
+    "title": "RACH based SDT",
+    "toc_page": 121,
+    "level": 3,
+    "parent": "8.18",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.18.2": {
+    "section_id": "8.18.2",
+    "title": "CG based SDT",
+    "toc_page": 122,
+    "level": 3,
+    "parent": "8.18",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.18.3": {
+    "section_id": "8.18.3",
+    "title": "RA-SDT or non-SDT with CG-SDT configuration",
+    "toc_page": 124,
+    "level": 3,
+    "parent": "8.18",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.18.4": {
+    "section_id": "8.18.4",
+    "title": "MT-SDT",
+    "toc_page": 125,
+    "level": 3,
+    "parent": "8.18",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.19.1": {
+    "section_id": "8.19.1",
+    "title": "Remote UE initial access",
+    "toc_page": 126,
+    "level": 3,
+    "parent": "8.19",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.19.2": {
+    "section_id": "8.19.2",
+    "title": "Remote UE RRC Reestablishment",
+    "toc_page": 129,
+    "level": 3,
+    "parent": "8.19",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.19.3": {
+    "section_id": "8.19.3",
+    "title": "Remote UE RRC Inactive to other states",
+    "toc_page": 131,
+    "level": 3,
+    "parent": "8.19",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.19.4": {
+    "section_id": "8.19.4",
+    "title": "Service Continuity for L2 U2N relay",
+    "toc_page": 133,
+    "level": 3,
+    "parent": "8.19",
+    "children": [
+      "8.19.4.1",
+      "8.19.4.2",
+      "8.19.4.3"
+    ],
+    "children_recursive": [
+      "8.19.4.1",
+      "8.19.4.2",
+      "8.19.4.3"
+    ]
+  },
+  "8.21.1": {
+    "section_id": "8.21.1",
+    "title": "Network Controlled Repeater Integration Procedure",
+    "toc_page": 138,
+    "level": 3,
+    "parent": "8.21",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.22.1": {
+    "section_id": "8.22.1",
+    "title": "Inter-DU direct path addition on top of indirect path",
+    "toc_page": 139,
+    "level": 3,
+    "parent": "8.22",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.22.3": {
+    "section_id": "8.22.3",
+    "title": "Intra-DU direct path addition on top of indirect path",
+    "toc_page": 143,
+    "level": 3,
+    "parent": "8.22",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.23.1": {
+    "section_id": "8.23.1",
+    "title": "Migration of mobile IAB-MT via Xn handover",
+    "toc_page": 146,
+    "level": 3,
+    "parent": "8.23",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.23.4": {
+    "section_id": "8.23.4",
+    "title": "Mobile IAB-node RLF recovery",
+    "toc_page": 149,
+    "level": 3,
+    "parent": "8.23",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.7.2.1": {
+    "section_id": "7.7.2.1",
+    "title": "General",
+    "toc_page": 28,
+    "level": 4,
+    "parent": "7.7.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.7.2.2": {
+    "section_id": "7.7.2.2",
+    "title": "Support of resource efficiency for MOCN",
+    "toc_page": 28,
+    "level": 4,
+    "parent": "7.7.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "7.7.2.3": {
+    "section_id": "7.7.2.3",
+    "title": "Support of resource efficiency for RAN Sharing with multiple cell-ID broadcast",
+    "toc_page": 28,
+    "level": 4,
+    "parent": "7.7.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.1.1": {
+    "section_id": "8.2.1.1",
+    "title": "Inter-gNB-DU Mobility",
+    "toc_page": 32,
+    "level": 4,
+    "parent": "8.2.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.1.2": {
+    "section_id": "8.2.1.2",
+    "title": "Intra-gNB-DU handover",
+    "toc_page": 33,
+    "level": 4,
+    "parent": "8.2.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.1.3": {
+    "section_id": "8.2.1.3",
+    "title": "Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "toc_page": 34,
+    "level": 4,
+    "parent": "8.2.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.1.4": {
+    "section_id": "8.2.1.4",
+    "title": "Intra-gNB-DU LTM",
+    "toc_page": 35,
+    "level": 4,
+    "parent": "8.2.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.1.5": {
+    "section_id": "8.2.1.5",
+    "title": "Inter-gNB-DU LTM",
+    "toc_page": 38,
+    "level": 4,
+    "parent": "8.2.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.1.6": {
+    "section_id": "8.2.1.6",
+    "title": "LTM with gNB-CU-UP change",
+    "toc_page": 41,
+    "level": 4,
+    "parent": "8.2.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.2.1": {
+    "section_id": "8.2.2.1",
+    "title": "Inter-gNB-DU Mobility using MCG SRB",
+    "toc_page": 43,
+    "level": 4,
+    "parent": "8.2.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.2.2": {
+    "section_id": "8.2.2.2",
+    "title": "Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "toc_page": 45,
+    "level": 4,
+    "parent": "8.2.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.2.3": {
+    "section_id": "8.2.2.3",
+    "title": "Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "toc_page": 45,
+    "level": 4,
+    "parent": "8.2.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.2.3.3": {
+    "section_id": "8.2.3.3",
+    "title": "Intra-CU topology adaptation procedure in NSA using SCG SRB (SRB3)",
+    "toc_page": 52,
+    "level": 4,
+    "parent": "8.2.3",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.4.1.1": {
+    "section_id": "8.4.1.1",
+    "title": "EN-DC",
+    "toc_page": 57,
+    "level": 4,
+    "parent": "8.4.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.4.2.1": {
+    "section_id": "8.4.2.1",
+    "title": "EN-DC",
+    "toc_page": 58,
+    "level": 4,
+    "parent": "8.4.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.4.4.1": {
+    "section_id": "8.4.4.1",
+    "title": "SN Addition with SCG Activation or Deactivation",
+    "toc_page": 60,
+    "level": 4,
+    "parent": "8.4.4",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.4.4.2": {
+    "section_id": "8.4.4.2",
+    "title": "MN initiated SN Modification with SCG Activation or Deactivation",
+    "toc_page": 61,
+    "level": 4,
+    "parent": "8.4.4",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.4.4.3": {
+    "section_id": "8.4.4.3",
+    "title": "SN initiated SN Modification with SCG Activation or Deactivation",
+    "toc_page": 62,
+    "level": 4,
+    "parent": "8.4.4",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.3.1": {
+    "section_id": "8.9.3.1",
+    "title": "gNB-CU-CP initiated bearer context release",
+    "toc_page": 72,
+    "level": 4,
+    "parent": "8.9.3",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.3.2": {
+    "section_id": "8.9.3.2",
+    "title": "gNB-CU-UP initiated bearer context release",
+    "toc_page": 72,
+    "level": 4,
+    "parent": "8.9.3",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.6.1": {
+    "section_id": "8.9.6.1",
+    "title": "RRC Connected to RRC Inactive",
+    "toc_page": 76,
+    "level": 4,
+    "parent": "8.9.6",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.6.2": {
+    "section_id": "8.9.6.2",
+    "title": "RRC Inactive to other states",
+    "toc_page": 77,
+    "level": 4,
+    "parent": "8.9.6",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.9.1": {
+    "section_id": "8.9.9.1",
+    "title": "Traffic Mapping from IP-layer to Layer-2",
+    "toc_page": 81,
+    "level": 4,
+    "parent": "8.9.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.9.2": {
+    "section_id": "8.9.9.2",
+    "title": "BH RLC Channel Mapping on BAP Layer",
+    "toc_page": 81,
+    "level": 4,
+    "parent": "8.9.9",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.10.1": {
+    "section_id": "8.9.10.1",
+    "title": "IAB-node orderly release",
+    "toc_page": 82,
+    "level": 4,
+    "parent": "8.9.10",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.17.1": {
+    "section_id": "8.9.17.1",
+    "title": "IAB-node in NSA",
+    "toc_page": 84,
+    "level": 4,
+    "parent": "8.9.17",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.17.3": {
+    "section_id": "8.9.17.3",
+    "title": "IAB-node is served by two IAB-donors in SA",
+    "toc_page": 85,
+    "level": 4,
+    "parent": "8.9.17",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2.1": {
+    "section_id": "8.13.2.1",
+    "title": "General",
+    "toc_page": 93,
+    "level": 4,
+    "parent": "8.13.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2.2": {
+    "section_id": "8.13.2.2",
+    "title": "Management based MDT Activation in gNB-CU-CP",
+    "toc_page": 93,
+    "level": 4,
+    "parent": "8.13.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2.3": {
+    "section_id": "8.13.2.3",
+    "title": "Management based MDT Activation in gNB-DU",
+    "toc_page": 94,
+    "level": 4,
+    "parent": "8.13.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2.4": {
+    "section_id": "8.13.2.4",
+    "title": "Management based MDT Activation in gNB-CU-UP",
+    "toc_page": 95,
+    "level": 4,
+    "parent": "8.13.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2.5": {
+    "section_id": "8.13.2.5",
+    "title": "User consent propagation in EN-DC",
+    "toc_page": 96,
+    "level": 4,
+    "parent": "8.13.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2.6": {
+    "section_id": "8.13.2.6",
+    "title": "User consent propagation in MR-DC with 5GC",
+    "toc_page": 97,
+    "level": 4,
+    "parent": "8.13.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.13.2.7": {
+    "section_id": "8.13.2.7",
+    "title": "Management based trace activation in MR-DC with 5GC",
+    "toc_page": 98,
+    "level": 4,
+    "parent": "8.13.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.14.1.1": {
+    "section_id": "8.14.1.1",
+    "title": "Signalling of RLF information from gNB-CU to gNB-DU",
+    "toc_page": 100,
+    "level": 4,
+    "parent": "8.14.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.14.1.2": {
+    "section_id": "8.14.1.2",
+    "title": "Signalling of RACH information from gNB-CU to gNB-DU",
+    "toc_page": 100,
+    "level": 4,
+    "parent": "8.14.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.14.1.3": {
+    "section_id": "8.14.1.3",
+    "title": "Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "toc_page": 101,
+    "level": 4,
+    "parent": "8.14.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.15.1.1": {
+    "section_id": "8.15.1.1",
+    "title": "Broadcast MBS Session Setup",
+    "toc_page": 101,
+    "level": 4,
+    "parent": "8.15.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.15.1.2": {
+    "section_id": "8.15.1.2",
+    "title": "Multicast MBS Session Context Establishment",
+    "toc_page": 105,
+    "level": 4,
+    "parent": "8.15.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.15.1.3": {
+    "section_id": "8.15.1.3",
+    "title": "Multicast MRB type re-configuration with F1-U ptp-retransmission tunnel establishment",
+    "toc_page": 107,
+    "level": 4,
+    "parent": "8.15.1",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.15.2.1": {
+    "section_id": "8.15.2.1",
+    "title": "Inter-gNB-CU Mobility between MBS Supporting nodes",
+    "toc_page": 107,
+    "level": 4,
+    "parent": "8.15.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.17.2.1": {
+    "section_id": "8.17.2.1",
+    "title": "IAB Inter-CU topological redundancy procedure",
+    "toc_page": 110,
+    "level": 4,
+    "parent": "8.17.2",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.17.3.1": {
+    "section_id": "8.17.3.1",
+    "title": "IAB inter-CU topology adaptation procedure",
+    "toc_page": 113,
+    "level": 4,
+    "parent": "8.17.3",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.19.4.1": {
+    "section_id": "8.19.4.1",
+    "title": "Inter-gNB-DU switch from direct to indirect path",
+    "toc_page": 133,
+    "level": 4,
+    "parent": "8.19.4",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.19.4.2": {
+    "section_id": "8.19.4.2",
+    "title": "Intra-gNB-DU switch from direct to indirect path",
+    "toc_page": 135,
+    "level": 4,
+    "parent": "8.19.4",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.19.4.3": {
+    "section_id": "8.19.4.3",
+    "title": "Inter-gNB-CU switch from direct to indirect path",
+    "toc_page": 136,
+    "level": 4,
+    "parent": "8.19.4",
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.17.2.1": {
+    "section_id": "8.9.17.2.1",
+    "title": "IAB-node is single-connected",
+    "toc_page": 85,
+    "level": 5,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  },
+  "8.9.17.2.2": {
+    "section_id": "8.9.17.2.2",
+    "title": "IAB-node is NR dual-connected",
+    "toc_page": 85,
+    "level": 5,
+    "parent": null,
+    "children": [],
+    "children_recursive": []
+  }
+}

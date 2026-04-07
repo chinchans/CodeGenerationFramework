@@ -1,0 +1,116 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER_UE_CONTEXT_SETUP",
+  "Feature_Name": "Inter gNB-DU LTM Handover UE Context Setup Procedure",
+  "Release": "18.6.0",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401",
+    "Title": "NG-RAN; Architecture description",
+    "Section": "8.2.1.6 (TS 38 401), 8.19.4.3 (TS 38 401), 8.4.1.1 (TS 38 401), 8.4.4.1 (TS 38 401), 8.9.1 (TS 38 401), 8.9.2 (TS 38 401)"
+  },
+  "Feature_Description": [
+    "This procedure describes the exchange of F1AP UE CONTEXT SETUP REQUEST and UE CONTEXT SETUP RESPONSE messages between the gNB-CU and a candidate gNB-DU during an Inter gNB-DU LTM Handover. The gNB-CU prepares and sends the UE CONTEXT SETUP REQUEST message to the candidate gNB-DU to establish a UE context and configure necessary resources for the UE. The candidate gNB-DU processes this request and responds with a UE CONTEXT SETUP RESPONSE message to the gNB-CU. This process is part of the LTM configuration procedures performed between the gNB-CU and candidate gNB-DUs, as described in the context of LTM with gNB-CU-UP change."
+  ],
+  "Feature_Objectives": [
+    "To establish a UE context in the target gNB-DU for an Inter gNB-DU LTM Handover.",
+    "To enable the gNB-CU to configure the target gNB-DU with UE-specific information required for the handover.",
+    "To allow the target gNB-DU to acknowledge the UE context setup and report its status to the gNB-CU.",
+    "To setup one or more bearers in the gNB-DU as part of the F1 UE context setup procedure."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP (Control Plane)"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C"
+    ]
+  },
+  "Feature_Implementation_Steps": [
+    "The gNB-CU decides to initiate LTM configuration procedures, which includes setting up the UE context in a candidate gNB-DU for an Inter gNB-DU LTM Handover.",
+    "The gNB-CU prepares the F1AP UE CONTEXT SETUP REQUEST message for the UE, containing information required for the UE context establishment and bearer setup in the candidate gNB-DU.",
+    "The gNB-CU sends the F1AP UE CONTEXT SETUP REQUEST message to the candidate gNB-DU.",
+    "The candidate gNB-DU processes the received UE CONTEXT SETUP REQUEST message, establishes the UE context, and configures the requested resources and bearers.",
+    "The candidate gNB-DU responds with the F1AP UE CONTEXT SETUP RESPONSE message to the gNB-CU, indicating the outcome of the UE context setup.",
+    "The gNB-CU handles the received F1AP UE CONTEXT SETUP RESPONSE message to complete its part of the LTM Handover procedure."
+  ],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "**LTM Configuration Decision**: The gNB-CU-CP decides to initiate LTM configuration, which involves an Inter gNB-DU LTM Handover (based on Section 8.2.1.6, step 1).",
+    "**UE Context Setup Request Preparation**: The gNB-CU prepares the F1AP UE CONTEXT SETUP REQUEST message for the UE. This message is used to setup the UE context and one or more bearers in the candidate gNB-DU (Section 8.9.2, step 3). In other mobility contexts, this message may contain path switch configuration (Section 8.19.4.3, step 6) or indicate SCG activation/deactivation requests (Section 8.4.4.1, step 4).",
+    "**Send UE Context Setup Request**: The gNB-CU sends the F1AP UE CONTEXT SETUP REQUEST message to the candidate gNB-DU.",
+    "**UE Context Setup at gNB-DU**: Upon reception, the candidate gNB-DU establishes the UE context and configures the necessary resources and bearers for the UE. If SCG activation was requested, the gNB-DU shall indicate SCG activated in its response (Section 8.4.4.1, step 5).",
+    "**Send UE Context Setup Response**: The candidate gNB-DU responds with the F1AP UE CONTEXT SETUP RESPONSE message to the gNB-CU, confirming the UE context setup and providing any requested status (e.g., SCG status).",
+    "**Handle UE Context Setup Response**: The gNB-CU processes the UE CONTEXT SETUP RESPONSE message to finalize the F1-C interface configuration for the Inter gNB-DU LTM Handover."
+  ],
+  "Code_Artifacts": [],
+  "ASN_IES_File_Path": [],
+  "ASN_IES_C_Structures_Path": [],
+  "Information_Elements": [],
+  "Piggy_Backed_IES_Info": "Not applicable for the scoped messages in this procedure.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "N/A",
+      "Piggy_Backed_IE_Type": "N/A",
+      "Carrier_Message": "N/A",
+      "Source_IE_Name": "",
+      "Source_IE_Type": ""
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+  "Knowledge_Hints": [
+    "8.9.3.2 (ts_138401v180600p): gNB-CU-UP initiated bearer context release",
+    "8.9.3 (ts_138401v180600p): Bearer context release over F1-U",
+    "8.9.3.1 (ts_138401v180600p): gNB-CU-CP initiated bearer context release",
+    "8.9.2 (ts_138401v180600p): Bearer context setup over F1-U",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9 (ts_138401v180600p): Overall procedures involving E1 and F1",
+    "8.9.15 (ts_138401v180600p): IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for mobile IAB cells",
+    "8.9.13 (ts_138401v180600p): IP Address Allocation for IAB-nodes",
+    "8.9.16 (ts_138401v180600p): TAC/RANAC (re-)configuration for mobile IAB",
+    "8.9.12 (ts_138401v180600p): Handling of IAB-MTs in INACTIVE State",
+    "8.9.10 (ts_138401v180600p): IAB-node release",
+    "8.9.14 (ts_138401v180600p): Mobile IAB-node authorization",
+    "8.9.11 (ts_138401v180600p): IAB-node OAM",
+    "8.9.17 (ts_138401v180600p): IAB-node authorization",
+    "8.9.8 (ts_138401v180600p): BH RLC channel establishment procedure",
+    "8.9.7 (ts_138401v180600p): Trace activation/deactivation over F1 and E1",
+    "8.9.1 (ts_138401v180600p): UE Initial Access",
+    "8.9.9 (ts_138401v180600p): Traffic Mapping",
+    "8.9.6 (ts_138401v180600p): RRC State transition",
+    "8.4.4.1 (ts_138401v180600p): SN Addition with SCG Activation or Deactivation",
+    "8.15.1.1 (ts_138401v180600p): Broadcast MBS Session Setup",
+    "6.4 (ts_138401v180600p): UE associations in NG-RAN Node",
+    "8.5 (ts_138401v180600p): F1 Startup and cells activation",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.16.3 (ts_138401v180600p): SN initiated conditional inter-SN Change",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.19.4.3 (ts_138401v180600p): Inter-gNB-CU switch from direct to indirect path"
+  ]
+}

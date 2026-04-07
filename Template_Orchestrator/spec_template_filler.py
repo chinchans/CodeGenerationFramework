@@ -73,6 +73,129 @@ class SpecTemplateFiller:
         Returns:
             Formatted context string organized by source
         """
+        return self.build_multi_source_context_limited(
+            chunks,
+            content_percentage=content_percentage,
+        )
+
+    def _chunk_context_relevance_score(self, chunk: Dict[str, Any]) -> float:
+        """
+        Score chunk "relevance" for ordering. Prefer explicit rank first, then LLM rerank.
+        """
+        # Prefer rank if available
+        if 'rank' in chunk and chunk.get('rank', 0) > 0:
+            return float(chunk.get('rank', 0))
+        # Then LLM rerank score
+        if 'llm_rerank_score' in chunk and chunk.get('llm_rerank_score', 0) > 0:
+            return float(chunk.get('llm_rerank_score', 0))
+        # Fallback to semantic score
+        return float(chunk.get('semantic_score', 0.0) or 0.0)
+
+    def _chunk_asn1_relevance_score(self, chunk: Dict[str, Any]) -> int:
+        """
+        Heuristic: higher score => chunk likely contains ASN.1 structures/definitions.
+        This is intentionally lightweight + regex-based to avoid extra LLM calls.
+        """
+        text = f"{chunk.get('section_title', '')}\n{chunk.get('content', '')}"
+        if not text:
+            return 0
+        t = text.upper()
+
+        # ASN.1 / spec patterns typically used in your chunks
+        patterns = [
+            r"::=",                # ASN.1 assignment
+            r"\bSEQUENCE\s*\{",    # SEQUENCE
+            r"\bCHOICE\s*\{",      # CHOICE
+            r"\bENUMERATED\s*\{",  # ENUMERATED
+            r"\bINTEGER\s*\(",    # INTEGER (0..)
+            r"\bOCTET\s+STRING",   # OCTET STRING
+            r"\bBIT\s+STRING",     # BIT STRING
+            r"\bPROTOCOL-IES\b",   # PROTOCOL-IES
+            r"\bIE(S)?\b\s*PROTOCOL-IES",  # [Message]IEs PROTOCOL-IES
+            r"\bOPTIONAL\b",       # OPTIONAL
+            r"\bMANDATORY\b",      # MANDATORY
+            r"\bSIZE\s*\(",       # SIZE(...)
+        ]
+
+        score = 0
+        for p in patterns:
+            if re.search(p, t, flags=re.IGNORECASE):
+                score += 1
+        return score
+
+    def _select_chunks_for_llm_context(
+        self,
+        *,
+        query: str,
+        chunks: List[Dict[str, Any]],
+        max_chunks_total: int = 30,
+        max_chunks_per_source: int = 12,
+        asn1_min_score: int = 1,
+    ) -> List[Dict[str, Any]]:
+        """
+        Reduce chunks before building `{context}` to control prompt size.
+        Strategy:
+        - compute ASN.1 relevance score
+        - prefer ASN.1-heavy chunks
+        - keep at least some chunks even if ASN.1 scoring is sparse
+        """
+        if not chunks:
+            return []
+
+        # Group by source for per-source capping
+        grouped: Dict[str, List[Dict[str, Any]]] = {}
+        for ch in chunks:
+            if not isinstance(ch, dict):
+                continue
+            source_id = ch.get("knowledge_source", ch.get("source_id", "unknown"))
+            grouped.setdefault(str(source_id), []).append(ch)
+
+        # Attach computed scores for stable ordering (without mutating original too much)
+        scored_by_source: Dict[str, List[Dict[str, Any]]] = {}
+        for source_id, source_chunks in grouped.items():
+            scored = []
+            for ch in source_chunks:
+                c = ch.copy()
+                c["context_asn1_score"] = self._chunk_asn1_relevance_score(c)
+                c["context_relevance_score"] = self._chunk_context_relevance_score(c)
+                scored.append(c)
+
+            # Prefer ASN.1-heavy first, then retrieval relevance
+            scored.sort(key=lambda x: (x.get("context_asn1_score", 0), x.get("context_relevance_score", 0.0)), reverse=True)
+            scored_by_source[source_id] = scored
+
+        # First pass: keep ASN.1-heavy chunks
+        candidates: List[Dict[str, Any]] = []
+        for source_id, scored in scored_by_source.items():
+            asn1_heavy = [c for c in scored if c.get("context_asn1_score", 0) >= asn1_min_score]
+            if not asn1_heavy:
+                # If nothing matches ASN.1 scoring, fallback to top relevance from that source
+                asn1_heavy = scored[:1]
+            candidates.extend(asn1_heavy[:max_chunks_per_source])
+
+        # If we filtered too aggressively, fallback to top relevance chunks overall
+        if len(candidates) < max(5, int(max_chunks_total * 0.4)):
+            all_scored = [c for s in scored_by_source.values() for c in s]
+            all_scored.sort(key=lambda x: (x.get("context_asn1_score", 0), x.get("context_relevance_score", 0.0)), reverse=True)
+            candidates = all_scored[:max_chunks_total]
+
+        # Enforce global cap
+        candidates.sort(key=lambda x: (x.get("context_asn1_score", 0), x.get("context_relevance_score", 0.0)), reverse=True)
+        return candidates[:max_chunks_total]
+
+    def build_multi_source_context_limited(
+        self,
+        chunks: List[Dict[str, Any]],
+        *,
+        content_percentage: float = 0.60,
+        # Hard caps for LLM input size. Tuned to balance quota vs completeness.
+        max_total_chars: int = 520000,
+        max_chars_per_chunk: int = 20000,
+        max_chunks_per_source: int = 12,
+    ) -> str:
+        """
+        Build context string with hard caps to avoid LLM quota exhaustion.
+        """
         # Organize chunks by source
         chunks_by_source = {}
         for chunk in chunks:
@@ -82,6 +205,8 @@ class SpecTemplateFiller:
             chunks_by_source[source_id].append(chunk)
         
         context_parts = []
+        total_chars = 0
+        appended_sections = 0
         
         for source_id, source_chunks in chunks_by_source.items():
             context_parts.append(f"{'='*60}")
@@ -94,7 +219,10 @@ class SpecTemplateFiller:
                 source_chunks, 
                 key=lambda x: x.get("rank", x.get("llm_rerank_score", x.get("semantic_score", 999)))
             )
-            
+
+            # Per-source cap (extra safety)
+            sorted_chunks = sorted_chunks[:max_chunks_per_source]
+
             for i, chunk in enumerate(sorted_chunks, 1):
                 section_id = chunk.get("section_id", "Unknown")
                 section_title = chunk.get("section_title", "")
@@ -106,6 +234,7 @@ class SpecTemplateFiller:
                 original_length = len(content)
                 if content and original_length > 0:
                     max_length = max(1, int(original_length * content_percentage))
+                    max_length = min(max_length, max_chars_per_chunk)
                     if len(content) > max_length:
                         content = content[:max_length] + f"\n[... content truncated, {original_length - max_length} characters removed ({int((1 - content_percentage) * 100)}% of original) ...]"
                 
@@ -113,16 +242,33 @@ class SpecTemplateFiller:
                 header = f"[{i}] Section {section_id}: {section_title}"
                 if resolved:
                     header += f" [RESOLVED FROM {ref_type.upper()}]"
-                context_parts.append(header)
-                context_parts.append("-" * 60)
+                piece_parts = [header, "-" * 60]
                 
                 # Add content
+                if content:
+                    piece_parts.append(content)
+                else:
+                    piece_parts.append("[No content available]")
+                
+                piece_parts.append("")  # Empty line between sections
+                piece = "\n".join(piece_parts)
+                # Hard cap on total prompt size. Stop adding more sections when budget is exhausted.
+                if total_chars + len(piece) > max_total_chars:
+                    break
+
+                context_parts.append(header)
+                context_parts.append("-" * 60)
                 if content:
                     context_parts.append(content)
                 else:
                     context_parts.append("[No content available]")
-                
-                context_parts.append("")  # Empty line between sections
+                context_parts.append("")
+
+                total_chars += len(piece)
+                appended_sections += 1
+
+            if total_chars >= max_total_chars:
+                break
         
         return "\n".join(context_parts)
     
@@ -291,9 +437,9 @@ class SpecTemplateFiller:
         
         sorted_chunks = sorted(chunks, key=get_sort_score, reverse=True)
         
-        # Keep top 70%
-        num_to_keep = max(1, int(len(sorted_chunks) * 0.70))
-        chunks = sorted_chunks[:num_to_keep]
+        # Keep all chunks (we reduce prompt size by truncating content per chunk,
+        # not by dropping chunks).
+        chunks = sorted_chunks
         
         chunks_after_reduction = len(chunks)
         if chunks_before_reduction != chunks_after_reduction:
@@ -303,8 +449,17 @@ class SpecTemplateFiller:
             # print("Using all %d chunks", chunks_after_reduction)
             pass
         
-        # Build multi-source context
-        context = self.build_multi_source_context(chunks)
+        # Build multi-source context:
+        # - Keep *all* chunks we already selected (after dedupe + top-70% chunk trim).
+        # - Reduce each chunk by ~30% (content_percentage=0.70).
+        # - Only stop once we hit the global char budget.
+        context = self.build_multi_source_context_limited(
+            chunks,
+            content_percentage=0.70,   # reduce per-chunk by ~30%
+            max_total_chars=520000,     # global guardrail
+            max_chars_per_chunk=200000, # avoid per-chunk caps interfering with percentage truncation
+            max_chunks_per_source=100000, # do not drop chunks due to per-source cap
+        )
         context_size = len(context)
         print("Context built: %s characters from %d chunks", f"{context_size:,}", len(chunks))
         
@@ -828,6 +983,11 @@ class SpecTemplateFiller:
         for key, value in extracted_info.items():
             if key in filled_template:
                 filled_template[key] = value
+
+        # Deterministic ASN.1 backfill for IEs:
+        # If the LLM omits `Information_Elements` or leaves `IE_Definition` empty,
+        # populate definitions directly from retrieved chunk texts when possible.
+        self._backfill_information_elements_asn1(filled_template, chunks)
         
         # Add Knowledge_Hints with section IDs and sources from chunks
         if "Knowledge_Hints" in filled_template:
@@ -856,6 +1016,236 @@ class SpecTemplateFiller:
         # print("Template filled successfully")
         
         return filled_template
+
+    def _ie_name_variants_for_search(self, ie_name: str) -> List[str]:
+        """
+        Generate pragmatic search variants for IE names.
+        Supports exact ASN.1 type names and template labels.
+        """
+        raw = str(ie_name or "").strip()
+        if not raw:
+            return []
+
+        variants = {raw}
+
+        # Strip common suffix used in templates
+        if raw.upper().endswith(" IE"):
+            variants.add(raw[:-3].strip())
+
+        # Remove spaces/hyphens (common differences vs ASN.1 identifiers)
+        variants.add(raw.replace(" ", ""))
+        variants.add(raw.replace("-", ""))
+        variants.add(raw.replace(" ", "").replace("-", ""))
+
+        # Light normalization for punctuation
+        variants.add(re.sub(r"[^A-Za-z0-9_]", "", raw))
+        variants.add(re.sub(r"[^A-Za-z0-9_]", "", raw.replace(" ", "")))
+
+        # Prefer longer variants first to reduce false positives
+        out = sorted({v for v in variants if v}, key=len, reverse=True)
+        return out
+
+    def _normalize_ie_key(self, name: str) -> str:
+        """Normalization key for fuzzy IE-name matching."""
+        return re.sub(r"[^a-z0-9]", "", str(name or "").lower())
+
+    def _extract_asn1_definition_for_ie_from_text(self, ie_name: str, text: str, *, max_chars: int = 12000) -> str:
+        """
+        Best-effort extraction of an ASN.1 definition line/block containing `ie_name`.
+        Looks for a line matching:  <TypeName> ... ::= ...
+        """
+        if not ie_name or not text:
+            return ""
+
+        variants = self._ie_name_variants_for_search(ie_name)
+        if not variants:
+            return ""
+
+        for v in variants:
+            pat = re.compile(
+                rf"(^|\n)(?P<line>[^\n]*\b{re.escape(v)}\b[^\n]*::=[^\n]*)(\n|$)",
+                flags=re.IGNORECASE,
+            )
+            m = pat.search(text)
+            if not m:
+                continue
+
+            # Start at the beginning of the matched line
+            line_start = text.rfind("\n", 0, m.start("line"))
+            if line_start == -1:
+                line_start = 0
+            else:
+                line_start += 1
+
+            # End at next blank line if available, else cap
+            after = text.find("\n\n", m.end("line"))
+            if after == -1:
+                after = min(len(text), line_start + max_chars)
+            else:
+                after = min(after, line_start + max_chars)
+
+            block = text[line_start:after].strip()
+            if block:
+                return block
+
+        return ""
+
+    def _extract_asn1_definition_for_ie(self, ie_name: str, chunks: List[Dict[str, Any]]) -> str:
+        """
+        Search across retrieved chunks for an ASN.1 definition of `ie_name`.
+        """
+        if not ie_name or not chunks:
+            return ""
+
+        scored = []
+        for ch in chunks:
+            if not isinstance(ch, dict):
+                continue
+            content = ch.get("content", "") or ""
+            title = ch.get("section_title", "") or ""
+            if not content and not title:
+                continue
+            blob = f"{title}\n{content}"
+            upper = blob.upper()
+            score = 0
+            if "::=" in blob:
+                score += 2
+            if "PROTOCOL-IES" in upper:
+                score += 2
+            if "SEQUENCE" in upper or "CHOICE" in upper or "ENUMERATED" in upper:
+                score += 1
+            scored.append((score, blob))
+
+        scored.sort(key=lambda x: x[0], reverse=True)
+
+        for _, blob in scored:
+            d = self._extract_asn1_definition_for_ie_from_text(ie_name, blob)
+            if d:
+                return d
+
+        return ""
+
+    def _extract_child_type_references(self, asn1_definition: str) -> List[str]:
+        """
+        Extract likely child ASN.1 type references from a definition block.
+        """
+        if not asn1_definition:
+            return []
+
+        refs: Set[str] = set()
+        text = asn1_definition
+
+        # Pattern used in many ASN.1 IE container definitions
+        for m in re.finditer(r"\bTYPE\s+([A-Za-z][A-Za-z0-9-]*)\b", text, flags=re.IGNORECASE):
+            refs.add(m.group(1))
+
+        # Generic field line pattern: "<fieldName> <TypeName>"
+        # We only keep TypeName-like tokens.
+        for m in re.finditer(r"\b[A-Za-z][A-Za-z0-9-]*\s+([A-Za-z][A-Za-z0-9-]*)\b", text):
+            refs.add(m.group(1))
+
+        # Filter obvious ASN.1 keywords / noise
+        banned = {
+            "SEQUENCE", "CHOICE", "SET", "OF", "SIZE", "OPTIONAL", "DEFAULT",
+            "PRESENCE", "CRITICALITY", "MANDATORY", "CONDITIONAL", "IGNORE",
+            "REJECT", "INTEGER", "ENUMERATED", "BOOLEAN", "NULL", "OCTET",
+            "STRING", "BIT", "TRUE", "FALSE", "ID", "TYPE", "VALUE",
+        }
+        out = []
+        for r in refs:
+            ru = r.upper()
+            if ru in banned:
+                continue
+            # Skip identifiers that are likely constants / IDs only.
+            if ru.startswith("ID-"):
+                continue
+            # Prefer type-like names
+            if len(r) < 3:
+                continue
+            out.append(r)
+
+        # Deterministic ordering
+        out = sorted(set(out), key=lambda x: (len(x), x), reverse=True)
+        return out
+
+    def _backfill_information_elements_asn1(self, filled_template: Dict[str, Any], chunks: List[Dict[str, Any]]) -> None:
+        """
+        Populate missing `IE_Definition` entries inside `Information_Elements` from chunk texts.
+        """
+        ies = filled_template.get("Information_Elements")
+        if not isinstance(ies, list) or not ies:
+            return
+
+        # Build a normalized alias map so referenced child type names can map back
+        # to template IE entries even with naming differences.
+        alias_to_indices: Dict[str, List[int]] = {}
+        for idx, ie in enumerate(ies):
+            if not isinstance(ie, dict):
+                continue
+            ie_name = str(ie.get("IE_Name", "") or "").strip()
+            if not ie_name:
+                continue
+            for v in self._ie_name_variants_for_search(ie_name):
+                k = self._normalize_ie_key(v)
+                if not k:
+                    continue
+                alias_to_indices.setdefault(k, []).append(idx)
+
+        def _set_definition_if_empty(index: int, definition: str) -> bool:
+            if not definition:
+                return False
+            ie = ies[index]
+            cur = ie.get("IE_Definition")
+            if isinstance(cur, str) and cur.strip():
+                return False
+            ie["IE_Definition"] = definition
+            return True
+
+        # Pass 1: direct fill by each IE's own name
+        for ie in ies:
+            if not isinstance(ie, dict):
+                continue
+            name = str(ie.get("IE_Name", "") or "").strip()
+            if not name:
+                continue
+            cur = ie.get("IE_Definition")
+            if isinstance(cur, str) and cur.strip():
+                continue
+
+            asn1 = self._extract_asn1_definition_for_ie(name, chunks)
+            if asn1:
+                ie["IE_Definition"] = asn1
+
+        # Pass 2+: recursively resolve child type references from filled parent defs.
+        # Iterate until no new child definitions are filled.
+        changed = True
+        max_rounds = 6
+        round_no = 0
+        while changed and round_no < max_rounds:
+            round_no += 1
+            changed = False
+
+            for ie in ies:
+                if not isinstance(ie, dict):
+                    continue
+                parent_def = str(ie.get("IE_Definition", "") or "").strip()
+                if not parent_def:
+                    continue
+
+                child_refs = self._extract_child_type_references(parent_def)
+                for child in child_refs:
+                    child_def = self._extract_asn1_definition_for_ie(child, chunks)
+                    if not child_def:
+                        continue
+
+                    # Fill all matching IE entries for this child alias.
+                    for k in self._ie_name_variants_for_search(child):
+                        nk = self._normalize_ie_key(k)
+                        if not nk:
+                            continue
+                        for idx in alias_to_indices.get(nk, []):
+                            if _set_definition_if_empty(idx, child_def):
+                                changed = True
     
     def _ensure_required_fields(self, template: Dict[str, Any], reference_template: Dict[str, Any] = None):
         """
@@ -952,3 +1342,44 @@ class SpecTemplateFiller:
         # print("Saved filled template to: %s", output_path)
         
         return output_path
+
+
+if __name__ == "__main__":
+    from spec_retrieval_context_adapter import agentic_ie_retrieval_to_template_filler_inputs
+
+    _REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    OUTPUT_DIR = os.path.join(_REPO_ROOT, "outputs", "spec_filled_templates")
+    AGENTIC_RETRIEVAL_JSON = os.path.join(
+        _REPO_ROOT,
+        "KG_Only_Pipeline",
+        "spec_chunks",
+        "retrieval_outputs",
+        "agentic_ie_retrieval_context_20260325_113714.json",
+    )
+
+        
+    inputs = agentic_ie_retrieval_to_template_filler_inputs(AGENTIC_RETRIEVAL_JSON)
+    chunks = inputs["chunks"]
+    query = "gNB-CU has to prepare and send F1AP 'UE CONTEXT SETUP REQUEST' message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP 'UE CONTEXT SETUP RESPONSE' message and this message has to be handled on gNB-CU for Inter-gNB-DU LTM handover"
+    template_file = inputs["template_path"] or os.path.join(_REPO_ROOT, "inputs", "Template.json")
+
+    spec_template_filler = SpecTemplateFiller(template_file=template_file)
+
+    extracted_info = spec_template_filler.extract_information(
+        query=query,
+        chunks=chunks,
+    )
+
+    filled_template = spec_template_filler.fill_template(
+        extracted_info=extracted_info,
+        chunks=chunks,
+    )
+
+    print("Step 3: Saving Filled Template")
+    spec_template_path = spec_template_filler.save_output(
+        filled_template=filled_template,
+        query=query,
+        output_dir=OUTPUT_DIR,
+    )
+
+    print(f"Filled template saved to: {spec_template_path}")

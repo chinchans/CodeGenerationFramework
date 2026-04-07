@@ -1,0 +1,323 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER",
+  "Feature_Name": "Inter-gNB-DU LTM Handover",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401",
+    "Title": "NG-RAN Architecture Description",
+    "Section": "8.2.1.5 (TS 38.401), 8.2.1.4 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation for LTM (LTM: L1/L2 Triggered Mobility)."
+  ],
+  "Feature_Objectives": [
+    "To enable UE mobility between different gNB-DUs within the same gNB-CU using L1/L2 Triggered Mobility (LTM) during NR operation.",
+    "To facilitate the preparation and modification of UE contexts in source and candidate gNB-DUs for LTM configuration and subsequent cell switches."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "Control Plane (F1AP)",
+      "Radio Resource Control (RRC)"
+    ],
+    "Protocol_Interfaces": [
+      "F1 (between gNB-CU and gNB-DU)",
+      "Uu (between UE and gNB-DU)"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT MODIFICATION REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Source gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Source gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION RESPONSE",
+      "Actors": [
+        "Source gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Source gNB-DU",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION RESPONSE",
+      "Actors": [
+        "Candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU including the information related to early sync and the LTM configuration ID mapping list for the accepted target candidate cell(s). The gNB-CU may send the updated CSI resource configuration to the source gNB-DU. The gNB-CU may inform the source gNB-DU about intra-DU L2 reset configuration. (Ref: 8.2.1.5, Step 5)",
+    "The source gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message which includes an updated lower layer configuration, e.g., containing the updated CSI report configuration of the source cell. (Ref: 8.2.1.5, Step 6)",
+    "The gNB-CU may send a UE CONTEXT MODIFICATION REQUEST message for each candidate cell accepted in the candidate gNB-DU(s), containing the information for subsequent LTM or for updating the configurations of candidate cells. The gNB-CU may also provide the lower layer part of the reference configuration to the candidate gNB-DU(s). The gNB-CU may inform the candidate gNB-DU(s) about intra-DU L2 reset configuration. (Ref: 8.2.1.5, Step 7)",
+    "The candidate gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message including the updated lower layer configuration, e.g., containing the updated CSI report configuration of the requested candidate cell. (Ref: 8.2.1.5, Step 8)",
+    "The CU-initiated UE Context Modification procedure may be initiated for preparing candidate cells in the source gNB-DU as specified in step 3 and 4 in 8.2.1.4 Intra-gNB-DU LTM. (Ref: 8.2.1.5, Note 1)",
+    "For intra-DU LTM, the gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the gNB-DU for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU may provide the LTM configuration ID mapping list to the gNB-DU. The gNB-CU may request PRACH resources from the gNB-DU. The gNB-CU may request the gNB-DU to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer reference configuration to the gNB-DU. The gNB-CU may inform the gNB-DU about intra-DU L2 reset configuration. (Ref: 8.2.1.4, Step 3)",
+    "If the gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT MODIFICATION RESPONSE message including the generated lower layer RRC configurations for the accepted candidate cell. (Ref: 8.2.1.4, Step 4)"
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_mod_req_t",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 585,
+          "description": "Data structure defining the format of the F1AP UE Context Modification Request message, including all its Information Elements (IEs). This is crucial for constructing the message on the gNB-CU side.",
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_generate_UeContextModificationRequest",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 3087,
+          "line_end": -1,
+          "description": "A helper function on the gNB-CU RRC layer responsible for generating the content of the UE Context Modification Request message based on internal RRC state and mobility decisions. It prepares the data that will be serialized into the F1AP message.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_mod_req_t"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "ue_context_modification_request_f1ap",
+          "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+          "line_start": 87,
+          "line_end": -1,
+          "description": "This function acts as an interface or a specific helper to construct the F1AP UE Context Modification Request message, likely bridging RRC-level information to the F1AP message structure. It's a key step in preparing the message for encoding.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_mod_req_t"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "encode_ue_context_mod_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_start": 1691,
+          "line_end": -1,
+          "description": "This is the specific encoding function for the F1AP UE Context Modification Request message. It takes the structured data (e.g., `f1ap_ue_context_mod_req_t`) and converts it into a byte stream suitable for transmission over the F1 interface.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_mod_req_t"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "f1ap_encode_pdu",
+          "file_path": "openair2\\F1AP\\f1ap_encoder.c",
+          "line_start": 31,
+          "line_end": -1,
+          "description": "A generic F1AP PDU encoding function. After the specific message content is encoded (e.g., by `encode_ue_context_mod_req`), this function would encapsulate it into a complete F1AP Protocol Data Unit (PDU) for transmission.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "f1ap_itti_send_sctp_data_req",
+          "file_path": "openair2\\F1AP\\f1ap_itti_messaging.c",
+          "line_start": 25,
+          "line_end": -1,
+          "description": "This utility function is responsible for sending the encoded F1AP PDU over the SCTP transport layer using the ITTI (Inter-Task Interface) messaging framework. It's a fundamental building block for any F1AP message transmission.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "fill_drb_to_be_setup_from_e1_resp",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 2400,
+          "line_end": -1,
+          "description": "A helper function used to populate DRB (Data Radio Bearer) related information into a message structure. This would be essential when the UE Context Modification Request needs to include updates or modifications to DRB configurations.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "cu_get_f1_ue_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_start": 99,
+          "line_end": -1,
+          "description": "This function retrieves UE context data based on F1AP IDs. It is a critical utility for the gNB-CU to access the relevant UE context information when preparing the UE Context Modification Request and when processing the subsequent UE Context Modification Response.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        }
+      ]
+    }
+  ],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UECONTEXTMODIFICATIONREQUEST",
+      "IE_Definition": "F1AP message sent from gNB-CU to gNB-DU to modify a UE context, containing LTM-specific information for Inter-gNB-DU LTM handover.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UECONTEXTMODIFICATIONRESPONSE",
+      "IE_Definition": "F1AP message sent from gNB-DU to gNB-CU in response to a UE CONTEXT MODIFICATION REQUEST, containing LTM-specific information for Inter-gNB-DU LTM handover.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTMconfigurationIDmappinglist",
+      "IE_Definition": "The LTM configuration ID mapping list for the accepted target candidate cell(s).",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CSIresourceconfigurationforsubsequentLTM",
+      "IE_Definition": "The CSI resource configuration for subsequent LTM.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Informationrelatedtoearlysync",
+      "IE_Definition": "Information related to early synchronization.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Intra-DUL2resetconfiguration",
+      "IE_Definition": "Information about intra-DU L2 reset configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "InformationforsubsequentLTM",
+      "IE_Definition": "Information for subsequent LTM.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Lowerlayerpartofthereferenceconfiguration",
+      "IE_Definition": "The lower layer part of the reference configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CandidatecellID",
+      "IE_Definition": "One candidate cell ID.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "PRACHresources",
+      "IE_Definition": "PRACH resources.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Lowerlayerconfigurationforgeneratingreferenceconfiguration",
+      "IE_Definition": "The lower layer configuration for the purpose of generating the reference configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Updatedlowerlayerconfiguration",
+      "IE_Definition": "An updated lower layer configuration.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UpdatedCSIreportconfigurationofthesourcecell",
+      "IE_Definition": "The updated CSI report configuration of the source cell.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UpdatedCSIreportconfigurationoftherequestedcandidatecell",
+      "IE_Definition": "The updated CSI report configuration of the requested candidate cell.",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "GeneratedlowerlayerRRCconfigurationsfortheacceptedcandidatecell",
+      "IE_Definition": "The generated lower layer RRC configurations for the accepted candidate cell.",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "For the Inter-gNB-DU LTM procedure, the RRCReconfiguration message is not piggybacked within the UE CONTEXT MODIFICATION REQUEST message. Instead, the RRCReconfiguration message with the LTM configuration is sent via a DL RRC MESSAGE TRANSFER message from the gNB-CU to the source gNB-DU (Ref: 8.2.1.5, Step 9).",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "N/A",
+      "Piggy_Backed_IE_Type": "N/A",
+      "Carrier_Message": "N/A",
+      "Source_IE_Name": "",
+      "Source_IE_Type": ""
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "CMake",
+    "Repo_Path": ".",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Git"
+  },
+  "Knowledge_Hints": [
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.15.2 (ts_138401v180600p): Mobility procedure for Multicast",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU"
+  ]
+}

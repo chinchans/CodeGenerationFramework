@@ -1,0 +1,774 @@
+{
+  "feature_json_path": "in_memory",
+  "template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\inputs\\Template_common.json",
+  "intent": "gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU for Inter-gNB-DU LTM handover.",
+  "timestamp": "2026-03-31T10:57:29.247753",
+  "retrieval_config": {
+    "max_depth_kg_expand": 2,
+    "llm_iexpand_max_depth": 2,
+    "llm_iexpand_max_nodes": 60,
+    "llm_available": true
+  },
+  "kg_expansion_trace_by_doc_id": {
+    "ts_138401v180600p": {
+      "doc_id": "ts_138401v180600p",
+      "seeds": [
+        "8.2.1.5"
+      ],
+      "max_depth": 2,
+      "direction": "both",
+      "visited_count": 30,
+      "edges_count": 29,
+      "truncated": false,
+      "edges": [
+        {
+          "from_section_id": "8.2.1.5",
+          "to_section_id": "8.2.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 1,
+          "relationship_types": [
+            "CHILD_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.5",
+          "to_section_id": "8.2.1.6",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 1,
+          "relationship_types": [
+            "REFERENCED_BY",
+            "SIBLING_OF",
+            "DEFINES",
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.5",
+          "to_section_id": "8.2.1.4",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 1,
+          "relationship_types": [
+            "SIBLING_OF",
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.5",
+          "to_section_id": "8.2.1.3",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 1,
+          "relationship_types": [
+            "SIBLING_OF",
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.5",
+          "to_section_id": "8.2.1.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 1,
+          "relationship_types": [
+            "SIBLING_OF",
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.5",
+          "to_section_id": "8.2.1.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 1,
+          "relationship_types": [
+            "SIBLING_OF",
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.5",
+          "to_section_id": "8.14.1.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 1,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1",
+          "to_section_id": "8.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "CHILD_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1",
+          "to_section_id": "8.2.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF",
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1",
+          "to_section_id": "8.2.3",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1",
+          "to_section_id": "8.2.5",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1",
+          "to_section_id": "8.2.4",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1",
+          "to_section_id": "8.15.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1",
+          "to_section_id": "8.2.2.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "PREREQUISITE_FOR"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.6",
+          "to_section_id": "8.9.4",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.6",
+          "to_section_id": "8.9.5",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.4",
+          "to_section_id": "8.19.4.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.3",
+          "to_section_id": "8.2.2.3",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.3",
+          "to_section_id": "8.2.2.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.3",
+          "to_section_id": "8.16.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.2",
+          "to_section_id": "6.2.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.2",
+          "to_section_id": "8.3.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.1",
+          "to_section_id": "8.4.1.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.1",
+          "to_section_id": "8.4.2.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.1",
+          "to_section_id": "8.14.1.3",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "DEFINES"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.1",
+          "to_section_id": "6.2.5",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "RELATED_TO"
+          ]
+        },
+        {
+          "from_section_id": "8.2.1.1",
+          "to_section_id": "8.19.4.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "PREREQUISITE_FOR"
+          ]
+        },
+        {
+          "from_section_id": "8.14.1.1",
+          "to_section_id": "8.14.1",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "CHILD_OF"
+          ]
+        },
+        {
+          "from_section_id": "8.14.1.1",
+          "to_section_id": "8.14.1.2",
+          "root_seed_section_id": "8.2.1.5",
+          "depth_level": 2,
+          "relationship_types": [
+            "SIBLING_OF",
+            "RELATED_TO"
+          ]
+        }
+      ]
+    }
+  },
+  "ie_recursive_trace_by_message": [],
+  "per_doc_ie_definition_chunks": {},
+  "final_context_count": 30,
+  "final_context": [
+    {
+      "section_id": "8.2.1.5",
+      "section_title": "Inter-gNB-DU LTM",
+      "content": "8.2.1.5 Inter-gNB-DU LTM\nThis procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-\nCU during NR operation for LTM. Figure 8.2.1.5-1 shows the inter-gNB-DU LTM procedure for intra-NR.\nUE Source\ngNB-DU\nCandidate\ngNB-DU\ngNB-CU\nUser Data User Data\n1. L3 Measurement Control and Reports\n2. LTM Configuration Decision\n3. UE CONTEXT SETUP REQUEST\n4. UE CONTEXT SETUP RESPONSE\n5. UE CONTEXT MODIFICATION REQUEST\n6. UE CONTEXT MODIFICATION RESPONSE\n7. UE CONTEXT MODIFICATION REQUEST\n8. UE CONTEXT MODIFICATION RESPONSE\n9. DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n10. RRCReconfiguration\n11. RRCReconfigurationComplete\n12. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete )\n12a. CU-DU MOBILITY INITIATION REQUEST\n13. Early TA acquisition\n14. DU-CU TA INFORMATION TRANSFER\n15. CU-DU TA INFORMATION TRANSFER\n16. L1 measurement report\n17. LTM Cell switch decision\n18. Cell Switch Command\n19. DU-CU CELL SWITCH NOTIFICATION\n(Target cell ID, TCI State ID)\n20. CU-DU CELL SWITCH NOTIFICATION\n(Target cell ID, TCI State ID)\nDownlink Data Delivery Status\n21. The gNB-DU detects the UE access\n22. ACCESS SUCCESS\n(Target cell ID)\n23. RRCReconfigurationComplete\n24. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete)\n25.UE CONTEXT RELEASE COMMAND\n(Prepared cells to be released)\n26.UE CONTEXT RELEASE COMPLETE\nUser Data User Data\nFigure 8.2.1.5-1: Inter-gNB-DU LTM\n1. The UE sends a MeasurementReport  message (L3 measurement result) to the source gNB-DU containing\nmeasurements of neighbouring cells. The source gNB-DU sends an UL RRC MESSAGE TRANSFER message\nconveying the received MeasurementReport message to the gNB-CU.\n2. The gNB-CU determines to initiate LTM configuration.\n3. The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each\ncandidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The\ngNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s). The gNB-CU may\nrequest PRACH resources from the candidate gNB-DU(s). The gNB-CU may request the candidate gNB-DU(s)\nto provide the lower layer configuration for the purpose of generating the reference configuration or provide the\nlower layer part of the reference configuration to the candidate gNB-DU(s).\n4. If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP\nRESPONSE message including the generated lower layer RRC configurations for the accepted target candidate\ncell.\nNOTE 1: The CU-initiated UE Context Modification procedure may be initiated for preparing candidate cells in the\nsource gNB-DU as specified in step 3 and 4 in 8.2.1.4 Intra-gNB-DU LTM.\n5. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU including\nthe information related to early sync and the LTM configuration ID mapping list for the accepted target\ncandidate cell(s). The gNB-CU may send the updated CSI resource configuration to the source gNB-DU. The\ngNB-CU may inform the source gNB-DU about intra-DU L2 reset configuration.\n6. The source gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message which includes an\nupdated lower layer configuration, e.g., containing the updated CSI report configuration of the source cell.\n7. The gNB-CU may send a UE CONTEXT MODIFICATION REQUEST message for each candidate cell\naccepted in the candidate gNB-DU(s), containing the information for subsequent LTM or for updating the\nconfigurations of candidate cells. The gNB-CU may also provide the lower layer part of the reference\nconfiguration to the candidate gNB-DU(s). The gNB-CU may inform the candidate gNB-DU(s) about intra-DU\nL2 reset configuration.\n8. The candidate gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message including the\nupdated lower layer configuration, e.g., containing the updated CSI report configuration of the requested\ncandidate cell.\nNOTE 2: Step 7 may also be triggered after step 19, or after step 22 by implementation for subsequent LTM.\n9. The gNB-CU sends a DL RRC MESSAGE TRANSFER message to the source gNB-DU, which includes the\ngenerated RRCReconfiguration message with the LTM configuration.\n10. The source gNB-DU forwards the received RRCReconfiguration message to the UE.\n11. The UE responds to the source gNB-DU with an RRCReconfigurationComplete message.\n12. The source gNB-DU forwards the RRCReconfigurationComplete message to the gNB-CU via an UL RRC\nMESSAGE TRANSFER message.\n12a. If LTM is triggered based on L3 measurement, gNB-CU sends a CU-DU MOBILITY INITIATION REQUEST\nmessage to the gNB-DU to trigger early synchronization and/or cell switch.\n13. Early TA acquisition to the candidate cell(s) may be performed as specified in TS 38.300 [2].\n14.The candidate gNB-DU sends a DU-CU TA INFORMATION TRANSFER message to the gNB-CU, which\nincludes the TA values, and the associated PRACH resource information.\n15. The gNB-CU forwards the TA value, and the associated PRACH resource information to the source gNB-DU in\nthe CU-DU TA INFORMATION TRANSFER message.\n16/ 17. The UE sends the L1 measurement result to the source gNB-DU if L1 measurement is configured to UE. The\nsource gNB-DU decides to execute LTM to a target cell.\n18. The source gNB-DU sends the Cell Switch Command to the UE.\n19. The source gNB-DU sends the DU-CU CELL SWITCH NOTIFICATION message to the gNB-CU to indicate\nthe initiation of the Cell Switch Command to the UE, including the target cell ID and the TCI state ID(s). The\nTA value(s) related information applicable for subsequent LTM may also be included.\n20. The gNB-CU forwards in the CU-DU CELL SWITCH NOTIFICATION message to the target gNB-DU the\ntarget cell ID, the TCI state ID(s), and the TA value(s) related information received in step 19.\n21. The target gNB-DU detects the UE access as specified in TS 38.300 [2].\n22. The target gNB-DU sends the ACCESS SUCCESS message to the gNB-CU with the target cell ID.\n23. The UE sends an RRCReconfigurationComplete message to the target gNB-DU.\n24. The target gNB-DU forwards the RRCReconfigurationComplete message to the gNB-CU via an UL RRC\nMESSAGE TRANSFER message.\n25. The gNB-CU may send the UE CONTEXT RELEASE COMMAND message to the source gNB-DU to release\nthe resources of prepared cells.\n26. The source gNB-DU responds with a UE CONTEXT RELEASE COMPLETE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          40,
+          41,
+          42
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.1",
+      "section_title": "Intra-NR Mobility",
+      "content": "8.2.1 Intra-NR Mobility",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.2",
+        "child_section_ids": [
+          "8.2.1.1",
+          "8.2.1.2",
+          "8.2.1.3",
+          "8.2.1.4",
+          "8.2.1.5",
+          "8.2.1.6"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.1.6",
+      "section_title": "LTM with gNB-CU-UP change",
+      "content": "8.2.1.6 LTM with gNB-CU-UP change\nFigure 8.2.1.6-1 shows the procedure used for LTM with the change of gNB-CU-UP within a gNB.\nSource gNB-DU Target gNB-DU gNB-CU-CP Source gNB-CU-UP Target gNB-CU-UP AMF/UPF\n0. measurement report\n1. LTM configuration decision\n2. BEARER CONTEXT SETUP REQUEST\n3. BEARER CONTEXT SETUP RESPONSE\n4.  LTM configuration procedures\n5. DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n6. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete )\nDL data\n6a. CU-DU MOBILITY INITIATION REQUEST\n7. LTM decision\n8. DU-CU CELL SWITCH NOTIFICATION\n9. CU-DU CELL\nSWITCH\nNOTIFICATION\n10. BEARER\nCONTEXT\nMODIFICATION\nREQUEST\n11. BEARER\nCONTEXT\nMODIFICATION\nRESPONSE\n12. BEARER CONTEXT MODIFICATION\nREQUEST\n13. BEARER CONTEXT MODIFICATION\nRESPONSE\n14. Data forwarding\n15. UE detected\n16. ACCESS\nSUCCESS\n17. Path Update procedure is performed towards the core network\n18. End Marker Packet\n19. New path\n20. BEARER\nCONTEXT\nRELEASE\nCOMMAND\n21. BEARER\nCONTEXT\nRELEASE\nCOMPLETE\n\nFigure 8.2.1.6-1 LTM with the change of gNB-CU-UP\n0. The source gNB-DU forwards the Measurement Report to the gNB-CU-CP.\n1. The gNB-CU-CP decides to initiate LTM configuration.\n2. The gNB-CU-CP sends a BEARER CONTEXT SETUP REQUEST message containing UL TNL address\ninformation for NG-U to setup the bearer context in the target gNB-CU-UP.\n3. The target gNB-CU-UP responds with a BEARER CONTEXT SETUP RESPONSE message containing the UL\nTNL address information for F1-U, DL TNL address information for NG-U, and the TNL address information\nfor data forwarding to the target gNB-CU-UP.\n4. LTM configuration procedures are performed between gNB-CU and candidate gNB-DUs, and between gNB-CU\nand source gNB-DU as specified from step 3 to step 8 in section 8.2.1.5.\n5 - 6. The gNB-CU-CP sends the RRC Reconfiguration message to the source gNB-DU via DL RRC MESSAGE\nTRANSFER message, and receives the the RRCReconfigurationComplete message from the source gNB-DU via\nUL RRC MESSAGE TRANSFER message.\n6a. If LTM is triggered based on L3 measurement, gNB-CU-CP sends a CU-DU MOBILITY INITIATION\nREQUEST message to the gNB-DU to trigger early synchronization and/or cell switch.\n7. The UE sends the lower layer measurement result to the source gNB-DU if L1 measurement is configured to UE.\nThe source gNB-DU decides to execute LTM to a target cell.\n8. The source gNB-DU sends the DU-CU CELL SWITCH NOTIFICATION message to the gNB-CU-CP with the\nselected target cell ID.\n9. The gNB-CU-CP forwards the selected target cell ID to the target gNB-DU in the CU-DU CELL SWITCH\nNOTIFICATION message.\n10-11. The gNB-CU-CP performs the Bearer Context Modification procedure to indicate the source gNB-CU-UP to\nstop packet delivery, which may also retrieve the PDCP UL/DL status and exchange the TNL address\ninformation for data forwarding for the bearers.\n12-13. The gNB-CU-CP performs the Bearer Context Modification procedure to send the DL TNL address\ninformation for F1-U and the PDCP UL/DL status to the target gNB-CU-UP.\n14. Data Forwarding may be performed from the source gNB-CU-UP to the target gNB-CU-UP.\n15. The target gNB-DU detects the UE in the target cell.\n16. The target gNB-DU sends an ACCESS SUCCESS message to the gNB-CU-CP. The target gNB-DU also sends\na Downlink Data Delivery Status frame to inform the target gNB-CU-UP.\n17-19. Path Switch procedure is performed to update the DL TNL address information for the NG-U towards the\ncore network.\n20-21. Bearer Context Release procedure may be performed to release the UE context in the source gNB-CU-UP.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          43,
+          44
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.1.4",
+      "section_title": "Intra-gNB-DU LTM",
+      "content": "8.2.1.4 Intra-gNB-DU LTM\nThis procedure is used for the case when the UE moves within the same gNB-DU during NR operation for LTM. Figure\n8.2.1.4-1 shows the intra-gNB-DU LTM procedure for intra-NR.\nUE gNB-DU gNB-CU\nUser Data User Data\n1. L3 Measurement Control and Reports\n2. LTM Configuration Decision\n3. UE CONTEXT MODIFICATION REQUEST\n4. UE CONTEXT MODIFICATION RESPONSE\n5. UE CONTEXT MODIFICATION REQUEST\n6. UE CONTEXT MODIFICATION RESPONSE\n7. DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n8. RRCReconfiguration\n9. RRCReconfigurationComplete\n10. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete )\n10a. CU-DU MOBILITY INITIATION REQUEST\n11. Early TA acquisition\n12. L1 measurement report\nLTM Cell Switch Decision\n13. Cell Switch Command\n14. DU-CU CELL SWITCH NOTIFICATION\n(Target cell ID)\nDownlink Data Delivery Status\n15.The gNB-DU detects the UE access\n16. ACCESS SUCCESS\n(Target cell ID)\n17. RRCReconfigurationComplete\n18. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete )\n19. UE CONTEXT MODIFICATION REQUEST\n(Prepared cells to be released)\n20. UE CONTEXT MODIFICATION RESPONSE\nUser Data User Data\n\nFigure 8.2.1.4-1: Intra-gNB-DU LTM\n1. The UE sends a MeasurementReport  message (L3 measurement result) to the gNB-DU containing measurements\nof neighbouring cells. The gNB-DU sends an UL RRC MESSAGE TRANSFER message conveying the\nreceived MeasurementReport message to the gNB-CU.\n2. The gNB-CU determines to initiate LTM configuration.\n3. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the gNB-DU for each candidate\ncell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU\nmay provide the LTM configuration ID mapping list to the gNB-DU. The gNB-CU may request PRACH\nresources from the gNB-DU. The gNB-CU may request the gNB-DU to provide the lower layer configuration\nfor the purpose of generating the reference configuration or provide the lower layer reference configuration to\nthe gNB-DU. The gNB-CU may inform the gNB-DU about intra-DU L2 reset configuration.\n4. If the gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT MODIFICATION\nRESPONSE message including the generated lower layer RRC configurations for the accepted candidate cell.\nNOTE 1: Steps 3 and 4 may be initiated multiple times for LTM candidate cell preparation of multiple cells\nincluding the source cell.\n5. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the gNB-DU which may include\nthe LTM configuration ID mapping listand/or the updated CSI resource configuration. The gNB-CU may inform\nthe gNB-DU about intra-DU L2 reset configuration.\n6. The gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message which may include an\nupdated lower layer configuration, e.g., containing the updated CSI report configuration of the source cell.\nNOTE 2: In case of subsequent LTM, the CU-initiated UE Context Modification procedure may be invoked per\neach candidate cell to transfer to the gNB-DU the updated CSI resource configuration.\n7. The gNB-CU sends a DL RRC MESSAGE TRANSFER message to the gNB-DU, which includes the generated\nRRCReconfiguration message with the LTM configuration.\n8. The gNB-DU forwards the received RRCReconfiguration message to the UE.\n9. The UE responds to the gNB-DU with an RRCReconfigurationComplete message.\n10. The gNB-DU forwards the RRCReconfigurationComplete message to the gNB-CU via an UL RRC MESSAGE\nTRANSFER message.\n10a. If LTM is triggered based on L3 measurement, gNB-CU sends a CU-DU MOBILITY INITIATION REQUEST\nmessage to the gNB-DU to trigger early synchronization and/or cell switch.\n11. Early TA acquisition to the candidate cell(s) may be performed as specified in TS 38.300 [2].\n12. The UE sends the L1 measurement result to the gNB-DU if L1 measurement is configured to UE. The gNB-DU\ndecides to execute LTM.\n13. The gNB-DU sends the Cell Switch Command to the UE.\n14. The gNB-DU sends the DU-CU CELL SWITCH NOTIFICATION message to the gNB-CU to indicate the\ninitiation of the Cell Switch Command to the UE including the target cell ID.\n15. The gNB-DU detects the UE access in the target cell as specified in TS 38.300 [2].\n16. The gNB-DU sends the ACCESS SUCCESS message to the gNB-CU with the target cell ID.\n17. The UE sends an RRCReconfigurationComplete message to the gNB-DU.\n18. The gNB-DU forwards the RRCReconfigurationComplete message to the gNB-CU via an UL RRC MESSAGE\nTRANSFER message.\n19. The gNB-CU may send the UE CONTEXT MODIFICATION REQUEST message to the gNB-DU to release the\nresources of prepared cells.\n20. The gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          37,
+          38,
+          39
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.1.3",
+      "section_title": "Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+      "content": "8.2.1.3 Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC\nsubsequent CPAC\nThis procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-\nCU during NR operation for conditional handover or conditional PSCell change or subsequent CPAC. Figure 8.2.1.3-1\nshows the inter-gNB-DU conditional mobility procedure for intra-NR.\n12. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete)\nUE Source\ngNB-DU\nCandidate\ngNB-DU gNB-CU\n1. MeasurementReport\n2. UL RRC MESSAGE TRANSFER\n(MeasurementReport)\n3. UE CONTEXT SETUP REQUEST\n(Conditional Inter-DU Mobility  Information)\n4. UE CONTEXT SETUP RESPONSE\n(Requested Target Cell ID)\n5. DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n7. RRCReconfigurationComplete\n6. RRCReconfiguration\n8. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete)10. Random Access Procedure\n15. UE CONTEXT RELEASE COMMAND\n16. UE CO NTEXT RE LE ASE COMPLETE\nDownlink user data\nUplink user data\nDownl ink Data Delivery Status\nDownlink User Data\nDownlink user data\nUplink user data\n9. Execution\ncondit ion(s)\nare fulfilled\n13. UE CONTEXT MODIFICATION REQUEST\n14. UE CONTEXT MODIFICATION RESPONSE\n11. RRCReconfigurationComplete\nDownl ink Data Delivery Status\nACCESS SUCCESS\n\nFigure 8.2.1.3-1: Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent\nCPAC for intra-NR\n1-2. The steps 1-2 are as defined in clause 8.2.1.1.\n3. The gNB-CU sends an UE CONTEXT SETUP REQUEST message to the candidate gNB-DU to create an UE\ncontext and setup one or more data bearers. The UE CONTEXT SETUP REQUEST message is sent for each\ncandidate cell and includes a HandoverPreparationInformation (conditional handover) or a CG-ConfigInfo\n(conditional PSCell change or subsequent CPAC).\n4. The candidate gNB-DU responds to the gNB-CU with an UE CONTEXT SETUP RESPONSE message\nincluding the target cell ID that was requested from the gNB-CU. The response message is sent for each\nrequested candidate cell.\n5. The gNB-CU sends a DL RRC MESSAGE TRANSFER message to the source gNB-DU, which includes a\ngenerated RRCReconfiguration message.\n6. The step 6 is as defined in clause 8.2.1.1.\n7-8. The UE responds to the source gNB-DU with an RRCReconfigurationComplete message, for which the\nsource gNB-DU forwards to the gNB-CU via an UL RRC MESSAGE TRANSFER message.\n9.  An execution condition to trigger initiation of conditional handover or conditional PSCell change or subsequent\nCPAC is fulfilled.\n10. A Random Access procedure is performed at the candidate gNB-DU, which becomes the target gNB-DU if\nsuccessful. The target gNB-DU sends a Downlink Data Delivery Status frame to inform the gNB-CU. The target\ngNB-DU also sends an ACCESS SUCCESS message to inform the gNB-CU of which cell the UE has\nsuccessfully accessed.\n11-12. The steps 11-12 are as defined in steps 9-10 in clause 8.2.1.1.\n13. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU and\nindicates to stop the data transmission for the UE. The source gNB-DU also sends a Downlink Data Delivery\nStatus frame to inform the gNB-CU about the unsuccessfully transmitted downlink data to the UE. Downlink\npackets, which may include PDCP PDUs not successfully transmitted in the source gNB-DU, are sent from the\ngNB-CU to the target gNB-DU.\nNOTE 1: The step 13 may happen before step 12, as soon as the gNB-CU knows which cell the UE has\nsuccessfully accessed.\nNOTE 2: The gNB-CU may initiate UE Context Release proced ure toward the other signalling connections or other\ncandidate target gNB-DUs, if any, to cancel conditional handover or conditional PSCell change for the\nUE.\n14. The source gNB-DU responds to the gNB-CU with the UE CONTEXT MODIFICATION RESPONSE message.\n15 -16. The steps 15-16 are as defined in steps 11-12 in clause 8.2.1.1.\nThe step 15~16 shall not happen if all of the PSCells in the source gNB-DU remain configured as the candidate\nPSCell(s) in the subsequent CPAC.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          36
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.1.2",
+      "section_title": "Intra-gNB-DU handover",
+      "content": "8.2.1.2 Intra-gNB-DU handover\nThis procedure is used for the case that the UE moves from one cell to another cell within the same gNB-DU or for the\ncase that intra-cell handover is performed during NR operation, and supported by the UE Context Modification (gNB-\nCU initiated) procedure as specified in TS 38.473 [4]. When the intra-gNB-DU handover is performed (either inter-cell\nor intra-cell), the gNB-CU provides new UL GTP TEID to the gNB-DU and the gNB-DU provides new DL GTP TEID\nto the gNB-CU. The gNB-DU shall continue sending UL PDCP PDUs to the gNB-CU using the previous UL GTP\nTEID until it re-establishes the RLC, and after then start sending using the new UL GTP TEID. The gNB-CU shall\ncontinue sending DL PDCP PDUs to the gNB-DU using the previous DL GTP TEID until it performs PDCP re-\nestablishment or PDCP data recovery, and after then start sending using the new DL GTP TEID.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          35
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.1.1",
+      "section_title": "Inter-gNB-DU Mobility",
+      "content": "8.2.1.1 Inter-gNB-DU Mobility\nThis procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-\nCU during NR operation. Figure 8.2.1.1-1 shows the inter-gNB-DU mobility procedure for intra-NR.\nUE Source\ngNB-DU\nTarget\ngNB-DU gNB-CU\n1. MeasurementReport\n2. UL RRC MESSAGE TRANSFER\n(MeasurementReport)\n3. UE CONTEXT SETUP REQUEST\n4. UE CONTEXT SETUP RESPONSE\n5. UE CONTEXT MODIFICATION REQUEST\n(RRCReconfiguration)\n9. RRCReconfigurationComplete\n6. RRCReconfiguration\n10. UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete)\n8. Random Access Procedure\n11. UE CONTEXT RELEASE COMMAND\n12. UE CONTEXT RELEASE COMPLETE\nDownlink user data\nUplink user data\nDownlink Data Delivery Status\nDownl ink User Data\nDownlink user data\nUplink user data\n7. UE CONTEXT MODIFICATION RESPONSE\nDownl ink Data Delivery Status\n2a. UE CONTEXT MODIFICATION REQUEST\n2b. UE CONTEXT MODIFICATION RESPONSE\n\nFigure 8.2.1.1-1: Inter-gNB-DU Mobility for intra-NR\n1. The UE sends a  MeasurementReport message to the source gNB-DU.\n2. The source gNB-DU sends an UL RRC MESSAGE TRANSFER message to the gNB-CU to convey the\nreceived MeasurementReport message.\n2a. The gNB-CU may send an UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU to\nquery the latest configuration.\n2b. The source gNB-DU responds with an UE CONTEXT MODIFICATION RESPONSE message that includes full\nconfiguration information.\n3. The gNB-CU sends an UE CONTEXT SETUP REQUEST message to the target gNB-DU to create an UE\ncontext and setup one or more data bearers. The UE CONTEXT SETUP REQUEST message includes a\nHandoverPreparationInformation. In case of NG-RAN sharing, the gNB-CU includes the serving PLMN ID (for\nSNPNs the serving SNPN ID).\n4. The target gNB-DU responds to the gNB-CU with an UE CONTEXT SETUP RESPONSE message.\n5. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU, which\nincludes a generated RRCReconfiguration message and indicates to stop the data transmission for the UE. The\nsource gNB-DU also sends a Downlink Data Delivery Status frame to inform the gNB-CU about the\nunsuccessfully transmitted downlink data to the UE.\nNOTE 1: In case of DAPS Handover, the UE CONTEXT MODIFICATION REQUEST message in step 5 may\nindicate to stop the data transmission only for the DRB(s) not subject to DAPS Handover or may not\nindicate to stop the data transmission at all. Instead, the DL RRC Message Transfer procedure can be used\nto carry the handover command to the UE. The UE CONTEXT MODIFICATION REQUEST message\nthat indicates to stop the data transmission for the UE is sent to the source gNB-DU once the gNB-CU\nknows that the UE has successfully accessed the target gNB-DU, for which the source gNB-DU sends a\nDDDS frame about the unsuccessfully transmitted downlink data to the gNB-CU.\n6. The source gNB-DU forwards the received RRCReconfiguration  message to the UE.\n7. The source gNB-DU responds to the gNB-CU with the UE CONTEXT MODIFICATION RESPONSE message.\n8. A Random Access procedure is performed at the target gNB-DU. The target gNB-DU sends a Downlink Data\nDelivery Status frame to inform the gNB-CU. Downlink packets, which may include PDCP PDUs not\nsuccessfully transmitted in the source gNB-DU, are sent from the gNB-CU to the target gNB-DU.\nNOTE 2: It is up to gNB-CU implementation whether to start sending DL User Data to gNB-DU before or after\nreception of the Downlink Data Delivery Status.\n9. The UE responds to the target gNB-DU with an RRCReconfigurationComplete message.\n10. The target gNB-DU sends an UL RRC MESSAGE TRANSFER message to the gNB-CU to convey the received\nRRCReconfigurationComplete message. Downlink packets are sent to the UE. Also, uplink packets are sent from\nthe UE, which are forwarded to the gNB-CU through the target gNB-DU.\n11. The gNB-CU sends an UE CONTEXT RELEASE COMMAND message to the source gNB-DU.\n12. The source gNB-DU releases the UE context and responds the gNB-CU with an UE CONTEXT RELEASE\nCOMPLETE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          34
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.14.1.1",
+      "section_title": "Signalling of RLF information from gNB-CU to gNB-DU",
+      "content": "8.14.1.1 Signalling of RLF information from gNB-CU to gNB-DU\nThe signalling flow for signalling of RLF information from gNB-CU to gNB-DU is shown in Figure 8.14.1.1-1, where\nthe example where NG-RAN nodes exchange the RLF Report via the Xn: FAILURE INDICATION message has been\nconsidered.\n1.RRC: UE Information\nRequest/Response (including\nRLF Report from the UE)\n3. F1: Access and Mobility\nIndication (including RLF\nReport)\n\n2. Xn: Failure Indication (including\nRLF Report)\nUE gNB1-\nDU\ngNB1-\nCU gNB2\n\nFigure 8.14.1.1-1 Example of signalling of RLF information from gNB-CU to gNB-DU in NG RAN\n1. A UE with a logged RLF Report connects to a cell in gNB2 and it signals the RLF Report to gNB2 by means of\nthe RRC UE Information Request/Response procedures.\n2. The gNB2 sends an Xn: Failure Indication to gNB1-CU where the UE may have previously been connected prior\nto the connection failure. This includes also the RLF Report.\n3. The gNB1-CU sends the F1: Access and Mobility Indication message to the gNB1-DU, including the RLF\nReport.\nIt is also possible for the gNB-CU receiving the RLF Report from the UE to signal it directly to the gNB-DU by means\nof the F1: Access and Mobility Indication procedure.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.14.1",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2",
+      "section_title": "Intra-gNB-CU Mobility",
+      "content": "8.2 Intra-gNB-CU Mobility",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 2,
+        "parent_section_id": "8",
+        "child_section_ids": [
+          "8.2.1",
+          "8.2.2",
+          "8.2.3",
+          "8.2.4",
+          "8.2.5"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.2",
+      "section_title": "EN-DC Mobility",
+      "content": "8.2.2 EN-DC Mobility",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.2",
+        "child_section_ids": [
+          "8.2.2.1",
+          "8.2.2.2",
+          "8.2.2.3"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.3",
+      "section_title": "Intra-CU topology adaptation procedure",
+      "content": "8.2.3 Intra-CU topology adaptation procedure\n8.2.3.1 Intra-CU topology adaptation procedure in SA\nDuring the intra-CU topology adaptation in SA, both the source and the target parent node are served by the same IAB-\ndonor-CU. The target parent node may use a different IAB-donor-DU than the source parent node. The source path may\nhave common nodes with the target path. Figure 8.2.3.1-1 shows an example of the topology adaptation procedure,\nwhere the target parent node uses a different IAB-donor-DU than the one used by the source parent node.\nUE Migrating\nIAB-node\nSource Path\nSource Parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe source path\nSource IAB-\ndonor-DU\nTarget Path\nTarget Parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe target path\nTarget IAB-\ndonor-DU\nIAB-\ndonor-CU\nDownlink user data\nUplink user data\n1.MeasurementReport\n2.UL RRC MESSAGE TRANSFER\n(MeasurementReport)\n3.UE CONTEXT SETUP REQUEST\n4.UE CONTEXT SETUP RESPONSE\n5.UE CONTEXT MODIFICATION REQUEST\n(RRCReconfiguration)\n6.RRCReconfiguration\n7.UE CONTEXT MODIFICATION RESPONSE\n8.Random Access Procedure\n9.RRCReconfigurationComplete\n10.UL RRC MESSAGE TRANSFER\n(RRCReconfigurationComplete)\n11.Configuration of BH RLC channel, BAP route and mapping rules along target path\nbetween migrating IAB-node and target IAB-donor-DU via target parent IAB-node.\n12.Redirection of migrating IAB-node-DU's F1 association to new TNL address(es).\nDownlink user data\nUplink user data\n13.UE CONTEXT RELEASE COMMAND\n14.UE CONTEXT RELEASE COMPLETE\n15:Release of BAP route along source-path between migrating IAB-node and source IAB-donor-DU\nvia source parent IAB-node.\n\nFigure 8.2.3.1-1: IAB intra-CU topology adaptation procedure\n1. The migrating IAB-MT sends a  MeasurementReport message to the source parent node IAB-DU. This report is\nbased on a Measurement Configuration the migrating IAB-MT received from the IAB-donor-CU before.\n2. The source parent node IAB-DU sends an UL RRC MESSAGE TRANSFER message to the IAB-donor-CU to\nconvey the received MeasurementReport.\n3. The IAB-donor-CU sends a UE CONTEXT SETUP REQUEST message to the target parent node IAB-DU to\ncreate the UE context for the migrating IAB-MT and set up one or more bearers. These bearers can be used by\nthe migrating IAB-MT for its own signalling, and, optionally, data traffic.\n4. The target parent node IAB-DU responds to the IAB-donor-CU with a UE CONTEXT SETUP RESPONSE\nmessage.\n5. The IAB-donor-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source parent node\nIAB-DU, which includes a generated RRCReconfiguration message. The RRCReconfiguration message includes\na default BH RLC channel and a default BAP Routing ID configuration for UL F1-C/non-F1 traffic mapping on\nthe target path. It may include additional BH RLC channels. This step may also include allocation of TNL\naddress(es) that is (are) routable via the target IAB-donor-DU. The new TNL address(es) may be included in the\nRRCReconfiguration message as a replacement for the TNL address(es) that is (are) routable via the source IAB-\ndonor-DU. In case IPsec tunnel mode is used to protect the F1 and non-F1 traffic, the allocated TNL address is\nouter IP address. The TNL address replacement is not necessary if the source and target paths use the same IAB-\ndonor-DU. The Transmission Action Indicator in the UE CONTEXT MODIFICATION REQUEST message\nindicates to stop the data transmission to the migrating IAB-node.\n6. The source parent node IAB-DU forwards the received RRCReconfiguration message to the migrating IAB-MT.\n7. The source parent node IAB-DU responds to the IAB-donor-CU with the UE CONTEXT MODIFICATION\nRESPONSE message.\n8. A Random Access procedure is performed at the target parent node IAB-DU.\n9. The migrating IAB-MT responds to the target parent node IAB-DU with an RRCReconfigurationComplete\nmessage.\n10. The target parent node IAB-DU sends an UL RRC MESSAGE TRANSFER message to the IAB-donor-CU to\nconvey the received RRCReconfigurationComplete message. Also, uplink packets can be sent from the migrating\nIAB-MT, which are forwarded to the IAB-donor-CU through the target parent node IAB-DU. These UL packets\nbelong to the IAB-MT’s own signalling and, optionally, data traffic.\n11. The IAB-donor-CU configures BH RLC channels and BAP-sublayer routing entries on the target path between\nthe target parent IAB-node and target IAB-donor-DU as well as DL mappings on the target IAB-donor-DU for\nthe migrating IAB-node’s target path. These configurations may be performed at an earlier stage, e.g.\nimmediately after step 3, or before step 3. The IAB-donor-CU may establish additional BH RLC channels to the\nmigrating IAB-MT via RRC message.\n12. The F1-C connections are switched to use the migrating IAB-node’s new TNL address(es), IAB-donor-CU\nupdates the UL BH information associated to each GTP-tunnel to migrating IAB-node. This step may also\nupdate UL FTEID and DL FTEID associated to each GTP-tunnel. All F1-U tunnels are switched to use the\nmigrating IAB-node’s new TNL address(es). This step may use non-UE associated signaling in E1 and/or F1\ninterface to provide updated UP configuration for F1-U tunnels of multiple connected UEs or child IAB-MTs.\nThe IAB-donor-CU may also update the UL BH information associated with non-UP traffic. Implementation\nmust ensure the avoidance of potential race conditions, i.e. no conflicting configurations are concurrently\nperformed using UE-associated and non-UE-associated procedures.\n In case IPsec tunnel mode is used for TNL protection, the IAB-node may use MOBIKE (IETF RFC 4555 [29])\nto migrate the IPsec tunnel to the new IP outer addresses. After the completion of the MOBIKE procedure, the\nIAB-DU initiates an F1AP gNB-DU Configuration Update procedure from which the IAB-donor-CU can\nconclude whether the existing inner IP address(es) (e.g. for SCTP association) and the DL F-TEID can be\nreused.\n If new TNL addresses for F1-C traffic are configured, new SCTP association(s) between the migrating IAB-node\nand the IAB-donor-CU may be established using the new TNL address information of the migrating IAB-node.\nThe migrating IAB-node sends an F1AP gNB-DU CONFIGURATION UPDATE message to the IAB-donor-\nCU, which may include new (outer) IP addresses and corresponding new (inner) IP address for the F1-U traffic\nto be switched to the target path.\n13. The IAB-donor-CU sends a UE CONTEXT RELEASE COMMAND message to the source parent node IAB-\nDU.\n14. The source parent node IAB-DU releases the migrating IAB-MT’s context and responds to the IAB-donor-CU\nwith a UE CONTEXT RELEASE COMPLETE message.\n15. The IAB-donor-CU releases BH RLC channels and BAP-sublayer routing entries on the source path between\nsource parent IAB-node and source IAB-donor-DU.\nNOTE 1: In case that the source path and target path have common nodes, the BH RLC channels and BAP-sublayer\nrouting entries of those nodes may not need to be released in Step 15.\nSteps 11, 12 and 15 should also be performed for the migrating IAB-node’s descendant nodes, as follows:\n The IAB-donor-CU may allocate new TNL address(es) that is (are) routable via the target IAB-donor-DU to\nthe descendent nodes via RRCReconfiguration message.\n If needed, the IAB-donor-CU may also provide a new default UL mapping which includes a default BH RLC\nchannel and a default BAP Routing ID for UL F1-C/non-F1 traffic on the target path, to the descendant nodes\nvia RRCReconfiguration message.\n If needed, the IAB-donor-CU configures BH RLC ch annels, BAP-sublayer routing entries and BH RLC\nchannel mappings on the target path for the descendant nodes in the same manner as described for the\nmigrating IAB-node in step 11.\n The descendant nodes switch their F1-C connections  and F1-U tunnels to new TNL addresses that are\nanchored at the new IAB-donor-DU, in the same manner as described for the migrating IAB-node in step 12.\n Based on implementation, these steps can be performed after or in parallel with the handover of the migrating\nIAB-node.\n To enable performing these steps in parallel, the IAB-donor-CU sends the RRCReconfiguration message\nwith the new TNL address(es) and the new default BAP configuration to the descendent node while the\nmigrating IAB-MT is still connected with source parent node, for example, before Step 5. In this case, the UE\nCONTEXT MODIFICATION REQUEST message carrying this RRCReconfiguration message includes a\nconditional delivery indication for the descendent node’s parent IAB-DU. Based on this indication, the parent\nIAB-DU retains the RRCReconfiguration message until the conditions for delivery are met, as specified in\nTS 38.473 [4]. The IAB-donor-CU may further configure the BAP-sublayer routing entries on the migrating\nIAB-node and the descendant nodes while the migrating IAB-MT is still connected with the source parent\nnode.\nNOTE 2: In upstream direction, in-flight packets between the source parent node and the IAB-donor-CU can be\ndelivered even after the target path is established.\nNOTE 3: In-flight downlink data in the source path may be discarded, up to implementation via the NR user plane\nprotocol (TS 38.425 [24]).\nNOTE 4: The IAB-donor-CU can determine the unsuccessfully transmitted downlink data over the backhaul link by\nimplementation.\n8.2.3.2 Intra-CU topology adaptation procedure in NSA using MCG SRB\nThis procedure is used when the migrating IAB-MT moves from source parent node to target parent node within the\nsame IAB-donor-CU while only MCG SRB is available for IAB-node during EN-DC operation. The target parent node\nmay use a different IAB-donor-DU than the one used by the source parent node. The source path may have common\nnodes with the target path. Figure 8.2.3.2-1 shows the topology adaptation procedure using MCG SRB of IAB-MT in\nEN-DC, where the target parent node uses a different IAB-donor-DU than the source parent node.\nUE Migrating\nIAB-node\nSource Path\nSource Parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe source path\nSource IAB-\ndonor-DU\nTarget Path\nTarget Parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe target path\nTarget IAB-\ndonor-DU\nIAB-\ndonor-CU\nMeNB\nDownlink user data\nUplink user data\n1.ULInformationTransferMRDC (containing NR RRC MeasurementReport)\n2.RRC TRANSFER\n3.UE CONTEXT MODIFICATION REQUEST\n4.UE CONTEXT MODIFICATION RESPONSE\n5.UE CONTEXT SETUP REQUEST\n6.UE CONTEXT SETUP RESPONSE\n7.UE CONTEXT MODIFICATION REQUEST\nDownlink Data Delivery Status\n8.UE CONTEXT MODIFICATION RESPONSE\n9.SGNB MODIFICATION\nREQUIRED\n10.SGNB MODIFICATION\nREQUEST\n11.SGNB MODIFICATION\nREQUEST ACKNOWLEDGE\n12.RRC Reconfiguration procedure is performed between the MeNB and the migrating IAB-MT.\n13.SGNB MODIFICATION\nCONFIRM\n14.Random Access procedure\n15.Configuration of BH RLC channel, BAP route and mapping rules along target path\nbetween migrating IAB-node and target IAB-donor-DU via target parent IAB-node.\n16.Redirection of migrating IAB-node-DU's F1 association to new TNL address(es).\nDownlink user data\nUplink user data\n17.UE CONTEXT RELEASE COMMAND\n18.UE CONTEXT RELEASE COMPLETE\n19:Release of BAP route along source-path between migrating IAB-node and source IAB-donor-DU\nvia source parent IAB-node.\n\nFigure 8.2.3.2-1: IAB intra-CU topology adaptation procedure using MCG SRB in EN-DC\n1. The migrating IAB-MT sends an ULInformationTransferMRDC  message to the MeNB\n2. The MeNB sends RRC TRANSFER message to the IAB-donor-CU.\n3. The IAB-donor-CU may send UE CONTEXT MODIFICATION REQUEST message to the source parent node\nIAB-DU, to query the latest SCG configuration.\n4. The source parent node IAB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message that\nincludes full configuration information.\n5. The IAB-donor-CU sends a UE CONTEXT SETUP REQUEST message to the target parent node IAB-DU, to\ncreate a UE context for migrating IAB-MT and set up one or more bearers. These bearers can be used by the\nmigrating IAB-MT for its own signalling, and, optionally, data traffic. The UE CONTEXT SETUP REQUEST\nmessage includes CG-ConfigInfo.\n6. The target parent node IAB-DU responds to the IAB-donor-CU with a UE CONTEXT SETUP RESPONSE\nmessage.\n7. The IAB-donor-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source parent node\nIAB-DU, this message includes the Transmission Action Indicator IE, which instructs the source parent node\nIAB-DU to stop the data transmission to the migrating IAB-node. The source parent node IAB-DU also sends a\nDownlink Data Delivery Status frame to inform the IAB-donor-CU about the unsuccessfully transmitted\ndownlink data to the migrating IAB-node.\n8. The source parent node IAB-DU responds to the IAB-donor-CU with a UE CONTEXT MODIFICATION\nRESPONSE message.\n9. The IAB-donor-CU sends an SGNB MODIFICATION REQUIRED message to the MeNB.\n10/11.  The MeNB initiated SgNB Modification procedure may be triggered by the SgNB initiated SgNB\nModification procedure (e.g. to provide information such as data forwarding addresses, new SN security key,\nmeasurement gap, etc.).\n12. The MeNB and the migrating IAB-MT perform RRC Connection Reconfiguration procedure. The\nRRCConnectionReconfiguration message includes information as described for the intra-CU topology adaptation\nprocedure in SA in clause 8.2.3.1.\n13. The MeNB sends an SGNB MODIFICATION CONFIRM message to the IAB-donor-CU.\n14. The migrating IAB-MT performs Random Access procedure at the target parent node IAB-DU.\n15-19. The remaining steps of the procedure follow the steps 11-15 of the intra-CU topology adaptation procedure in\nSA scenario, as defined in clause 8.2.3.1. The main difference is that the RRC message for the migrating IAB-\nnode, if involved, will be transmitted using the MCG SRB.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.2",
+        "child_section_ids": [
+          "8.2.3.3"
+        ],
+        "page_numbers": [
+          49,
+          50,
+          51,
+          52,
+          53
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.5",
+      "section_title": "Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+      "content": "8.2.5 Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode\nThe intra-CU backhaul RLF recovery procedure for IAB-nodes in SA mode enables migration of an IAB-node to\nanother parent node underneath the same IAB-donor-CU, when the IAB-MT declares a backhaul RLF. The declaration\nof backhaul RLF is described in TS 38.331 [23].\nNOTE: Determination of whether the recovery occurs at the same or at a different IAB-donor-CU is up to\nimplementation.\nFigure 8.2.5-1 shows an example of the BH RLF recovery procedure for an IAB-node in SA mode. In this example, the\nIAB-node changes from its initial parent node to a new parent node, where the new parent node is served by an IAB-\ndonor-DU different than the one serving its initial parent node.\nUE Recovery\nIAB-node\nInitial Path\nInitial Parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe initial path\nInitial IAB-\ndonor-DU\nRecovery Path\nNew Parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe new path\nNew IAB-\ndonor-DU\nIAB-\ndonor-CU\nDownlink user data\nUplink user data\n1.Determination of BH\nRLF on initial path\n2.RRC Re-establishment at recovery parent IAB-node DU\n3.Same as steps 11-15 of intra-CU topology adaptation procedure\nDownlink user data\nUplink user data\n\nFigure 8.2.5-1: IAB intra-CU backhaul RLF recovery procedure for an IAB-node in SA mode\n1. The IAB-MT declares BH RLF for the MCG as described in TS 38.331 [23], clause 5.3.10.3.\n2. The IAB-MT undergoing recovery from RLF conducts the RRC re-establishment procedure at the new parent\nnode, as defined in clause 8.7. In this procedure, the IAB-donor-CU may provide new TNL address(es), which\nis(are) anchored at the new IAB-donor-DU, to the IAB-MT via RRC signalling. Furthermore, the IAB-donor-CU\nmay also provide a new default UL mapping which includes a default BH RLC channel and a default BAP\nRouting ID for UL F1-C/non-F1 traffic on the target path, to the IAB-node undergoing recovery from RLF via\nRRCReconfiguration message in this procedure.\n3. The remaining part of the procedure follows the steps 11-15 of the intra-CU topology adaptation procedure\ndefined in clause 8.2.3.1.\nDescendant node(s) of the IAB-node undergoing recovery from RLF may also need to switch to new TNL address(es)\nanchored in the target-path IAB-donor-DU following the same mechanism as described for IAB intra-CU topology\nadaptation procedure in clause 8.2.3.1. The descendant node(s) may also be provided with new default UL mapping via\nRRC, after the IAB-node undergoing recovery from RLF connects the IAB-donor-CU via the recovery path.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.2",
+        "child_section_ids": [],
+        "page_numbers": [
+          57
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.4",
+      "section_title": "Intra-CU topological redundancy procedure",
+      "content": "8.2.4 Intra-CU topological redundancy procedure\nThe intra-CU topological redundancy procedure enables the establishment and release of redundant paths in the IAB-\ntopology underneath the same IAB-donor-CU. The redundant paths may use different IAB-donor-DUs. They may also\nhave common intermediate nodes. Since topological redundancy uses NR-DC for the IAB-MT, it is only supported for\nIAB-nodes operating in SA mode.\nFigure 8.2.4-1 shows an example for an IAB topology, where one IAB-node, referred to as the dual-connecting IAB-\nnode, has two paths towards the IAB-donor via different IAB-donor-DUs.\n\nFigure 8.2.4-1: Example for IAB topology with two redundant paths\nUE Dual-connecting\nIAB-node\nFirst Path\nFirst parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe first path\nFirst path\nIAB-donor-DU\nSecond Path\nSecond parent\nIAB-node\nIntermediate hop\nIAB-node on\nthe second path\nSecond path\nIAB-donor-DU\nIAB-\ndonor-CU\nDownlink user data\nUplink user data\n1.MeasurementReport\n2.UL RRC MESSAGE TRANSFER\n(MeasurementReport)\n3.UE CONTEXT SETUP REQUEST\n4.UE CONTEXT SETUP RESPONSE\n5.DL RRC MESSAGE TRANSFER\n(RRCReconfiguration)\n6.RRCReconfiguration\n7.RRCReconfigurationComplete\n8.UL RRC MESSAGE TRANSFER (RRCReconfigurationComplete)\n9.Random Access procedure\n10.Configuration of BAP route and mapping rules along the\nsecond path between dual-connecting IAB-node and the\nsecond path IAB-donor-DU via the second parent IAB-node.\n11.Addition of new TNL address(es) to dual-connecting IAB-node DU's F1-C associations.\n12.UE CONTEXT MODIFICATION REQUEST\n13.UE CONTEXT MODIFICATION RESPONSE\nDownlink user data\nUplink user data\n\n Figure 8.2.4-2: Procedure for establishment of redundant path in IAB topology\nFigure 8.2.4-2 shows the procedure for the establishment of the second path. This procedure has the following steps:\n1. The dual-connecting IAB-MT sends a MeasurementReport message to the first parent node IAB-DU. This report\nis based on a Measurement Configuration the dual-connecting IAB-MT received from the IAB-donor-CU\nbefore.\n2. The first parent node IAB-DU sends an UL RRC MESSAGE TRANSFER message to the IAB-donor-CU to\nconvey the received MeasurementReport.\n3. The IAB-donor-CU sends the UE CONTEXT SETUP REQUEST message to the second parent node IAB-DU,\nto create the UE context for the dual-connecting IAB-MT and to set up one or more bearers. These bearers can\nbe used by the dual-connecting IAB-MT for its own signalling, and, optionally, data traffic.\n4. The second parent node IAB-DU responds to the IAB-donor-CU with a UE CONTEXT SETUP RESPONSE\nmessage.\n5. The IAB-donor-CU sends a DL RRC MESSAGE TRANSFER message to the first parent node IAB-DU, which\nincludes a generated RRCReconfiguration message. The RRCReconfiguration message may contain one or more\nTNL address(es) for the dual-connecting IAB-DU, which are anchored at the second-path IAB-donor-DU. The\nIAB-donor-CU can proactively obtain these TNL addresses from the second-path IAB-donor-DU. In case IPsec\ntunnel mode is used to protect the F1 and non-F1 traffic, the allocated TNL address is the outer IP address. The\nTNL address allocation is not necessary if the first and second paths use the same IAB-donor-DU.\n6. The first parent node IAB-DU forwards the received RRCReconfiguration  message to the dual-connecting IAB-\nMT.\n7. The dual-connecting IAB-MT responds to the first parent node IAB-DU with an RRCReconfigurationComplete\nmessage.\n8. The first parent node IAB-DU sends an UL RRC MESSAGE TRANSFER message to the IAB-donor-CU, to\nconvey the received RRCReconfigurationComplete message.\n9. A Random Access procedure is performed at the second parent node IAB-DU.\n10. The IAB-donor-CU configures BH RLC channels and BAP-layer route entries on the second path between dual-\nconnecting IAB-node and second-path IAB-donor-DU. These configurations may be performed at an earlier\nstage, e.g. immediately after step 3.\n11. The new TNL addresses allocated in step 5 (if any) are added to the dual-connecting IAB-DU’s F1-C\nassociation(s) with the IAB-donor-CU. The IAB-donor-CU may configure new UL BH information on the\nsecond path for F1AP messages.\n If new TNL addresses for F1-C traffic are configured , new SCTP association(s) between the dual-connecting\nIAB-node and the IAB-donor-CU may be established using the new TNL address information of the dual-\nconnecting IAB-node. The dual-connecting IAB-node sends an F1AP gNB-DU CONFIGURATION UPDATE\nmessage to the IAB-donor-CU, which may include new (outer) IP addresses and corresponding new (inner) IP\naddress for the F1-U traffic to be switched to the target path.\n12. The IAB-donor-CU may migrate the F1-U tunnels it has with the dual-connecting IAB-DU from the first path to\nthe second path via the UE CONTEXT MODIFICATION REQUEST message.\n13. The dual-connectivity IAB-DU replies with a UE CONTEXT MODIFICATION RESPONSE message.\nSteps 12 and 13 can be performed for a subset of UE bearers, e.g., to balance the load between the first and the second\npath.\nIn case the second path is used for the dual-connecting IAB-node’s descendant node(s), Steps 10 and 11 are also\nperformed for the descendant node(s), as follows:\nWhen the second path uses a different IAB-donor-DU, the IAB-donor-CU shall configure the descendent IAB-\nDU(s) with one or more new TNL addresses, which are anchored on the IAB-donor-DU of the second path.\nIf needed, the IAB-donor-CU configures BH RLC channels, BAP-layer route entries on the target path for the\ndescendant nodes and the BH RLC channel mappings on the descendant nodes in the same manner as\ndescribed for the dual-connecting IAB-node in step 10.\nThe descendant nodes’ new TNL addresses (if any) are added to the descendant node IAB-DU’s F1-C\nassociation(s) with the IAB-donor-CU. The IAB-donor-CU may configure UL BH information for the second\npath to carry F1AP messages.\nThe IAB-donor-CU may migrate the F1-U tunnels it has with the dual-connecting IAB-node’s descendant\nnode(s) from the first path to the second path, as described for step 12.\nBased on implementation, these steps can be performed after or in parallel with the redundant path addition of\nthe dual connecting IAB-node.\nThe IAB-donor-CU may initiate the release of the redundant path by releasing the BAP routing entries and\nmodifying/releasing the BH RLC channels on that path.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.2",
+        "child_section_ids": [],
+        "page_numbers": [
+          54,
+          55,
+          56
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.15.2",
+      "section_title": "Mobility procedure for Multicast",
+      "content": "8.15.2 Mobility procedure for Multicast",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.15",
+        "child_section_ids": [
+          "8.15.2.1"
+        ],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.2.2",
+      "section_title": "Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+      "content": "8.2.2.2 Inter-gNB-DU Mobility using SCG SRB (SRB3)\nThis procedure is used for the case the UE moves from one gNB-DU to another gNB-DU when SCG SRB (SRB3) is\navailable during EN-DC operation. The procedure is the same as inter-gNB-DU Mobility for intra-NR as defined in\nclause 8.2.1.1 but the UE CONTEXT SETUP REQUEST message includes a CG-ConfigInfo.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.2",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.4",
+      "section_title": "Inter-gNB handover involving gNB-CU-UP change",
+      "content": "8.9.4 Inter-gNB handover involving gNB-CU-UP change\nFigure 8.9.4-1 shows the procedure used for inter-gNB handover involving gNB-CU-UP change. Overall inter-gNB\nhandover procedure is specified in TS 37.340 [12].\nSource gNB-\nCU-UP\nSource  gNB-\nCU-CP\n6. F1 UE Context Modification procedure\n10. BEARER CONTEXT MODIFICATION REQUEST\nSource gNB\n11. BEARER CONTEXT MODIFICATION RESPONSE\nSource\ngNB-DU\n7. BEARER CONTEXT MODIFICATION REQUEST (data forwarding info)\n9. SN STATUS TRANSFER or EARLY STATUS TRANSFER\n12. Data Forwarding\nAMF/UPF\n14. End Marker Packet\n15. New Path\nTarget gNB-\nCU-UP\nTarget gNB-\nCU-CP\nTarget gNB\nTarget\ngNB-DU\n4. F1 UE Context Setup procedure\n1. HANDOVER REQUEST\n5. HANDOVER REQUEST ACKNOWLEDGE\n    (data forwarding info)\n16. UE CONTEXT RELEASE\n18. F1 UE Context Release procedure\n8. BEARER CONTEXT MODIFICATION RESPONSE\n2. BEARER CONTEXT SETUP REQUEST\n3. BEARER CONTEXT SETUP RESPONSE\nUE attached\nvia RACH\n17. BEARER CONTEXT RELEASE COMMAND\n19. BEARER CONTEXT RELEASE COMPLETE\n12a. HANDOVER SUCCESS\n12c. BEARER CONTEXT MODIFICATION REQUEST\n12d. BEARER CONTEXT MODIFICATION RESPONSE\n12e. SN STATUS TRANSFER\n12f. BEARER CONTEXT MODIFICATION REQUEST\n12g. BEARER CONTEXT MODIFICATION RESPONSE\n13. Path Switch procedure is performed\n12b. F1 UE Context Modification procedure\n\nFigure 8.9.4-1: Inter-gNB handover involving gNB-CU-UP change\n1. The source gNB-CU-CP sends HANDOVER REQUEST message to the target gNB-CU-CP. In case of\nConditional Handover, the target gNB is regarded as a candidate gNB which is only accessed by the UE when\nthe CHO condition(s) are fulfilled.\n2-4. Bearer Context Setup procedure is performed as described in clause 8.9.2.\n5. The target gNB-CU-CP responds the source gNB-CU-CP with an HANDOVER REQUEST ACKNOWLEDGE\nmessage.\nNOTE 1: In case of Conditional Handover, it is up to target gNB-CU-CP implementation to make sure that the\nEARLY STATUS TRANSFER information is forwarded to the right gNB-CU-UP (e.g. separate UE-\nassociated signalling connection over Xn interface for each gNB-CU-UP).\n6. The F1 UE Context Modification procedure is performed to send the handover command to the UE, and to\nindicate to stop the data transmission for the UE.\nNOTE 2: In case of DAPS Handover or Conditional Handover, the F1 UE Context Modification procedure in step 6\ndoes not indicate to stop the data transmission for the UE. Instead, the F1 DL RRC Message Transfer\nprocedure can be used which carries the handover command to the UE.\n7-8. Bearer Context Modification procedure (gNB-CU-CP initiated) is performed to enable the gNB-CU-CP to\nretrieve the PDCP UL/DL status and to exchange data forwarding information for the bearer.\n9. The source gNB-CU-CP sends an SN STATUS TRANSFER message to the target gNB-CU-CP.\nNOTE 3: In case of DAPS Handover, the EARLY STATUS TRANSFER message is sent for DRBs configured\nwith DAPS instead of the SN STATUS TRANSFER message.\nNOTE 4: In case of Conditional Handover, the EARLY STATUS TRANSFER message is sent only if early data\nforwarding is applied.\nNOTE 5: The COUNT related info for the EARLY STATUS TRANSFER message is retrieved from the source\ngNB-CU-UP via the steps 7/8.\n10-11. Bearer Context Modification procedure is performed as described in clause 8.9.2. The target gNB-CU-CP\ndoes not transfer the PDCP UL/DL status carried from the SN STATUS TRANSFER message to the target gNB-\nCU-UP if the PDCP status does not need to be preserved (e.g. full configuration). In case of DAPS Handover or\nConditional Handover, the COUNT related info carried by the EARLY STATUS TRANSFER message is\nprovided to the target gNB-CU-UP.\n12. Data Forwarding may be performed from the source gNB-CU-UP to the target gNB-CU-UP.\nNOTE 6: In case of Conditional Handover, the UE performs  RACH when the CHO condition(s) are fulfilled. Once\nsuccessfully accessed, the target gNB-DU sends an ACCESS SUCCESS message to inform the target\ngNB-CU-CP of which cell the UE has accessed through. The target gNB-CU-CP may forward to the\ntarget gNB-CU-UP, necessary information for sending downlink packets (i.e. DL TNL address\ninformation for F1-U and UP security information corresponding to the accessed cell), via a Bearer\ncontext modification procedure. The target gNB-CU-CP may initiate Bearer context release procedure\ntoward the other signalling connections or other candidate target gNB-CU-UPs, if any, to release the\nprepared conditional handover resources for the UE.\n12a. In case of DAPS Handover or Conditional Handover, the target gNB-CU-CP sends the HANDOVER\nSUCCESS message to the source gNB-CU-CP to inform that the UE has successfully accessed the target cell.\n12b In case of DAPS Handover or Conditional Handover, the F1 UE Context Modification procedure is\nperformed to indicate to stop the data transmission for the UE.\n12c-12d. In case of DAPS Handover or Conditional Handover, the Bearer context modification procedure (gNB-\nCU-CP initiated) is performed to indicate the source gNB-CU-UP to stop packet delivery and also to retrieve the\nPDCP UL/DL status.\n12e. In case of DAPS Handover or Conditional Handover, the source gNB-CU-CP sends the SN STATUS\nTRANSFER message to the target gNB-CU-CP.\n12f-12g. In case of DAPS Handover or Conditional Handover, the Bearer context modification procedure is\nperformed to provide the PDCP UL/DL status to the target gNB-CU-UP only if the PDCP status needs to be\npreserved as described in TS 38.300 [2].\nNOTE 7: In case of Conditional Handover, inactivity monitoring is performed after step 12g.\n13-15. Path Switch procedure is performed to update the DL TNL address information for the NG-U towards the\ncore network.\n16. The target gNB-CU-CP sends an UE CONTEXT RELEASE message to the source gNB-CU-CP.\n17. and 19. Bearer Context Release procedure is performed.\n18. F1 UE Context Release procedure is performed to release the UE context in the source gNB-DU.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          75,
+          76
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.9.5",
+      "section_title": "Change of gNB-CU-UP",
+      "content": "8.9.5 Change of gNB-CU-UP\nFigure 8.9.5-1 shows the procedure used for the change of gNB-CU-UP within a gNB.\nSource gNB-\nCU-UP\nTarget gNB-\nCU-UP gNB-CU-CP\n4. F1 UE context management procedure (bearer modification)\n2. BEARER CONTEXT SETUP REQUEST\n1. Change of gNB-CU-UP is\ntriggered\n3. BEARER CONTEXT SETUP RESPONSE\ngNB-DU\n13. BEARER CONTEXT RELEASE COMMAND\n9. Data Forwarding\nAMF/UPF\n10. PDU Session Resource Indication\nprocedure is performed\n11. End Marker Packet\n12. New Path\n14. BEARER CONTEXT RELEASE COMPLETE\n7. BEARER CONTEXT MODIFICATION REQUEST\n8. BEARER CONTEXT MODIFICATION RESPONSE\n5. BEARER CONTEXT MODIFICATION REQUEST\n6. BEARER CONTEXT MODIFICATION RESPONSE\n\nFigure 8.9.5-1: Change of gNB-CU-UP\n1. Change of gNB-CU-UP is triggered in gNB-CU-CP based on e.g., measurement report from the UE.\n2-3. Bearer Context Setup procedure is performed as described in clause 8.9.2.\n4. F1 UE Context Modification procedure is performed to change the UL TNL address information for F1-U for\none or more bearers in the gNB-DU.\n5-6. Bearer Context Modification procedure (gNB-CU-CP initiated) is performed to enable the gNB-CU-CP to\nretrieve the PDCP UL/DL status and to exchange data forwarding information for the bearer.\n7-8. Bearer Context Modification procedure is performed as described in clause 8.9.2.\n9. Data Forwarding may be performed from the source gNB-CU-UP to the target gNB-CU-UP.\n10-12. PDU Session Resource Modify Indication procedure is performed to update the DL TNL address information\nfor the NG-U towards the core network.\n13-14. Bearer Context Release procedure (gNB-CU-CP initiated) is performed as described in clause 8.9.3.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.9",
+        "child_section_ids": [],
+        "page_numbers": [
+          77
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.19.4.2",
+      "section_title": "Intra-gNB-DU switch from direct to indirect path",
+      "content": "8.19.4.2 Intra-gNB-DU switch from direct to indirect path\nThe signalling flow for U2N Remote UE switch from direct to indirect path without gNB-DU change is shown in\nFigure 8.19.4.2-1.\nRe m o t e\nUE\nTa r g et\nRelay  UE\n gNB -D U\n gNB -CU\nDL / U L  d a t a\n1.  M e as ure m e n t  co nf igurat ion  and r e porti ng\n2.  D e ci s ion  of s witch ing\nto  a t arge t U 2N Re lay  UE\n3. Re configu ratio n to  tar ge t  U2N Re lay  UE\n4. U E C O N TE XT MOD IF I C A TI ON\nREQU ES T\n5. U E C O N TE XT MOD IF I C A TI ON\nR E SP O NSE\n6. D L RRC MESS A G E TRA N SF E R\n1 0 . U L R RC  ME S SA G E TRAN S FER\n7. RRCReconfiguration\n9. RRCReconfigurationComplete\n8. PC 5  conn e ct ion e s tabl is h m e nt\nDL / U L  d a t a\n\nFigure 8.19.4.2-1: U2N Remote UE Direct-to-indirect Path Switch without gNB-DU change procedure\n1. The Uu measurement configuration and measurement report signalling is performed between U2N Remote UE\nand gNB-CU to evaluate both relay link measurement and Uu link measurement. The U2N Remote UE may\nreport one or multiple candidate U2N Relay UE(s) and Uu measurement results after it measures/discovers the\ncandidate U2N Relay UE(s).\n2. The gNB-CU decides to switch the U2N Remote UE to a target U2N Relay UE under the same gNB-DU.\n3. The reconfiguration to target U2N Relay UE is performed among U2N Relay UE, gNB-DU and gNB-CU if U2N\nRelay UE is in RRC_CONNECTED state. The gNB-CU sends an RRCReconfiguration message to the target\nU2N Relay UE. If the target Relay UE is in RRC_IDLE/INACTIVE state, this step is skipped and the\nconfiguration to the target U2N Relay UE is performed in Step 9.\n4. gNB-CU sends the UE CONTEXT MODIFICATION REQUEST message for the U2N Remote UE to gNB-DU,\nwhich contains the path switch configuration at least. The F1-U packets of the U2N Remote UE can be\ncontinuously transmitted via previous tunnels if there is no tunnel update in this step.\n5. gNB-DU responds with the UE CONTEXT MODIFICATION RESPONSE message to gNB-CU.\n6. gNB-CU sends the DL RRC MESSAGE TRANSFER message by including the RRCReconfiguration  message\nto gNB-DU. The contents in the RRCReconfiguration message may include at least path switch configuration,\nPC5 Relay RLC channel configuration for relaying traffic, bearer mapping configuration and the associated radio\nbearer(s).\n7. gNB-DU sends the RRCReconfiguration  message to the U2N Remote UE. The U2N Remote UE stops UP and\nCP transmission over Uu after reception of RRCReconfiguration message from the gNB.\n8. The U2N Remote UE establishes PC5 connection with target U2N Relay UE.\n9. The U2N Remote UE completes the path switch procedure by sending the RRCReconfigurationComplete\nmessage to the gNB-DU via the target U2N Relay UE. In case the U2N Relay UE is in RRC_IDLE/INACTIVE\nstate when receiving the RRCReconfigurationComplete message, the reception of the\nRRCReconfigurationComplete message will first trigger RRC setup/resume procedure for the U2N relay UE to\nenter RRC_CONNECTED state.\n10. The gNB-DU sends the UL RRC MESSAGE TRANSFER message to gNB-CU by including the\nRRCReconfigurationComplete message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.19.4",
+        "child_section_ids": [],
+        "page_numbers": [
+          137
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.2.3",
+      "section_title": "Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+      "content": "8.2.2.3 Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation\nnegotiation\nThis procedure is used for the case where the UE moves from one gNB-DU to another gNB-DU within the same gNB-\nCU when only MCG SRB is available and the MN’s configuration is not changed during EN-DC operation for\nconditional PSCell change. Figure 8.2.2.3-1 shows the inter-gNB-DU conditional PSCell change procedure using MCG\nSRB in EN-DC.\nUE Source\ngNB-DU\nCandidate\ngNB-DU gNB-CU\n1. ULInformationTransferMRDC (containing NR RRC MeasurementReport)\n2. RRC TRANSFER\n5. UE CONTEXT SETUP REQUEST\n(Conditional Inter-DU Mobility Information)\n6. UE CONTEXT SETUP RESPONSE\n(Requested Target Cell ID)\n11. Random Access Procedure\n16. UE CONTEXT RELEASE COMMAND\n17. UE CONTEXT RELEASE COMPLETE\nDownlink user data\nUplink user data\nDownlink User Data\nDownlink user data\nUplink user data\nMeNB\n7. SGNB MODIFICATION\nREQUIRED\n8. RRC Reconfiguration/Complete procedure is performed between the MeNB and the UE.\n9. SGNB MODIFICATION\nCONFIRM\n14. UE CONTEXT MODIFICATION REQUEST\n15. UE CONTEXT MODIFICATION RESPONSE\nDownlink Data Delivery Status\nDownlink Data Delivery Status\n3. UE CONTEXT MODIFICATION REQUEST\n4. UE CONTEXT MODIFICATION RESPONSE\n10. Execution\ncondition(s)\nare fulfilled\n(RRCReconfiguration)\n(RRCReconfigurationComplete)\n12. ULInformationTransferMRDC (containing RRCReconfigurationComplete)\n13. RRC TRANSFER\n(RRCReconfigurationComplete)\nACCESS SUCCESS\n\nFigure 8.2.2.3-1: Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation in\nEN-DC\n1-4. The steps 1-4 are as defined in clause 8.2.2.1.\n5. The gNB-CU sends an UE CONTEXT SETUP REQUEST message to the candidate gNB-DU to create an UE\ncontext and setup one or more data bearers. The UE CONTEXT SETUP REQUEST message is sent for each\ncandidate cell and includes a CG-ConfigInfo.\n6. The candidate gNB-DU responds the gNB-CU with an UE CONTEXT SETUP RESPONSE message including\nthe target cell ID that was requested from the gNB-CU. The response message is sent for each requested\ncandidate cell.\n7. The gNB-CU sends an SGNB MODIFICATION REQUIRED message to the MeNB, which includes a generated\nRRCReconfiguration message.\n8. The MeNB and the UE perform RRC Connection Reconfiguration/Complete procedure.\n9. The MeNB sends an SGNB MODIFICATION CONFIRM message to the gNB-CU, to convey the received\nRRCReconfigurationComplete message at step 8.\n10. An execution condition to trigger initiation of conditional PSCell change is fulfilled.\n11. Random Access procedure is performed at the candidate gNB-DU, which becomes the target gNB-DU if\nsuccessful. The target gNB-DU sends a Downlink Data Delivery Status frame to inform the gNB-CU. The target\ngNB-DU also sends an ACCESS SUCCESS message to inform the gNB-CU of which cell the UE has\nsuccessfully accessed.\n12-13. The UE responds with an RRCReconfigurationComplete message (embedded in an\nULInformationTransferMRDC message), which the MeNB forwards to the gNB-CU via an RRC TRANSFER\nmessage.\n14. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU and\nindicates to stop the data transmission for the UE. The source gNB-DU sends a Downlink Data Delivery Status\nframe to inform the gNB-CU about the unsuccessfully transmitted downlink data to the UE. Downlink packets,\nwhich may include PDCP PDUs not successfully transmitted in the source gNB-DU, are sent from the gNB-CU\nto the target gNB-DU. Downlink packets are sent to the UE. Also, uplink packets are sent from the UE, which\nare forwarded to the gNB-CU through the target gNB-DU.\nNOTE 1: The step 14 may happen before step 13, as soon as the gNB-CU knows which cell the UE has\nsuccessfully accessed.\nNOTE 2: The gNB-CU may initiate UE Context Release proced ure toward the other signalling connections or other\ncandidate target gNB-DUs, if any, to cancel conditional PSCell change for the UE.\n15. The source gNB-DU responds to the gNB-CU with the UE CONTEXT MODIFICATION RESPONSE message.\n16-17. The steps 16-17 are as defined in steps 11-12 in clause 8.2.1.1.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.2",
+        "child_section_ids": [],
+        "page_numbers": [
+          47,
+          48
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.2.2.1",
+      "section_title": "Inter-gNB-DU Mobility using MCG SRB",
+      "content": "8.2.2.1 Inter-gNB-DU Mobility using MCG SRB\nThis procedure is used for the case the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU\nwhen only MCG SRB is available during EN-DC operation. Figure 8.2.2.1-1 shows the inter-gNB-DU mobility\nprocedure using MCG SRB in EN-DC.\nUE Source\ngNB-DU\nTarget\ngNB-DU gNB-CU\n1. ULInformationTransferMRDC (containing NR RRC MeasurementReport)\n2.RRC TRANSFER\n5. UE CONTEXT SETUP REQUEST\n6. UE CONTEXT SETUP RESPONSE\n14. Random Access Procedure\n15. UE CONTEXT RELEASE COMMAND\n16. UE CONTEXT RE LE ASE COMPLETE\nDownlink user data\nUplink user data\nDownlink User Data\nDownlink user data\nUplink user data\nMeNB\n9. SGNB MODIFICATION\nREQUIRED\n12. RRC Reconfiguration procedure is performed between the MeNB and the UE.\n13. SGNB MODIFICATION\nCONFIRM\n7. UE CONTEXT MODIFICATION REQUEST\n8. UE CONTEXT MODIFICATION RESPONSE\nDownlink Data Delivery Status\nDownlink Data Delivery Status\n3. UE CONTEXT MODIFICATION REQUEST\n4. UE CONTEXT MODIFICATION RESPONSE\n10. SGNB MODIFICATION\nREQUEST\n11. SGNB MODIFICATION\nREQUEST ACKNOWLEDGE\n\nFigure 8.2.2.1-1: Inter-gNB-DU Mobility using MCG SRB in EN-DC\n1. The UE sends an ULInformationTransferMRDC message to the MeNB.\n2. The MeNB sends RRC TRANSFER message to the gNB-CU.\n3. The gNB-CU may send UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU to query\nthe latest SCG configuration.\n4. The source gNB-DU responds with an UE CONTEXT MODIFICATION RESPONSE message that includes full\nconfiguration information.\n5. The gNB-CU sends an UE CONTEXT SETUP REQUEST message to the target gNB-DU to create an UE\ncontext and setup one or more data bearers. The UE CONTEXT SETUP REQUEST message includes a CG\nConfigInfo.\n6. The target gNB-DU responds the gNB-CU with an UE CONTEXT SETUP RESPONSE message.\n7. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU indicating\nto stop the data transmission to the UE. The source gNB-DU also sends a Downlink Data Delivery Status frame\nto inform the gNB-CU about the unsuccessfully transmitted downlink data to the UE.\n8. The source gNB-DU responds the gNB-CU with an UE CONTEXT MODIFICATION RESPONSE message.\n9. The gNB-CU sends an SGNB MODIFICATION REQUIRED message to the MeNB.\n10/11.  The MeNB Initiated SgNB Modification procedure may be triggered by the SgNB Initiated SgNB\nModification procedure (e.g. to provide information such as data forwarding addresses, new SN security key,\nmeasurement gap, etc...).\n12. The MeNB and the UE perform RRC Connection Reconfiguration procedure.\n13. The MeNB sends an SGNB MODIFICATION CONFIRM message to the gNB-CU.\n14. Random Access procedure is performed at the target gNB-DU. The target gNB-DU sends a Downlink Data\nDelivery Status frame to inform the gNB-CU. Downlink packets, which may include PDCP PDUs not\nsuccessfully transmitted in the source gNB-DU, are sent from the gNB-CU to the target gNB-DU. Downlink\npackets are sent to the UE. Also, uplink packets are sent from the UE, which are forwarded to the gNB-CU\nthrough the target gNB-DU.\nNOTE: It is up to gNB-CU implementation whether to start sending DL User Data to gNB-DU before or after\nreception of the Downlink Data Delivery Status.\n15. The gNB-CU sends an UE CONTEXT RELEASE COMMAND message to the source gNB-DU.\n16. The source gNB-DU releases the UE context and responds the gNB-CU with an UE CONTEXT RELEASE\nCOMPLETE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.2.2",
+        "child_section_ids": [],
+        "page_numbers": [
+          45,
+          46
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.16.1",
+      "section_title": "MN initiated Conditional PSCell Addition",
+      "content": "8.16.1 MN initiated Conditional PSCell Addition\nThe procedure for MN initiated Conditional PSCell Addition (CPA) is shown in Figure 8.16-1-1.\nUE\n MN\n SN-CU-CP\n UPF\n AMF\n1 .  S N  A d di t i o n  R e qu e s t\n2. SN  Add i t i on R e q u e s t  Ack no w l e dge\n3 .  RRC  r e c o n f i g u r at io n * M es sa g e  ( Co n ta in in g  M N RRC\nr ec o n f igu r a t io n**  >>  S N RRCR e c o n f i g u ra ti o n ** *)\n4. R R C r e c onf i g ur at i on com pl e t e *  m e s s age\n9. PD U  S e s s i on  M odi fi cati on  In d i cat i on\n5a. S N  R e c onf i gur at i o n C ompl e t e\n1 2.  PD U  Se s s i o n  M o di fi c a t i o n  C o nf ir m a t io n\n1 0 . B e a r e r  M odi f i c a ti on\n7. S N  S t a tus  Tr a n s f e r\n8. D at a F or w a r d i n g\n6. R and om  A cc e s s  Proce dur e\n      Pat h  U p d at e  pr o ce dur e\n11 .  E n d  M a rk er  P a c k e t\n2 a. Xn -U  A dd r e s s  Indi cati o n\n4 a.  R R C r e conf i g ur at i on com pl e t e **  m e s s age  (con t ai ni n g\nSN  R R CR e con fi gur ati o nC om p l e t e ** *)\nOther potential\nSN\n1. SN  A dd i ti o n R e q ue s t\n2a. X n - U  Addr e s s  I ndi cat i on\nSN-CU-UP\n SN-DU\na3 .  F1  U E c onte x t  s e t up  p r oc e d ur e\na 1.  B EAR ER  C O N TEXT SETU P R EQU ES T\na 2.  B EAR ER  C O N TEXT SETU P R ES P O N S E\na 4.  B EAR ER  C O N TEXT M O D IF ICA TI O N  R EQU ES T\na 5.  B EAR ER  C O N TEXT M O D IF ICA TI O N  R ES P O N S E\na 6 .  A CCE SS  S UCCE S S\n5 b .  SN  Rel ease  Req u e st\n5c. SN  Re l e as e  R e que s t  Ack now l e d g e\nDownlink Data Delivery Status\n2.  S N  A d d i tio n  Re q u e s t A c k n o w l ed g e\n\nFigure 8.16.1-1 Conditional Secondary Node Addition procedure\n1-12. The steps 1-12 are as defined in TS 37.340 [12].\na1-a5. The steps a1-a5 are as defined in clause 8.9.2 and with conditional indications.\na6. After Random Access procedure successfully performed at the candidate gNB-DU which becomes the target SN\ngNB-DU, the target gNB-DU sends a Downlink Data Delivery Status frame to inform the target gNB-CU-UP.\nThe target gNB-DU also sends an ACCESS SUCCESS message to inform the target gNB-CU-CP of which cell\nthe UE has successfully accessed.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.16",
+        "child_section_ids": [],
+        "page_numbers": [
+          111
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "6.2.2",
+      "section_title": "gNB-DU ID",
+      "content": "6.2.2 gNB-DU ID\nThe gNB-DU ID is configured at the gNB-DU and used to uniquely identify the gNB-DU at least within a gNB-CU.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "6.2",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.3.1",
+      "section_title": "Centralized Retransmission in Intra gNB-CU Cases",
+      "content": "8.3.1 Centralized Retransmission in Intra gNB-CU Cases\nThis mechanism allows to perform the retransmission of the PDCP PDUs that are not delivered by a gNB-DU (gNB-\nDU1) because the corresponding radio links toward the UE are subject to outage. When such outage occurs, the gNB-\nDU affected by outage informs the gNB-CU of such event. The gNB-CU can switch transmission of data traffic, as well\nas perform retransmission of undelivered PDCP PDUs, from the gNB-DU affected by outage to other available gNB-\nDUs (e.g. gNB-DU2 in Figure 8.3.1-1) with a well-functioning radio link toward the UE. The mechanism is also\napplicable in EN-DC and MR-DC with 5GC, refer to TS 37.340 [12].\nUE gNB-\nDU1\ngNB-\nDU2\n6. gNB-CU resumes data traffic transmission to gNB-DU1\n5. F1-U DDDS PDU (Radio Link Resume)\ngNB-CU\n0. UE is connected to the gNB-CU at RRC and PDCP level. UE has DRBs\nconfigured and active on gNB-DU1 and gNB-DU2\n4. gNB-DU switches traffic delivery to gNB-DU2. gNB-CU\nsends undelivered PDCP PDUs to gNB-DU2\n2. F1-U DDDS PDU (Radio Link Outage, lost F1-U sequence numbers\n1. gNB-DU1 determines that\nthe radio link is subject to an\noutage, e.g. blocking fast\nfading\n3. gNB-CU decides whether there are other\ngNB-DUs able to serve the UE and switches\ntraffic delivery and retransmission of\nundelivered PDCP PDUs from gNB-DU1 to\nsuch gNB-DUs. gNB-CU does not\nnecessarily remove gNB-DU1's DRBs\n\nFigure 8.3.1-1: Procedure for centralized retransmission in intra gNB-CU scenarios\nThe mechanism is shown in Figure 8.3.1-1 and targets the multi-connectivity scenario, where a UE is served by\nmultiple data radio bearers established at least on two gNB-DUs, and it includes the following steps:\n0. The UE is connected and can transmit/receive data to/from gNB-DU1 and gNB-DU2.\n1. gNB-DU1 realizes that the radio link towards the UE is experiencing outage.\n2. gNB-DU1 sends the \"Radio Link Outage\" notification messa ge to the gNB-CU over the F1-U interface, as part\nof the DDDS PDU of the concerned data radio bearer. The message may include information to be used by the\ngNB-CU to perform retransmission of the PDCP PDUs that were not delivered by the gNB-DU1 (e.g. the highest\ntransmitted NR PDCP Sequence Number, the highest successfully delivered NR PDCP Sequence Number and\nthe lost NR-U Sequence Numbers).\n3. gNB-CU decides to switch data traffic transmission and retransmission of PDCP PDUs that were undelivered in\ngNB-DU1 via gNB-DU2. gNB-CU stops sending downlink traffic to gNB-DU1. The radio leg between gNB-\nDU1 and the UE is not necessarily removed.\n4. gNB-CU starts sending traffic (namely new PDUs and potentially retransmitted PDUs) to gNB-DU2.\n5. If gNB-DU1 realizes that the radio link of the concerne d data radio bearer is back in normal operation, it may\nsend a \"Radio Link Resume\" notification message as part of the DDDS PDU over the F1-U interface to inform\nthe gNB-CU that the radio link can be used again for the concerned data radio bearer.\n6. gNB-CU may start sending traffic (namely new PDUs and potentially retransmitted PDUs) of the concerned data\nradio bearer via gNB-DU1 again.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.3",
+        "child_section_ids": [],
+        "page_numbers": [
+          58
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.4.1.1",
+      "section_title": "EN-DC",
+      "content": "8.4.1.1 EN-DC\nThis clause gives the SgNB addition procedure in EN-DC given that en-gNB consists of gNB-CU and gNB-DU(s), as\nshown in Figure 8.4.1.1-1.\nUE\n MeNB\n gNB-CU\n gNB-DU\n S-GW\n2 . S G N B  A D D ITIO N  R E QU ES T  A C K N OW LE D G E\n(c ar r y  CG-Co nfig )\n3. RRCConnectionReconfiguration\n4.  RRCConnectionReconfigurationComplete\n5 .  SG N B RE C O N F I G UR A T I O N  C O M PL E T E\n7. S N  S T AT U S  T R AN S F E R\n8.  D at a F o r w a r d in g\n6 .  R a n dom  A c ce s s  Proc e dur e\n      Pat h  U p d a t e  p r o c e d u r e\nMME\na 1. UE C O NTE X T S E T U P REQ U E S T\n ( ca rry   CG-ConfigInfo )\na 2. U E  C O NTEX T S ET U P R E S PO N S E\nU p lin k  u s e r   d at a\nD o w n li n k  u se r   d at a\nD o w n li n k  u se r   d at a\n1 .  S G N B  A D D I TI ON  R EQ U ES T\n ( c a rry   CG-Co nfigI nfo )\n\nFigure 8.4.1.1-1: SgNB addition procedure in EN-DC\n1~8: refer to TS 37.340 [12].\na1. After receiving the SGNB ADDITION REQUEST message from MeNB, the gNB-CU sends the UE CONTEXT\nSETUP REQUEST message to the gNB-DU to create a UE context. As specified in TS 37.340 [12], in the\ncourse of a Secondary Node Change, the UE CONTEXT SETUP REQUEST message may contain source cell\ngroup configuration to allow gNB-DU to perform delta configuration.\na2. The gNB-DU responds to the gNB-CU with the UE CONTEXT SETUP RESPONSE message. In case the gNB-\nDU receives the UE CONTEXT SETUP REQUEST message without the source cell group configuration or in\nthe course of a Secondary Node Change as specified in TS 37.340 [12] or if the gNB-DU decides to perform full\nconfiguration after receiving the source cell group configuration, it shall perform full configuration and indicate\nthat it has applied full configuration in the UE CONTEXT SETUP RESPONSE message.\nNOTE: On Inter-gNB-CU Mobility, same method is performed to achieve full configuration and delta\nconfiguration.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.4.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          59
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.4.2.1",
+      "section_title": "EN-DC",
+      "content": "8.4.2.1 EN-DC\nThis clause gives the SgNB release procedure in EN-DC given that the en-gNB consists of a gNB-CU and gNB-DU(s).\nMN initiated SN Release\nUE\n MeNB\n gNB-CU\n gNB-DU\n S-GW\n3. RRCConnectionReconfiguration\n4. RRCConnectionReconfigurationComplete\n5 .  SN  ST A T U S T R A N S FE R\n6 .  D at a F o r wa r d in g\n7. Path  U p d a te p r o ced u r e\n1.  S G NB R EL EAS E R E Q U ES T\n8 .  UE C O NT EX T  R EL EASE\nMME\na3. U E  C O N TE X T R ELE AS E  C O M MAN D\na 4 .  UE C ON TEX T REL EA S E C OM P L ETE\na1. U E  C ON TE X T M OD IF IC A TIO N R E Q U ES T\na2. U E  C ON TE X T M OD IF IC A TIO N R E S PON S E\n2.  S G N B  REL EA S E R EQ U EST A C K N OWL ED G E\n\nFigure 8.4.2.1-1 SgNB release procedure in EN-DC (MN initiated)\n1~8: refer to TS 37.340 [12].\nNOTE: The timing of sending the Step 2 SGNB RELEASE REQUEST ACKNOWLEDGE message is an\nexample, it may be sent e.g. after step a1 or after a2 and it is up to implementation.\na1. After receiving SGNB RELEASE REQUEST message from MeNB, gNB-CU sends the UE CONTEXT\nMODIFICATION REQUEST message to gNB-DU to stop the data transmission for the UE. It is up to gNB-DU\nimplementation when to stop the UE scheduling.\na2. gNB-DU responds to gNB-CU with UE CONTEXT MODIFICATION RESPONSE message.\na3. After receiving the UE CONTEXT RELEASE message from MeNB, the gNB-CU sends the UE CONTEXT\nRELEASE COMMAND message to the gNB-DU to release the UE context.\na4. The gNB-DU responds to the gNB-CU with the UE CONTEXT RELEASE COMPLETE message.\nSN initiated SN Release\nUE\n MeNB\n gNB-CU\n gNB-DU\n S-GW\n1.  SG N B  RE L E A S E  RE Q U I R E D\n3. RRCConnectionReconfiguration\n4. RRCConnectionReconfigurationComplete\n5 .  SN  ST A T U S T R A N S FE R\n6 .  D at a F o r wa r d in g\n7 .  P a t h  U p da t e  p r o c e du r e\n2. S G NB  R E LEA S E C ON F IR M\n8 .  UE C O NT EX T  R EL EASE\nMME\na3. U E C O NT EX T  R E LEA S E  C O M M A N D\na4. U E C O NT EX T  R E LEA S E  C O M PL E T E\na 1.  UE C ONT EX T  M O D I FI C A TI ON  R E Q U ES T\na 2 .  UE C ONT EX T  M O D I FI C A TI ON  R E S P O NS E\n\nFigure 8.4.2.1-2 SgNB release procedure in EN-DC (SN initiated)\n1~8: refer to TS 37.340 [12].\na1. gNB-CU sends the UE CONTEXT MODIFICATION REQUEST message to gNB-DU to stop the data\ntransmission for the UE. It is up to gNB-DU implementation when to stop the UE scheduling. This step may\noccur before step 1.\na2. gNB-DU responds to gNB-CU with UE CONTEXT MODIFICATION RESPONSE message.\na3. After receiving the UE CONTEXT RELEASE message from MeNB, the gNB-CU sends the UE CONTEXT\nRELEASE COMMAND message to the gNB-DU to release the UE context.\na4. The gNB-DU responds to the gNB-CU with the UE CONTEXT RELEASE COMPLETE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.4.2",
+        "child_section_ids": [],
+        "page_numbers": [
+          60
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.14.1.3",
+      "section_title": "Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+      "content": "8.14.1.3 Reporting of DL LBT failure information from gNB-DU to gNB-CU\nFor MRO analysis, a gNB-CU may request to a gNB-DU to collect and report DL LBT failure information related to\nmobility failures for a UE, as defined in TS 38.300 [2], via the UE CONTEXT SETUP REQUEST message, or the UE\nCONTEXT MODIFICATION REQUEST message, or to trigger report via the UE CONTEXT RELEASE\nCOMMAND. The gNB-DU may report the information to the gNB-CU via the DU-CU ACCESS AND MOBILITY\nINDICATION message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.14.1",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "6.2.5",
+      "section_title": "RAN UE ID",
+      "content": "6.2.5 RAN UE ID\nThe RAN UE ID is an identifier allocated to a UE by the gNB-DU during UE Initial Access or by the gNB-CU during\nUE Context Setup. It is transferred over E1 and F1 interface, in order to do correlation of data for a given UE in case of\ndisaggregated gNB deployment. The RAN UE ID is unique within a gNB.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "6.2",
+        "child_section_ids": [],
+        "page_numbers": [],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.19.4.1",
+      "section_title": "Inter-gNB-DU switch from direct to indirect path",
+      "content": "8.19.4.1 Inter-gNB-DU switch from direct to indirect path\nThe signalling flow for U2N Remote UE switch from direct to indirect path with gNB-DU change is shown in Figure\n8.19.4.1-1.\nRe m o t e\nUE\nTa r g et\nRe l ay  U E\nS our c e\ngN B - D U\n g N B- CU\nDL / U L  d a t a\n1 .  M e a s ur e m e n t  c o n fi g ur a t io n a nd  r e po r t in g\n2 .  D e c is i on o f  s w it c hi ng\nt o  a  t a r ge t  U 2 N R el a y  UE\n4 .  U E  C O N TE X T S E TU P  R E Q UE S T\n5.  U E  CO N T E XT  SE T U P  R E S P O N SE\n6 .  UE  C O NT EX T  M O D I F I C A TI O N R E Q U E S T\n( RRCReconfiguration )\n11 .  U L  R R C  M E S S A G E  T R A N S FE R\n7. RRCReconfiguration\n10. RRCReconfigurationComplete\n9 . P C5  c on ne c t ion e s t a bl i s hm e n t\nDL /U L  d a t a\nTa r ge t\ngN B - D U\n8 .  U E  C O N TE X T M O D IF IC AT I O N  R ES P O N S E\n1 2 .  U E C O NT EX T R EL EA S E  C O M M A N D\n1 3 .  U E C O NT EX T R EL EA S E  C O M P L ET E\n3 .  R e c o n f igu r at i o n  to  t ar ge t  U 2 N  R e l ay  U E\n\nFigure 8.19.4.1-1: U2N Remote UE Direct-to-indirect Path Switch with gNB-DU change procedure\n1. The Uu measurement configuration and measurement report signalling is performed between U2N Remote UE\nand gNB-CU to evaluate both relay link measurement and Uu link measurement. The U2N Remote UE may\nreport one or multiple candidate U2N Relay UE(s) and Uu measurement results after it measures/discovers the\ncandidate U2N Relay UE(s).\n2. The gNB-CU decides to switch the U2N Remote UE to  a target U2N Relay UE under a different gNB-DU (i.e.,\ntarget gNB-DU).\n3. The reconfiguration to target U2N Relay UE is performed among U2N Relay UE, the target gNB-DU and gNB-\nCU, if the U2N Relay UE is in RRC_CONNECTED state. The gNB-CU sends an RRCReconfiguration message\nto the target U2N Relay UE. If the target Relay UE is in RRC_IDLE/INACTIVE state, this step is skipped and\nthe configuration to the target U2N Relay UE is performed in Step 10.\n4. gNB-CU sends the UE CONTEXT SETUP REQUEST message for the U2N Remote UE to the target gNB-DU,\nwhich contains the path switch configuration at least.\n5. gNB-DU responds with the UE CONTEXT SETUP RESPONSE message to gNB-CU.\n6. gNB-CU sends the UE CONTEXT MODIFICATION REQUEST message by including the\nRRCReconfiguration message to the source gNB-DU. The contents in the RRCReconfiguration message may\ninclude at least path switch configuration, PC5 Relay RLC channel configuration for relaying traffic, bearer\nmapping configuration and the associated radio bearer(s).\n7. The source gNB-DU sends the RRCReconfiguration  message to the U2N Remote UE. The U2N Remote UE\nstops UP and CP transmission over Uu after reception of RRCReconfiguration message from the gNB.\n8. The source gNB-DU sends the UE CONTEXT MODIFICATION RESPONSE message to the gNB-CU.\n9. The U2N Remote UE establishes PC5 connection with target U2N Relay UE.\n10. The U2N Remote UE completes the path switch procedure by sending the RRCReconfigurationComplete\nmessage to the target gNB-DU via the target U2N Relay UE. In case the U2N relay UE is in RRC_IDLE/\nINACTIVE state, when the U2N relay UE receives the RRCReconfigurationComplete message, the reception of\nthe RRCReconfigurationComplete message will first trigger RRC setup/resume procedure for the U2N relay UE\nto enter RRC_CONNECTED state.\n11. The target gNB-DU sends the UL RRC MESSAGE TRANSFER message to gNB-CU by including the\nRRCReconfigurationComplete message.\n12. The gNB-CU sends an UE CONTEXT RELEASE COMMAND message to the source gNB-DU.\n13. The source gNB-DU releases the UE context and responds the gNB-CU with an UE CONTEXT RELEASE\nCOMPLETE message.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.19.4",
+        "child_section_ids": [],
+        "page_numbers": [
+          135,
+          136
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.14.1",
+      "section_title": "Overall procedures for MRO",
+      "content": "8.14.1 Overall procedures for MRO\nThe following clauses describe the overall procedures for MRO involving F1.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 3,
+        "parent_section_id": "8.14",
+        "child_section_ids": [
+          "8.14.1.1",
+          "8.14.1.2",
+          "8.14.1.3"
+        ],
+        "page_numbers": [
+          101
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    },
+    {
+      "section_id": "8.14.1.2",
+      "section_title": "Signalling of RACH information from gNB-CU to gNB-DU",
+      "content": "8.14.1.2 Signalling of RACH information from gNB-CU to gNB-DU\nThe signalling flow for signalling of RACH information from gNB-CU to gNB-DU is shown in Figure 8.14.1.2-1,\nwhere the example where NG-RAN nodes exchange the RACH Report via the Xn: ACCESS AND MOBILITY\nINDICATION message has been considered.\n\nFigure 8.14.1.2-1 Example of signalling of RACH information from gNB-CU to gNB-DU in NG-RAN\n1. A UE with a RACH Report concerning cells of gNB1 connects to a cell in gNB2 and it signals the RACH Report\nto gNB2 by means of the RRC UE Information Request/Response procedures.\n2. GNB2 sends an Xn: Access and Mobility Indication message to gNB1-CU where the UE may have previously\nbeen connected. This includes also the RACH Report.\n3. GNB1-CU sends the F1: Access and Mobility Indication message to the gNB1-DU, including the RACH Report.\nIt is also possible for the gNB-CU receiving the RACH Report from the UE to signal it directly to the gNB-DU by\nmeans of the F1: Access and Mobility Indication procedure.",
+      "metadata": {
+        "doc_id": "ts_138401v180600p",
+        "level": 4,
+        "parent_section_id": "8.14.1",
+        "child_section_ids": [],
+        "page_numbers": [
+          102
+        ],
+        "knowledge_source": "ts_138401v180600p"
+      }
+    }
+  ]
+}

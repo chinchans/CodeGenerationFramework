@@ -1,0 +1,3880 @@
+{
+  "metadata": {
+    "timestamp": "2026-04-06T10:27:53.622630",
+    "user_query": "gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU for Inter gNB DU LTM Handover",
+    "target_messages": [
+      "UE CONTEXT SETUP REQUEST",
+      "UE CONTEXT SETUP RESPONSE"
+    ],
+    "num_messages": 2,
+    "num_semantic_chunks": 20
+  },
+  "semantic_chunks": [
+    {
+      "chunk_id": "7934",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.9347408484933837,
+      "rank": 1,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_req_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_req_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 544,
+        "line_end": 568
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "8815",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8926342220608472,
+      "rank": 2,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "chunk_type": "FUNCTION",
+        "name": "CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 48,
+        "line_end": 68
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "12626",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8792311196983302,
+      "rank": 3,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_generate_UeContextSetupRequest",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_generate_UeContextSetupRequest",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 3032,
+        "line_end": 3084
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "8136",
+      "node_id": "struct:openair2\\COMMON\\ngap_messages_types.h::ngap_initial_context_setup_req_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8747216703603087,
+      "rank": 4,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\ngap_messages_types.h__ngap_initial_context_setup_req_s",
+        "node_id": "struct:openair2\\COMMON\\ngap_messages_types.h::ngap_initial_context_setup_req_s",
+        "chunk_type": "STRUCT",
+        "name": "ngap_initial_context_setup_req_s",
+        "file_path": "openair2\\COMMON\\ngap_messages_types.h",
+        "line_start": 557,
+        "line_end": 592
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "7935",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_resp_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8731486100709205,
+      "rank": 5,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_resp_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_resp_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_resp_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 570,
+        "line_end": 583
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "12703",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8630609044047741,
+      "rank": 6,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB_NGAP.c__rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+        "line_start": 396,
+        "line_end": 472
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "12705",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8629227776445916,
+      "rank": 7,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB_NGAP.c__rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+        "line_start": 483,
+        "line_end": 517
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "12480",
+      "node_id": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_setup_request_f1ap",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8614382634467983,
+      "rank": 8,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c__ue_context_setup_request_f1ap",
+        "node_id": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_setup_request_f1ap",
+        "chunk_type": "FUNCTION",
+        "name": "ue_context_setup_request_f1ap",
+        "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+        "line_start": 79,
+        "line_end": 85
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "12272",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8614241746423588,
+      "rank": 9,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB_S1AP.c__rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+        "line_start": 545,
+        "line_end": 581
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "12277",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8589914153709639,
+      "rank": 10,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB_S1AP.c__rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+        "line_start": 872,
+        "line_end": 994
+      },
+      "target_message_name": "UE CONTEXT SETUP REQUEST"
+    },
+    {
+      "chunk_id": "7934",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.9350125662168369,
+      "rank": 1,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_req_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_req_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_req_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 544,
+        "line_end": 568
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "7935",
+      "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_resp_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8865844559830389,
+      "rank": 2,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\f1ap_messages_types.h__f1ap_ue_context_setup_resp_s",
+        "node_id": "struct:openair2\\COMMON\\f1ap_messages_types.h::f1ap_ue_context_setup_resp_s",
+        "chunk_type": "STRUCT",
+        "name": "f1ap_ue_context_setup_resp_s",
+        "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+        "line_start": 570,
+        "line_end": 583
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "12626",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.883674403327642,
+      "rank": 3,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_generate_UeContextSetupRequest",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_generate_UeContextSetupRequest",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 3032,
+        "line_end": 3084
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "8815",
+      "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.881862194115099,
+      "rank": 4,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\F1AP\\f1ap_cu_ue_context_management.c__CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "node_id": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "chunk_type": "FUNCTION",
+        "name": "CU_send_UE_CONTEXT_SETUP_REQUEST",
+        "file_path": "openair2\\F1AP\\f1ap_cu_ue_context_management.c",
+        "line_start": 48,
+        "line_end": 68
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "12705",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8742405597008371,
+      "rank": 5,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB_NGAP.c__rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+        "line_start": 483,
+        "line_end": 517
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "12272",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8699106664008056,
+      "rank": 6,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB_S1AP.c__rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_send_S1AP_INITIAL_CONTEXT_SETUP_RESP",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+        "line_start": 545,
+        "line_end": 581
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "12703",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8658806626845035,
+      "rank": 7,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB_NGAP.c__rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+        "line_start": 396,
+        "line_end": 472
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "8136",
+      "node_id": "struct:openair2\\COMMON\\ngap_messages_types.h::ngap_initial_context_setup_req_s",
+      "chunk_type": "STRUCT",
+      "chunk_text": "",
+      "cosine_score": 0.8655530525019159,
+      "rank": 8,
+      "metadata": {
+        "chunk_id": "emb_struct_openair2\\COMMON\\ngap_messages_types.h__ngap_initial_context_setup_req_s",
+        "node_id": "struct:openair2\\COMMON\\ngap_messages_types.h::ngap_initial_context_setup_req_s",
+        "chunk_type": "STRUCT",
+        "name": "ngap_initial_context_setup_req_s",
+        "file_path": "openair2\\COMMON\\ngap_messages_types.h",
+        "line_start": 557,
+        "line_end": 592
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "12277",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8589523842517153,
+      "rank": 9,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB_S1AP.c__rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+        "line_start": 872,
+        "line_end": 994
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    },
+    {
+      "chunk_id": "12613",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_process_e1_bearer_context_setup_resp",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.856854575159117,
+      "rank": 10,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_process_e1_bearer_context_setup_resp",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_process_e1_bearer_context_setup_resp",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_process_e1_bearer_context_setup_resp",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 2460,
+        "line_end": 2499
+      },
+      "target_message_name": "UE CONTEXT SETUP RESPONSE"
+    }
+  ],
+  "expanded_chunks": {
+    "depth_1": [
+      {
+        "chunk_id": "12704",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::cp_gtp_tunnel",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_gtp_tunnel",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            474,
+            481
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12701",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::fill_pdu_session_resource_failed_to_setup_item",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_pdu_session_resource_failed_to_setup_item",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            369,
+            373
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "123",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "copy_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            38,
+            41
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9063",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1471,
+            1498
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "1472",
+        "node_id": "function:common\\utils\\utils.h::malloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "malloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            84,
+            94
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "1471",
+        "node_id": "function:common\\utils\\utils.h::calloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "calloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            72,
+            82
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12560",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "activate_srb",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            329,
+            359
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12612",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_drb_to_be_setup_from_e1_resp",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2400,
+            2455
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8874",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cu_get_f1_ue_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            99,
+            106
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12269",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_process_security",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            409,
+            449
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12271",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_pdcp_config_security",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            482,
+            542
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12165",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_generate_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            1031,
+            1062
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12266",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context_from_s1ap_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            347,
+            361
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12160",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_free_UE",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            820,
+            865
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12166",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_UECapabilityEnquiry",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_generate_UECapabilityEnquiry",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            1065,
+            1102
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "15859",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::derive_skgNB",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "derive_skgNB",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            278,
+            295
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12227",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_GTPV1U.c::rrc_eNB_process_GTPV1U_CREATE_TUNNEL_RESP",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_process_GTPV1U_CREATE_TUNNEL_RESP",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_GTPV1U.c",
+          "line_range": [
+            47,
+            83
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12270",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::process_eNB_security_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "process_eNB_security_key",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            458,
+            478
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12140",
+        "node_id": "struct:openair2\\RRC\\LTE\\rrc_defs.h::rrc_eNB_ue_context_s",
+        "chunk_type": "struct",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_uses_struct",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_ue_context_s",
+          "file_path": "openair2\\RRC\\LTE\\rrc_defs.h",
+          "line_range": [
+            659,
+            673
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12709",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_algos",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "set_UE_security_algos",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            603,
+            619
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12706",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_FAIL",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_FAIL",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            519,
+            529
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12695",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "set_UE_security_key",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            109,
+            125
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12700",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "trigger_bearer_setup",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            256,
+            361
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12755",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_UE_context.c::rrc_gNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_get_ue_context",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_UE_context.c",
+          "line_range": [
+            90,
+            97
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8633",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_state_changed_to",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "signal_rrc_state_changed_to",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            735,
+            750
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12588",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_forward_ue_nas_message",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            1521,
+            1538
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12623",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_generate_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2895,
+            2912
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12696",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::nr_rrc_pdcp_config_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_pdcp_config_security",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            127,
+            150
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12698",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::cp_pdusession_resource_item_to_pdusession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_pdusession_resource_item_to_pdusession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            166,
+            177
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12702",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::send_ngap_initial_context_setup_resp_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "send_ngap_initial_context_setup_resp_fail",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            379,
+            393
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8861",
+        "node_id": "function:openair2\\F1AP\\f1ap_encoder.c::f1ap_encode_pdu",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_encode_pdu",
+          "file_path": "openair2\\F1AP\\f1ap_encoder.c",
+          "line_range": [
+            31,
+            61
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8631",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "signal_ue_id",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            703,
+            718
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9059",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1199,
+            1303
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8887",
+        "node_id": "function:openair2\\F1AP\\f1ap_itti_messaging.c::f1ap_itti_send_sctp_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_itti_send_sctp_data_req",
+          "file_path": "openair2\\F1AP\\f1ap_itti_messaging.c",
+          "line_range": [
+            25,
+            35
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9061",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c::ue_context_setup_request_f1ap",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1394,
+            1434
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12704",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::cp_gtp_tunnel",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_gtp_tunnel",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            474,
+            481
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12701",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::fill_pdu_session_resource_failed_to_setup_item",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_RESP",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_pdu_session_resource_failed_to_setup_item",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            369,
+            373
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "123",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "copy_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            38,
+            41
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9063",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1471,
+            1498
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "1472",
+        "node_id": "function:common\\utils\\utils.h::malloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "malloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            84,
+            94
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "1471",
+        "node_id": "function:common\\utils\\utils.h::calloc_or_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "calloc_or_fail",
+          "file_path": "common\\utils\\utils.h",
+          "line_range": [
+            72,
+            82
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12560",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "activate_srb",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            329,
+            359
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12612",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "fill_drb_to_be_setup_from_e1_resp",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2400,
+            2455
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8874",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextSetupRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cu_get_f1_ue_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            99,
+            106
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12269",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_process_security",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            409,
+            449
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12271",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_pdcp_config_security",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            482,
+            542
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12165",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_generate_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            1031,
+            1062
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12266",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context_from_s1ap_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            347,
+            361
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12160",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_free_UE",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            820,
+            865
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12166",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_UECapabilityEnquiry",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_generate_UECapabilityEnquiry",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            1065,
+            1102
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "15859",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::derive_skgNB",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "derive_skgNB",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            278,
+            295
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12227",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_GTPV1U.c::rrc_eNB_process_GTPV1U_CREATE_TUNNEL_RESP",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_process_GTPV1U_CREATE_TUNNEL_RESP",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_GTPV1U.c",
+          "line_range": [
+            47,
+            83
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12270",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::process_eNB_security_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "process_eNB_security_key",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            458,
+            478
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12140",
+        "node_id": "struct:openair2\\RRC\\LTE\\rrc_defs.h::rrc_eNB_ue_context_s",
+        "chunk_type": "struct",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_S1AP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_uses_struct",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_ue_context_s",
+          "file_path": "openair2\\RRC\\LTE\\rrc_defs.h",
+          "line_range": [
+            659,
+            673
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12740",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::get_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_process_e1_bearer_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_drb",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            77,
+            83
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12737",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::find_pduSession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_process_e1_bearer_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_pduSession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            44,
+            57
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12755",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_UE_context.c::rrc_gNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_get_ue_context",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_UE_context.c",
+          "line_range": [
+            90,
+            97
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12599",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::f1u_gtp_update",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_process_e1_bearer_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1u_gtp_update",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2017,
+            2024
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12627",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_process_e1_bearer_context_setup_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_generate_UeContextModificationRequest",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            3087,
+            3128
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12709",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_algos",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "set_UE_security_algos",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            603,
+            619
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12706",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_FAIL",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_send_NGAP_INITIAL_CONTEXT_SETUP_FAIL",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            519,
+            529
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12695",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "set_UE_security_key",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            109,
+            125
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12700",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "trigger_bearer_setup",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            256,
+            361
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8633",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_state_changed_to",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "signal_rrc_state_changed_to",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            735,
+            750
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12588",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_forward_ue_nas_message",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            1521,
+            1538
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12623",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_generate_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2895,
+            2912
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12696",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::nr_rrc_pdcp_config_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_pdcp_config_security",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            127,
+            150
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12698",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::cp_pdusession_resource_item_to_pdusession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_pdusession_resource_item_to_pdusession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            166,
+            177
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12702",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::send_ngap_initial_context_setup_resp_fail",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_process_NGAP_INITIAL_CONTEXT_SETUP_REQ",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "send_ngap_initial_context_setup_resp_fail",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            379,
+            393
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8861",
+        "node_id": "function:openair2\\F1AP\\f1ap_encoder.c::f1ap_encode_pdu",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_encode_pdu",
+          "file_path": "openair2\\F1AP\\f1ap_encoder.c",
+          "line_range": [
+            31,
+            61
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8631",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "signal_ue_id",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            703,
+            718
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9059",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_ue_context_setup_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1199,
+            1303
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8887",
+        "node_id": "function:openair2\\F1AP\\f1ap_itti_messaging.c::f1ap_itti_send_sctp_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_cu_ue_context_management.c::CU_send_UE_CONTEXT_SETUP_REQUEST",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "f1ap_itti_send_sctp_data_req",
+          "file_path": "openair2\\F1AP\\f1ap_itti_messaging.c",
+          "line_range": [
+            25,
+            35
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      }
+    ],
+    "depth_2": [
+      {
+        "chunk_id": "12300",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_UE_context.c::rrc_eNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_GTPV1U.c::rrc_eNB_process_GTPV1U_CREATE_TUNNEL_RESP",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_UE_context.c",
+          "line_range": [
+            91,
+            114
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12280",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_send_S1AP_UE_CONTEXT_RELEASE_REQ",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_send_S1AP_UE_CONTEXT_RELEASE_REQ",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            1088,
+            1106
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12009",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface.c::mac_eNB_get_rrc_status",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "mac_eNB_get_rrc_status",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface.c",
+          "line_range": [
+            348,
+            363
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12161",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::put_UE_in_freelist",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "put_UE_in_freelist",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            867,
+            893
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12155",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            541,
+            551
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12014",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface_common.c::rrc_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_data_req",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface_common.c",
+          "line_range": [
+            47,
+            92
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12047",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_UECapabilityEnquiry",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_UECapabilityEnquiry",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_UECapabilityEnquiry",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3257,
+            3369
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9031",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_drbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_drbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            639,
+            687
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8989",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            34,
+            72
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9000",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_srbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_srbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            195,
+            206
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12046",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3203,
+            3254
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12552",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::nr_rrc_transfer_protected_rrc_message",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_transfer_protected_rrc_message",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            188,
+            211
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12556",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            263,
+            272
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12494",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::do_NR_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_NR_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            367,
+            405
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12559",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::freeSRBlist",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "freeSRBlist",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            324,
+            327
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "7422",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\dlsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\dlsim.c",
+          "line_range": [
+            169,
+            172
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "7514",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\prachsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\prachsim.c",
+          "line_range": [
+            115,
+            118
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "7612",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\ulsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\ulsim.c",
+          "line_range": [
+            145,
+            148
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "15854",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            129,
+            136
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "10889",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_add_srbs",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_add_srbs",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            698,
+            709
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "122",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::create_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "create_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            28,
+            36
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8866",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::get_hashtable_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_hashtable_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            32,
+            38
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12267",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_ciphering",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_ciphering",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            368,
+            381
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12268",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_integrity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_integrity",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            388,
+            398
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12503",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::do_NR_DLInformationTransfer",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_NR_DLInformationTransfer",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            788,
+            816
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "10893",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_config_set_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::nr_rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_config_set_security",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            739,
+            762
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "15853",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::derive_key_nas",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "derive_key_nas",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            124,
+            127
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "166",
+        "node_id": "function:common\\utils\\hashtable\\hashtable.c::hashtable_get",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "hashtable_get",
+          "file_path": "common\\utils\\hashtable\\hashtable.c",
+          "line_range": [
+            283,
+            307
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "11226",
+        "node_id": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::pdcp_config_set_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "pdcp_config_set_security",
+          "file_path": "openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c",
+          "line_range": [
+            1986,
+            2018
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9050",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_LTMInformation_Setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_LTMInformation_Setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1115,
+            1123
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9056",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_EarlySyncInformation_Request",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_EarlySyncInformation_Request",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1167,
+            1178
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9004",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            267,
+            273
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8991",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            109,
+            117
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9053",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_LTMConfigurationIDMappingList",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_LTMConfigurationIDMappingList",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1136,
+            1149
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9035",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::cp_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            875,
+            898
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "144",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_at",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_at",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            173,
+            179
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8632",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::check_rrc_state",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_state_changed_to",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "check_rrc_state",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            720,
+            733
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "140",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_size",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_size",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            147,
+            151
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9006",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            281,
+            284
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8994",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            133,
+            139
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9054",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_LTMConfigurationIDMappingList",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_LTMConfigurationIDMappingList",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1150,
+            1155
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9051",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_LTMInformation_Setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_LTMInformation_Setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1124,
+            1128
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9037",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            917,
+            925
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "9057",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_EarlySyncInformation_Request",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_EarlySyncInformation_Request",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1179,
+            1185
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12263",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_S1AP_get_ue_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_S1AP_get_ue_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            154,
+            267
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12708",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_select_integrity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_algos",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_select_integrity",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            564,
+            595
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12707",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_select_ciphering",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_algos",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_select_ciphering",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            531,
+            562
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "8630",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::check_ue_id_cond",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "check_ue_id_cond",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            691,
+            701
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12740",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::get_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_drb",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            77,
+            83
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12737",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::find_pduSession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_pduSession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            44,
+            57
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12610",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_characteristics",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_characteristics",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2363,
+            2372
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12611",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_char_from_qos_flow_param",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_char_from_qos_flow_param",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2375,
+            2396
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "15849",
+        "node_id": "function:openair3\\SECU\\kdf.c::kdf",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair3\\SECU\\key_nas_deriver.c::derive_skgNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "kdf",
+          "file_path": "openair3\\SECU\\kdf.c",
+          "line_range": [
+            31,
+            35
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12631",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_cuup.c::is_cuup_associated",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "is_cuup_associated",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_cuup.c",
+          "line_range": [
+            99,
+            107
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12634",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_cuup.c::get_new_cuup_for_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_new_cuup_for_ue",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_cuup.c",
+          "line_range": [
+            123,
+            156
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12742",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::set_bearer_context_pdcp_config",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "set_bearer_context_pdcp_config",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            101,
+            109
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12743",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::generateDRB",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "generateDRB",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            111,
+            153
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12736",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::cp_pdusession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_pdusession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            36,
+            42
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12745",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::get_next_available_drb_id",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_next_available_drb_id",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            203,
+            211
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP REQUEST"
+      },
+      {
+        "chunk_id": "12300",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_UE_context.c::rrc_eNB_get_ue_context",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_GTPV1U.c::rrc_eNB_process_GTPV1U_CREATE_TUNNEL_RESP",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_ue_context",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_UE_context.c",
+          "line_range": [
+            91,
+            114
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12280",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_send_S1AP_UE_CONTEXT_RELEASE_REQ",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_send_S1AP_UE_CONTEXT_RELEASE_REQ",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            1088,
+            1106
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12009",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface.c::mac_eNB_get_rrc_status",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "mac_eNB_get_rrc_status",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface.c",
+          "line_range": [
+            348,
+            363
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12161",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::put_UE_in_freelist",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_free_UE",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "put_UE_in_freelist",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            867,
+            893
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12155",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            541,
+            551
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12014",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface_common.c::rrc_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_data_req",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface_common.c",
+          "line_range": [
+            47,
+            92
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12047",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_UECapabilityEnquiry",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_UECapabilityEnquiry",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_UECapabilityEnquiry",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3257,
+            3369
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9031",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_drbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_drbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            639,
+            687
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8989",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            34,
+            72
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9000",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_srbs_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::encode_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "encode_srbs_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            195,
+            206
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12046",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3203,
+            3254
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12552",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::nr_rrc_transfer_protected_rrc_message",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_transfer_protected_rrc_message",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            188,
+            211
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12556",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            263,
+            272
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12494",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::do_NR_SecurityModeCommand",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_SecurityModeCommand",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_NR_SecurityModeCommand",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            367,
+            405
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12559",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::freeSRBlist",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "freeSRBlist",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            324,
+            327
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "7422",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\dlsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\dlsim.c",
+          "line_range": [
+            169,
+            172
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "7514",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\prachsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\prachsim.c",
+          "line_range": [
+            115,
+            118
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "7612",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\ulsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\ulsim.c",
+          "line_range": [
+            145,
+            148
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "15854",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            129,
+            136
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "10889",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_add_srbs",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::activate_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_add_srbs",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            698,
+            709
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "122",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::create_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:common\\utils\\ds\\byte_array.c::copy_byte_array",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "create_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            28,
+            36
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8866",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::get_hashtable_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_hashtable_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            32,
+            38
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12267",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_ciphering",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_ciphering",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            368,
+            381
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12268",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_select_integrity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_process_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_select_integrity",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            388,
+            398
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12503",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::do_NR_DLInformationTransfer",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_forward_ue_nas_message",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_NR_DLInformationTransfer",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            788,
+            816
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "10893",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_config_set_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::nr_rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_config_set_security",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            739,
+            762
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "15853",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::derive_key_nas",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "derive_key_nas",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            124,
+            127
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "166",
+        "node_id": "function:common\\utils\\hashtable\\hashtable.c::hashtable_get",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "hashtable_get",
+          "file_path": "common\\utils\\hashtable\\hashtable.c",
+          "line_range": [
+            283,
+            307
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "11226",
+        "node_id": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::pdcp_config_set_security",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_pdcp_config_security",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "pdcp_config_set_security",
+          "file_path": "openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c",
+          "line_range": [
+            1986,
+            2018
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "144",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_at",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_at",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            173,
+            179
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8632",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::check_rrc_state",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_state_changed_to",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "check_rrc_state",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            720,
+            733
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "140",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_size",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_size",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            147,
+            151
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9006",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_srb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_srb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            281,
+            284
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8994",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_cu_to_du_rrc_info",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_cu_to_du_rrc_info",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            133,
+            139
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9054",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_LTMConfigurationIDMappingList",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_LTMConfigurationIDMappingList",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1150,
+            1155
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9051",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_LTMInformation_Setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_LTMInformation_Setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1124,
+            1128
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9037",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_drb_to_setup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_drb_to_setup",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            917,
+            925
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9057",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_EarlySyncInformation_Request",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_setup_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_EarlySyncInformation_Request",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            1179,
+            1185
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12263",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_S1AP_get_ue_ids",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB_S1AP.c::rrc_eNB_get_ue_context_from_s1ap_ids",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_S1AP_get_ue_ids",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB_S1AP.c",
+          "line_range": [
+            154,
+            267
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "9073",
+        "node_id": "function:openair2\\F1AP\\lib\\f1ap_ue_context.c::free_ue_context_mod_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_UeContextModificationRequest",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_ue_context_mod_req",
+          "file_path": "openair2\\F1AP\\lib\\f1ap_ue_context.c",
+          "line_range": [
+            2018,
+            2039
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12708",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_select_integrity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_algos",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_select_integrity",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            564,
+            595
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12707",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::rrc_gNB_select_ciphering",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::set_UE_security_algos",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_select_ciphering",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_NGAP.c",
+          "line_range": [
+            531,
+            562
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "8630",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::check_ue_id_cond",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_ue_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "check_ue_id_cond",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            691,
+            701
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12610",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_characteristics",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_characteristics",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2363,
+            2372
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12611",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_qos_char_from_qos_flow_param",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::fill_drb_to_be_setup_from_e1_resp",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_qos_char_from_qos_flow_param",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            2375,
+            2396
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "15849",
+        "node_id": "function:openair3\\SECU\\kdf.c::kdf",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair3\\SECU\\key_nas_deriver.c::derive_skgNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "kdf",
+          "file_path": "openair3\\SECU\\kdf.c",
+          "line_range": [
+            31,
+            35
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12631",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_cuup.c::is_cuup_associated",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "is_cuup_associated",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_cuup.c",
+          "line_range": [
+            99,
+            107
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12634",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_cuup.c::get_new_cuup_for_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_new_cuup_for_ue",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_cuup.c",
+          "line_range": [
+            123,
+            156
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12742",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::set_bearer_context_pdcp_config",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "set_bearer_context_pdcp_config",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            101,
+            109
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12743",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::generateDRB",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "generateDRB",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            111,
+            153
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12736",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::cp_pdusession",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cp_pdusession",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            36,
+            42
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      },
+      {
+        "chunk_id": "12745",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c::get_next_available_drb_id",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_NGAP.c::trigger_bearer_setup",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_next_available_drb_id",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_radio_bearers.c",
+          "line_range": [
+            203,
+            211
+          ]
+        },
+        "target_message_name": "UE CONTEXT SETUP RESPONSE"
+      }
+    ]
+  },
+  "per_message_outputs": [
+    "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\code_chunks\\UE_CONTEXT_SETUP_REQUEST_code_chunks_20260406_102728.json",
+    "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\code_chunks\\UE_CONTEXT_SETUP_RESPONSE_code_chunks_20260406_102728.json"
+  ]
+}

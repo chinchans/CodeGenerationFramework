@@ -1,0 +1,2667 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-31T05:34:28.201263",
+    "user_query": "gNB-CU prepares the 'RRCReconfiguration' RRC message with the LTM Configuration IEs inline to the LTM configuration data received in previous F1AP messages and sends the RRCReconfiguration message buffer piggy bagged in F1AP 'DL RRC MESSAGE TRANSFER' message to source gNB-DU and source gNB-DU forwards this F1AP message to UE. Then, UE responds with 'RRCReconfigurationComplete' RRC message to source gNB-DU and it forwards the message to gNB-CU piggy bagged in 'UL RRC MESSAGE TRANSFER' message\nTarget message: DL RRC MESSAGE TRANSFER",
+    "feature_name": "DL RRC MESSAGE TRANSFER",
+    "num_semantic_chunks": 10,
+    "total_related_nodes": 140
+  },
+  "semantic_chunks": [
+    {
+      "chunk_id": "12372",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.9311019076113194,
+      "rank": 1,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_UE.c__rrc_ue_process_rrcConnectionReconfiguration",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_ue_process_rrcConnectionReconfiguration",
+        "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+        "line_start": 1919,
+        "line_end": 2098
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12359",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_generate_RRCConnectionReconfigurationComplete",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.9236360497447933,
+      "rank": 2,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_UE.c__rrc_ue_generate_RRCConnectionReconfigurationComplete",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_generate_RRCConnectionReconfigurationComplete",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_ue_generate_RRCConnectionReconfigurationComplete",
+        "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+        "line_start": 581,
+        "line_end": 606
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12679",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_mobility.c::rrc_gNB_trigger_reconfiguration_for_handover",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.9200724247019707,
+      "rank": 3,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB_mobility.c__rrc_gNB_trigger_reconfiguration_for_handover",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_mobility.c::rrc_gNB_trigger_reconfiguration_for_handover",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_trigger_reconfiguration_for_handover",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB_mobility.c",
+        "line_start": 239,
+        "line_end": 267
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12191",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.9039124010253925,
+      "rank": 4,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB.c__rrc_eNB_process_RRCConnectionReconfigurationComplete",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_process_RRCConnectionReconfigurationComplete",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+        "line_start": 5129,
+        "line_end": 5334
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12874",
+      "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_generate_RRCReconfigurationComplete",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.9022583049743229,
+      "rank": 5,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR_UE\\rrc_UE.c__nr_rrc_ue_generate_RRCReconfigurationComplete",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_generate_RRCReconfigurationComplete",
+        "chunk_type": "FUNCTION",
+        "name": "nr_rrc_ue_generate_RRCReconfigurationComplete",
+        "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+        "line_start": 2012,
+        "line_end": 2024
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12839",
+      "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.9001934979549016,
+      "rank": 6,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR_UE\\rrc_UE.c__nr_rrc_ue_process_rrcReconfiguration",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+        "chunk_type": "FUNCTION",
+        "name": "nr_rrc_ue_process_rrcReconfiguration",
+        "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+        "line_start": 604,
+        "line_end": 668
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12570",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_encode_RRCReconfiguration",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8953593317109774,
+      "rank": 7,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_encode_RRCReconfiguration",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_encode_RRCReconfiguration",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_encode_RRCReconfiguration",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 651,
+        "line_end": 660
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12571",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8951599249962623,
+      "rank": 8,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_generate_dedicatedRRCReconfiguration",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_generate_dedicatedRRCReconfiguration",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 662,
+        "line_end": 687
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12572",
+      "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_modify_dedicatedRRCReconfiguration",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8834066043961855,
+      "rank": 9,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\NR\\rrc_gNB.c__rrc_gNB_modify_dedicatedRRCReconfiguration",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_modify_dedicatedRRCReconfiguration",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_gNB_modify_dedicatedRRCReconfiguration",
+        "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+        "line_start": 689,
+        "line_end": 767
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    },
+    {
+      "chunk_id": "12219",
+      "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+      "chunk_type": "FUNCTION",
+      "chunk_text": "",
+      "cosine_score": 0.8817304183448869,
+      "rank": 10,
+      "metadata": {
+        "chunk_id": "emb_function_openair2\\RRC\\LTE\\rrc_eNB.c__rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+        "chunk_type": "FUNCTION",
+        "name": "rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+        "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+        "line_start": 8102,
+        "line_end": 8176
+      },
+      "target_message_name": "DL RRC MESSAGE TRANSFER"
+    }
+  ],
+  "expanded_chunks": {
+    "depth_1": [
+      {
+        "chunk_id": "15853",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::derive_key_nas",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "derive_key_nas",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            124,
+            127
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11224",
+        "node_id": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::rrc_pdcp_config_asn1_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_pdcp_config_asn1_req",
+          "file_path": "openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c",
+          "line_range": [
+            1412,
+            1798
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9214",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_mac_config_req_eNB",
+          "file_path": "openair2\\LAYER2\\MAC\\config.c",
+          "line_range": [
+            749,
+            1025
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9275",
+        "node_id": "function:openair2\\LAYER2\\MAC\\dummy_functions.c::rrc_mac_config_req_eNB",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_mac_config_req_eNB",
+          "file_path": "openair2\\LAYER2\\MAC\\dummy_functions.c",
+          "line_range": [
+            30,
+            33
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11436",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_rlc_config_asn1_req",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c",
+          "line_range": [
+            789,
+            912
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12167",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_NR_UECapabilityEnquiry",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_generate_NR_UECapabilityEnquiry",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            1105,
+            1142
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "1461",
+        "node_id": "function:common\\utils\\tun_if.c::tun_config",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "tun_config",
+          "file_path": "common\\utils\\tun_if.c",
+          "line_range": [
+            200,
+            240
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9417",
+        "node_id": "function:openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c::find_UE_id",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "find_UE_id",
+          "file_path": "openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c",
+          "line_range": [
+            1975,
+            1994
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "1463",
+        "node_id": "function:common\\utils\\tun_if.c::tun_generate_ifname",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_process_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "tun_generate_ifname",
+          "file_path": "common\\utils\\tun_if.c",
+          "line_range": [
+            265,
+            268
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10895",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_data_req_srb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_mobility.c::rrc_gNB_trigger_reconfiguration_for_handover",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_data_req_srb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            792,
+            829
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12501",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::do_NR_RRCReconfigurationComplete",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_generate_RRCReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_NR_RRCReconfigurationComplete",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            697,
+            720
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12498",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::do_RRCReconfiguration",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_encode_RRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_RRCReconfiguration",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            567,
+            607
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12569",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_RRCReconfiguration_params",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            561,
+            649
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "124",
+        "node_id": "function:common\\utils\\ds\\byte_array.c::free_byte_array",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_byte_array",
+          "file_path": "common\\utils\\ds\\byte_array.c",
+          "line_range": [
+            43,
+            46
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12552",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::nr_rrc_transfer_protected_rrc_message",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_transfer_protected_rrc_message",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            188,
+            211
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12568",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::free_RRCReconfiguration_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_RRCReconfiguration_params",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            550,
+            558
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "8636",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_msg",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_mobility.c::rrc_gNB_trigger_reconfiguration_for_handover",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "signal_rrc_msg",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            796,
+            811
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "8874",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB_mobility.c::rrc_gNB_trigger_reconfiguration_for_handover",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "cu_get_f1_ue_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            99,
+            106
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12371",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::is_nr_r15_config_present",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "is_nr_r15_config_present",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            1891,
+            1914
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12374",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_mobilityControlInfo",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_process_mobilityControlInfo",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            2102,
+            2181
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12426",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_sidelink_radioResourceConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_process_sidelink_radioResourceConfig",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            5447,
+            5582
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12364",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_measConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_process_measConfig",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            799,
+            1015
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12366",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_radioResourceConfigDedicated",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_process_radioResourceConfigDedicated",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            1197,
+            1476
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12432",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::nsa_sendmsg_to_nrue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nsa_sendmsg_to_nrue",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            6429,
+            6460
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12373",
+        "node_id": "struct:openair2\\RRC\\LTE\\rrc_UE.c::msg",
+        "chunk_type": "struct",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_uses_struct",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "msg",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            1945,
+            1951
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12887",
+        "node_id": "struct:openair2\\RRC\\NR_UE\\rrc_UE.c::msg",
+        "chunk_type": "struct",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_rrcConnectionReconfiguration",
+          "relationship_type": "function_uses_struct",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "msg",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            2657,
+            2663
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12018",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface_ue.c::rrc_data_req_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_generate_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_data_req_ue",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface_ue.c",
+          "line_range": [
+            262,
+            301
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12043",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_RRCConnectionReconfigurationComplete",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_generate_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_RRCConnectionReconfigurationComplete",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            2436,
+            2477
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12872",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_ue_process_measConfig",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1851,
+            1884
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12854",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_cellgroup_configuration",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_cellgroup_configuration",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1217,
+            1241
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12838",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_process_reconfiguration_v1530",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_process_reconfiguration_v1530",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            511,
+            602
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7164",
+        "node_id": "function:openair1\\SIMULATION\\LTE_PHY\\dlsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\LTE_PHY\\dlsim.c",
+          "line_range": [
+            2126,
+            2129
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7373",
+        "node_id": "function:openair1\\SIMULATION\\LTE_PHY\\ulsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\LTE_PHY\\ulsim.c",
+          "line_range": [
+            1522,
+            1525
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7392",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\dlschsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\dlschsim.c",
+          "line_range": [
+            72,
+            74
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7482",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\pbchsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\pbchsim.c",
+          "line_range": [
+            79,
+            81
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7508",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\prachsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\prachsim.c",
+          "line_range": [
+            93,
+            95
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7561",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\pucchsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\pucchsim.c",
+          "line_range": [
+            66,
+            68
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7578",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\ulschsim.c::get_softmodem_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_softmodem_params",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\ulschsim.c",
+          "line_range": [
+            63,
+            65
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12873",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_rrcReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_ue_process_RadioBearerConfig",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1890,
+            2010
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12221",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_get_sidelink_discTXPool",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_sidelink_discTXPool",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            8245,
+            8256
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12220",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_get_sidelink_commTXPool",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_sidelink_commTXPool",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            8178,
+            8242
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12155",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_eNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\LTE\\rrc_eNB.c",
+          "line_range": [
+            541,
+            551
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12014",
+        "node_id": "function:openair2\\RRC\\LTE\\L2_interface_common.c::rrc_data_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_data_req",
+          "file_path": "openair2\\RRC\\LTE\\L2_interface_common.c",
+          "line_range": [
+            47,
+            92
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12050",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_RRCConnectionReconfiguration",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_RRCConnectionReconfiguration_Sidelink",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_RRCConnectionReconfiguration",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3606,
+            3786
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      }
+    ],
+    "depth_2": [
+      {
+        "chunk_id": "12855",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_masterCellGroup",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_process_reconfiguration_v1530",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_ue_process_masterCellGroup",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1243,
+            1267
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12832",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_decode_SI",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_process_reconfiguration_v1530",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_decode_SI",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            282,
+            374
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12837",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_process_sib1",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_process_reconfiguration_v1530",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_process_sib1",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            472,
+            509
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9244",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config_ue.c::rrc_mac_config_req_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_mac_config_req_ue",
+          "file_path": "openair2\\LAYER2\\MAC\\config_ue.c",
+          "line_range": [
+            88,
+            570
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "15852",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::derive_key_common",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair3\\SECU\\key_nas_deriver.c::derive_key_nas",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "derive_key_common",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            83,
+            109
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11227",
+        "node_id": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::rrc_pdcp_config_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_mobilityControlInfo",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_pdcp_config_req",
+          "file_path": "openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c",
+          "line_range": [
+            2021,
+            2161
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11437",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_req",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_mobilityControlInfo",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_rlc_config_req",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c",
+          "line_range": [
+            914,
+            970
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12363",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_establish_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_radioResourceConfigDedicated",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_establish_drb",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            751,
+            795
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12361",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_establish_srb1",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_radioResourceConfigDedicated",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_establish_srb1",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            703,
+            724
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12365",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_update_radioResourceConfigDedicated",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_radioResourceConfigDedicated",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_update_radioResourceConfigDedicated",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            1018,
+            1195
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12362",
+        "node_id": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_establish_srb2",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_UE.c::rrc_ue_process_radioResourceConfigDedicated",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_ue_establish_srb2",
+          "file_path": "openair2\\RRC\\LTE\\rrc_UE.c",
+          "line_range": [
+            727,
+            748
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "8635",
+        "node_id": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::check_rrc_msg_copy",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_msg",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "check_rrc_msg_copy",
+          "file_path": "openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c",
+          "line_range": [
+            782,
+            794
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "144",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_at",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_msg",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_at",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            173,
+            179
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "140",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_size",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\E2AP\\RAN_FUNCTION\\O-RAN\\ran_func_rc.c::signal_rrc_msg",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_size",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            147,
+            151
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10902",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_reestablishment",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_reestablishment",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            945,
+            966
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10899",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_reconfigure_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_reconfigure_drb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            876,
+            913
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10898",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_reconfigure_srb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_reconfigure_srb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            861,
+            874
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12826",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::set_DRB_status",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "set_DRB_status",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            163,
+            167
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7422",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\dlsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\dlsim.c",
+          "line_range": [
+            169,
+            172
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7514",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\prachsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\prachsim.c",
+          "line_range": [
+            115,
+            118
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "7612",
+        "node_id": "function:openair1\\SIMULATION\\NR_PHY\\ulsim.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair1\\SIMULATION\\NR_PHY\\ulsim.c",
+          "line_range": [
+            145,
+            148
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "15854",
+        "node_id": "function:openair3\\SECU\\key_nas_deriver.c::nr_derive_key",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_derive_key",
+          "file_path": "openair3\\SECU\\key_nas_deriver.c",
+          "line_range": [
+            129,
+            136
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10901",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_release_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_release_drb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            928,
+            943
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12825",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::get_DRB_status",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_DRB_status",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            157,
+            161
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12923",
+        "node_id": "function:openair2\\SDAP\\nr_sdap\\nr_sdap_entity.c::nr_reconfigure_sdap_entity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_reconfigure_sdap_entity",
+          "file_path": "openair2\\SDAP\\nr_sdap\\nr_sdap_entity.c",
+          "line_range": [
+            663,
+            695
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10888",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::add_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "add_drb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            594,
+            696
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11435",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::add_drb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "add_drb",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c",
+          "line_range": [
+            773,
+            787
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10900",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_release_srb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_RadioBearerConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_release_srb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            915,
+            926
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10887",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::add_srb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "add_srb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            555,
+            592
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11432",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::add_srb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "add_srb",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c",
+          "line_range": [
+            531,
+            624
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12497",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::build_RRCReconfiguration_IEs",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::do_RRCReconfiguration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "build_RRCReconfiguration_IEs",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            506,
+            565
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "166",
+        "node_id": "function:common\\utils\\hashtable\\hashtable.c::hashtable_get",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::rrc_pdcp_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "hashtable_get",
+          "file_path": "common\\utils\\hashtable\\hashtable.c",
+          "line_range": [
+            283,
+            307
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "164",
+        "node_id": "function:common\\utils\\hashtable\\hashtable.c::hashtable_insert",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::rrc_pdcp_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "hashtable_insert",
+          "file_path": "common\\utils\\hashtable\\hashtable.c",
+          "line_range": [
+            205,
+            242
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "165",
+        "node_id": "function:common\\utils\\hashtable\\hashtable.c::hashtable_remove",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::rrc_pdcp_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "hashtable_remove",
+          "file_path": "common\\utils\\hashtable\\hashtable.c",
+          "line_range": [
+            248,
+            277
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11225",
+        "node_id": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::pdcp_config_req_asn1",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c::rrc_pdcp_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "pdcp_config_req_asn1",
+          "file_path": "openair2\\LAYER2\\PDCP_v10.1.0\\pdcp.c",
+          "line_range": [
+            1799,
+            1983
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9582",
+        "node_id": "function:openair2\\LAYER2\\MAC\\main.c::l2_init_eNB",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "l2_init_eNB",
+          "file_path": "openair2\\LAYER2\\MAC\\main.c",
+          "line_range": [
+            260,
+            273
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9378",
+        "node_id": "function:openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c::to_prb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "to_prb",
+          "file_path": "openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c",
+          "line_range": [
+            148,
+            155
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9207",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config.c::config_sib1",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "config_sib1",
+          "file_path": "openair2\\LAYER2\\MAC\\config.c",
+          "line_range": [
+            315,
+            334
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9213",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config.c::config_dedicated_scell",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "config_dedicated_scell",
+          "file_path": "openair2\\LAYER2\\MAC\\config.c",
+          "line_range": [
+            743,
+            747
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9428",
+        "node_id": "function:openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c::add_new_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "add_new_ue",
+          "file_path": "openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c",
+          "line_range": [
+            2160,
+            2244
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9580",
+        "node_id": "function:openair2\\LAYER2\\MAC\\main.c::mac_init_cell_params",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "mac_init_cell_params",
+          "file_path": "openair2\\LAYER2\\MAC\\main.c",
+          "line_range": [
+            221,
+            240
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9209",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config.c::config_sib2",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "config_sib2",
+          "file_path": "openair2\\LAYER2\\MAC\\config.c",
+          "line_range": [
+            338,
+            619
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9206",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config.c::config_mib",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "config_mib",
+          "file_path": "openair2\\LAYER2\\MAC\\config.c",
+          "line_range": [
+            230,
+            313
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9211",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config.c::config_sib13",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "config_sib13",
+          "file_path": "openair2\\LAYER2\\MAC\\config.c",
+          "line_range": [
+            694,
+            731
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9210",
+        "node_id": "function:openair2\\LAYER2\\MAC\\config.c::config_sib2_mbsfn_part",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\config.c::rrc_mac_config_req_eNB",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "config_sib2_mbsfn_part",
+          "file_path": "openair2\\LAYER2\\MAC\\config.c",
+          "line_range": [
+            621,
+            692
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "9420",
+        "node_id": "function:openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c::UE_PCCID",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c::find_UE_id",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "UE_PCCID",
+          "file_path": "openair2\\LAYER2\\MAC\\eNB_scheduler_primitives.c",
+          "line_range": [
+            2027,
+            2033
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12818",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_timers_and_constants.c::nr_rrc_handle_SetupRelease_RLF_TimersAndConstants",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_cellgroup_configuration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_handle_SetupRelease_RLF_TimersAndConstants",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_timers_and_constants.c",
+          "line_range": [
+            438,
+            578
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12852",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_manage_rlc_bearers",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_cellgroup_configuration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_manage_rlc_bearers",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1131,
+            1168
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12853",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_process_reconfigurationWithSync",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_cellgroup_configuration",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_rrc_process_reconfigurationWithSync",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1170,
+            1215
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12042",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::assign_scg_ConfigResponseNR_r15",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_RRCConnectionReconfigurationComplete",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "assign_scg_ConfigResponseNR_r15",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            2410,
+            2433
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12871",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::handle_measid_addmod",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_measid_addmod",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1813,
+            1849
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12867",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::handle_reportconfig_remove",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_reportconfig_remove",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1743,
+            1759
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12870",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::handle_measid_remove",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_measid_remove",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1802,
+            1811
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12863",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::handle_measobj_remove",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_measobj_remove",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1642,
+            1661
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12869",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::handle_quantityconfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_quantityconfig",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1783,
+            1800
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12866",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::handle_measobj_addmod",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_measobj_addmod",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1723,
+            1741
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12868",
+        "node_id": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::handle_reportconfig_addmod",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR_UE\\rrc_UE.c::nr_rrc_ue_process_measConfig",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "handle_reportconfig_addmod",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_range": [
+            1761,
+            1781
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10863",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_get_rb",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_data_req_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_get_rb",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c",
+          "line_range": [
+            83,
+            100
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10828",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_entity.c::nr_max_pdcp_pdu_size",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_data_req_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_max_pdcp_pdu_size",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_entity.c",
+          "line_range": [
+            41,
+            44
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10934",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_ue_manager.c::nr_pdcp_manager_unlock",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_data_req_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_manager_unlock",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_ue_manager.c",
+          "line_range": [
+            75,
+            82
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10935",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_ue_manager.c::nr_pdcp_manager_get_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_data_req_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_manager_get_ue",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_ue_manager.c",
+          "line_range": [
+            85,
+            112
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "10933",
+        "node_id": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_ue_manager.c::nr_pdcp_manager_lock",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\nr_pdcp\\nr_pdcp_oai_api.c::nr_pdcp_data_req_srb",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "nr_pdcp_manager_lock",
+          "file_path": "openair2\\LAYER2\\nr_pdcp\\nr_pdcp_ue_manager.c",
+          "line_range": [
+            66,
+            73
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12048",
+        "node_id": "function:openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c::do_NR_UECapabilityEnquiry",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\LTE\\rrc_eNB.c::rrc_eNB_generate_NR_UECapabilityEnquiry",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "do_NR_UECapabilityEnquiry",
+          "file_path": "openair2\\RRC\\LTE\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            3372,
+            3484
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "1458",
+        "node_id": "function:common\\utils\\tun_if.c::setInterfaceParameter",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:common\\utils\\tun_if.c::tun_config",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "setInterfaceParameter",
+          "file_path": "common\\utils\\tun_if.c",
+          "line_range": [
+            119,
+            158
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "1460",
+        "node_id": "function:common\\utils\\tun_if.c::change_interface_state",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:common\\utils\\tun_if.c::tun_config",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "change_interface_state",
+          "file_path": "common\\utils\\tun_if.c",
+          "line_range": [
+            165,
+            197
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12508",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::get_MeasConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_MeasConfig",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            959,
+            1043
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12661",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_du.c::get_du_for_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_du_for_ue",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_du.c",
+          "line_range": [
+            620,
+            624
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12557",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::createSRBlist",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "createSRBlist",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            282,
+            301
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12509",
+        "node_id": "function:openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c::free_MeasConfig",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "free_MeasConfig",
+          "file_path": "openair2\\RRC\\NR\\MESSAGES\\asn1_msg.c",
+          "line_range": [
+            1045,
+            1048
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12567",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::prepare_a3_event_report",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "prepare_a3_event_report",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            519,
+            548
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12547",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_neighbour_cell_config",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_neighbour_cell_config",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            136,
+            149
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12558",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::createDRBlist",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "createDRBlist",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            303,
+            322
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "134",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_init",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_init",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            58,
+            65
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12564",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_a3_configuration",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_a3_configuration",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            442,
+            458
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12565",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::prepare_periodic_event_report",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "prepare_periodic_event_report",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            460,
+            487
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12566",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::prepare_a2_event_report",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "prepare_a2_event_report",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            489,
+            517
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12556",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB.c::rrc_gNB_get_next_transaction_identifier",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rrc_gNB_get_next_transaction_identifier",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_range": [
+            263,
+            272
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12641",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_du.c::get_dl_band",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_dl_band",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_du.c",
+          "line_range": [
+            55,
+            58
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "136",
+        "node_id": "function:common\\utils\\ds\\seq_arr.c::seq_arr_push_back",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "seq_arr_push_back",
+          "file_path": "common\\utils\\ds\\seq_arr.c",
+          "line_range": [
+            84,
+            96
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "12642",
+        "node_id": "function:openair2\\RRC\\NR\\rrc_gNB_du.c::get_ssb_scs",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\RRC\\NR\\rrc_gNB.c::get_RRCReconfiguration_params",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_ssb_scs",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_du.c",
+          "line_range": [
+            60,
+            63
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "8866",
+        "node_id": "function:openair2\\F1AP\\f1ap_ids.c::get_hashtable_data",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\F1AP\\f1ap_ids.c::cu_get_f1_ue_data",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "get_hashtable_data",
+          "file_path": "openair2\\F1AP\\f1ap_ids.c",
+          "line_range": [
+            32,
+            38
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11474",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c::rlc_manager_unlock",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rlc_manager_unlock",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c",
+          "line_range": [
+            68,
+            75
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11475",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c::rlc_manager_get_ue",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rlc_manager_get_ue",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c",
+          "line_range": [
+            78,
+            105
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11473",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c::rlc_manager_lock",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rlc_manager_lock",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c",
+          "line_range": [
+            59,
+            66
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11478",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c::rlc_ue_add_drb_rlc_entity",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "rlc_ue_add_drb_rlc_entity",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_ue_manager.c",
+          "line_range": [
+            174,
+            190
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      },
+      {
+        "chunk_id": "11336",
+        "node_id": "function:openair2\\LAYER2\\rlc_v2\\rlc_entity.c::new_rlc_entity_um",
+        "chunk_type": "function",
+        "relationship_info": {
+          "source_node": "function:openair2\\LAYER2\\rlc_v2\\rlc_oai_api.c::rrc_rlc_config_asn1_req",
+          "relationship_type": "function_calls",
+          "direction": "out"
+        },
+        "metadata": {
+          "name": "new_rlc_entity_um",
+          "file_path": "openair2\\LAYER2\\rlc_v2\\rlc_entity.c",
+          "line_range": [
+            94,
+            144
+          ]
+        },
+        "target_message_name": "DL RRC MESSAGE TRANSFER"
+      }
+    ]
+  }
+}

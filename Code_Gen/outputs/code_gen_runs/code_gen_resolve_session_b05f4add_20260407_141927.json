@@ -1,0 +1,17 @@
+{
+  "resolution_only": true,
+  "session_id": "b05f4add-10d0-4a09-b32f-1aab114ed0d8",
+  "intent": "Intent : \"gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU for Inter gNB DU LTM Handover\"",
+  "self_learning": {
+    "matched_rule": "User Intent 1",
+    "has_ambiguities": true,
+    "ambiguity_count": 2,
+    "resolution_applied": true,
+    "resolved_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\self_learning_templates\\Inter-gNB-DU_LTM_Handover_UE_Context_Setup_20260407_122513_self_learning_20260407_141927.json"
+  },
+  "template_outputs": {
+    "final_filled_template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\outputs\\self_learning_templates\\Inter-gNB-DU_LTM_Handover_UE_Context_Setup_20260407_122513_self_learning_20260407_141927.json",
+    "generated_prompt_path": "",
+    "generated_prompt": ""
+  }
+}

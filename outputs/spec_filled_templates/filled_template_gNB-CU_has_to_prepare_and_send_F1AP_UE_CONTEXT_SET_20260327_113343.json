@@ -1,0 +1,172 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER",
+  "Feature_Name": "Inter-gNB-DU LTM Handover",
+  "Release": "v18.0.6.00p",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401, TS 38.473",
+    "Title": "NG-RAN; Architecture and functional description, NG-RAN; F1 Application Protocol (F1AP)",
+    "Section": "8.2.1.5 (TS 38.401), 8.3.1.2, 8.3.1.3, 9.2.2.1, 9.2.2.2 (TS 38.473)"
+  },
+  "Feature_Description": [
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation for LTM."
+  ],
+  "Feature_Objectives": [
+    "Initiate LTM configuration.",
+    "Prepare candidate cells in candidate gNB-DU(s) for LTM.",
+    "Request PRACH resources from candidate gNB-DU(s).",
+    "Provide or request lower layer configuration for the purpose of generating the reference configuration.",
+    "Receive generated lower layer RRC configurations for the accepted target candidate cell from the candidate gNB-DU."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP",
+      "RRC"
+    ],
+    "Protocol_Interfaces": [
+      "F1"
+    ]
+  },
+  "Feature_Implementation_Steps": [
+    "The gNB-CU determines to initiate LTM configuration.",
+    "The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM.",
+    "The gNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s).",
+    "The gNB-CU may request PRACH resources from the candidate gNB-DU(s).",
+    "The gNB-CU may request the candidate gNB-DU(s) to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer part of the reference configuration to the candidate gNB-DU(s).",
+    "If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP RESPONSE message including the generated lower layer RRC configurations for the accepted target candidate cell.",
+    "If the gNB-DU is not able to establish an F1 UE context, or cannot even establish one bearer it shall consider the procedure as failed and reply with the UE CONTEXT SETUP FAILURE message.",
+    "If the LTM Indicator IE was included in the UE CONTEXT SETUP REQUEST message, the gNB-DU shall include the received SpCell ID IE as the Requested Target Cell ID IE in the UE CONTEXT SETUP FAILURE message."
+  ],
+  "Call_Flow": [
+    {
+      "Message": "L3 Measurement Control and Reports",
+      "Actors": [
+        "UE",
+        "Source gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "UE",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "LTM Configuration Decision",
+      "Actors": [
+        "gNB-CU"
+      ],
+      "From": "gNB-CU",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "Candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "The gNB-CU prepares and sends an F1AP 'UE CONTEXT SETUP REQUEST' message to the candidate gNB-DU.",
+    "The 'UE CONTEXT SETUP REQUEST' message contains a candidate cell ID and CSI resource configuration for LTM.",
+    "The gNB-CU may include the LTM configuration ID mapping list in the 'UE CONTEXT SETUP REQUEST' message.",
+    "The gNB-CU may request PRACH resources from the candidate gNB-DU via the 'UE CONTEXT SETUP REQUEST' message.",
+    "The gNB-CU may provide or request lower layer configuration for reference configuration in the 'UE CONTEXT SETUP REQUEST' message.",
+    "The candidate gNB-DU receives and processes the 'UE CONTEXT SETUP REQUEST' message.",
+    "If the request is accepted, the candidate gNB-DU responds with an F1AP 'UE CONTEXT SETUP RESPONSE' message.",
+    "The 'UE CONTEXT SETUP RESPONSE' message includes the generated lower layer RRC configurations for the accepted target candidate cell.",
+    "The gNB-CU handles the received 'UE CONTEXT SETUP RESPONSE' message for Inter-gNB-DU LTM handover.",
+    "If the 'UE CONTEXT SETUP REQUEST' message included the LTM Indicator IE, and the procedure fails, the gNB-DU shall include the received SpCell ID IE as the Requested Target Cell ID IE in the 'UE CONTEXT SETUP FAILURE' message."
+  ],
+  "Code_Artifacts": [],
+  "ASN_IES_File_Path": [],
+  "ASN_IES_C_Structures_Path": [],
+  "Information_Elements": [
+    {
+      "IE_Name": "UECONTEXTSETUPREQUESTIEs",
+      "IE_Definition": "UECONTEXTSETUPREQUESTIEs ::= SEQUENCE { gNB-CU-UE-F1AP-ID GNB-CU-UE-F1AP-ID, gNB-DU-UE-F1AP-ID GNB-DU-UE-F1AP-ID, candidateCell-ID CandidateCell-ID, lTM-ConfigurationID-MappingList LTM-ConfigurationID-MappingList OPTIONAL, cSI-ResourceConfig CSI-ResourceConfig OPTIONAL, pRACH-Resource PRACH-Resource OPTIONAL, lowerLayer-Configuration Low",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "candidateCell-ID",
+      "IE_Definition": "CandidateCell-ID",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "lTM-ConfigurationID-MappingList",
+      "IE_Definition": "LTM-ConfigurationID-MappingList",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "cSI-ResourceConfig",
+      "IE_Definition": "CSI-ResourceConfig",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "pRACH-Resource",
+      "IE_Definition": "PRACH-Resource",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "lowerLayer-Configuration",
+      "IE_Definition": "LowerLayer-Configuration",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Indicator IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SpCell ID IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Requested Target Cell ID IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "The UE CONTEXT SETUP REQUEST message may contain the LTM Indicator IE. The UE CONTEXT SETUP RESPONSE message includes the generated lower layer RRC configurations for the accepted target candidate cell. The DL RRC MESSAGE TRANSFER message, sent later in the LTM procedure, includes the generated RRCReconfiguration message with the LTM configuration.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "LTM configuration",
+      "Piggy_Backed_IE_Type": "RRC IE",
+      "Source_IE_Name": "RRCReconfiguration",
+      "Source_IE_Type": "RRC IE"
+    },
+    {
+      "Piggy_Backed_IE_Name": "lower layer RRC configurations",
+      "Piggy_Backed_IE_Type": "RRC IE",
+      "Source_IE_Name": "UE CONTEXT SETUP RESPONSE",
+      "Source_IE_Type": "F1AP IE"
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+  "Knowledge_Hints": [
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "10 (ts_138473v180600p): Handling of unknown, unforeseen and erroneous protocol data",
+    "8.3.1 (ts_138473v180600p): UE Context Setup",
+    "8.3.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3.1.3 (ts_138473v180600p): Unsuccessful Operation",
+    "9.2.2.1 (ts_138473v180600p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.2 (ts_138473v180600p): UE CONTEXT SETUP RESPONSE"
+  ]
+}

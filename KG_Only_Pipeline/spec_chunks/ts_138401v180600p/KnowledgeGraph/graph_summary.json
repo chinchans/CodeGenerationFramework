@@ -1,0 +1,18 @@
+{
+  "nodes": 189,
+  "edges": 2132,
+  "edge_type_counts": {
+    "NEXT_SECTION": 188,
+    "DEPENDS_ON": 78,
+    "PREV_SECTION": 188,
+    "RELATED_TO": 598,
+    "CHILD_OF": 171,
+    "SIBLING_OF": 1212,
+    "PREREQUISITE_FOR": 78,
+    "DEFINES": 12,
+    "USES": 12,
+    "REFERENCED_BY": 9,
+    "REFERENCES": 9,
+    "PARENT_OF": 171
+  }
+}

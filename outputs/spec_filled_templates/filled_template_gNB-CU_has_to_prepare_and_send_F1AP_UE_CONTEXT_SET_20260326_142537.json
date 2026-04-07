@@ -1,0 +1,108 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER",
+  "Feature_Name": "Inter-gNB-DU LTM Handover",
+  "Release": "Release 18",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401, TS 38.473",
+    "Title": "NG-RAN; Architecture description, NG-RAN; F1 Application Protocol (F1AP)",
+    "Section": "8.2.1.5, 8.3.1.2, 10"
+  },
+  "Feature_Description": [
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation for LTM (LTM handover)."
+  ],
+  "Feature_Objectives": [
+    "To enable the gNB-CU to prepare and send an F1AP 'UE CONTEXT SETUP REQUEST' message to a candidate gNB-DU for LTM configuration.",
+    "To allow the candidate gNB-DU to respond with an F1AP 'UE CONTEXT SETUP RESPONSE' message, indicating acceptance and providing lower layer RRC configurations for the accepted target candidate cell.",
+    "To facilitate the establishment of UE context at the candidate gNB-DU for Inter-gNB-DU LTM handover."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "RRC (Radio Resource Control)",
+      "F1AP (F1 Application Protocol)"
+    ],
+    "Protocol_Interfaces": [
+      "F1 interface (between gNB-CU and gNB-DU)"
+    ]
+  },
+  "Feature_Implementation_Steps": [
+    "1. The UE sends a MeasurementReport message (L3 measurement result) to the source gNB-DU containing measurements of neighbouring cells. The source gNB-DU sends an UL RRC MESSAGE TRANSFER message conveying the received MeasurementReport message to the gNB-CU.",
+    "2. The gNB-CU determines to initiate LTM configuration.",
+    "3. The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s). The gNB-CU may request PRACH resources from the candidate gNB-DU(s). The gNB-CU may request the candidate gNB-DU(s) to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer part of the reference configuration to the candidate gNB-DU(s).",
+    "4. If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP RESPONSE message including the generated lower layer RRC configurations for the accepted target candidate cell."
+  ],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "Candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "Candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "1. The gNB-CU determines to initiate LTM configuration.",
+    "2. The gNB-CU sends a UE CONTEXT SETUP REQUEST message to the candidate gNB-DU(s) for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU may provide the LTM configuration ID mapping list to the candidate gNB-DU(s). The gNB-CU may request PRACH resources from the candidate gNB-DU(s). The gNB-CU may request the candidate gNB-DU(s) to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer part of the reference configuration to the candidate gNB-DU(s).",
+    "3. If the candidate gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT SETUP RESPONSE message including the generated lower layer RRC configurations for the accepted target candidate cell."
+  ],
+  "Code_Artifacts": [],
+  "ASN_IES_File_Path": [],
+  "ASN_IES_C_Structures_Path": [],
+  "Information_Elements": [
+    {
+      "IE_Name": "UECONTEXTSETUPREQUESTIEs",
+      "IE_Definition": "UECONTEXTSETUPREQUESTIEs ::= SEQUENCE {\n    gNB-CU-UE-F1AP-ID                  GNB-CU-UE-F1AP-ID,\n    gNB-DU-UE-F1AP-ID                  GNB-DU-UE-F1AP-ID,\n    candidateCell-ID                   CandidateCell-ID,\n    lTM-ConfigurationID-MappingList   LTM-ConfigurationID-MappingList OPTIONAL,\n    cSI-ResourceConfig                 CSI-ResourceConfig OPTIONAL,\n    pRACH-Resource                    \n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "candidateCell-ID",
+      "IE_Definition": "CandidateCell-ID",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "lTM-ConfigurationID-MappingList",
+      "IE_Definition": "LTM-ConfigurationID-MappingList OPTIONAL",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "cSI-ResourceConfig",
+      "IE_Definition": "CSI-ResourceConfig OPTIONAL",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "pRACH-Resource",
+      "IE_Definition": "PRACH-Resource",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "",
+  "Piggy_Backed_IES_Mapping": [],
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+  "Knowledge_Hints": [
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "10 (ts_138473v180600p): Handling of unknown, unforeseen and erroneous protocol data",
+    "8.3.1 (ts_138473v180600p): UE Context Setup",
+    "8.3.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3.1.3 (ts_138473v180600p): Unsuccessful Operation",
+    "9.2.2.1 (ts_138473v180600p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.2 (ts_138473v180600p): UE CONTEXT SETUP RESPONSE"
+  ]
+}

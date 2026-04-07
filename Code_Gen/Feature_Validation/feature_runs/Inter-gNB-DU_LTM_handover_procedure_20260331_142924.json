@@ -1,0 +1,46 @@
+{
+  "procedure_spec_info": {
+    "spec_number": "TS 38.401",
+    "spec_version": "v18.6.0",
+    "section_id": "8.2.1.3",
+    "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+    "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf",
+    "doc_id": "ts_138401v180600p"
+  },
+  "section_text": "3. UE CONTEXT SETUP REQUEST\n(Conditional Inter-DU Mobility Information)\n\n4. UE CONTEXT SETUP RESPONSE\n(Requested Target Cell ID)\n\n3. The gNB-CU sends an UE CONTEXT SETUP REQUEST message to the candidate gNB-DU to create an UE\ncontext and setup one or more data bearers. The UE CONTEXT SETUP REQUEST message is sent for each\ncandidate cell and includes a HandoverPreparationInformation (conditional handover) or a CG-ConfigInfo\n(conditional PSCell change or subsequent CPAC).\n\n4. The candidate gNB-DU responds to the gNB-CU with an UE CONTEXT SETUP RESPONSE message\nincluding the target cell ID that was requested from the gNB-CU. The response message is sent for each\nrequested candidate cell.\nETSI\n[PAGE 36]\n3GPP TS 38.401 version 18.6.0 Release 18 35 ETSI TS 138 401 V18.6.0 (2025-07)",
+  "message_details": {
+    "messages": [
+      {
+        "index": 3,
+        "name": "UE CONTEXT SETUP REQUEST (Conditional Inter-DU Mobility Information)",
+        "direction": "gNB-CU -> Candidate gNB-DU",
+        "protocol_layer": "F1AP"
+      },
+      {
+        "index": 4,
+        "name": "UE CONTEXT SETUP RESPONSE (Requested Target Cell ID)",
+        "direction": "Candidate gNB-DU -> gNB-CU",
+        "protocol_layer": "F1AP"
+      }
+    ],
+    "feature_protocols": [
+      "F1AP"
+    ]
+  },
+  "protocol_specs": [],
+  "protocol_message_sections": [],
+  "template": {
+    "protocol": "F1AP",
+    "template_name": "Template_common.json",
+    "template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\templates\\Template_common.json"
+  },
+  "intent": "gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU",
+  "specs": [
+    {
+      "spec_number": "TS 38.401",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+      "doc_id": "ts_138401v180600p",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf"
+    }
+  ]
+}

@@ -1,0 +1,482 @@
+{
+  "Feature_ID": "LTM_CONFIGURATION_RRC_RECONFIGURATION",
+  "Feature_Name": "L1/L2 Triggered Mobility (LTM) Configuration via RRCReconfiguration",
+  "Release": "Rel-18",
+  "3GPP_Reference": {
+    "Spec": "TS 38.331, TS 38.401",
+    "Title": "NR; Radio Resource Control (RRC); Protocol Specification, NG-RAN; Architecture and functional description",
+    "Section": "5.3.5, 6.2.2, 6.3.2 (TS 38.331), 8.2.1.4, 8.2.1.5 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "This procedure describes how the gNB-CU prepares and sends an 'RRCReconfiguration' RRC message containing L1/L2 Triggered Mobility (LTM) Configuration Information Elements (IEs) to the UE. The LTM configuration data is based on information received in previous F1AP messages. The 'RRCReconfiguration' message is piggybacked within an F1AP 'DL RRC MESSAGE TRANSFER' message sent from the gNB-CU to the source gNB-DU. The source gNB-DU then forwards the 'RRCReconfiguration' message to the UE. Upon successful application of the configuration, the UE responds with an 'RRCReconfigurationComplete' RRC message to the source gNB-DU, which in turn forwards this response to the gNB-CU, piggybacked in an F1AP 'UL RRC MESSAGE TRANSFER' message."
+  ],
+  "Feature_Objectives": [
+    "To configure L1/L2 Triggered Mobility (LTM) parameters at the UE.",
+    "To enable the gNB-CU to provide LTM configuration data to the UE via the gNB-DU.",
+    "To confirm the successful application of the LTM configuration by the UE to the gNB-CU."
+  ],
+  "RRC_Scope": {
+    "Node_Type": "gNB-CU, gNB-DU, UE",
+    "RRC_Entity": "RRC, F1AP",
+    "Direction": "Bidirectional"
+  },
+  "RRC_States_And_Transitions": [
+    {
+      "Source_State": "RRC_CONNECTED",
+      "Target_State": "RRC_CONNECTED",
+      "Trigger": "gNB-CU determines to initiate LTM configuration (e.g., based on MeasurementReport from UE).",
+      "Impact": "UE applies new LTM configuration, potentially preparing for or executing LTM."
+    }
+  ],
+  "RRC_Messages": [
+    {
+      "Message_Name": "RRCReconfiguration",
+      "Direction": "DL",
+      "Purpose": "To configure L1/L2 Triggered Mobility (LTM) related parameters in the UE.",
+      "Key_IEs": [
+        {
+          "IE_Name": "RRCReconfiguration",
+          "IE_Definition": "RRCReconfiguration ::= SEQUENCE {\n    rrc-TransactionIdentifier           RRC-TransactionIdentifier,\n    criticalExtensions                  CHOICE {\n        rrcReconfiguration              RRCReconfiguration-IEs,\n        ...\n    }\n}",
+          "Mandatory_or_Optional": "Mandatory"
+        },
+        {
+          "IE_Name": "RRCReconfiguration-IEs",
+          "IE_Definition": "RRCReconfiguration-IEs ::= SEQUENCE {\n    radioBearerConfig                   RadioBearerConfig                                       OPTIONAL,   -- Need M\n    secondaryCellGroup                  SetupRelease { SecondaryCellGroup }                     OPTIONAL,   -- Need M\n    measConfig                          MeasConfig                                              OPTIONAL,   -- Need M\n    lateNonCriticalExtension            OCTET STRING                                            OPTIONAL,   -- Need S\n    nonCriticalExtension                RRCReconfiguration-v1530-IEs                            OPTIONAL\n}",
+          "Mandatory_or_Optional": "Mandatory (within criticalExtensions choice)"
+        },
+        {
+          "IE_Name": "LTM-Config",
+          "IE_Definition": "LTM-Config ::= SEQUENCE {\n    ltm-CandidateList                   LTM-CandidateList                                       OPTIONAL,   -- Need R\n    ltm-CSI-ReportConfigList            LTM-CSI-ReportConfigList                                OPTIONAL,   -- Need R\n    ltm-CSI-ResourceConfigList          LTM-CSI-ResourceConfigList                              OPTIONAL,   -- Need R\n    ltm-TCI-InfoList                    LTM-TCI-InfoList                                        OPTIONAL,   -- Need R\n    ...\n}",
+          "Mandatory_or_Optional": "Optional (assumed to be part of RRCReconfiguration-IEs via extension for LTM configuration)"
+        },
+        {
+          "IE_Name": "RRC-TransactionIdentifier",
+          "IE_Definition": "RRC-TransactionIdentifier ::= INTEGER (0..3)",
+          "Mandatory_or_Optional": "Mandatory"
+        },
+        {
+          "IE_Name": "LTM-CandidateList",
+          "IE_Definition": "LTM-CandidateList ::= SEQUENCE (SIZE (1..maxLTM-Candidate)) OF LTM-Candidate",
+          "Mandatory_or_Optional": "Optional (within LTM-Config)"
+        },
+        {
+          "IE_Name": "LTM-Candidate",
+          "IE_Definition": "LTM-Candidate ::= SEQUENCE {\n    ltm-CandidateId                 LTM-CandidateId,\n    ...\n}",
+          "Mandatory_or_Optional": "Mandatory (within LTM-CandidateList)"
+        },
+        {
+          "IE_Name": "LTM-CandidateId",
+          "IE_Definition": "LTM-CandidateId ::= INTEGER (0..maxLTM-CandidateId)",
+          "Mandatory_or_Optional": "Mandatory (within LTM-Candidate)"
+        },
+        {
+          "IE_Name": "LTM-CSI-ReportConfigList",
+          "IE_Definition": "LTM-CSI-ReportConfigList ::= SEQUENCE (SIZE (1..maxLTM-CSI-ReportConfig)) OF LTM-CSI-ReportConfig",
+          "Mandatory_or_Optional": "Optional (within LTM-Config)"
+        },
+        {
+          "IE_Name": "LTM-CSI-ReportConfig",
+          "IE_Definition": "LTM-CSI-ReportConfig ::= SEQUENCE {\n    ltm-CSI-ReportConfigId          LTM-CSI-ReportConfigId,\n    ...\n}",
+          "Mandatory_or_Optional": "Mandatory (within LTM-CSI-ReportConfigList)"
+        },
+        {
+          "IE_Name": "LTM-CSI-ReportConfigId",
+          "IE_Definition": "LTM-CSI-ReportConfigId ::= INTEGER (0..maxLTM-CSI-ReportConfigId)",
+          "Mandatory_or_Optional": "Mandatory (within LTM-CSI-ReportConfig)"
+        },
+        {
+          "IE_Name": "LTM-CSI-ResourceConfigList",
+          "IE_Definition": "LTM-CSI-ResourceConfigList ::= SEQUENCE (SIZE (1..maxLTM-CSI-ResourceConfig)) OF LTM-CSI-ResourceConfig",
+          "Mandatory_or_Optional": "Optional (within LTM-Config)"
+        },
+        {
+          "IE_Name": "LTM-CSI-ResourceConfig",
+          "IE_Definition": "LTM-CSI-ResourceConfig ::= SEQUENCE {\n    ltm-CSI-ResourceConfigId        LTM-CSI-ResourceConfigId,\n    ...\n}",
+          "Mandatory_or_Optional": "Mandatory (within LTM-CSI-ResourceConfigList)"
+        },
+        {
+          "IE_Name": "LTM-CSI-ResourceConfigId",
+          "IE_Definition": "LTM-CSI-ResourceConfigId ::= INTEGER (0..maxLTM-CSI-ResourceConfigId)",
+          "Mandatory_or_Optional": "Mandatory (within LTM-CSI-ResourceConfig)"
+        },
+        {
+          "IE_Name": "LTM-TCI-InfoList",
+          "IE_Definition": "LTM-TCI-InfoList ::= SEQUENCE (SIZE (1..maxLTM-TCI-Info)) OF LTM-TCI-Info",
+          "Mandatory_or_Optional": "Optional (within LTM-Config)"
+        },
+        {
+          "IE_Name": "LTM-TCI-Info",
+          "IE_Definition": "LTM-TCI-Info ::= SEQUENCE {\n    ltm-TCI-StateId                 TCI-StateId,\n    ...\n}",
+          "Mandatory_or_Optional": "Mandatory (within LTM-TCI-InfoList)"
+        },
+        {
+          "IE_Name": "TCI-StateId",
+          "IE_Definition": "TCI-StateId ::= INTEGER (0..maxTCI-States-r16)",
+          "Mandatory_or_Optional": "Mandatory (within LTM-TCI-Info)"
+        }
+      ]
+    },
+    {
+      "Message_Name": "RRCReconfigurationComplete",
+      "Direction": "UL",
+      "Purpose": "To confirm the successful completion of the RRC reconfiguration procedure by the UE.",
+      "Key_IEs": [
+        {
+          "IE_Name": "RRCReconfigurationComplete",
+          "IE_Definition": "RRCReconfigurationComplete ::= SEQUENCE {\n    rrc-TransactionIdentifier           RRC-TransactionIdentifier,\n    criticalExtensions                  CHOICE {\n        rrcReconfigurationComplete      RRCReconfigurationComplete-IEs,\n        ...\n    }\n}",
+          "Mandatory_or_Optional": "Mandatory"
+        },
+        {
+          "IE_Name": "RRCReconfigurationComplete-IEs",
+          "IE_Definition": "RRCReconfigurationComplete-IEs ::= SEQUENCE {\n    lateNonCriticalExtension            OCTET STRING                                            OPTIONAL,   -- Need S\n    nonCriticalExtension                RRCReconfigurationComplete-v1530-IEs                    OPTIONAL\n}",
+          "Mandatory_or_Optional": "Mandatory (within criticalExtensions choice)"
+        },
+        {
+          "IE_Name": "RRC-TransactionIdentifier",
+          "IE_Definition": "RRC-TransactionIdentifier ::= INTEGER (0..3)",
+          "Mandatory_or_Optional": "Mandatory"
+        }
+      ]
+    },
+    {
+      "Message_Name": "DL RRC MESSAGE TRANSFER",
+      "Direction": "DL",
+      "Purpose": "To transfer an RRC message (e.g., RRCReconfiguration) from gNB-CU to gNB-DU over the F1AP interface.",
+      "Key_IEs": [
+        {
+          "IE_Name": "DLRRCMESSAGETRANSFER",
+          "IE_Definition": "",
+          "Mandatory_or_Optional": "Mandatory"
+        },
+        {
+          "IE_Name": "RRCReconfiguration",
+          "IE_Definition": "RRCReconfiguration ::= SEQUENCE {\n    rrc-TransactionIdentifier           RRC-TransactionIdentifier,\n    criticalExtensions                  CHOICE {\n        rrcReconfiguration              RRCReconfiguration-IEs,\n        ...\n    }\n}",
+          "Mandatory_or_Optional": "Mandatory (piggybacked)"
+        }
+      ]
+    },
+    {
+      "Message_Name": "UL RRC MESSAGE TRANSFER",
+      "Direction": "UL",
+      "Purpose": "To transfer an RRC message (e.g., RRCReconfigurationComplete) from gNB-DU to gNB-CU over the F1AP interface.",
+      "Key_IEs": [
+        {
+          "IE_Name": "ULRRCMESSAGETRANSFER",
+          "IE_Definition": "",
+          "Mandatory_or_Optional": "Mandatory"
+        },
+        {
+          "IE_Name": "RRCReconfigurationComplete",
+          "IE_Definition": "RRCReconfigurationComplete ::= SEQUENCE {\n    rrc-TransactionIdentifier           RRC-TransactionIdentifier,\n    criticalExtensions                  CHOICE {\n        rrcReconfigurationComplete      RRCReconfigurationComplete-IEs,\n        ...\n    }\n}",
+          "Mandatory_or_Optional": "Mandatory (piggybacked)"
+        }
+      ]
+    }
+  ],
+  "RRC_Procedures": [
+    {
+      "Procedure_Name": "LTM Configuration Procedure",
+      "Trigger_Condition": "The gNB-CU determines to initiate LTM configuration, typically based on measurement reports (L3 measurement results) received from the UE, indicating the need for L1/L2 Triggered Mobility.",
+      "Description": "The gNB-CU prepares an RRCReconfiguration message, embedding the LTM Configuration Information Elements (IEs) based on LTM configuration data previously received or determined. This RRCReconfiguration message is then encapsulated within an F1AP 'DL RRC MESSAGE TRANSFER' message and sent to the source gNB-DU. The source gNB-DU forwards the RRCReconfiguration message to the UE. After successfully applying the new LTM configuration, the UE generates an 'RRCReconfigurationComplete' RRC message. This response is sent to the source gNB-DU, which subsequently forwards it to the gNB-CU, encapsulated in an F1AP 'UL RRC MESSAGE TRANSFER' message. This procedure supports both intra-gNB-DU and inter-gNB-DU LTM scenarios."
+    }
+  ],
+  "RRC_Timers_And_Constants": [],
+  "Security_And_Context": {
+    "Security_Mode_Impact": "The RRCReconfiguration message is integrity protected and ciphered by PDCP once AS security is activated, as it is transmitted on SRB1 or SRB2. The LTM configuration IEs within this message are thus also protected.",
+    "UE_Context_Changes": "The UE's AS context is updated with the new LTM configuration. The gNB-DU's UE context is updated with LTM configuration ID mapping list and CSI resource configuration during the preparation phase (UE CONTEXT MODIFICATION REQUEST/RESPONSE)."
+  },
+  "Interlayer_Interactions": [
+    {
+      "Target_Layer": "F1AP",
+      "Primitive_or_Message": "DL RRC MESSAGE TRANSFER",
+      "Direction": "DL (gNB-CU to gNB-DU)",
+      "Purpose": "To transfer the RRCReconfiguration message from the gNB-CU to the gNB-DU for onward transmission to the UE."
+    },
+    {
+      "Target_Layer": "Uu (RRC)",
+      "Primitive_or_Message": "RRCReconfiguration",
+      "Direction": "DL (gNB-DU to UE)",
+      "Purpose": "To deliver the LTM configuration to the UE."
+    },
+    {
+      "Target_Layer": "Uu (RRC)",
+      "Primitive_or_Message": "RRCReconfigurationComplete",
+      "Direction": "UL (UE to gNB-DU)",
+      "Purpose": "To acknowledge the successful reception and application of the RRCReconfiguration message by the UE."
+    },
+    {
+      "Target_Layer": "F1AP",
+      "Primitive_or_Message": "UL RRC MESSAGE TRANSFER",
+      "Direction": "UL (gNB-DU to gNB-CU)",
+      "Purpose": "To transfer the RRCReconfigurationComplete message from the gNB-DU to the gNB-CU."
+    }
+  ],
+  "Call_Flow": [
+    {
+      "Message": "DL RRC MESSAGE TRANSFER (RRCReconfiguration with LTM Configuration IEs)",
+      "Actors": [
+        "gNB-CU",
+        "source gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "source gNB-DU"
+    },
+    {
+      "Message": "RRCReconfiguration (with LTM Configuration IEs)",
+      "Actors": [
+        "source gNB-DU",
+        "UE"
+      ],
+      "From": "source gNB-DU",
+      "To": "UE"
+    },
+    {
+      "Message": "RRCReconfigurationComplete",
+      "Actors": [
+        "UE",
+        "source gNB-DU"
+      ],
+      "From": "UE",
+      "To": "source gNB-DU"
+    },
+    {
+      "Message": "UL RRC MESSAGE TRANSFER (RRCReconfigurationComplete)",
+      "Actors": [
+        "source gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "source gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "1. The gNB-CU prepares the 'RRCReconfiguration' RRC message, including the LTM Configuration IEs, based on LTM configuration data received in previous F1AP messages (e.g., from UE CONTEXT SETUP REQUEST/RESPONSE or UE CONTEXT MODIFICATION REQUEST/RESPONSE procedures for LTM candidate cell preparation).",
+    "2. The gNB-CU sends the 'RRCReconfiguration' message buffer, piggybacked in an F1AP 'DL RRC MESSAGE TRANSFER' message, to the source gNB-DU.",
+    "3. The source gNB-DU forwards the received 'RRCReconfiguration' message to the UE.",
+    "4. The UE processes the 'RRCReconfiguration' message, applies the LTM configuration, and responds with an 'RRCReconfigurationComplete' RRC message to the source gNB-DU.",
+    "5. The source gNB-DU forwards the 'RRCReconfigurationComplete' message to the gNB-CU, piggybacked in an F1AP 'UL RRC MESSAGE TRANSFER' message."
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_trigger_reconfiguration_for_handover",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB_mobility.c",
+          "line_start": 239,
+          "line_end": 239,
+          "description": "A utility function on the gNB side that initiates or prepares for an RRC reconfiguration procedure, which could be adapted or used as a precursor for LTM configuration.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "nr_rrc_ue_generate_RRCReconfigurationComplete",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_start": 2012,
+          "line_end": 2012,
+          "description": "A helper function on the UE side responsible for generating the 'RRCReconfigurationComplete' message, which is the required response from the UE after applying the LTM configuration.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "nr_rrc_ue_process_rrcReconfiguration",
+          "file_path": "openair2\\RRC\\NR_UE\\rrc_UE.c",
+          "line_start": 604,
+          "line_end": 604,
+          "description": "A helper function on the UE side for processing the incoming 'RRCReconfiguration' message, including parsing its contents and applying the contained LTM configuration IEs.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_encode_RRCReconfiguration",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 651,
+          "line_end": 651,
+          "description": "An encoding helper function on the gNB side to serialize the 'RRCReconfiguration' message structure into a byte buffer for transmission.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_generate_dedicatedRRCReconfiguration",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 662,
+          "line_end": 662,
+          "description": "A helper function on the gNB side for constructing the 'RRCReconfiguration' message, likely populating it with dedicated Information Elements, including the LTM Configuration IEs.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_modify_dedicatedRRCReconfiguration",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 689,
+          "line_end": 689,
+          "description": "A helper function on the gNB side to modify an existing 'RRCReconfiguration' message, which could be used to add or update LTM Configuration IEs dynamically.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        }
+      ]
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "Python",
+    "Build_System": "Unknown",
+    "Repo_Path": ".",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Unknown"
+  },
+  "Knowledge_Hints": [
+    "5.7.2.3 (ts_138331v180600p): Actions related to transmission of ULInformationTransfer message",
+    "5.7.6 (ts_138331v180600p): DL message segment transfer",
+    "5.8.9.1.2 (ts_138331v180600p): Actions related to transmission of RRCReconfigurationSidelink message",
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.15.2 (ts_138401v180600p): Mobility procedure for Multicast",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU",
+    "5.7.2 (ts_138331v180600p): UL information transfer",
+    "5.7.2.1 (ts_138331v180600p): General",
+    "5.7.2.2 (ts_138331v180600p): Initiation",
+    "5.7.2.4 (ts_138331v180600p): Failure to deliver ULInformationTransfer message",
+    "5.7.12.3 (ts_138331v180600p): Actions related to transmission of IABOtherInformation message",
+    "5.7.4.3 (ts_138331v180600p): Actions related to transmission of UEAssistanceInformation message",
+    "5.7.14.3 (ts_138331v180600p): Actions related to transmission of UEPositioningAssistanceInfo message",
+    "5.7.7.3 (ts_138331v180600p): Actions related to transmission of ULDedicatedMessageSegment message",
+    "5.7.5.3 (ts_138331v180600p): Actions related to transmission of FailureInformation message",
+    "5.7.6.1 (ts_138331v180600p): General",
+    "5.7.6.2 (ts_138331v180600p): Initiation",
+    "5.7 (ts_138331v180600p): Other",
+    "5.7.4 (ts_138331v180600p): UE Assistance Information",
+    "5.7.20 (ts_138331v180600p): Actions related to Transmission of SRS for Positioning in a validity area in RRC_INACTIVE",
+    "5.7.13 (ts_138331v180600p): RLM/BFD relaxation",
+    "5.7.11 (ts_138331v180600p): Void",
+    "5.7.7 (ts_138331v180600p): UL message segment transfer",
+    "5.7.19 (ts_138331v180600p): Satellite switch with resynchronization",
+    "5.7.3 (ts_138331v180600p): SCG failure information",
+    "5.7.14 (ts_138331v180600p): UE Positioning Assistance Information",
+    "5.7.18 (ts_138331v180600p): Void",
+    "5.7.8 (ts_138331v180600p): Idle/inactive Measurements",
+    "5.7.5 (ts_138331v180600p): Failure information",
+    "5.7.15 (ts_138331v180600p): Void",
+    "5.7.1 (ts_138331v180600p): DL information transfer",
+    "5.7.12 (ts_138331v180600p): IAB Other Information",
+    "5.7.10 (ts_138331v180600p): UE Information",
+    "5.8.9.1 (ts_138331v180600p): Sidelink RRC reconfiguration",
+    "5.8.9.1.5 (ts_138331v180600p): Void",
+    "5.8.9.1.6 (ts_138331v180600p): Void",
+    "5.8.9.1.1 (ts_138331v180600p): General",
+    "5.8.9.1.4 (ts_138331v180600p): Void",
+    "5.8.9.1.7 (ts_138331v180600p): Void",
+    "5.8.9.10.3 (ts_138331v180600p): Actions related to transmission of NotificationMessageSidelink message",
+    "5.8.9.9.2 (ts_138331v180600p): Actions related to transmission of UuMessageTransferSidelink message",
+    "5.2.2 (ts_138331v180600p): System information acquisition",
+    "5.7.1.2 (ts_138331v180600p): Initiation",
+    "5.7.1.1 (ts_138331v180600p): General",
+    "5.7.3.5 (ts_138331v180600p): Actions related to transmission of SCGFailureInformation message",
+    "5.7.12.2 (ts_138331v180600p): Initiation",
+    "5.7.12.1 (ts_138331v180600p): General",
+    "5.7.4.2 (ts_138331v180600p): Initiation",
+    "5.7.4.1 (ts_138331v180600p): General",
+    "5.7.4.4 (ts_138331v180600p): Relaxed measurement criterion for a stationary (e)RedCap UE",
+    "5.7.14.2 (ts_138331v180600p): Initiation",
+    "5.7.14.1 (ts_138331v180600p): General",
+    "5.7.7.1 (ts_138331v180600p): General",
+    "5.7.7.2 (ts_138331v180600p): Initiation",
+    "5.7.5.2 (ts_138331v180600p): Initiation",
+    "5.7.5.1 (ts_138331v180600p): General",
+    "5.7.3.4 (ts_138331v180600p): Setting the contents of MeasResultSCG-Failure",
+    "5.8.9.8.2 (ts_138331v180600p): Actions related to transmission of RemoteUEInformationSidelink message",
+    "5.8.3.3 (ts_138331v180600p): Actions related to transmission of SidelinkUEInformationNR message",
+    "5.8.6.1 (ts_138331v180600p): General",
+    "5.7.3.1 (ts_138331v180600p): General",
+    "5.8.9.2.2 (ts_138331v180600p): Initiation",
+    "5.9.2.2 (ts_138331v180600p): Initiation",
+    "5 (ts_138331v180600p): Procedures",
+    "5.3 (ts_138331v180600p): Connection control",
+    "5.5 (ts_138331v180600p): Measurements",
+    "5.10 (ts_138331v180600p): MBS multicast reception in RRC_INACTIVE",
+    "5.8 (ts_138331v180600p): Sidelink",
+    "5.2 (ts_138331v180600p): System information",
+    "5.9 (ts_138331v180600p): MBS Broadcast",
+    "5.6 (ts_138331v180600p): UE capabilities",
+    "5.1 (ts_138331v180600p): General",
+    "5.7.13.0 (ts_138331v180600p): General",
+    "5.7.13.1 (ts_138331v180600p): Relaxed measurement criterion for low mobility",
+    "5.7.13.2 (ts_138331v180600p): Relaxed measurement criterion for good serving cell quality",
+    "5.7.3.3 (ts_138331v180600p): Failure type determination for (NG)EN-DC",
+    "5.7.3.2 (ts_138331v180600p): Initiation",
+    "5.5.6.1 (ts_138331v180600p): General",
+    "5.7.8.4 (ts_138331v180600p): Cell re-selection or cell selection while T331 is running",
+    "5.7.8.3 (ts_138331v180600p): T331 expiry or stop",
+    "5.7.8.1 (ts_138331v180600p): General",
+    "5.3.15.1 (ts_138331v180600p): Initiation",
+    "5.7.10.5 (ts_138331v180600p): RA information determination",
+    "5.7.10.6 (ts_138331v180600p): Actions for the successful handover report determination",
+    "5.7.10.3 (ts_138331v180600p): Reception of the UEInformationRequest message",
+    "5.7.10.7 (ts_138331v180600p): Actions for the successful PSCell change or addition report determination",
+    "5.7.10.1 (ts_138331v180600p): General",
+    "5.7.10.2 (ts_138331v180600p): Initiation",
+    "5.7.9.3 (ts_138331v180600p): Release of Mobility History Information",
+    "5.8.9 (ts_138331v180600p): Sidelink RRC procedure",
+    "5.8.9.6 (ts_138331v180600p): Sidelink UE assistance information",
+    "5.8.9.5 (ts_138331v180600p): Actions related to PC5-RRC connection release requested by upper layers",
+    "5.8.9.4 (ts_138331v180600p): Sidelink common control information",
+    "5.8.9.3 (ts_138331v180600p): Sidelink radio link failure related actions",
+    "5.8.9.11 (ts_138331v180600p): UE information transfer on sidelink",
+    "5.8.9.7 (ts_138331v180600p): PC5 Relay RLC channel management for L2 U2N or U2U relay",
+    "5.8.9.8 (ts_138331v180600p): Remote UE information",
+    "5.8.9.2 (ts_138331v180600p): Sidelink UE capability transfer",
+    "5.8.9.9 (ts_138331v180600p): Uu message transfer in sidelink",
+    "5.8.9.10 (ts_138331v180600p): Notification Message",
+    "5.3.5 (ts_138331v180600p): RRC reconfiguration",
+    "5.8.9.2.1 (ts_138331v180600p): General",
+    "5.8.9.6.1 (ts_138331v180600p): General",
+    "5.8.9.8.1 (ts_138331v180600p): General",
+    "5.8.9.9.1 (ts_138331v180600p): General",
+    "5.8.9.10.1 (ts_138331v180600p): General",
+    "5.8.9.4.1 (ts_138331v180600p): General",
+    "5.9.1.1 (ts_138331v180600p): General",
+    "5.8.9.10.2 (ts_138331v180600p): Initiation",
+    "5.8.9.11.1 (ts_138331v180600p): General",
+    "5.8.9.9.3 (ts_138331v180600p): Reception of the UuMessageTransferSidelink",
+    "5.8.9.6.3 (ts_138331v180600p): Actions related to reception of UEAssistanceInformationSidelink message"
+  ]
+}

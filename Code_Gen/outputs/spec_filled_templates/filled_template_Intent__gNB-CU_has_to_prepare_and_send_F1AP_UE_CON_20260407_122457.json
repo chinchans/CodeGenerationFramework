@@ -1,0 +1,161 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER_UE_CONTEXT_SETUP",
+  "Feature_Name": "Inter-gNB-DU LTM Handover UE Context Setup",
+  "Release": "v180600p",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401",
+    "Title": "NG-RAN; Architecture description",
+    "Section": "8.2.1.1 (TS 38 401), 8.2.2.1 (TS 38 401), 8.2.2.3 (TS 38 401)"
+  },
+  "Feature_Description": [
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation (Inter-gNB-DU Mobility for intra-NR).",
+    "It is also applicable for cases where the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU when only MCG SRB is available during EN-DC operation (Inter-gNB-DU Mobility using MCG SRB).",
+    "Furthermore, it covers scenarios like inter-gNB-DU conditional PSCell change using MCG SRB without MN negotiation in EN-DC, where the UE moves between gNB-DUs within the same gNB-CU for conditional PSCell change."
+  ],
+  "Feature_Objectives": [
+    "To enable the gNB-CU to prepare and send the F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU.",
+    "To allow the candidate gNB-DU to respond with the F1AP \"UE CONTEXT SETUP RESPONSE\" message.",
+    "To ensure the gNB-CU handles the \"UE CONTEXT SETUP RESPONSE\" message for Inter-gNB-DU LTM Handover, creating a UE context and setting up data bearers in the target gNB-DU."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP",
+      "RRC"
+    ],
+    "Protocol_Interfaces": [
+      "F1"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "candidate gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "The gNB-CU sends an UE CONTEXT SETUP REQUEST message to the target/candidate gNB-DU to create a UE context and setup one or more data bearers. This message may include a HandoverPreparationInformation (for intra-NR mobility), a CG-ConfigInfo (for EN-DC mobility), or Conditional Inter-DU Mobility Information (for conditional PSCell change). In case of NG-RAN sharing, the gNB-CU includes the serving PLMN ID (for SNPNs the serving SNPN ID). The message may be sent for each candidate cell.",
+    "The target/candidate gNB-DU responds to the gNB-CU with an UE CONTEXT SETUP RESPONSE message. For conditional PSCell change, this response may include the target cell ID that was requested from the gNB-CU, and is sent for each requested candidate cell."
+  ],
+  "Code_Artifacts": [],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UEContextSetupRequestIEs",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UEContextSetupResponseIEs",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "HandoverPreparationInformation",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ServingPLMNID",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ServingSNPNID",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CG-ConfigInfo",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "ConditionalInter-DUMobilityInformation",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "TargetCellID",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "Not applicable for the scoped messages in this procedure.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "N/A",
+      "Piggy_Backed_IE_Type": "N/A",
+      "Carrier_Message": "N/A",
+      "Source_IE_Name": "",
+      "Source_IE_Type": ""
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+  "Knowledge_Hints": [
+    "8.2.3.3 (ts_138401v180600p): Intra-CU topology adaptation procedure in NSA using SCG SRB (SRB3)",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.17.3.1 (ts_138401v180600p): IAB inter-CU topology adaptation procedure",
+    "8.17.2.1 (ts_138401v180600p): IAB Inter-CU topological redundancy procedure",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.17.3 (ts_138401v180600p): IAB Inter-CU Topology Adaptation",
+    "8.17.2 (ts_138401v180600p): IAB Inter-CU Topology Redundancy",
+    "11 (ts_138401v180600p): Overall procedures in NG-RAN Architecure",
+    "8.17 (ts_138401v180600p): IAB Inter-CU Topology Management",
+    "10 (ts_138401v180600p): NG-RAN interfaces",
+    "8.23.1 (ts_138401v180600p): Migration of mobile IAB-MT via Xn handover",
+    "8.12 (ts_138401v180600p): IAB-node Integration Procedure",
+    "8.17.4 (ts_138401v180600p): IAB Inter-CU Backhaul RLF recovery for single connected IAB-node",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility"
+  ]
+}

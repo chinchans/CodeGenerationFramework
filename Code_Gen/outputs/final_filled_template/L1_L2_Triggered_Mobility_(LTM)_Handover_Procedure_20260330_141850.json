@@ -1,0 +1,424 @@
+{
+  "Feature_ID": "LTM_HANDOVER_PROCEDURE",
+  "Feature_Name": "L1/L2 Triggered Mobility (LTM) Handover Procedure",
+  "Release": "18",
+  "3GPP_Reference": {
+    "Spec": "TS 38.473, TS 38.401",
+    "Title": "NR; F1 Application Protocol (F1AP), NR; NG-RAN Architecture Description",
+    "Section": "8.3.4.1, 8.3.4.2, 8.3.4.3 (TS 38.473); 8.2.1.4, 8.2.1.5, 8.2.1.6 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "The purpose of the UE Context Modification procedure is to modify the established UE Context, e.g., establishing, modifying and releasing radio resources or sidelink resources. This procedure is also used to command the gNB-DU to stop data transmission for the UE for mobility (see TS 38.401 [4]).",
+    "This procedure is used for the case when the UE moves within the same gNB-DU during NR operation for LTM (Intra-gNB-DU LTM).",
+    "This procedure is used for the case when the UE moves from one gNB-DU to another gNB-DU within the same gNB-CU during NR operation for LTM (Inter-gNB-DU LTM).",
+    "This procedure is used for LTM with the change of gNB-CU-UP within a gNB."
+  ],
+  "Feature_Objectives": [
+    "To modify the established UE Context for L1/L2 Triggered Mobility (LTM).",
+    "To establish, modify, and release radio resources or sidelink resources for LTM.",
+    "To support UE mobility within the same gNB-DU (Intra-gNB-DU LTM).",
+    "To support UE mobility between different gNB-DUs within the same gNB-CU (Inter-gNB-DU LTM).",
+    "To support LTM when there is a change of gNB-CU-UP.",
+    "To configure LTM-specific information such as CSI resource configuration, LTM configuration ID mapping, early synchronization, and L2 reset configuration."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP",
+      "RRC"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT MODIFICATION REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION RESPONSE",
+      "Actors": [
+        "gNB-CU",
+        "gNB-DU"
+      ],
+      "From": "gNB-DU",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Source gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Source gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION RESPONSE",
+      "Actors": [
+        "gNB-CU",
+        "Source gNB-DU"
+      ],
+      "From": "Source gNB-DU",
+      "To": "gNB-CU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "Candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT MODIFICATION RESPONSE",
+      "Actors": [
+        "gNB-CU",
+        "Candidate gNB-DU"
+      ],
+      "From": "Candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "**LTM Configuration (Intra-gNB-DU LTM, TS 38.401 Section 8.2.1.4):**",
+    "1. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the gNB-DU for each candidate cell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU may provide the LTM configuration ID mapping list to the gNB-DU. The gNB-CU may request PRACH resources from the gNB-DU. The gNB-CU may request the gNB-DU to provide the lower layer configuration for the purpose of generating the reference configuration or provide the lower layer reference configuration to the gNB-DU. The gNB-CU may inform the gNB-DU about intra-DU L2 reset configuration.",
+    "2. If the gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT MODIFICATION RESPONSE message including the generated lower layer RRC configurations for the accepted candidate cell.",
+    "3. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the gNB-DU which may include the LTM configuration ID mapping list and/or the updated CSI resource configuration. The gNB-CU may inform the gNB-DU about intra-DU L2 reset configuration.",
+    "4. The gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message which may include an updated lower layer configuration, e.g., containing the updated CSI report configuration of the source cell.",
+    "**LTM Configuration (Inter-gNB-DU LTM, TS 38.401 Section 8.2.1.5):**",
+    "1. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the source gNB-DU including the information related to early sync and the LTM configuration ID mapping list for the accepted target candidate cell(s). The gNB-CU may send the updated CSI resource configuration to the source gNB-DU. The gNB-CU may inform the source gNB-DU about intra-DU L2 reset configuration.",
+    "2. The source gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message which includes an updated lower layer configuration, e.g., containing the updated CSI report configuration of the source cell.",
+    "3. The gNB-CU may send a UE CONTEXT MODIFICATION REQUEST message for each candidate cell accepted in the candidate gNB-DU(s), containing the information for subsequent LTM or for updating the configurations of candidate cells. The gNB-CU may also provide the lower layer part of the reference configuration to the candidate gNB-DU(s). The gNB-CU may inform the candidate gNB-DU(s) about intra-DU L2 reset configuration.",
+    "4. The candidate gNB-DU responds with a UE CONTEXT MODIFICATION RESPONSE message including the updated lower layer configuration, e.g., containing the updated CSI report configuration of the requested candidate cell."
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_mod_req_t",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 585,
+          "description": "Data structure defining the F1AP UE Context Modification Request message format, including all necessary Information Elements (IEs) for modifying UE context, such as radio resources or sidelink resources. This structure is essential for constructing the request message sent from gNB-CU to gNB-DU.",
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "ue_context_modification_request_f1ap",
+          "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+          "line_start": 87,
+          "line_end": 87,
+          "description": "A helper function likely responsible for initiating or preparing the F1AP UE Context Modification Request message from the RRC layer, potentially handling the allocation and initial population of the message structure before detailed IE generation.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_mod_req_t"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_generate_UeContextModificationRequest",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 3087,
+          "line_end": 3087,
+          "description": "A utility function within the RRC layer of the gNB that generates the content for the F1AP UE Context Modification Request. This function would be responsible for populating the specific Information Elements (IEs) within the `f1ap_ue_context_mod_req_t` structure based on the RRC context and the requested modifications.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_mod_req_t"
+          ]
+        },
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_mod_resp",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 613,
+          "description": "Data structure defining the F1AP UE Context Modification Response message format. This structure is used to parse the response received from the gNB-DU, indicating the outcome of the UE Context Modification Request, including any modified or failed to modify resources.",
+          "uses_structs": []
+        }
+      ]
+    }
+  ],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UEContextModificationRequestIEs",
+      "IE_Definition": "UEContextModificationRequestIEs F1AP-PROTOCOL-IES ::= {\n { ID id-gNB-CU-UE-F1AP-ID      CRITICALITY reject TYPE GNB-CU-UE-F1AP-ID         PRESENCE mandatory }|\n { ID id-gNB-DU-UE-F1AP-ID      CRITICALITY reject TYPE GNB-DU-UE-F1AP-ID         PRESENCE mandatory }|\n { ID id-SpCell-ID        CRITICALITY ignore TYPE NRCGI            PRESENCE optional }|\n { ID id-ServCellIndex       CRITICALITY reject TYPE ServCellIndex          PRESENCE optional }|\n { ID id-SpCellULConfigured      CRITICALITY ignore TYPE CellULConfigured         PRESENCE optional }|\n { ID id-DRXCycle        CRITICALITY ignore TYPE DRXCycle           PRESENCE optional }|\n { ID id-CUtoDURRCInformation     CRITICALITY reject TYPE CUtoDURRCInformation        PRESENCE optional }|\n { ID id-TransmissionActionIndicator    CRITICALITY ignore TYPE TransmissionActionIndicator     PRESENCE optional }|\n { ID id-ResourceCoordinationTransferContainer CRITICALITY ignore TYPE ResourceCoordinationTransferContainer  PRESENCE optional  }|\n { ID id-RRCReconfigurationCompleteIndicator  CRITICALITY ignore TYPE RRCReconfigurationCompleteIndicator   PRESENCE optional }|\n { ID id-RRCContainer       CRITICALITY reject TYPE RRCContainer          PRESENCE optional }|\n { ID id-SCell-ToBeSetupMod-List     CRITICALITY ignore TYPE SCell-ToBeSetupMod-List       PRESENCE optional }|\n { ID id-SCell-ToBeRemoved-List     CRITICALITY ignore TYPE SCell-ToBeRemoved-List        PRESENCE optional }|\n { ID id-SRBs-ToBeSetupMod-List     CRITICALITY reject TYPE SRBs-ToBeSetupMod-List       PRESENCE optional }|\n { ID id-DRBs-ToBeSetupMod-List     CRITICALITY reject TYPE DRBs-ToBeSetupMod-List       PRESENCE optional }|\n { ID id-DRBs-ToBeModified-List     CRITICALITY reject TYPE DRBs-ToBeModified-List       PRESENCE optional }|\n { ID id-SRBs-ToBeReleased-List     CRITICALITY reject TYPE SRBs-ToBeReleased-List       PRESENCE optional }|\n { ID id-DRBs-ToBeReleased-List     CRITICALITY reject TYPE DRBs-ToBeReleased-List       PRESENCE optional }|\n { ID id-InactivityMonitoringRequest    CRITICALITY reject TYPE InactivityMonitoringRequest     PRESENCE optional }|\n { ID id-RAT-FrequencyPriorityInformation  CRITICALITY reject TYPE RAT-FrequencyPriorityInformation    PRESENCE optional }|\n { ID id-DRXConfigurationIndicator    CRITICALITY ignore TYPE DRXConfigurationIndicator      PRESENCE optional }|\n { ID id-RLCFailureIndication     CRITICALITY ignore TYPE RLCFailureIndication        PRESENCE optional }|\n { ID id-UplinkTxDirectCurrentListInformation CRITICALITY ignore TYPE UplinkTxDirectCurrentListInformation  PRESENCE optional }|\n { ID id-GNB-DUConfigurationQuery    CRITICALITY reject TYPE GNB-DUConfigurationQuery      PRESENCE optional }|\n { ID id-GNB-DU-UE-AMBR-UL      CRITICALITY ignore TYPE BitRate           PRESENCE optional }|\n { ID id-ExecuteDuplication      CRITICALITY ignore TYPE ExecuteDuplication         PRESENCE optional}|\n { ID id-RRCDeliveryStatusRequest    CRITICALITY ignore TYPE RRCDeliveryStatusRequest      PRESENCE optional }|\n { ID id-ResourceCoordinationTransferInformation CRITICALITY ignore TYPE ResourceCoordinationTransferInformation PRESENCE optio nal }|\n { ID id-ServingCellMO       CRITICALITY ignore TYPE ServingCellMO          PRESENCE optional }|\n { ID id-NeedforGap        CRITICALITY ignore TYPE NeedforGap           PRESENCE optional }|\n { ID id-FullConfiguration      CRITICALITY reject TYPE FullConfiguration         PRESENCE optional }|\n { ID id-AdditionalRRMPriorityIndex    CRITICALITY ignore TYPE AdditionalRRMPriorityIndex      PRESENCE optional }|\n { ID id-LowerLayerPresenceStatusChange   CRITICALITY ignore TYPE LowerLayerPresenceStatusChange    PRESENCE optional }|\n { ID id-BHChannels-ToBeSetupMod-List   CRITICALITY reject TYPE BHChannels-ToBeSetupMod-List     PRESENCE optional }|\n { ID id-BHChannels-ToBeModified-List   CRITICALITY reject TYPE BHChannels-ToBeModified-List     PRESENCE optional }|\n { ID id-BHChannels-ToBeReleased-List   CRITICALITY reject TYPE BHChannels-ToBeReleased-List     PRESENCE optional }|\n { ID id-NRV2XServicesAuthorized     CRITICALITY ignore TYPE NRV2XServicesAuthorized       PRESENCE optional }|\n { ID id-LTEV2XServicesAuthorized    CRITICALITY ignore TYPE LTEV2XServicesAuthorized      PRESENCE optional }|\n { ID id-NRUESidelinkAggregateMaximumBitrate  CRITICALITY ignore TYPE NRUESidelinkAggregateMaximumBitrate   PRESENCE optional }|\n { ID id-LTEUESidelinkAggregateMaximumBitrate CRITICALITY ignore TYPE LTEUESidelinkAggregateMaximumBitrate  PRESENCE optional }|\n { ID id-PC5LinkAMBR        CRITICALITY ignore TYPE BitRate           PRESENCE optional}|\n { ID id-SLDRBs-ToBeSetupMod-List    CRITICALITY reject TYPE SLDRBs-ToBeSetupMod-List      PRESENCE optional }|\n { ID id-SLDRBs-ToBeModified-List    CRITICALITY reject TYPE SLDRBs-ToBeModified-List      PRESENCE optional }|\n { ID id-SLDRBs-ToBeReleased-List    CRITICALITY reject TYPE SLDRBs-ToBeReleased-List      PRESENCE optional }|\n { ID id-ConditionalIntraDUMobilityInformation CRITICALITY reject TYPE ConditionalIntraDUMobilityInformation  PRESENCE optional}|\n { ID id-F1CTransferPath       CRITICALITY reject TYPE F1CTransferPath         PRESENCE optional }|\n { ID id-SCGIndicator       CRITICALITY ignore TYPE SCGIndicator          PRESENCE optional }|\n { ID id-UplinkTxDirectCurrentTwoCarrierListInfo  CRITICALITY ignore TYPE UplinkTxDirectCurrentTwoCarrierListInfo PRESENCE opti onal }|\n { ID id-IABConditionalRRCMessageDeliveryIndication    CRITICALITY reject TYPE IABConditionalRRCMessageDeliveryIndication\n   PRESENCE optional }|\n { ID id-F1CTransferPathNRDC       CRITICALITY reject TYPE F1CTransferPathNRDC        PRESENCE optional }|\n { ID id-MDTPollutedMeasurementIndicator    CRITICALITY ignore TYPE MDTPollutedMeasurementIndicator    PRESENCE optional }|\n { ID id-SCGActivationRequest      CRITICALITY ignore TYPE SCGActivationRequest       PRESENCE optional }|\n { ID id-CG-SDTQueryIndication      CRITICALITY ignore TYPE CG-SDTQueryIndication       PRESENCE optional }|\n { ID id-FiveG-ProSeAuthorized      CRITICALITY ignore TYPE FiveG-ProSeAuthorized       PRESENCE optional }|\n { ID id-FiveG-ProSeUEPC5AggregateMaximumBitrate  CRITICALITY ignore TYPE NRUESidelinkAggregateMaximumBitrate  PRESENCE optional }|\n { ID id-FiveG-ProSePC5LinkAMBR      CRITICALITY ignore TYPE BitRate           PRESENCE optional}|\n { ID id-UpdatedRemoteUELocalID      CRITICALITY ignore TYPE RemoteUELocalID          PRESENCE optional }|\n { ID id-UuRLCChannelToBeSetupList     CRITICALITY reject TYPE UuRLCChannelToBeSetupList      PRESENCE optional}|\n { ID id-UuRLCChannelToBeModifiedList    CRITICALITY reject TYPE UuRLCChannelToBeModifiedList     PRESENCE optional}|\n { ID id-UuRLCChannelToBeReleasedList    CRITICALITY reject TYPE UuRLCChannelToBeReleasedList     PRESENCE optional}|\n { ID id-PC5RLCChannelToBeSetupList     CRITICALITY reject TYPE PC5RLCChannelToBeSetupList     PRESENCE optional}|\n { ID id-PC5RLCChannelToBeModifiedList    CRITICALITY reject TYPE PC5RLCChannelToBeModifiedList    PRESENCE optional}|\n { ID id-PC5RLCChannelToBeReleasedList    CRITICALITY reject TYPE PC5RLCChannelToBeReleasedList    PRESENCE optional}|\n { ID id-PathSwitchConfiguration      CRITICALITY ignore TYPE PathSwitchConfiguration       PRESENCE optional }|\n { ID id-GNBDUUESliceMaximumBitRateList    CRITICALITY ignore TYPE GNBDUUESliceMaximumBitRateList    PRESENCE optional }|\n { ID id-MulticastMBSSessionSetupList    CRITICALITY reject TYPE MulticastMBSSessionList      PRESENCE optional }|\n { ID id-MulticastMBSSessionRemoveList    CRITICALITY reject TYPE MulticastMBSSessionList      PRESENCE optional }|\n { ID id-UE-MulticastMRBs-ToBeSetup-atModify-List CRITICALITY reject TYPE UE-MulticastMRBs-ToBeSetup-atModify-List PRESENCE optional }|\n { ID id-UE-MulticastMRBs-ToBeReleased-List   CRITICALITY reject TYPE UE-MulticastMRBs-ToBeReleased-List   PRESENCE optional }|\n { ID id-SLDRXCycleList        CRITICALITY ignore  TYPE SLDRXCycleList           PRESENCE optional }|\n { ID id-ManagementBasedMDTPLMNModificationList  CRITICALITY ignore TYPE MDTPLMNModificationList      PRESENCE optional }|\n { ID id-SDTBearerConfigurationQueryIndication  CRITICALITY ignore TYPE SDTBearerConfigurationQueryIndication  PRESENCE optional }|\n { ID id-DAPS-HO-Status        CRITICALITY ignore TYPE DAPS-HO-Status          PRESENCE optional }|\n { ID id-ServingCellMO-List       CRITICALITY ignore TYPE ServingCellMO-List        PRESENCE optional }|\n { ID id-UlTxDirectCurrentMoreCarrierInformation     CRITICALITY ignore TYPE UlTxDirectCurrentMoreCarrierInformation PRESENCE o ptional }|\n { ID id-CPACMCGInformation       CRITICALITY ignore TYPE CPACMCGInformation        PRESENCE optional }|\n { ID id-NetworkControlledRepeaterAuthorized   CRITICALITY ignore TYPE NetworkControlledRepeaterAuthorized   PRESENCE optional }|\n { ID id-SDT-Volume-Threshold       CRITICALITY ignore TYPE SDT-Volume-Threshold        PRESENCE optional\n}|\n { ID id-LTMInformation-Modify      CRITICALITY reject TYPE LTMInformation-Modify       PRESENCE optional }|\n { ID id-LTMCFRAResourceConfig-List     CRITICALITY ignore TYPE LTMCFRAResourceConfig-List     PRESENCE optional }|\n { ID id-LTMConfigurationIDMappingList    CRITICALITY reject TYPE LTMConfigurationIDMappingList    PRESENCE optional }|\n { ID id-EarlySyncInformation-Request    CRITICALITY ignore TYPE EarlySyncInformation-Request     PRESENCE optional }|\n { ID id-EarlySyncCandidateCellInformation-List  CRITICALITY ignore TYPE EarlySyncCandidateCellInformation-List  PRESENCE optio nal }|\n { ID id-EarlySyncServingCellInformation    CRITICALITY ignore TYPE EarlySyncServingCellInformation    PRESENCE optional }|\n { ID id-LTMCells-ToBeReleased-List     CRITICALITY reject TYPE LTMCells-ToBeReleased-List     PRESENCE optional }|\n { ID id-PathAdditionInformation     CRITICALITY reject TYPE PathAdditionInformation        PRESENCE optional}|\n { ID id-NRA2XServicesAuthorized      CRITICALITY ignore TYPE NRA2XServicesAuthorized       PRESENCE optional }|\n { ID id-LTEA2XServicesAuthorized      CRITICALITY ignore TYPE LTEA2XServicesAuthorized       PRESENCE optional }|\n { ID id-NRUESidelinkAggregateMaximumBitrateForA2X  CRITICALITY ignore TYPE NRUESidelinkAggregateMaximumBitrate   PRESENCE optional }|\n { ID id-LTEUESidelinkAggregateMaximumBitrateForA2X CRITICALITY ignore TYPE LTEUESidelinkAggregateMaximumBitrate   PRESENCE optional }|\n { ID id-DLLBTFailureInformationRequest    CRITICALITY ignore TYPE DLLBTFailureInformationRequest    PRESENCE optional }|\n { ID id-SLPositioning-Ranging-Service-Info  CRITICALITY ignore TYPE SLPositioning-Ranging-Service-Info      PRESENCE optional }|\n { ID id-NonIntegerDRXCycle      CRITICALITY ignore TYPE NonIntegerDRXCycle         PRESENCE optional }|\n { ID id-LTMResetInformation      CRITICALITY ignore TYPE LTMResetInformation        PRESENCE optional },\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Information Modify IE",
+      "IE_Definition": "LTMInformation-Modify ::= SEQUENCE {\n lTMIndicator      LTMIndicator,\n referenceConfiguration    ReferenceConfiguration         OPTIONAL,\n cSIResourceConfiguration    CSIResourceConfiguration        OPTIONAL,\n iE-Extensions  ProtocolExtensionContainer { { LTMInformation-Modify-ExtIEs} } OPTIONAL,\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Configuration ID Mapping List IE",
+      "IE_Definition": "LTMConfigurationIDMappingList ::= SEQUENCE (SIZE(1..maxnoofLTMCells)) OF LTMConfigurationIDMapping-Item",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early Sync Information Request IE",
+      "IE_Definition": "EarlySyncInformation-Request  ::= SEQUENCE {\n requestforRACHConfiguration     RequestforRACHConfiguration,\n lTMgNB-DU-IDsList       LTMgNB-DU-IDsList,\n iE-Extensions        ProtocolExtensionContainer { { EarlySyncInformation-Request-ExtIEs} } OPTIONAL,\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early Sync Candidate Cell Information List IE",
+      "IE_Definition": "EarlySyncCandidateCellInformation-List ::= SEQUENCE (SIZE (1.. maxnoofLTMCells)) OF EarlySyncCandidateCellInformation-Item",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Early Sync Serving Cell Information IE",
+      "IE_Definition": "EarlySyncServingCellInformation ::= SEQUENCE {\n uEbasedTAmeasurementConfig  OCTET STRING          OPTIONAL,\n iE-Extensions     ProtocolExtensionContainer { { EarlySyncServingCellInformation-ExtIEs } } OPTIONAL,\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM CFRA Resource Config List IE",
+      "IE_Definition": "LTMCFRAResourceConfig-List ::= SEQUENCE (SIZE (1.. maxnoofLTMCells)) OF LTMCFRAResourceConfig-Item",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Cells to be Released List IE",
+      "IE_Definition": "LTMCells-ToBeReleased-List ::= SEQUENCE (SIZE(1..maxnoofLTMCells)) OF  LTMCells-ToBeReleased-Item\nLTMCells-ToBeReleased-Item ::= SEQUENCE {\n nRCGI    NRCGI,\n iE-Extensions  ProtocolExtensionContainer { { LTMCells-ToBeReleased-ItemExtIEs } } OPTIONAL,\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Reset Information IE",
+      "IE_Definition": "LTMResetInformation ::= SEQUENCE {\n servingCellL2ResetConfiguration      OCTET STRING  OPTIONAL,\n lTML2ResetConfigurationList       LTML2ResetConfigurationList  OPTIONAL,\n iE-Extensions      ProtocolExtensionContainer { { LTMResetInformation-ItemExtIEs} } OPTIONAL,\n ...\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "LTM Indicator IE",
+      "IE_Definition": "LTMIndicator ::= ENUMERATED {true, ...}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "SpCell ID IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "CSI Resource Configuration IE",
+      "IE_Definition": "CSIResourceConfiguration ::= SEQUENCE  {\n cSIResourceConfigToAddModList    OCTET STRING  OPTIONAL,\n cSIResourceConfigToReleaseList   OCTET STRING  OPTIONAL,\n iE-Extensions       ProtocolExtensionContainer { { CSIResourceConfiguration-ExtIEs} } OPTIONAL\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Reference Configuration IE",
+      "IE_Definition": "ReferenceConfiguration ::= CHOICE {\n rEQUESTforLowerLayerConfiguration   RequestforLowerLayerConfiguration,\n referenceConfiguration     ReferenceConfigurationInformation,\n choice-extension ProtocolIE-SingleContainer { { ReferenceConfiguration-ExtIEs } }\n}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Request for Lower Layer Configuration IE",
+      "IE_Definition": "RequestforLowerLayerConfiguration::= ENUMERATED {true, ...}",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "Reference Configuration Information IE",
+      "IE_Definition": "ReferenceConfigurationInformation ::= OCTET STRING",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UE Based TA Measurement Configuration IE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "",
+  "Piggy_Backed_IES_Mapping": [],
+  "Codebase_Metadata": {
+    "Code_Language": "Python",
+    "Build_System": "Unknown",
+    "Repo_Path": ".",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Unknown"
+  },
+  "Knowledge_Hints": [
+    "10 (ts_138473v180600p): Handling of unknown, unforeseen and erroneous protocol data",
+    "8.2.1.5 (ts_138401v180600p): Inter-gNB-DU LTM",
+    "8.2.1 (ts_138401v180600p): Intra-NR Mobility",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.2.1.4 (ts_138401v180600p): Intra-gNB-DU LTM",
+    "8.2.1.3 (ts_138401v180600p): Inter-gNB-DU Conditional Handover or Conditional PSCell Change or subsequent CPAC",
+    "8.2.1.2 (ts_138401v180600p): Intra-gNB-DU handover",
+    "8.2.1.1 (ts_138401v180600p): Inter-gNB-DU Mobility",
+    "8.14.1.1 (ts_138401v180600p): Signalling of RLF information from gNB-CU to gNB-DU",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.2.2 (ts_138401v180600p): EN-DC Mobility",
+    "8.2.3 (ts_138401v180600p): Intra-CU topology adaptation procedure",
+    "8.2.5 (ts_138401v180600p): Intra-CU Backhaul RLF recovery for IAB-nodes in SA mode",
+    "8.2.4 (ts_138401v180600p): Intra-CU topological redundancy procedure",
+    "8.15.2 (ts_138401v180600p): Mobility procedure for Multicast",
+    "8.2.2.2 (ts_138401v180600p): Inter-gNB-DU Mobility using SCG SRB (SRB3)",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.19.4.2 (ts_138401v180600p): Intra-gNB-DU switch from direct to indirect path",
+    "8.2.2.3 (ts_138401v180600p): Inter-gNB-DU Conditional PSCell Change using MCG SRB without MN negotiation",
+    "8.2.2.1 (ts_138401v180600p): Inter-gNB-DU Mobility using MCG SRB",
+    "8.16.1 (ts_138401v180600p): MN initiated Conditional PSCell Addition",
+    "6.2.2 (ts_138401v180600p): gNB-DU ID",
+    "8.3.1 (ts_138401v180600p): Centralized Retransmission in Intra gNB-CU Cases",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.4.2.1 (ts_138401v180600p): EN-DC",
+    "8.14.1.3 (ts_138401v180600p): Reporting of DL LBT failure information from gNB-DU to gNB-CU",
+    "6.2.5 (ts_138401v180600p): RAN UE ID",
+    "8.19.4.1 (ts_138401v180600p): Inter-gNB-DU switch from direct to indirect path",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "8.14.1.2 (ts_138401v180600p): Signalling of RACH information from gNB-CU to gNB-DU",
+    "8.3.4 (ts_138473v180600p): UE Context Modification (gNB-CU initiated)",
+    "9.2.2.7 (ts_138473v180600p): UE CONTEXT MODIFICATION REQUEST",
+    "9.2.2.8 (ts_138473v180600p): UE CONTEXT MODIFICATION RESPONSE",
+    "9.4 (ts_138473v180600p): Message and Information Element Abstract Syntax (with ASN.1)",
+    "8.3.4.1 (ts_138473v180600p): General",
+    "8.3.4.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.4.2 (ts_138473v180600p): Successful Operation",
+    "8.3.4.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3 (ts_138473v180600p): UE Context Management procedures",
+    "8.3.6 (ts_138473v180600p): UE Inactivity Notification",
+    "8.3.3 (ts_138473v180600p): UE Context Release (gNB-CU initiated)",
+    "8.3.2 (ts_138473v180600p): UE Context Release Request (gNB-DU initiated)",
+    "8.3.9 (ts_138473v180600p): DU-CU Cell Switch Notification",
+    "8.3.10 (ts_138473v180600p): CU-DU Cell Switch Notification",
+    "8.3.5 (ts_138473v180600p): UE Context Modification Required (gNB-DU initiated)",
+    "8.3.8 (ts_138473v180600p): Access Success",
+    "8.3.7 (ts_138473v180600p): Notify",
+    "8.3.11 (ts_138473v180600p): CU-DU Mobility Initiation",
+    "9.2.2.11 (ts_138473v180600p): UE CONTEXT MODIFICATION CONFIRM",
+    "9.2.2 (ts_138473v180600p): UE Context Management messages",
+    "9.2.2.4 (ts_138473v180600p): UE CONTEXT RELEASE REQUEST",
+    "9.2.2.12 (ts_138473v180600p): UE INACTIVITY NOTIFICATION",
+    "9.2.2.5 (ts_138473v180600p): UE CONTEXT RELEASE COMMAND",
+    "9.2.2.2 (ts_138473v180600p): UE CONTEXT SETUP RESPONSE",
+    "9.2.2.17 (ts_138473v180600p): CU-DU MOBILITY INITIATION REQUEST",
+    "9.2.2.15 (ts_138473v180600p): DU-CU CELL SWITCH NOTIFICATION",
+    "9.2.2.9 (ts_138473v180600p): UE CONTEXT MODIFICATION FAILURE",
+    "9.2.2.14 (ts_138473v180600p): ACCESS SUCCESS",
+    "9.2.2.3 (ts_138473v180600p): UE CONTEXT SETUP FAILURE",
+    "9.2.2.13 (ts_138473v180600p): NOTIFY",
+    "9.2.2.6 (ts_138473v180600p): UE CONTEXT RELEASE COMPLETE",
+    "9.2.2.1 (ts_138473v180600p): UE CONTEXT SETUP REQUEST",
+    "9.2.2.16 (ts_138473v180600p): CU-DU CELL SWITCH NOTIFICATION",
+    "9.4.7 (ts_138473v180600p): Constant Definitions",
+    "9.4.4 (ts_138473v180600p): PDU Definitions",
+    "9.4.8 (ts_138473v180600p): Container Definitions",
+    "9 (ts_138473v180600p): Elements for F1AP Communication",
+    "9.4.2 (ts_138473v180600p): Usage of private message mechanism for non-standard use",
+    "9.4.5 (ts_138473v180600p): Information Element Definitions",
+    "9.4.3 (ts_138473v180600p): Elementary Procedure Definitions",
+    "9.4.1 (ts_138473v180600p): General",
+    "9.6 (ts_138473v180600p): Timers",
+    "9.5 (ts_138473v180600p): Message Transfer Syntax",
+    "9.2 (ts_138473v180600p): Message Functional Definition and Content",
+    "9.1 (ts_138473v180600p): General",
+    "9.3 (ts_138473v180600p): Information Element Definitions",
+    "8.3.5.1 (ts_138473v180600p): General",
+    "8.3.1.1 (ts_138473v180600p): General",
+    "8.3.2.1 (ts_138473v180600p): General",
+    "8.3.3.1 (ts_138473v180600p): General",
+    "8.3.1.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.1.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.5.2 (ts_138473v180600p): Successful Operation",
+    "8.3.1.2 (ts_138473v180600p): Successful Operation",
+    "8.3.3.2 (ts_138473v180600p): Successful Operation",
+    "8.3.3.4 (ts_138473v180600p): Abnormal Conditions",
+    "8 (ts_138473v180600p): F1AP procedures",
+    "8.1 (ts_138473v180600p): List of F1AP Elementary procedures",
+    "8.9 (ts_138473v180600p): Radio Information Transfer procedures",
+    "8.16 (ts_138473v180600p): QMC Procedures",
+    "8.6 (ts_138473v180600p): System Information Procedures",
+    "8.8 (ts_138473v180600p): Trace Procedures",
+    "8.5 (ts_138473v180600p): Warning Message Transmission Procedures",
+    "8.14 (ts_138473v180600p): NR MBS Procedures",
+    "8.15 (ts_138473v180600p): PDC Measurement Reporting procedures",
+    "8.13 (ts_138473v180600p): Positioning Procedures",
+    "8.4 (ts_138473v180600p): RRC Message Transfer procedures",
+    "8.10 (ts_138473v180600p): IAB Procedures",
+    "8.12 (ts_138473v180600p): Reference Time Information Reporting procedures",
+    "8.7 (ts_138473v180600p): Paging procedures",
+    "8.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Procedures",
+    "8.11 (ts_138473v180600p): Self Optimisation Support procedures",
+    "8.3.6.2 (ts_138473v180600p): Successful Operation",
+    "8.3.6.1 (ts_138473v180600p): General",
+    "8.3.6.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.2.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.2.2 (ts_138473v180600p): Successful Operation",
+    "8.3.9.2 (ts_138473v180600p): Successful Operation",
+    "8.3.9.1 (ts_138473v180600p): General",
+    "8.3.9.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.9.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.10.2 (ts_138473v180600p): Successful Operation",
+    "8.3.10.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.10.1 (ts_138473v180600p): General",
+    "8.3.5.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.8.1 (ts_138473v180600p): General",
+    "8.3.8.2 (ts_138473v180600p): Successful Operation",
+    "8.3.8.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.7.2 (ts_138473v180600p): Successful Operation",
+    "8.3.7.3 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.7.1 (ts_138473v180600p): General",
+    "8.3.11.2 (ts_138473v180600p): Successful Operation",
+    "8.3.11.4 (ts_138473v180600p): Abnormal Conditions",
+    "8.3.11.3 (ts_138473v180600p): Unsuccessful Operation",
+    "8.3.11.1 (ts_138473v180600p): General",
+    "9.2.7 (ts_138473v180600p): Trace Messages",
+    "9.2.10 (ts_138473v180600p): Self Optimisation Support Messages",
+    "9.2.15 (ts_138473v180600p): PDC Measurement Reporting messages",
+    "9.2.3 (ts_138473v180600p): RRC Message Transfer messages",
+    "9.2.6 (ts_138473v180600p): Paging messages",
+    "9.2.1 (ts_138473v180600p): Interface Management messages",
+    "9.2.9 (ts_138473v180600p): IAB messages",
+    "9.2.11 (ts_138473v180600p): Reference Time Information Reporting messages",
+    "9.2.13 (ts_138473v180600p): Broadcast Context Management messages",
+    "9.2.17 (ts_138473v180600p): Timing Synchronisation Status Reporting Messages",
+    "9.2.14 (ts_138473v180600p): Multicast Context Management messages",
+    "9.2.12 (ts_138473v180600p): Messages for Positioning Procedures",
+    "9.2.8 (ts_138473v180600p): Radio Information Transfer messages",
+    "9.2.16 (ts_138473v180600p): QMC messages",
+    "9.2.4 (ts_138473v180600p): Warning Message Transmission Messages",
+    "9.3.1.56 (ts_138473v180600p): Notification Control",
+    "9.2.13.4 (ts_138473v180600p): BROADCAST CONTEXT RELEASE COMMAND",
+    "8.14.11.2 (ts_138473v180600p): Successful Operation",
+    "8.14.9.2 (ts_138473v180600p): Successful Operation",
+    "8.14.10.2 (ts_138473v180600p): Successful Operation",
+    "8.14.8.2 (ts_138473v180600p): Successful Operation",
+    "1 (ts_138473v180600p): Scope",
+    "4.1 (ts_138473v180600p): Procedure specification principles",
+    "8.14.8.1 (ts_138473v180600p): General",
+    "8.14.9.1 (ts_138473v180600p): General",
+    "8.14.10.1 (ts_138473v180600p): General",
+    "8.14.14.1 (ts_138473v180600p): General",
+    "9.3.1 (ts_138473v180600p): Radio Network Layer Related IEs",
+    "9.3.2 (ts_138473v180600p): Transport Network Layer Related IEs"
+  ]
+}

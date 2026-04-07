@@ -1,0 +1,226 @@
+{
+  "User Intent 1": {
+    "technology": "5G",
+    "feature": "Inter gNB-DU LTM Handover",
+    "description": "UE Context Setup exchange between gNB-CU and candidate gNB-DU",
+    "messages": [
+      {
+        "msg_name": "UE CONTEXT SETUP REQUEST",
+        "interface": "F1AP",
+        "sender": "gNB-CU",
+        "receiver": "candidate_gNB-DU",
+        "protocols": ["RRC", "MAC", "F1AP"],
+        "ies": {
+          "LTMInformation-Setup": {
+            "fields": {
+              "lTMIndicator": {
+                "type": "ENUMERATED",
+                "optional": false
+              },
+              "referenceConfiguration": {
+                "type": "CHOICE",
+                "optional": true
+              },
+              "cSIResourceConfiguration": {
+                "type": "SEQUENCE",
+                "optional": true,
+                "fields": {
+                  "cSIResourceConfigToAddModList": {
+                    "type": "OCTET STRING",
+                    "optional": true,
+                    "rrc_ie": "ltm-CSIResourceConfigToAddModList (TS 38.331)"
+                  }
+                }
+              }
+            }
+          },
+          "LTMConfigurationIDMappingList": {
+            "fields": {
+              "lTMCellID": {
+                "type": "NRCGI",
+                "optional": false
+              },
+              "lTMConfigurationID": {
+                "type": "LTMConfigurationID",
+                "optional": false
+              }
+            }
+          }
+        }
+      },
+      {
+        "msg_name": "UE CONTEXT SETUP RESPONSE",
+        "interface": "F1AP",
+        "sender": "candidate_gNB-DU",
+        "receiver": "gNB-CU",
+        "protocols": ["RRC", "MAC", "F1AP"],
+        "ies": {
+          "LTMConfiguration": {
+            "fields": {
+              "sSBInformation": {
+                "type": "SSBInformation",
+                "optional": false
+              },
+              "referenceConfigurationInformation": {
+                "type": "CellGroupConfig",
+                "optional": true
+              },
+              "completeCandidateConfigurationIndicator": {
+                "type": "ENUMERATED",
+                "optional": true
+              },
+              "lTMCFRAResourceConfig": {
+                "type": "RACH-ConfigDedicated",
+                "optional": true
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "User Intent 2": {
+    "technology": "5G",
+    "feature": "Inter gNB-DU LTM Handover",
+    "description": "UE Context Modification between gNB-CU and source gNB-DU",
+    "messages": [
+      {
+        "msg_name": "UE CONTEXT MODIFICATION REQUEST",
+        "interface": "F1AP",
+        "sender": "gNB-CU",
+        "receiver": "source_gNB-DU",
+        "protocols": ["RRC", "MAC", "F1AP"],
+        "ies": {
+          "LTMInformation-Modify": {
+            "fields": {
+              "lTMIndicator": {
+                "type": "ENUMERATED",
+                "optional": false
+              },
+              "referenceConfiguration": {
+                "type": "CHOICE",
+                "optional": true
+              },
+              "cSIResourceConfiguration": {
+                "type": "SEQUENCE",
+                "optional": true
+              }
+            }
+          },
+          "LTMCFRAResourceConfig-List": {
+            "fields": {
+              "nRCGI": {
+                "type": "NRCGI",
+                "optional": false
+              },
+              "lTMCFRAResourceConfig": {
+                "type": "RACH-ConfigDedicated",
+                "optional": true
+              }
+            }
+          },
+          "LTMConfigurationIDMappingList": {
+            "fields": {
+              "lTMCellID": {
+                "type": "NRCGI",
+                "optional": false
+              },
+              "lTMConfigurationID": {
+                "type": "LTMConfigurationID",
+                "optional": false
+              }
+            }
+          }
+        }
+      },
+      {
+        "msg_name": "UE CONTEXT MODIFICATION RESPONSE",
+        "interface": "F1AP",
+        "sender": "source_gNB-DU",
+        "receiver": "gNB-CU",
+        "protocols": ["RRC", "MAC", "F1AP"],
+        "ies": {
+          "LTMConfiguration": {
+            "fields": {
+              "sSBInformation": {
+                "type": "SSBInformation",
+                "optional": false
+              },
+              "referenceConfigurationInformation": {
+                "type": "CellGroupConfig",
+                "optional": true
+              },
+              "completeCandidateConfigurationIndicator": {
+                "type": "ENUMERATED",
+                "optional": true
+              },
+              "lTMCFRAResourceConfig": {
+                "type": "RACH-ConfigDedicated",
+                "optional": true
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "User Intent 3": {
+    "technology": "5G",
+    "feature": "Inter gNB-DU LTM Handover",
+    "description": "RRC Reconfiguration execution and completion for LTM HO",
+    "messages": [
+      {
+        "msg_name": "RRC RECONFIGURATION",
+        "transport": "DL RRC MESSAGE TRANSFER (F1AP)",
+        "sender": "gNB-CU",
+        "receiver": "UE (via source_gNB-DU)",
+        "protocols": ["RRC", "MAC", "F1AP"],
+        "ies": {
+          "LTM-Config-r18": {
+            "fields": {
+              "ltm-CandidateToAddModList-r18": {
+                "type": "SEQUENCE OF LTM-Candidate",
+                "optional": true
+              },
+              "ltm-ServingCellNoResetID-r18": {
+                "type": "INTEGER",
+                "optional": true
+              },
+              "ltm-CSI-ResourceConfigToAddModList-r18": {
+                "type": "SEQUENCE",
+                "optional": true
+              },
+              "attemptLTM-Switch-r18": {
+                "type": "ENUMERATED",
+                "optional": true
+              },
+              "ltm-ServingCellUE-MeasuredTA-ID-r18": {
+                "type": "INTEGER",
+                "optional": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "msg_name": "RRC RECONFIGURATION COMPLETE",
+        "transport": "UL RRC MESSAGE TRANSFER (F1AP)",
+        "sender": "UE",
+        "receiver": "gNB-CU (via source_gNB-DU)",
+        "protocols": ["RRC", "MAC", "F1AP"],
+        "ies": {
+          "appliedLTM-CandidateId-r18": {
+            "type": "LTM-CandidateId",
+            "optional": false
+          }
+        }
+      }
+    ]
+  },
+  "additional_info": {
+    "manual_trigger_command": "trigger_ltm_ho",
+    "trigger_node": "gNB-CU",
+    "implementation_scope": "OAI local code",
+    "notes": "Trigger initiates Inter gNB-DU LTM HO starting from UE CONTEXT SETUP REQUEST"
+  }
+}

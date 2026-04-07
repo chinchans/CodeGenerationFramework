@@ -1,0 +1,200 @@
+{
+  "Feature_ID": "INTER_GNB_DU_LTM_HANDOVER_UE_CONTEXT_SETUP",
+  "Feature_Name": "Inter gNB DU LTM Handover UE Context Setup",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401",
+    "Title": "NG-RAN; Architecture description",
+    "Section": "8.2.1.6 (TS 38.401), 8.4.1.1 (TS 38.401), 8.6.2 (TS 38.401), 8.9.6.2 (TS 38.401), 8.2.3.2 (TS 38.401), 6.4 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "This procedure involves the gNB-CU preparing and sending an F1AP \"UE CONTEXT SETUP REQUEST\" message to a candidate gNB-DU. The candidate gNB-DU then responds with an F1AP \"UE CONTEXT SETUP RESPONSE\" message. This message exchange is specifically handled on the gNB-CU for Inter gNB DU LTM Handover.",
+    "LTM (Long Term Mobility) configuration procedures are performed between the gNB-CU and candidate gNB-DUs, and between the gNB-CU and the source gNB-DU as part of LTM with gNB-CU-UP change.",
+    "An NG-RAN node UE context is a block of information in an NG-RAN node associated with one UE. It contains the necessary information required to maintain NG-RAN services towards the active UE. This context is established in the target NG-RAN node after completion of handover resource allocation during handover preparation, including at least UE state information, security information, UE capability information, and UE-associated logical NG-connection identities."
+  ],
+  "Feature_Objectives": [
+    "To establish or modify the UE context in a candidate gNB-DU during an Inter gNB DU LTM Handover procedure.",
+    "To enable the gNB-DU to perform delta or full configuration based on the received UE context information.",
+    "To facilitate the continuation of NG-RAN services for the UE during LTM Handover."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "Application Layer (F1AP)",
+      "RRC",
+      "SDAP",
+      "PDCP",
+      "RLC",
+      "MAC",
+      "PHY"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C (Control Plane)",
+      "F1-U (User Plane)"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "The gNB-CU initiates LTM configuration procedures with candidate gNB-DUs and the source gNB-DU (as specified in section 8.2.1.5 for LTM configuration procedures).",
+    "The gNB-CU prepares and sends the F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU to create a UE context. The gNB-CU allocates a gNB-CU UE F1AP ID for the UE.",
+    "The \"UE CONTEXT SETUP REQUEST\" message may contain source cell group configuration (e.g., CG-ConfigInfo) to allow the gNB-DU to perform delta configuration. It may also include SRB ID(s) and DRB ID(s) to be setup, CellGroupConfig, and stored F1 UL TEIDs.",
+    "The candidate gNB-DU responds to the gNB-CU with the F1AP \"UE CONTEXT SETUP RESPONSE\" message.",
+    "In case the gNB-DU receives the \"UE CONTEXT SETUP REQUEST\" message without the source cell group configuration, or if it decides to perform full configuration after receiving the source cell group configuration, it shall perform full configuration and indicate that it has applied full configuration in the \"UE CONTEXT SETUP RESPONSE\" message.",
+    "The \"UE CONTEXT SETUP RESPONSE\" message contains RLC/MAC/PHY configuration of SRB and DRBs provided by the gNB-DU, and includes the F1 DL TEIDs allocated for the DRBs."
+  ],
+  "Code_Artifacts": [],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [
+    {
+      "IE_Name": "UECONTEXTSETUPREQUEST",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    },
+    {
+      "IE_Name": "UECONTEXTSETUPRESPONSE",
+      "IE_Definition": "",
+      "IE_Category": "F1AP IE"
+    }
+  ],
+  "Piggy_Backed_IES_Info": "Not applicable for the scoped messages in this procedure.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "N/A",
+      "Piggy_Backed_IE_Type": "N/A",
+      "Carrier_Message": "N/A",
+      "Source_IE_Name": "",
+      "Source_IE_Type": ""
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+  "Knowledge_Hints": [
+    "8.9.3 (ts_138401v180600p): Bearer context release over F1-U",
+    "8.9 (ts_138401v180600p): Overall procedures involving E1 and F1",
+    "8.9.3.2 (ts_138401v180600p): gNB-CU-UP initiated bearer context release",
+    "8.9.3.1 (ts_138401v180600p): gNB-CU-CP initiated bearer context release",
+    "8.9.15 (ts_138401v180600p): IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for mobile IAB cells",
+    "8.9.13 (ts_138401v180600p): IP Address Allocation for IAB-nodes",
+    "8.9.16 (ts_138401v180600p): TAC/RANAC (re-)configuration for mobile IAB",
+    "8.9.12 (ts_138401v180600p): Handling of IAB-MTs in INACTIVE State",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.9.10 (ts_138401v180600p): IAB-node release",
+    "8.9.14 (ts_138401v180600p): Mobile IAB-node authorization",
+    "8.9.11 (ts_138401v180600p): IAB-node OAM",
+    "8.9.17 (ts_138401v180600p): IAB-node authorization",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9.8 (ts_138401v180600p): BH RLC channel establishment procedure",
+    "8.9.7 (ts_138401v180600p): Trace activation/deactivation over F1 and E1",
+    "8.9.1 (ts_138401v180600p): UE Initial Access",
+    "8.9.9 (ts_138401v180600p): Traffic Mapping",
+    "8.9.6 (ts_138401v180600p): RRC State transition",
+    "8.9.2 (ts_138401v180600p): Bearer context setup over F1-U",
+    "8 (ts_138401v180600p): Overall procedures in gNB-CU/gNB-DU Architecture",
+    "8.15 (ts_138401v180600p): Overall procedures for NR MBS",
+    "8.24 (ts_138401v180600p): Timing resiliency service",
+    "8.14 (ts_138401v180600p): Self-optimisation",
+    "8.18 (ts_138401v180600p): Overall procedure for Small Data Transmission during RRC Inactive",
+    "8.12 (ts_138401v180600p): IAB-node Integration Procedure",
+    "8.17 (ts_138401v180600p): IAB Inter-CU Topology Management",
+    "8.13 (ts_138401v180600p): Overall procedures for MDT",
+    "8.19 (ts_138401v180600p): Overall procedures for L2 UE-to-Network Relay",
+    "8.5 (ts_138401v180600p): F1 Startup and cells activation",
+    "8.8 (ts_138401v180600p): Multiple TNLAs for F1-C",
+    "8.3 (ts_138401v180600p): Mechanism of centralized retransmission of lost PDUs",
+    "8.16 (ts_138401v180600p): Overall procedures for CPAC",
+    "8.21 (ts_138401v180600p): Overall procedures for Network Controlled Repeater",
+    "8.7 (ts_138401v180600p): RRC connection reestablishment",
+    "8.1 (ts_138401v180600p): UE Initial Access",
+    "8.10 (ts_138401v180600p): Multiple TNLAs for E1",
+    "8.4 (ts_138401v180600p): Multi-Connectivity operation",
+    "8.23 (ts_138401v180600p): Mobile IAB migration procedures",
+    "8.2 (ts_138401v180600p): Intra-gNB-CU Mobility",
+    "8.11 (ts_138401v180600p): Support of Network Sharing with multiple cell-ID broadcast",
+    "8.22 (ts_138401v180600p): Overall procedures for multi-path support",
+    "8.20 (ts_138401v180600p): Void",
+    "8.13.0 (ts_138401v180600p): General",
+    "8.14.1 (ts_138401v180600p): Overall procedures for MRO",
+    "10.4 (ts_138401v180600p): E1 interface",
+    "8.15.1 (ts_138401v180600p): General",
+    "8.4.4.1 (ts_138401v180600p): SN Addition with SCG Activation or Deactivation",
+    "8.23.1 (ts_138401v180600p): Migration of mobile IAB-MT via Xn handover",
+    "8.12.2 (ts_138401v180600p): NSA IAB Integration procedure",
+    "8.9.17.1 (ts_138401v180600p): IAB-node in NSA",
+    "11 (ts_138401v180600p): Overall procedures in NG-RAN Architecure",
+    "6.1.3 (ts_138401v180600p): Overall Architecture of IAB",
+    "8.12.3 (ts_138401v180600p): Mobile IAB-node integration",
+    "8.16.3 (ts_138401v180600p): SN initiated conditional inter-SN Change",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.9.10.1 (ts_138401v180600p): IAB-node orderly release",
+    "3.1 (ts_138401v180600p): Definitions",
+    "8.9.17.3 (ts_138401v180600p): IAB-node is served by two IAB-donors in SA",
+    "8.23.4 (ts_138401v180600p): Mobile IAB-node RLF recovery",
+    "8.9.17.2.1 (ts_138401v180600p): IAB-node is single-connected",
+    "8.9.17.2.2 (ts_138401v180600p): IAB-node is NR dual-connected",
+    "8.19.4.3 (ts_138401v180600p): Inter-gNB-CU switch from direct to indirect path",
+    "8.12.1 (ts_138401v180600p): Standalone IAB integration",
+    "8.9.9.2 (ts_138401v180600p): BH RLC Channel Mapping on BAP Layer",
+    "8.13.2.4 (ts_138401v180600p): Management based MDT Activation in gNB-CU-UP",
+    "8.13.2.3 (ts_138401v180600p): Management based MDT Activation in gNB-DU",
+    "8.13.2.1 (ts_138401v180600p): General",
+    "2 (ts_138401v180600p): References",
+    "8.19.1 (ts_138401v180600p): Remote UE initial access",
+    "8.9.9.1 (ts_138401v180600p): Traffic Mapping from IP-layer to Layer-2",
+    "8.9.6.2 (ts_138401v180600p): RRC Inactive to other states",
+    "8.9.6.1 (ts_138401v180600p): RRC Connected to RRC Inactive",
+    "9 (ts_138401v180600p): Synchronization",
+    "8.19.3 (ts_138401v180600p): Remote UE RRC Inactive to other states",
+    "8.19.2 (ts_138401v180600p): Remote UE RRC Reestablishment",
+    "8.6.2 (ts_138401v180600p): RRC inactive to other states",
+    "8.15.1.1 (ts_138401v180600p): Broadcast MBS Session Setup",
+    "6.4 (ts_138401v180600p): UE associations in NG-RAN Node",
+    "8.4.1.1 (ts_138401v180600p): EN-DC"
+  ]
+}

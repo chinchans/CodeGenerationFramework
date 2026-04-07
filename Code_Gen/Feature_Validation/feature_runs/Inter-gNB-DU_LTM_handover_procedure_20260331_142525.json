@@ -1,0 +1,31 @@
+{
+  "procedure_spec_info": {
+    "spec_number": "TS 38.401",
+    "spec_version": "v18.6.0",
+    "section_id": "8.2.1.4",
+    "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+    "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf",
+    "doc_id": "ts_138401v180600p"
+  },
+  "section_text": "",
+  "message_details": {
+    "messages": [],
+    "feature_protocols": []
+  },
+  "protocol_specs": [],
+  "protocol_message_sections": [],
+  "template": {
+    "protocol": "",
+    "template_name": "Template_common.json",
+    "template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\templates\\Template_common.json"
+  },
+  "intent": "gNB-CU has to prepare and send F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU and candidate gNB-DU has to respond with F1AP \"UE CONTEXT SETUP RESPONSE\" message and this message has to be handled on gNB-CU",
+  "specs": [
+    {
+      "spec_number": "TS 38.401",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+      "doc_id": "ts_138401v180600p",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf"
+    }
+  ]
+}

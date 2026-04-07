@@ -1,0 +1,111 @@
+{
+  "procedure_spec_info": {
+    "spec_number": "TS 38.401",
+    "spec_version": "v18.6.0",
+    "section_id": "8.2.1.4",
+    "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+    "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf",
+    "doc_id": "ts_138401v180600p"
+  },
+  "section_text": "3. UE CONTEXT MODIFICATION REQUEST\n\n4. UE CONTEXT MODIFICATION RESPONSE\n\n3. The gNB-CU sends a UE CONTEXT MODIFICATION REQUEST message to the gNB-DU for each candidate\ncell, containing one candidate cell ID and the CSI resource configuration for subsequent LTM. The gNB-CU\nmay provide the LTM configuration ID mapping list to the gNB-DU. The gNB-CU may request PRACH\nresources from the gNB-DU. The gNB-CU may request the gNB-DU to provide the lower layer configuration\nfor the purpose of generating the reference configuration or provide the lower layer reference configuration to\nthe gNB-DU. The gNB-CU may inform the gNB-DU about intra-DU L2 reset configuration.\n\n4. If the gNB-DU accepts the request of LTM configuration, it responds with a UE CONTEXT MODIFICATION\nRESPONSE message including the generated lower layer RRC configurations for the accepted candidate cell.\nNOTE 1: Steps 3 and 4 may be initiated multiple times for LTM candidate cell preparation of multiple cells\nincluding the source cell.",
+  "message_details": {
+    "messages": [
+      {
+        "index": 3,
+        "name": "UE CONTEXT MODIFICATION REQUEST",
+        "direction": "gNB-CU -> gNB-DU",
+        "protocol_layer": "F1AP"
+      },
+      {
+        "index": 4,
+        "name": "UE CONTEXT MODIFICATION RESPONSE",
+        "direction": "gNB-DU -> gNB-CU",
+        "protocol_layer": "F1AP"
+      }
+    ],
+    "feature_protocols": [
+      "F1AP"
+    ]
+  },
+  "protocol_specs": [
+    {
+      "protocol": "F1AP",
+      "spec_number": "TS 38.473",
+      "spec_title": "F1AP",
+      "section_id": "8.2.1.4",
+      "spec_version": "v18.6.0",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138473/18.06.00_60/ts_138473v180600p.pdf",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138473v180600p.pdf",
+      "doc_id": "ts_138473v180600p",
+      "reason": "TS 38.473 defines the F1AP protocol and contains the detailed procedure for Inter-gNB-DU LTM handover, matching the feature and section in TS 38.401."
+    }
+  ],
+  "protocol_message_sections": [
+    {
+      "protocol": "F1AP",
+      "spec_number": "TS 38.473",
+      "messages": [
+        {
+          "message_name": "UE CONTEXT MODIFICATION REQUEST",
+          "sections": [
+            {
+              "section_id": "9.2.2.7",
+              "role": "message_format",
+              "reason": "Validation fallback from TOC/content match (UE CONTEXT MODIFICATION REQUEST)"
+            },
+            {
+              "section_id": "8.3.4",
+              "role": "procedure",
+              "reason": "Validation fallback from TOC/content match (UE Context Modification (gNB-CU initiated))"
+            },
+            {
+              "section_id": "9.4",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Message And Information Element Abstract Syntax (With Asn.1))"
+            }
+          ]
+        },
+        {
+          "message_name": "UE CONTEXT MODIFICATION RESPONSE",
+          "sections": [
+            {
+              "section_id": "9.2.2.8",
+              "role": "message_format",
+              "reason": "Validation fallback from TOC/content match (UE CONTEXT MODIFICATION RESPONSE)"
+            },
+            {
+              "section_id": "8.3.4",
+              "role": "procedure",
+              "reason": "Validation fallback from TOC/content match (UE Context Modification (gNB-CU initiated))"
+            },
+            {
+              "section_id": "9.4",
+              "role": "ie_definition",
+              "reason": "Common IE definition section for this protocol spec (Message And Information Element Abstract Syntax (With Asn.1))"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "template": {
+    "protocol": "F1AP",
+    "template_name": "Template_common.json",
+    "template_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\templates\\Template_common.json"
+  },
+  "intent": "gNB-CU has to prepare and send F1AP \"UE CONTEXT MODIFICATION REQUEST\" message to the source gNB-DU and Source gNB-DU responds with a \"UE CONTEXT MODIFICATION RESPONSE\" message and this message has to be handled on gNB-CU for the Inter-gNB-DU LTM handover",
+  "specs": [
+    {
+      "spec_number": "TS 38.401",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138401/18.06.00_60/ts_138401v180600p.pdf",
+      "doc_id": "ts_138401v180600p",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138401v180600p.pdf"
+    },
+    {
+      "spec_number": "TS 38.473",
+      "spec_link": "https://www.etsi.org/deliver/etsi_TS/138400_138499/138473/18.06.00_60/ts_138473v180600p.pdf",
+      "doc_id": "ts_138473v180600p",
+      "downloaded_pdf_path": "C:\\Users\\JayasviBattu\\Desktop\\Code_Generation_Framework\\CodeGenerationFramework\\Code_Gen\\Feature_Validation\\specs\\ts_138473v180600p.pdf"
+    }
+  ]
+}

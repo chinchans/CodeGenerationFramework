@@ -1,0 +1,36 @@
+{
+  "feature_json_path": "./Inter-gNB-DU_LTM_handover_procedure_20260323_093447.json",
+  "timestamp": "20260324_173630",
+  "retrieval_config": {
+    "max_depth": 2,
+    "direction": "both",
+    "allowed_relations": [
+      "CHILD_OF",
+      "DEFINES",
+      "DEPENDS_ON",
+      "PARENT_OF",
+      "PREREQUISITE_FOR",
+      "REFERENCED_BY",
+      "REFERENCES",
+      "RELATED_TO",
+      "SIBLING_OF",
+      "USES"
+    ],
+    "manual_seed_mode": true
+  },
+  "seeds_by_doc": {
+    "ts_138401v180600p": [
+      "8.2.1.5"
+    ]
+  },
+  "per_doc_results": {
+    "ts_138401v180600p": {
+      "status": "graph_not_found",
+      "seed_ids": [
+        "8.2.1.5"
+      ]
+    }
+  },
+  "final_context_count": 0,
+  "final_context": []
+}

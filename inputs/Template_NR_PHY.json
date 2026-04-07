@@ -1,0 +1,102 @@
+{
+  "Feature_ID": "",
+  "Feature_Name": "",
+  "Release": "",
+  "3GPP_Reference": {
+    "Spec": "",
+    "Title": "",
+    "Section": ""
+  },
+
+  "Feature_Description": [],
+  "Feature_Objectives": [],
+
+  "PHY_Scope": {
+    "Node_Type": "",
+    "Link_Direction": "",
+    "Channel_Type": "",
+    "Numerology": "",
+    "Bandwidth_Part": ""
+  },
+
+  "PHY_Signal_Chain": [
+    {
+      "Stage_Name": "",
+      "Role": "",
+      "Input": "",
+      "Output": "",
+      "Config_Params": []
+    }
+  ],
+
+  "PHY_Procedures": [
+    {
+      "Procedure_Name": "",
+      "Trigger_Condition": "",
+      "Description": ""
+    }
+  ],
+
+  "PHY_Timers_And_Offsets": [
+    {
+      "Name": "",
+      "Value": "",
+      "Role": "",
+      "Spec_Reference": ""
+    }
+  ],
+
+  "PHY_Resources": [
+    {
+      "Resource_Type": "",
+      "Allocation_Rule": "",
+      "Constraints": ""
+    }
+  ],
+
+  "Interlayer_Interactions": [
+    {
+      "Target_Layer": "",
+      "Primitive_or_Message": "",
+      "Direction": "",
+      "Purpose": ""
+    }
+  ],
+
+  "Call_Flow": [
+    {
+      "Message": "",
+      "Actors": [],
+      "From": "",
+      "To": ""
+    }
+  ],
+
+  "Procedure_Implementation_Steps": [],
+
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "",
+      "Code_Instructions": [
+        {
+          "type": "",
+          "file_path": "",
+          "symbol_name": "",
+          "change_summary": ""
+        }
+      ]
+    }
+  ],
+
+  "Codebase_Metadata": {
+    "Code_Language": "",
+    "Build_System": "",
+    "Repo_Path": "",
+    "Code_Output_Type": "",
+    "Execution_Mode": "",
+    "CI_Pipeline": "",
+    "Version_Control": ""
+  },
+
+  "Knowledge_Hints": []
+}
