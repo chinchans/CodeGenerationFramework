@@ -418,6 +418,7 @@ def run_resolve_self_learning_session(
 
     intent = str(sess.get("intent") or "").strip()
     template_path = str(sess.get("template_path") or "").strip()
+    original_ambiguities = sess.get("ambiguity_questions") or []
     if not intent:
         raise ValueError("Session has no intent recorded")
     if not template_path or not Path(template_path).is_file():
@@ -448,6 +449,14 @@ def run_resolve_self_learning_session(
         "self_learning_next_step_if_ambiguous": str(sl_out.get("next_step_if_ambiguous") or ""),
         "self_learning_resolved_template_path": resolved_template_path,
     }
+    resolved_summary = {
+        "resolution_applied": bool(state.get("self_learning_resolution_applied", False)),
+        "user_resolutions": user_resolutions,
+        "resolved_template_path": resolved_template_path,
+        "has_remaining_ambiguities": bool(state.get("self_learning_has_ambiguities", False)),
+        "remaining_ambiguity_count": len(state.get("self_learning_ambiguities", []) or []),
+        "matched_rule": state.get("self_learning_matched_rule"),
+    }
 
     if state["self_learning_has_ambiguities"]:
         state["code_generation_prompt_path"] = ""
@@ -458,6 +467,7 @@ def run_resolve_self_learning_session(
             status="awaiting_user",
             template_path=str(resolved_template_path),
             ambiguity_questions=state.get("self_learning_ambiguities", []),
+            resolved_summary=resolved_summary,
         )
     else:
         prompt_out = _run_prompt_generation(
@@ -472,7 +482,8 @@ def run_resolve_self_learning_session(
             template_path=str(resolved_template_path),
             code_generation_prompt=state.get("code_generation_prompt", ""),
             code_generation_prompt_path=state.get("code_generation_prompt_path", ""),
-            ambiguity_questions=[],
+            ambiguity_questions=original_ambiguities,
+            resolved_summary=resolved_summary,
         )
 
     resolve_manifest = {
