@@ -1,0 +1,182 @@
+{
+  "Feature_ID": "F1AP_UE_CONTEXT_SETUP_INTER_GNB_DU_LTM_HANDOVER",
+  "Feature_Name": "F1AP UE Context Setup for Inter gNB DU LTM Handover",
+  "Release": "Release 18",
+  "3GPP_Reference": {
+    "Spec": "TS 38.401",
+    "Title": "NG-RAN; Architecture description",
+    "Section": "6.4 (TS 38.401), 8.2.1.6 (TS 38.401), 8.4.1.1 (TS 38.401), 8.4.4.1 (TS 38.401), 8.9.1 (TS 38.401), 8.9.2 (TS 38.401), 8.9.4 (TS 38.401), 8.19.4.3 (TS 38.401)"
+  },
+  "Feature_Description": [
+    "The gNB-CU has to prepare and send an F1AP \"UE CONTEXT SETUP REQUEST\" message to the candidate gNB-DU. The candidate gNB-DU then has to respond with an F1AP \"UE CONTEXT SETUP RESPONSE\" message. This message exchange is handled on the gNB-CU for an Inter gNB DU LTM Handover.",
+    "An NG-RAN node UE context is a block of information in an NG-RAN node associated to one UE. This block contains the necessary information required to maintain the NG-RAN services towards the active UE. An NG-RAN node UE context is established in the target NG-RAN node after completion of handover resource allocation during handover preparation."
+  ],
+  "Feature_Objectives": [
+    "To establish a UE context in the candidate gNB-DU to support the UE's services during an Inter gNB DU LTM Handover.",
+    "To enable the target gNB-DU to maintain NG-RAN services for the active UE by providing necessary UE context information."
+  ],
+  "Design_Details": {
+    "Protocol_Layers": [
+      "F1AP (Control Plane)",
+      "F1-U (User Plane, for data bearers associated with the UE context)"
+    ],
+    "Protocol_Interfaces": [
+      "F1-C (Control Plane interface between gNB-CU and gNB-DU)",
+      "F1-U (User Plane interface between gNB-CU and gNB-DU)"
+    ]
+  },
+  "Feature_Implementation_Steps": [],
+  "Call_Flow": [
+    {
+      "Message": "UE CONTEXT SETUP REQUEST",
+      "Actors": [
+        "gNB-CU",
+        "candidate gNB-DU"
+      ],
+      "From": "gNB-CU",
+      "To": "candidate gNB-DU"
+    },
+    {
+      "Message": "UE CONTEXT SETUP RESPONSE",
+      "Actors": [
+        "gNB-DU",
+        "gNB-CU"
+      ],
+      "From": "candidate gNB-DU",
+      "To": "gNB-CU"
+    }
+  ],
+  "Procedure_Implementation_Steps": [
+    "The provided context does not contain specific, detailed implementation steps for F1AP UE Context Setup Request/Response messages within an 'Inter gNB DU LTM Handover' procedure. General mentions of F1AP UE Context Setup procedures are found in other contexts (e.g., U2N Remote UE Direct-to-indirect Path Switch, SgNB addition, SN Addition, UE Initial Access, Inter-gNB handover), but these are not specific to LTM Handover."
+  ],
+  "Code_Artifacts": [
+    {
+      "Codebase_Name": "OpenAirInterface 5G",
+      "Code_Instructions": [
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_req_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 544,
+          "description": "Data structure defining the format of the F1AP UE Context Setup Request message, used by the gNB-CU to request UE context establishment at the gNB-DU.",
+          "uses_structs": []
+        },
+        {
+          "type": "data_structure",
+          "struct_name": "f1ap_ue_context_setup_resp_s",
+          "file_path": "openair2\\COMMON\\f1ap_messages_types.h",
+          "line_start": 570,
+          "description": "Data structure defining the format of the F1AP UE Context Setup Response message, used by the gNB-DU to acknowledge the UE context setup to the gNB-CU.",
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "rrc_gNB_generate_UeContextSetupRequest",
+          "file_path": "openair2\\RRC\\NR\\rrc_gNB.c",
+          "line_start": 3032,
+          "line_end": 3032,
+          "description": "Helper function responsible for generating the F1AP UE Context Setup Request message content based on RRC information, prior to its encoding and transmission.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": [
+            "f1ap_ue_context_setup_req_s"
+          ]
+        },
+        {
+          "type": "helper_function",
+          "function_name": "ue_context_setup_request_f1ap",
+          "file_path": "openair2\\RRC\\NR\\mac_rrc_dl_f1ap.c",
+          "line_start": 79,
+          "line_end": 79,
+          "description": "A helper function likely involved in the preparation or processing of the F1AP UE Context Setup Request message, potentially handling interactions between MAC and RRC layers for F1AP signaling.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        },
+        {
+          "type": "helper_function",
+          "function_name": "F1AP_get_next_transaction_identifier",
+          "file_path": "openair2\\F1AP\\f1ap_common.c",
+          "line_start": 37,
+          "line_end": 37,
+          "description": "Utility function to retrieve a unique transaction identifier for F1AP messages, ensuring proper correlation of request and response messages.",
+          "called_functions": [],
+          "calling_functions": [],
+          "uses_structs": []
+        }
+      ]
+    }
+  ],
+  "ASN_IES_File_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": "",
+      "File_Name": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": "",
+      "File_Name": ""
+    }
+  ],
+  "ASN_IES_C_Structures_Path": [
+    {
+      "ASN_Name": "F1AP",
+      "File_Path": ""
+    },
+    {
+      "ASN_Name": "RRC",
+      "File_Path": ""
+    }
+  ],
+  "Information_Elements": [],
+  "Piggy_Backed_IES_Info": "Not applicable for the scoped messages in this procedure.",
+  "Piggy_Backed_IES_Mapping": [
+    {
+      "Piggy_Backed_IE_Name": "N/A",
+      "Piggy_Backed_IE_Type": "N/A",
+      "Carrier_Message": "N/A",
+      "Source_IE_Name": "",
+      "Source_IE_Type": ""
+    }
+  ],
+  "Codebase_Metadata": {
+    "Code_Language": "C",
+    "Build_System": "CMake",
+    "Repo_Path": ".",
+    "Code_Output_Type": "Library/Executable",
+    "Execution_Mode": "Runtime",
+    "CI_Pipeline": "",
+    "Version_Control": "Git"
+  },
+  "Knowledge_Hints": [
+    "8.9.3.2 (ts_138401v180600p): gNB-CU-UP initiated bearer context release",
+    "8.9.3 (ts_138401v180600p): Bearer context release over F1-U",
+    "8.9.3.1 (ts_138401v180600p): gNB-CU-CP initiated bearer context release",
+    "8.9.2 (ts_138401v180600p): Bearer context setup over F1-U",
+    "8.9.5 (ts_138401v180600p): Change of gNB-CU-UP",
+    "8.9.4 (ts_138401v180600p): Inter-gNB handover involving gNB-CU-UP change",
+    "8.9 (ts_138401v180600p): Overall procedures involving E1 and F1",
+    "8.9.15 (ts_138401v180600p): IAB-donor-CU-based NR Cell Identity (NCI) (re-)configuration for mobile IAB cells",
+    "8.9.13 (ts_138401v180600p): IP Address Allocation for IAB-nodes",
+    "8.9.16 (ts_138401v180600p): TAC/RANAC (re-)configuration for mobile IAB",
+    "8.9.12 (ts_138401v180600p): Handling of IAB-MTs in INACTIVE State",
+    "8.9.10 (ts_138401v180600p): IAB-node release",
+    "8.9.14 (ts_138401v180600p): Mobile IAB-node authorization",
+    "8.9.11 (ts_138401v180600p): IAB-node OAM",
+    "8.9.17 (ts_138401v180600p): IAB-node authorization",
+    "8.9.8 (ts_138401v180600p): BH RLC channel establishment procedure",
+    "8.9.7 (ts_138401v180600p): Trace activation/deactivation over F1 and E1",
+    "8.9.1 (ts_138401v180600p): UE Initial Access",
+    "8.9.9 (ts_138401v180600p): Traffic Mapping",
+    "8.9.6 (ts_138401v180600p): RRC State transition",
+    "8.4.4.1 (ts_138401v180600p): SN Addition with SCG Activation or Deactivation",
+    "8.15.1.1 (ts_138401v180600p): Broadcast MBS Session Setup",
+    "6.4 (ts_138401v180600p): UE associations in NG-RAN Node",
+    "8.5 (ts_138401v180600p): F1 Startup and cells activation",
+    "8.4.1.1 (ts_138401v180600p): EN-DC",
+    "8.16.3 (ts_138401v180600p): SN initiated conditional inter-SN Change",
+    "8.2.1.6 (ts_138401v180600p): LTM with gNB-CU-UP change",
+    "8.19.4.3 (ts_138401v180600p): Inter-gNB-CU switch from direct to indirect path"
+  ]
+}
